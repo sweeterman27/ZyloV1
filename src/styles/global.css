@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Montserrat", "system-ui", "-apple-system", sans-serif;
+  --font-sans: "Montserrat", "system-ui", "-apple-system", sans-serif;
+  --font-mono: "Geist Mono", monospace;
+
+  --color-brand-white: #ffffff;
+  --color-brand-lightGray: #f3f3f3;
+  --color-brand-midGray: #e6e6e6;
+  --color-brand-mint: #30c18a;
+  --color-brand-black: #0f0f11;
+
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  padding-top: 4rem; /* 64px header offset */
+  -webkit-font-smoothing: antialiased;
+}
+
+section,
+main,
+footer,
+.overflow-x-lock {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+/* Custom spring utility animations */
+.btn-spring {
+  transition: transform 0.3s var(--ease-spring), background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.3s ease;
+}
+.btn-spring:hover {
+  transform: translateY(-2px) scale(1.015);
+}
+.btn-spring:active {
+  transform: translateY(0) scale(0.985);
+}
+
+.icon-target {
+  transition: transform 0.2s var(--ease-spring), color 0.2s ease;
+}
+.icon-target:hover {
+  transform: scale(1.1);
+}
+.icon-target:active {
+  transform: scale(0.9);
+}
+
+.float-card {
+  transition: transform 0.4s var(--ease-spring), box-shadow 0.4s ease;
+}
+
+/* Global Container Rules: Max width container of all sections strictly set to 1280px */
+.container,
+.max-w-7xl,
+.max-w-screen-xl,
+.max-w-screen-2xl,
+.max-w-8xl,
+header > div,
+footer > div,
+section > div.container,
+main > section > div.mx-auto,
+article > div.mx-auto {
+  max-width: 1280px !important;
+}
+
+/* Universal Mobile Section Padding: Uniform 24px Top & Bottom for all sections on mobile view (< 768px) */
+@media (max-width: 767px) {
+  section {
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+  }
+}
+
+/* Universal Desktop Section Padding: Uniform 80px Top & Bottom for all sections on desktop/tablet view (≥ 768px) */
+@media (min-width: 768px) {
+  section {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+  }
+}
+
+/* Universal Anti-Hanging Word & Minimalist Typography Rules (Headers: 24.752px, Subheadings: 15.2575px, NO BOLD) */
+h1, h2, h3, h4, h5, h6,
+.font-heading,
+.ab12-name {
+  font-size: 24.752px !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+h1 *, h2 *, h3 *, h4 *, h5 *, h6 *,
+.ab12-name * {
+  font-weight: 400 !important;
+}
+
+p.subheading,
+p.subtitle,
+.subheading,
+.subtitle,
+.ab12-subtitle,
+h1 + p,
+h2 + p,
+h3 + p,
+h4 + p {
+  font-size: 15.2575px !important;
+  font-weight: 400 !important;
+  text-wrap: pretty;
+}
+
+p,
+li,
+td,
+blockquote,
+figcaption,
+.ab12-desc {
+  text-wrap: pretty;
+}
+
+/* Universal Minimalist Thin Typography Directive: Strip all heavy bold font weights globally across all pages, headings, texts, numbers, buttons, and cards */
+html,
+body,
+*,
+*::before,
+*::after,
+h1, h2, h3, h4, h5, h6,
+p, span, a, button, div, input, textarea, select, label, table, th, td, strong, b,
+.font-bold, .font-extrabold, .font-black, .font-semibold, .font-medium,
+.font-display, .font-heading, .ab12-name, .ab12-stat-value, .stat-energy-val, .stat-score-val {
+  font-weight: 400 !important;
+}
+
+/* Universal Sharp Corners Directive (Zero rounded corners for ALL buttons, cards, badges, inputs, containers & media across all pages) */
+*,
+*::before,
+*::after {
+  border-radius: 0px !important;
+}
+
+/* Exception: Pulsating Nodes, Live Status Dots, Joint Hotspots & Circular Node Indicators must remain round circles */
+.animate-ping,
+.animate-ping + span,
+span[class*="rounded-full"],
+span.rounded-full,
+div.rounded-full,
+.joint-hotspot span,
+.status-dot,
+.node-dot,
+.pulse-node,
+span.h-1\.5,
+span.h-2,
+span.h-2\.5,
+span.h-3,
+span.h-3\.5,
+span.w-1\.5,
+span.w-2,
+span.w-2\.5,
+span.w-3,
+span.w-3\.5 {
+  border-radius: 9999px !important;
+}

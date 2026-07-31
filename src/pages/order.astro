@@ -1,0 +1,400 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const orderSchema = {
+  "@context": "https://schema.org",
+  "@type": "CheckoutPage",
+  "name": "Place Your Order | ZYLO AI",
+  "description": "Order your ZYLO AI Smart Home Gym with free nationwide delivery and white-glove setup."
+};
+---
+
+<Layout
+  title="Place Your Order — ZYLO AI Smart Home Gym"
+  description="Place your order for the ZYLO K1 or ZYLO S1 Pro AI Smart Home Gym. Includes complimentary accessory kit, free delivery, and white-glove installation."
+  canonical="/order"
+  schema={orderSchema}
+>
+  <main class="min-h-screen bg-zinc-50/50 py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl mx-auto bg-white border border-zinc-200/80 rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden">
+      
+      <!-- Top Decor Glow -->
+      <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-48 h-48 bg-brand-mint/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <!-- Header Title -->
+      <div class="mb-8 border-b border-zinc-100 pb-6">
+        <span class="text-[11px] font-mono font-bold uppercase tracking-widest text-brand-mint block mb-1">
+          Place Your Order
+        </span>
+        <h1 class="font-display font-extrabold text-2xl sm:text-3xl text-brand-black tracking-tight" id="order-page-product-title">
+          K1 Smart Home Gym
+        </h1>
+      </div>
+
+      <!-- Order Form Container -->
+      <form id="standalone-order-form" class="space-y-6">
+        
+        <!-- Summary Box -->
+        <div class="bg-zinc-50 border border-zinc-200/80 rounded-2xl p-5 sm:p-6 space-y-4">
+          
+
+
+          <!-- Line Items Breakdown -->
+          <div class="space-y-2.5 text-xs sm:text-sm">
+            <div class="flex justify-between items-center text-zinc-600 font-medium">
+              <span>Model Configuration</span>
+              <span id="page-summary-config" class="font-bold text-brand-black">Compact AI Foldable</span>
+            </div>
+            
+            <div class="flex justify-between items-center text-zinc-600 font-medium">
+              <span>Unit Price</span>
+              <span id="page-summary-unit-price" class="font-bold text-brand-black">₱188,000</span>
+            </div>
+
+            <!-- Quantity Stepper -->
+            <div class="flex justify-between items-center pt-1">
+              <span class="text-zinc-600 font-medium">Quantity</span>
+              <div class="flex items-center gap-3 bg-white border border-zinc-200 rounded-lg px-2 py-1">
+                <button
+                  type="button"
+                  id="page-qty-minus"
+                  class="w-6 h-6 rounded flex items-center justify-center text-zinc-500 hover:bg-zinc-100 font-bold transition-colors"
+                >
+                  -
+                </button>
+                <span id="page-qty-val" class="font-bold text-brand-black text-sm w-4 text-center">1</span>
+                <button
+                  type="button"
+                  id="page-qty-plus"
+                  class="w-6 h-6 rounded flex items-center justify-center text-zinc-500 hover:bg-zinc-100 font-bold transition-colors"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Total Divider -->
+          <div class="border-t border-zinc-200/80 pt-3.5 flex justify-between items-center">
+            <span class="font-display font-extrabold text-base text-brand-black">Total</span>
+            <span id="page-order-total" class="font-display font-extrabold text-xl text-brand-black">₱188,000</span>
+          </div>
+
+          <!-- Included Free Gifts Box -->
+          <div class="mt-4 pt-3 border-t border-dashed border-zinc-200 space-y-2">
+            <div class="flex items-center gap-2 text-xs font-bold text-brand-black">
+              <svg class="w-4 h-4 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V6a2 2 0 10-2 2h2zm0 13C10.832 21 2 20 2 14.5 2 9 12 3 12 3s10 6 10 11.5C22 20 13.168 21 12 21z" />
+              </svg>
+              <span>Included Accessories (Free)</span>
+            </div>
+            <div id="page-free-gifts-list" class="space-y-1.5 max-h-48 overflow-y-auto pr-1">
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Customer Contact Details Inputs -->
+        <div class="space-y-4">
+          <div>
+            <label for="page-order-name" class="block text-xs font-bold text-zinc-700 uppercase tracking-wider mb-1.5">
+              Full Name *
+            </label>
+            <input
+              type="text"
+              id="page-order-name"
+              required
+              placeholder="e.g. Maria Santos"
+              class="w-full rounded-xl border border-zinc-200 px-4 py-3 text-sm text-brand-black placeholder-zinc-400 focus:border-brand-black focus:outline-none transition-colors"
+            />
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="page-order-email" class="block text-xs font-bold text-zinc-700 uppercase tracking-wider mb-1.5">
+                Email *
+              </label>
+              <input
+                type="email"
+                id="page-order-email"
+                required
+                placeholder="name@domain.com"
+                class="w-full rounded-xl border border-zinc-200 px-4 py-3 text-sm text-brand-black placeholder-zinc-400 focus:border-brand-black focus:outline-none transition-colors"
+              />
+            </div>
+
+            <div>
+              <label for="page-order-phone" class="block text-xs font-bold text-zinc-700 uppercase tracking-wider mb-1.5">
+                Phone *
+              </label>
+              <input
+                type="tel"
+                id="page-order-phone"
+                required
+                placeholder="+63 917 123 4567"
+                class="w-full rounded-xl border border-zinc-200 px-4 py-3 text-sm text-brand-black placeholder-zinc-400 focus:border-brand-black focus:outline-none transition-colors"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label for="page-order-address" class="block text-xs font-bold text-zinc-700 uppercase tracking-wider mb-1.5">
+              Delivery Address *
+            </label>
+            <textarea
+              id="page-order-address"
+              rows="3"
+              required
+              placeholder="House/Unit #, Street, Barangay, City, Province, Postal Code"
+              class="w-full rounded-xl border border-zinc-200 px-4 py-3 text-sm text-brand-black placeholder-zinc-400 focus:border-brand-black focus:outline-none transition-colors resize-none"
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Preferred Payment Pills -->
+        <div>
+          <label class="block text-xs font-bold text-zinc-700 uppercase tracking-wider mb-2">
+            Preferred Payment
+          </label>
+          <div class="grid grid-cols-2 gap-2.5">
+            <button
+              type="button"
+              data-payment="cod"
+              class="payment-pill active border-2 border-brand-black bg-brand-black/5 text-brand-black rounded-xl py-3 px-4 text-xs font-bold text-center transition-all"
+            >
+              Cash on Delivery
+            </button>
+            <button
+              type="button"
+              data-payment="bank"
+              class="payment-pill border border-zinc-200 bg-white text-zinc-600 hover:border-zinc-300 rounded-xl py-3 px-4 text-xs font-bold text-center transition-all"
+            >
+              Bank Transfer
+            </button>
+            <button
+              type="button"
+              data-payment="gcash"
+              class="payment-pill border border-zinc-200 bg-white text-zinc-600 hover:border-zinc-300 rounded-xl py-3 px-4 text-xs font-bold text-center transition-all"
+            >
+              GCash
+            </button>
+            <button
+              type="button"
+              data-payment="card"
+              class="payment-pill border border-zinc-200 bg-white text-zinc-600 hover:border-zinc-300 rounded-xl py-3 px-4 text-xs font-bold text-center transition-all"
+            >
+              Card / Installment
+            </button>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="pt-2">
+          <button
+            type="submit"
+            id="page-order-submit-btn"
+            class="btn-spring w-full flex items-center justify-center gap-2 rounded-xl bg-brand-black py-4 text-sm font-bold uppercase tracking-widest text-white hover:bg-neutral-800 shadow-md cursor-pointer"
+          >
+            <span id="page-btn-submit-text">Complete Order (₱188,000)</span>
+            <svg class="h-4 w-4 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </button>
+          
+          <div class="flex items-center justify-center gap-2 text-[11px] font-semibold text-zinc-400 mt-3 text-center">
+            <svg class="w-3.5 h-3.5 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+            <span>Free Delivery & White-Glove Installation Across Philippines</span>
+          </div>
+        </div>
+
+      </form>
+
+      <!-- Order Success State Overlay -->
+      <div id="order-success-screen" class="hidden text-center py-12 space-y-6">
+        <div class="w-20 h-20 rounded-full bg-brand-mint/10 border border-brand-mint/30 flex items-center justify-center mx-auto text-brand-mint">
+          <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+
+        <div>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-emerald-700 mb-3">
+            Order Confirmed #ZYLO-89241
+          </span>
+          <h2 class="font-display font-extrabold text-3xl text-brand-black tracking-tight mb-2">
+            Thank you for your order!
+          </h2>
+          <p class="text-sm font-medium text-zinc-500 max-w-md mx-auto">
+            Our luxury concierge team will reach out to you within 15 minutes to confirm delivery scheduling and installation details.
+          </p>
+        </div>
+
+        <div class="pt-4">
+          <a
+            href="/"
+            class="btn-spring inline-flex items-center justify-center gap-2 rounded-xl bg-brand-black px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-white hover:bg-neutral-800"
+          >
+            Return to Home
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    (function() {
+      let currentUnitPrice = 188000;
+      let currentQty = 1;
+      let currentPayment = "cod";
+
+      const productBtns = document.querySelectorAll(".product-choice-btn");
+      const paymentBtns = document.querySelectorAll(".payment-pill");
+      
+      const qtyMinus = document.getElementById("page-qty-minus");
+      const qtyPlus = document.getElementById("page-qty-plus");
+      const qtyVal = document.getElementById("page-qty-val");
+      
+      const productTitle = document.getElementById("order-page-product-title");
+      const summaryUnitPrice = document.getElementById("page-summary-unit-price");
+      const summaryConfig = document.getElementById("page-summary-config");
+      const orderTotal = document.getElementById("page-order-total");
+      const submitText = document.getElementById("page-btn-submit-text");
+
+      const form = document.getElementById("standalone-order-form");
+      const successScreen = document.getElementById("order-success-screen");
+
+      function formatPhp(num: number) {
+        return "₱" + num.toLocaleString("en-PH");
+      }
+
+      function updateCalculation() {
+        const total = currentUnitPrice * currentQty;
+        if (qtyVal) qtyVal.textContent = currentQty.toString();
+        if (orderTotal) orderTotal.textContent = formatPhp(total);
+        if (submitText) submitText.textContent = `Complete Order (${formatPhp(total)})`;
+      }
+
+      const k1Accessories = [
+        "B1 Adjustable Training Bench",
+        "Multi-Function Crossbar",
+        "Smart 8-Electrode Body Composition Scale",
+        "Crossbar Safety Unloader",
+        "Smart Training Grips",
+        "Ankle Straps",
+        "Heart Rate Armband",
+        "Yoga Mat",
+        "Backup Resistance Cords",
+        "Camera Privacy Cover"
+      ];
+      const s1Accessories = [
+        "Pro-Grip Smart Handles (Pair)",
+        "Reinforced Ankle Straps (Pair)",
+        "Smart Barbell (Long Bar)",
+        "Smart Heart Rate Armband",
+        "High-Density Floor Mat",
+        "Instructional Manual & Power Toolkit",
+        "Smart Adjustable Bench"
+      ];
+
+      // Auto-detect product choice from URL params or referrer
+      const urlParams = new URLSearchParams(window.location.search);
+      const prodParam = urlParams.get("product") || urlParams.get("model");
+      const isS1 = prodParam === "s1" || window.location.pathname.toLowerCase().includes("s1") || document.referrer.toLowerCase().includes("s1");
+
+      if (isS1) {
+        currentUnitPrice = 248000;
+        if (productTitle) productTitle.textContent = "S1 PRO Home Gym";
+        if (summaryUnitPrice) summaryUnitPrice.textContent = formatPhp(248000);
+        if (summaryConfig) summaryConfig.textContent = "Dual Motor 100kg Digital Resistance";
+      } else {
+        currentUnitPrice = 188000;
+        if (productTitle) productTitle.textContent = "K1 Smart Home Gym";
+        if (summaryUnitPrice) summaryUnitPrice.textContent = formatPhp(188000);
+        if (summaryConfig) summaryConfig.textContent = "Compact AI Foldable";
+      }
+
+      const pageGiftsList = document.getElementById("page-free-gifts-list");
+      const currentGifts = isS1 ? s1Accessories : k1Accessories;
+      if (pageGiftsList) {
+        pageGiftsList.innerHTML = currentGifts.map(item => `
+          <div class="flex justify-between items-center text-xs text-zinc-600 pl-5">
+            <span>1× ${item}</span>
+            <span class="font-bold text-brand-mint shrink-0 ml-2">FREE</span>
+          </div>
+        `).join('');
+      }
+
+      updateCalculation();
+
+      paymentBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          paymentBtns.forEach(b => {
+            b.classList.remove("active", "border-2", "border-brand-black", "bg-brand-black/5", "text-brand-black");
+            b.classList.add("border", "border-zinc-200", "bg-white", "text-zinc-600");
+          });
+          btn.classList.add("active", "border-2", "border-brand-black", "bg-brand-black/5", "text-brand-black");
+          btn.classList.remove("border", "border-zinc-200", "bg-white", "text-zinc-600");
+          currentPayment = btn.getAttribute("data-payment") || "cod";
+        });
+      });
+
+      qtyMinus?.addEventListener("click", () => {
+        if (currentQty > 1) {
+          currentQty--;
+          updateCalculation();
+        }
+      });
+
+      qtyPlus?.addEventListener("click", () => {
+        if (currentQty < 10) {
+          currentQty++;
+          updateCalculation();
+        }
+      });
+
+      form?.addEventListener("submit", (e) => {
+        e.preventDefault();
+        
+        const ZYLO_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbye6Mci50d-M780n5C1dhMTk1O-n0Mb0CiQ37JAcXOPLA7oChXf51l6aCJBEEgTpROhzQ/exec";
+        const gsheetUrl = (window as any).ZYLO_GSHEET_URL || localStorage.getItem("zylo_gsheet_url") || ZYLO_SCRIPT_URL;
+        
+        if (gsheetUrl) {
+          const nameInput = document.getElementById("page-order-name") as HTMLInputElement | null;
+          const emailInput = document.getElementById("page-order-email") as HTMLInputElement | null;
+          const phoneInput = document.getElementById("page-order-phone") as HTMLInputElement | null;
+          const addressInput = document.getElementById("page-order-address") as HTMLInputElement | null;
+          const cityInput = document.getElementById("page-order-city") as HTMLInputElement | null;
+          const notesInput = document.getElementById("page-order-notes") as HTMLTextAreaElement | null;
+
+          try {
+            fetch(gsheetUrl, {
+              method: "POST",
+              mode: "no-cors",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                form_type: "Order Checkout Page",
+                product: isS1 ? "ZYLO S1 Pro Smart Gym" : "ZYLO K1 AI Smart Home Gym",
+                name: nameInput?.value || "",
+                email: emailInput?.value || "",
+                phone: phoneInput?.value || "",
+                address: addressInput?.value || "",
+                city: cityInput?.value || "",
+                payment_method: currentPayment.toUpperCase(),
+                quantity: currentQty,
+                total_price: `₱${(unitPrice * currentQty).toLocaleString()}`,
+                notes: notesInput?.value || "N/A",
+                timestamp: new Date().toLocaleString("en-PH", { timeZone: "Asia/Manila" })
+              })
+            }).catch(() => {});
+          } catch (err) {}
+        }
+
+        if (form) form.style.display = "none";
+        if (successScreen) successScreen.classList.remove("hidden");
+      });
+    })();
+  </script>
+</Layout>

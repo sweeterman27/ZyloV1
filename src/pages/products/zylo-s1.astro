@@ -1,0 +1,1167 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const productS1Schema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "ZYLO S1 PRO AI Smart Home Gym",
+  "image": "https://zylowebsite.pages.dev/assets/products/s1%20pro.webp",
+  "description": "Compact ultra-versatile ZYLO S1 PRO AI Smart Home Gym featuring motorized digital resistance, fold-away design, and real-time AI form coaching.",
+  "brand": {
+    "@type": "Brand",
+    "name": "ZYLO AI"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://zylowebsite.pages.dev/products/zylo-s1",
+    "priceCurrency": "PHP",
+    "price": "99000",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition"
+  }
+};
+---
+
+<Layout
+  title="ZYLO S1 PRO AI Smart Home Gym — Compact Powerhouse | ZYLO AI"
+  description="Order the ZYLO S1 PRO AI Smart Home Gym. Ultra-compact, space-saving design with digital resistance, AI movement tracking, and instant setup."
+  image="/assets/products/s1%20pro.webp"
+  canonical="/products/zylo-s1"
+  schema={productS1Schema}
+>
+
+
+  <!-- Top Breadcrumb Bar -->
+  <nav class="bg-brand-lightGray border-b border-brand-midGray/40 py-3" aria-label="Breadcrumb">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center gap-2 text-xs font-bold tracking-wide text-zinc-500">
+      <a href="/products" class="hover:text-brand-black transition-colors">Products</a>
+      <span class="text-zinc-300">/</span>
+      <span class="text-brand-black font-extrabold">S1 PRO Home Gym</span>
+    </div>
+  </nav>
+
+  <!-- Main Product Detail Showcase Section -->
+  <section class="bg-white py-12 lg:py-[80px]">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      
+      <!-- 2-Column Product Detail Layout -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+        
+        <!-- Left Column: Product Image Gallery -->
+        <div class="flex flex-col justify-between h-full gap-4">
+          <!-- Main Display Box -->
+          <div 
+            class="relative flex-1 w-full overflow-hidden border border-zinc-200 bg-white shadow-md flex items-center justify-center p-1 sm:p-2 group min-h-[350px] sm:min-h-[440px]"
+          >
+            <img id="s1-main-image"
+              src="/assets/products/product%20page/S1/photo/3.webp"
+              alt="S1 PRO Home Gym Photo Preview"
+              class="w-full h-full object-contain p-3 sm:p-5 transition-all duration-500 group-hover:scale-[1.03]"
+            decoding="async" loading="lazy" />
+          </div>
+
+          <!-- Thumbnail Selector Strip (5 items: 3.webp to 7.webp) -->
+          <div class="grid grid-cols-5 gap-2">
+            {[
+              "/assets/products/product%20page/S1/photo/3.webp",
+              "/assets/products/product%20page/S1/photo/4.webp",
+              "/assets/products/product%20page/S1/photo/5.webp",
+              "/assets/products/product%20page/S1/photo/6.webp",
+              "/assets/products/product%20page/S1/photo/7.webp"
+            ].map((imgUrl, idx) => (
+              <button
+                type="button"
+                data-gallery-thumb
+                data-img-src={imgUrl}
+                class={`aspect-square rounded-xl border-2 overflow-hidden bg-white p-1 transition-all duration-200 cursor-pointer ${idx === 0 ? "border-brand-mint ring-2 ring-brand-mint/20" : "border-zinc-200 hover:border-zinc-400"}`}
+                aria-label={`View S1 PRO photo ${idx + 1}`}
+              >
+                <img src={imgUrl}
+                  alt={`S1 PRO Thumbnail ${idx + 1}`}
+                  class="w-full h-full object-contain"
+                  loading="lazy" decoding="async" />
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <!-- Right Column: Specs & Buying Summary -->
+        <div class="flex flex-col justify-between">
+          <div>
+            <h1 class="font-display font-extrabold text-3xl sm:text-4xl text-brand-black mt-3 leading-tight">
+              S1 PRO Home Gym
+            </h1>
+            <p class="text-xs font-bold text-zinc-400 uppercase tracking-widest mt-1">
+              Full-Body Fitness Gym System
+            </p>
+
+            <!-- Price Strip -->
+            <div class="mt-6 flex items-baseline gap-4 border-y border-brand-midGray/60 py-4">
+              <span class="text-3xl font-black text-brand-black">₱249,000</span>
+              <span class="text-base font-semibold text-zinc-400 line-through">₱299,000</span>
+            </div>
+
+            <!-- Footprint & Tension Callout -->
+            <div class="mt-6 grid grid-cols-2 gap-4 rounded-2xl bg-brand-lightGray p-4 border border-brand-midGray/60 font-mono text-xs text-neutral-600">
+              <div>
+                <span class="block font-bold text-zinc-400 uppercase text-[9px] tracking-wider mb-1">Compact Footprint</span>
+                <span class="font-bold text-brand-black">3.2 sq. ft. Foldable</span>
+              </div>
+              <div>
+                <span class="block font-bold text-zinc-400 uppercase text-[9px] tracking-wider mb-1">Precision Tension</span>
+                <span class="font-bold text-brand-black">200 lbs Digital Motor</span>
+              </div>
+            </div>
+
+            <!-- Product Description (Exact Text requested) -->
+            <p class="mt-6 text-sm leading-relaxed text-zinc-600 font-medium">
+              AEKE S1 Pro is a professional-grade, space-efficient smart gym engineered to replace over 23 traditional gym machines by utilizing motorized digital resistance and real-time motion tracking. Featuring 200lbs of precision weight, 185-angle adjustable arms, and a foldable 3.2 sq. ft. footprint, it provides a comprehensive, data-driven workout experience with zero subscription fees.
+            </p>
+
+            <!-- Key Features Bullet List -->
+            <div class="mt-8">
+              <h3 class="text-xs font-extrabold uppercase tracking-widest text-brand-black mb-3">Main Features</h3>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {[
+                  "Real-Time AI Coach System",
+                  "42-Point Motion Tracking",
+                  "Digital Resistance up to 200 lbs",
+                  "185-Angle Adjustable Arms",
+                  "Replaces Over 23 Gym Machines",
+                  "Foldable 3.2 sq. ft. Footprint",
+                  "Subscription-Free Lifetime Access",
+                  "Integrated Bench & Bar System"
+                ].map((feat) => (
+                  <li class="flex items-center gap-2.5 text-xs font-semibold text-zinc-700">
+                    <div class="h-4 w-4 rounded-full bg-brand-mint/15 flex items-center justify-center text-brand-mint shrink-0">
+                      <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <span>{feat}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <!-- CTAs -->
+          <div class="mt-10 flex flex-col sm:flex-row gap-4">
+            <button
+              type="button"
+              class="order-modal-trigger btn-spring flex-1 inline-flex items-center justify-center gap-2 rounded-2xl bg-brand-black py-4 text-xs font-bold tracking-widest text-white uppercase cursor-pointer"
+              data-select-product="s1"
+            >
+              Order Now
+            </button>
+            <a
+              href="/about#contact"
+              class="btn-spring inline-flex items-center justify-center rounded-2xl border border-zinc-300 bg-white px-8 py-4 text-xs font-bold tracking-widest text-brand-black uppercase hover:bg-zinc-50"
+            >
+              Book Showroom Demo
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Player Section (White Background Header, Zero Bottom Black Bar) -->
+  <section class="bg-white pt-12 lg:pt-[80px] text-zinc-900 w-full overflow-hidden" style="padding-bottom: 0px !important;" aria-label="Product Experience Video">
+    <div class="w-full px-0">
+      <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-10 px-4">
+        <h2 class="font-display font-extrabold text-2xl sm:text-4xl tracking-tight text-zinc-900 uppercase">
+          Experience S1 PRO Home Gym
+        </h2>
+        <p class="text-xs sm:text-sm text-zinc-600 font-semibold mt-3">
+          See how AI motion tracking &amp; digital resistance guide your form in real-time.
+        </p>
+      </div>
+
+      <!-- Native Video Player Container (Edge-to-Edge 100% Full-Bleed Width - Borderless) -->
+      <div class="relative aspect-video w-full max-w-none overflow-hidden border-none bg-zinc-900 group">
+        
+        <video
+          id="s1-avp-video"
+          class="w-full h-full object-cover"
+          src="/assets/products/product%20page/S1/S1%20Pro%20Avp.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+        ></video>
+
+        <!-- Audio Toggle Button -->
+        <button
+          id="s1-audio-btn"
+          type="button"
+          aria-label="Toggle audio"
+          class="absolute bottom-5 right-5 z-10 flex items-center gap-2 rounded-xl bg-brand-black/80 backdrop-blur-sm border border-white/10 px-3.5 py-2.5 text-white transition-all duration-200 hover:bg-brand-mint hover:text-brand-black hover:border-brand-mint group/btn"
+        >
+          <!-- Muted icon (shown by default) -->
+          <svg id="s1-icon-muted" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+          </svg>
+          <!-- Unmuted icon (hidden by default) -->
+          <svg id="s1-icon-unmuted" class="h-4 w-4 shrink-0 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072M12 6v12m-3.536-9.536A5 5 0 004.929 12a5 5 0 004.535 4.929" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+          </svg>
+          <span id="s1-audio-label" class="text-[10px] font-mono font-bold uppercase tracking-widest">Sound Off</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const videoS1 = document.getElementById("s1-avp-video") as HTMLVideoElement | null;
+    const btnS1 = document.getElementById("s1-audio-btn");
+    const iconMutedS1 = document.getElementById("s1-icon-muted");
+    const iconUnmutedS1 = document.getElementById("s1-icon-unmuted");
+    const labelS1 = document.getElementById("s1-audio-label");
+
+    if (videoS1 && btnS1) {
+      btnS1.addEventListener("click", () => {
+        videoS1.muted = !videoS1.muted;
+        if (videoS1.muted) {
+          iconMutedS1?.classList.remove("hidden");
+          iconUnmutedS1?.classList.add("hidden");
+          if (labelS1) labelS1.textContent = "Sound Off";
+        } else {
+          iconMutedS1?.classList.add("hidden");
+          iconUnmutedS1?.classList.remove("hidden");
+          if (labelS1) labelS1.textContent = "Sound On";
+        }
+      });
+    }
+  </script>
+
+
+
+
+  <!-- Included Accessories Section -->
+  <section class="bg-white py-12 lg:py-[80px] border-b border-brand-midGray/60" aria-label="S1 PRO Included Accessories">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+        <h3 class="font-display font-bold text-xs sm:text-sm text-zinc-400 uppercase tracking-widest">
+          INCLUDED ACCESSORIES &amp; SYSTEM ADD-ONS
+        </h3>
+        <p class="text-xs sm:text-sm text-zinc-500 font-medium mt-1.5">
+          Everything included for a complete AI-guided training setup.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-6">
+        {[
+          { name: "Pro-Grip Smart Handles", img: "/assets/products/product%20page/S1/accessories/grip.webp" },
+          { name: "Ankle Straps (Pair)", img: "/assets/products/product%20page/S1/accessories/ankle%20strap.webp" },
+          { name: "Smart Barbell (Long Bar)", img: "/assets/products/product%20page/S1/accessories/bar.webp" },
+          { name: "Smart Heart Rate Armband", img: "/assets/products/product%20page/S1/accessories/Heart%20Rate%20Armband.webp" },
+          { name: "High-Density Floor Mat", img: "/assets/products/product%20page/k1/k1-accessories/High-Density%20Yoga%20Mat.webp" },
+          { name: "Instructional Manual & Toolkit", img: "/assets/products/product%20page/k1/k1-accessories/Instructional%20Manual%20%26%20Toolkit.png" },
+          { name: "Smart Adjustable Bench", img: "/assets/products/product%20page/S1/accessories/bench.webp" }
+        ].map((item) => (
+          <div class="flex flex-col items-center justify-between rounded-xl sm:rounded-2xl bg-brand-lightGray border border-zinc-200/80 p-2 sm:p-4 transition-all duration-300 hover:shadow-md hover:border-brand-mint/50 group">
+            {item.img ? (
+              <div class={`w-full aspect-[4/3] rounded-lg sm:rounded-xl bg-white border border-zinc-200/60 flex items-center justify-center mb-1.5 sm:mb-3 overflow-hidden group-hover:border-brand-mint/60 transition-colors ${item.img.includes("Yoga%20Mat") ? "p-0" : "p-1 sm:p-2"}`}>
+                <img src={item.img}
+                  alt={item.name}
+                  loading="lazy" class={item.img.includes("Yoga%20Mat") ? "w-full h-full object-contain object-right scale-[1.03] translate-x-1 group-hover:scale-[1.06] transition-transform duration-300" : "w-full h-full object-contain group-hover:scale-[1.05] transition-transform duration-300"}
+                decoding="async" />
+              </div>
+            ) : (
+              <div class="w-full aspect-[4/3] rounded-lg sm:rounded-xl bg-zinc-200/70 border border-dashed border-zinc-300 flex flex-col items-center justify-center text-zinc-400 group-hover:border-brand-mint/60 transition-colors mb-1.5 sm:mb-3 overflow-hidden">
+                <svg class="h-6 w-6 text-zinc-400 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                </svg>
+                <span class="text-[9px] font-bold uppercase tracking-wider text-zinc-400">Placeholder</span>
+              </div>
+            )}
+            
+            <div class="w-full text-center flex flex-col items-center min-w-0 overflow-hidden">
+              <h3 class="font-display font-bold text-brand-black text-center leading-none uppercase tracking-tight block w-full truncate" style="font-size: clamp(7.5px, 0.7vw, 10px) !important; white-space: nowrap !important;">
+                {item.name}
+              </h3>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FEATURE BENTO GRID (ASYMMETRICAL 12-COLUMN 1:1 REFERENCE) ─── -->
+  <section class="bg-zinc-50 py-12 lg:py-[80px] border-b border-zinc-100" aria-label="S1 PRO Feature Highlights">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col gap-4 sm:gap-5">
+
+      <!-- Mobile Horizontal Touch Carousel (< lg) | Desktop 12-Column Bento Grid (lg+) -->
+      <div class="flex lg:grid overflow-x-auto lg:overflow-visible snap-x snap-mandatory lg:snap-none gap-3.5 sm:gap-5 pb-4 lg:pb-0 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 lg:grid-cols-12 scrollbar-none">
+
+        <!-- ── TILE 1: 42 SKELETAL POINTS AI COACHING (Mobile Swipe Card / 4 cols on lg) ── -->
+        <div class="w-[82vw] xs:w-[80vw] sm:w-[360px] lg:w-auto shrink-0 snap-center lg:col-span-4 relative rounded-2xl sm:rounded-3xl bg-white border border-zinc-200/80 shadow-sm overflow-hidden min-h-[205px] flex items-center group hover:border-brand-mint/40 transition-colors">
+          <img src="/assets/products/product%20page/S1/page/1.webp"
+            alt="42 Skeletal points AI Coaching"
+            class="absolute inset-0 w-full h-full object-cover object-[75%_center] pointer-events-none group-hover:scale-105 transition-transform duration-700"
+            loading="lazy" decoding="async" />
+          <div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 via-50% to-transparent pointer-events-none z-10"></div>
+          <div class="relative z-20 p-5 sm:p-6 max-w-[70%] sm:max-w-[65%] h-full flex flex-col justify-center">
+            <div class="h-7 w-7 sm:h-8 sm:w-8 rounded-full bg-brand-mint/10 flex items-center justify-center mb-1.5 sm:mb-2 shrink-0">
+              <svg class="h-4 w-4 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+            </div>
+            <h3 class="font-display font-black text-sm sm:text-base text-brand-black uppercase leading-tight tracking-tight">
+              42 Skeletal points<br/>AI Coaching
+            </h3>
+            <span class="h-0.5 w-6 bg-brand-mint block my-1.5 shrink-0"></span>
+            <p class="text-[10px] sm:text-[11px] font-bold text-zinc-500 tracking-tight leading-snug">
+              Real-time posture tracking.<br/>Smarter Guidance.
+            </p>
+          </div>
+        </div>
+
+        <!-- ── TILE 2: COMPACT & READY ANYTIME (Mobile Swipe Card / 3 cols on lg) ── -->
+        <div class="w-[82vw] xs:w-[80vw] sm:w-[360px] lg:w-auto shrink-0 snap-center lg:col-span-3 relative rounded-2xl sm:rounded-3xl bg-white border border-zinc-200/80 shadow-sm overflow-hidden min-h-[205px] flex items-center group hover:border-brand-mint/40 transition-colors">
+          <img src="/assets/products/product%20page/S1/page/2.webp"
+            alt="Compact Folded Machine"
+            class="absolute inset-0 w-full h-full object-cover object-[95%_center] pointer-events-none group-hover:scale-105 transition-transform duration-700"
+            loading="lazy" decoding="async" />
+          <div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 via-50% to-transparent pointer-events-none z-10"></div>
+          <div class="relative z-20 p-5 sm:p-6 max-w-[75%] h-full flex flex-col justify-center">
+            <h3 class="font-display font-black text-xs sm:text-sm text-brand-black uppercase leading-tight tracking-tight">
+              COMPACT &amp;<br/>READY ANYTIME
+            </h3>
+            <span class="h-0.5 w-6 bg-brand-mint block my-1.5 shrink-0"></span>
+            <p class="text-[9px] font-bold uppercase tracking-wider text-zinc-400">Folds Down to</p>
+            <p class="font-display font-black text-2xl sm:text-3xl text-brand-mint leading-none my-0.5">3.2 ft²</p>
+            <p class="text-[10px] font-bold text-zinc-500 tracking-tight mt-0.5">Smart. Compact. Space-saving.</p>
+          </div>
+        </div>
+
+        <!-- ── TILE 3: 6-DIMENSIONAL ASSESSMENT (Mobile Swipe Card / 5 cols on lg) ── -->
+        <div class="w-[82vw] xs:w-[80vw] sm:w-[360px] lg:w-auto shrink-0 snap-center lg:col-span-5 relative rounded-2xl sm:rounded-3xl bg-white border border-zinc-200/80 shadow-sm overflow-hidden min-h-[205px] flex items-center group hover:border-brand-mint/40 transition-colors">
+          <img src="/assets/products/product%20page/S1/page/3.webp"
+            alt="6D Assessment"
+            class="absolute inset-0 w-full h-full object-cover object-right pointer-events-none group-hover:scale-105 transition-transform duration-700"
+            loading="lazy" decoding="async" />
+          <div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 via-50% to-transparent pointer-events-none z-10"></div>
+          <div class="relative z-20 p-5 sm:p-6 max-w-[70%] sm:max-w-[65%] h-full flex flex-col justify-center">
+            <div class="h-7 w-7 rounded-full bg-brand-mint/10 flex items-center justify-center mb-1.5 shrink-0">
+              <svg class="h-4 w-4 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+              </svg>
+            </div>
+            <h3 class="font-display font-black text-xs sm:text-sm text-brand-black uppercase leading-tight tracking-tight">
+              6-DIMENSIONAL<br/>ASSESSMENT
+            </h3>
+            <p class="text-[10px] font-bold text-zinc-500 mb-2 leading-tight">Understand your body. Personalize every workout.</p>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-1 max-w-[260px]">
+              {[
+                "Strength",
+                "Balance",
+                "Flexibility",
+                "Power",
+                "Symmetry",
+                "Endurance"
+              ].map((tag) => (
+                <span class="inline-flex items-center justify-center gap-1 px-1.5 py-0.5 rounded-full bg-white/95 backdrop-blur-md border border-zinc-200/80 text-[8.5px] font-mono font-bold text-zinc-700 shadow-2xs truncate">
+                  <span class="h-1 w-1 rounded-full bg-brand-mint shrink-0"></span>
+                  <span class="truncate">{tag}</span>
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- ── TILE 4: COVERS 320+ MOVEMENTS (Mobile Swipe Card / 5 cols on lg) ── -->
+        <div class="w-[82vw] xs:w-[80vw] sm:w-[360px] lg:w-auto shrink-0 snap-center lg:col-span-5 relative rounded-2xl sm:rounded-3xl bg-white border border-zinc-200/80 shadow-sm overflow-hidden min-h-[205px] flex items-center group hover:border-brand-mint/40 transition-colors">
+          <img src="/assets/products/product%20page/S1/page/4.webp"
+            alt="320+ Movements Library"
+            class="absolute inset-0 w-full h-full object-cover object-top-left pointer-events-none group-hover:scale-105 transition-transform duration-700"
+            loading="lazy" decoding="async" />
+          <div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 via-50% to-transparent pointer-events-none z-10"></div>
+          <div class="relative z-20 p-5 sm:p-6 max-w-[55%] sm:max-w-[48%] h-full flex flex-col justify-center">
+            <div class="h-7 w-7 rounded-full bg-brand-mint/10 flex items-center justify-center mb-1.5 shrink-0">
+              <svg class="h-4 w-4 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <p class="font-display font-black text-[10px] text-brand-black uppercase leading-none">COVERS</p>
+            <p class="font-display font-black text-2xl sm:text-3xl text-brand-mint leading-tight my-0.5">320+</p>
+            <p class="font-display font-black text-[10px] text-brand-black uppercase leading-none mb-1.5">MOVEMENTS</p>
+            <span class="h-0.5 w-6 bg-brand-mint block mb-1.5 shrink-0"></span>
+            <p class="text-[10px] font-bold text-zinc-500 leading-tight">From strength to mobility.<br/>Endless possibilities.</p>
+          </div>
+        </div>
+
+        <!-- ── TILE 5: ₱0 CIRCLE ONLY (Mobile Swipe Card / 3 cols on lg) ── -->
+        <div class="w-[82vw] xs:w-[80vw] sm:w-[360px] lg:w-auto shrink-0 snap-center lg:col-span-3 relative rounded-2xl sm:rounded-3xl bg-white border border-zinc-200/80 shadow-sm overflow-hidden min-h-[205px] flex items-center justify-center p-4 group hover:border-brand-mint/40 transition-colors">
+          <div class="flex items-center justify-center w-full h-full">
+            <div class="h-28 w-28 sm:h-32 sm:w-32 rounded-full border-[3px] border-emerald-400/50 flex items-center justify-center bg-gradient-to-br from-emerald-50 via-white to-emerald-100/30 shadow-sm group-hover:scale-105 transition-transform duration-500">
+              <div class="h-20 w-20 sm:h-24 sm:w-24 rounded-full border-2 border-emerald-300/40 flex items-center justify-center bg-white shadow-2xs">
+                <span class="font-display font-black text-3xl sm:text-4xl text-emerald-500 tracking-tight">₱0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── TILE 6: SMART. COMPACT. BEAUTIFULLY DESIGNED. (Mobile Swipe Card / 4 cols on lg) ── -->
+        <div class="w-[82vw] xs:w-[80vw] sm:w-[360px] lg:w-auto shrink-0 snap-center lg:col-span-4 relative rounded-2xl sm:rounded-3xl bg-white border border-zinc-200/80 shadow-sm overflow-hidden min-h-[205px] flex flex-col justify-between group hover:border-brand-mint/40 transition-colors p-4 sm:p-5">
+          <img src="/assets/products/product%20page/S1/page/6.webp"
+            alt="S1 Pro Machine Detail"
+            class="absolute inset-0 w-full h-full object-cover object-[25%_center] pointer-events-none group-hover:scale-105 transition-transform duration-700"
+            loading="lazy" decoding="async" />
+          <div class="absolute inset-0 bg-gradient-to-r from-white via-white/85 via-50% to-transparent pointer-events-none z-10"></div>
+          
+          <div class="relative z-20 max-w-[65%] mb-2">
+            <h3 class="font-display font-black text-xs sm:text-sm text-brand-black uppercase leading-tight tracking-tight">
+              Smart. Compact.<br/>Beautifully Designed.
+            </h3>
+            <span class="h-0.5 w-6 bg-brand-mint block my-1 shrink-0"></span>
+            <p class="text-[10px] font-bold text-zinc-500 leading-tight">Premium materials.<br/>Built to last.</p>
+          </div>
+
+          <!-- Bottom Floating Spec Pills Overlay Bar (1:1 from User Screenshot) -->
+          <div class="relative z-20 flex items-center justify-around gap-1 px-2.5 py-1.5 rounded-xl bg-white/95 backdrop-blur-md border border-zinc-200/80 shadow-xs mt-auto">
+            
+            <!-- Badge 1: Premium / Aluminum Build -->
+            <div class="flex items-center gap-1.5">
+              <div class="h-6 w-6 rounded-full bg-emerald-100/80 border border-emerald-200/60 flex items-center justify-center text-emerald-700 shrink-0">
+                <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+              </div>
+              <div class="flex flex-col text-[8.5px] leading-tight">
+                <span class="font-bold text-brand-black">Premium</span>
+                <span class="text-zinc-500 font-medium">Aluminum Build</span>
+              </div>
+            </div>
+
+            <div class="h-4.5 w-px bg-zinc-200/80"></div>
+
+            <!-- Badge 2: Quiet / < 45dB -->
+            <div class="flex items-center gap-1.5">
+              <div class="h-6 w-6 rounded-full bg-emerald-100/80 border border-emerald-200/60 flex items-center justify-center text-emerald-700 shrink-0">
+                <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                </svg>
+              </div>
+              <div class="flex flex-col text-[8.5px] leading-tight">
+                <span class="font-bold text-brand-black">Quiet</span>
+                <span class="text-zinc-500 font-medium">&lt; 45dB</span>
+              </div>
+            </div>
+
+            <div class="h-4.5 w-px bg-zinc-200/80"></div>
+
+            <!-- Badge 3: Sleek / Minimal Design -->
+            <div class="flex items-center gap-1.5">
+              <div class="h-6 w-6 rounded-full bg-emerald-100/80 border border-emerald-200/60 flex items-center justify-center text-emerald-700 shrink-0">
+                <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18m-9-9h18" />
+                </svg>
+              </div>
+              <div class="flex flex-col text-[8.5px] leading-tight">
+                <span class="font-bold text-brand-black">Sleek</span>
+                <span class="text-zinc-500 font-medium">Minimal Design</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── ALL-IN-ONE TRAINING MOVEMENT GRID SECTION ─── -->
+  <section class="bg-white py-12 lg:py-[80px] border-b border-zinc-100" aria-label="All-in-One Training Movements">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Main Header -->
+      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+        <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-brand-black uppercase tracking-tight leading-tight">
+          Replaces 23+ Bulky Space-Consuming Gym Machines
+        </h2>
+      </div>
+
+      <!-- 2-Column Grid Layout: Left Hero Card (4 cols) | Right Movement Grid Card (8 cols) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+
+        <!-- ── LEFT HERO FEATURE CARD (4 cols out of 12) ── -->
+        <div class="lg:col-span-4 relative rounded-3xl bg-zinc-50 border border-zinc-200/80 shadow-sm overflow-hidden p-7 flex flex-col justify-between min-h-[420px] group">
+          <!-- Background image placeholder / overlay -->
+          <div class="absolute inset-0 z-0 bg-gradient-to-br from-zinc-100 via-zinc-200/50 to-zinc-100 flex items-center justify-center">
+            <div class="flex flex-col items-center gap-2 text-zinc-400">
+              <svg class="h-12 w-12 stroke-[1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <span class="text-[10px] font-mono uppercase tracking-widest font-bold text-zinc-400">Hero Image Placeholder</span>
+            </div>
+          </div>
+
+          <!-- Top-Left Text Overlay -->
+          <div class="relative z-10 max-w-[80%]">
+            <div class="h-9 w-9 rounded-full bg-white/90 backdrop-blur border border-brand-mint/30 flex items-center justify-center mb-3 shadow-xs">
+              <svg class="h-5 w-5 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+            </div>
+            <h3 class="font-display font-black text-xl text-brand-black uppercase leading-tight tracking-tight">
+              All-in-One<br/>Training
+            </h3>
+            <p class="text-xs font-semibold text-zinc-500 mt-2 leading-relaxed">
+              From strength to mobility, endless possibilities.
+            </p>
+          </div>
+
+          <!-- Bottom-Left Floating Badge -->
+          <div class="relative z-10 self-start inline-flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/95 backdrop-blur-md border border-zinc-200/80 shadow-md">
+            <span class="font-display font-black text-3xl text-brand-mint leading-none">42</span>
+            <div class="text-[10px] font-bold text-zinc-700 leading-tight uppercase">
+              Skeletal Points<br/>AI Coaching
+            </div>
+          </div>
+        </div>
+
+        <!-- ── RIGHT MOVEMENT GRID CARD (8 cols out of 12) ── -->
+        <div class="lg:col-span-8 rounded-3xl bg-white border border-zinc-200/80 shadow-sm p-6 sm:p-8 flex flex-col justify-between">
+          
+          <!-- Card Top Header -->
+          <div class="text-center max-w-xl mx-auto mb-8">
+            <h3 class="font-display font-black text-xl sm:text-2xl text-brand-black uppercase tracking-tight">
+              Train Every Movement. Every Muscle.
+            </h3>
+            <p class="text-xs sm:text-sm font-semibold text-zinc-500 mt-1.5 leading-relaxed">
+              Squats, rows, presses, rotations, and more—complete versatility in one system.
+            </p>
+          </div>
+
+          <!-- 12 Movements Grid (2 rows x 6 columns) -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-8">
+            {[
+              "Squat",
+              "Lat Pulldown",
+              "Chest Press",
+              "Seated Row",
+              "Lunge",
+              "Shoulder Press",
+              "Bicep Curl",
+              "Tricep Pushdown",
+              "Core Rotation",
+              "Leg Kickback",
+              "High Pull",
+              "Woodchop"
+            ].map((movement) => (
+              <div class="rounded-2xl border border-zinc-200/80 bg-zinc-50/60 p-2 flex flex-col items-center text-center transition-all duration-200 hover:border-brand-mint/60 hover:shadow-xs group">
+                <!-- Thumbnail Image Placeholder -->
+                <div class="w-full aspect-square rounded-xl bg-white border border-zinc-200/60 flex flex-col items-center justify-center mb-2 overflow-hidden text-zinc-300 group-hover:border-brand-mint/40 transition-colors">
+                  <svg class="h-6 w-6 stroke-[1.2]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                  <span class="text-[8px] font-mono uppercase tracking-widest text-zinc-400 mt-0.5">Photo</span>
+                </div>
+                <!-- Pill Label -->
+                <div class="w-full inline-flex items-center justify-center gap-1.5 px-2 py-1 rounded-xl bg-white border border-zinc-200/80 shadow-2xs">
+                  <div class="h-3.5 w-3.5 rounded-full bg-brand-mint/15 flex items-center justify-center shrink-0">
+                    <svg class="h-2.5 w-2.5 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </div>
+                  <span class="text-[10px] font-mono font-bold text-zinc-800 tracking-tight truncate">{movement}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- Bottom Pill Badge Bar -->
+          <div class="text-center">
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-zinc-50 border border-zinc-200/80 text-xs font-mono font-bold text-zinc-700 shadow-2xs">
+              <span class="h-4 w-4 rounded-full bg-brand-mint/20 flex items-center justify-center shrink-0">
+                <svg class="h-3 w-3 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+              <span>More than 23 traditional machines, infinite ways to train.</span>
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── 185 FORCE-ANGLE COMBINATIONS & SMARTER PULLEY SECTION ─── -->
+  <section class="bg-zinc-50/60 py-12 lg:py-[80px] border-b border-zinc-100" aria-label="185 Force-Angle Combinations">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+      <!-- Section Main Header -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-mint/10 border border-brand-mint/30 text-[10px] font-mono text-brand-mint font-bold uppercase tracking-widest mb-3">
+          <span class="h-1.5 w-1.5 rounded-full bg-brand-mint animate-pulse"></span>
+          Precision Engineering
+        </span>
+        <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-brand-black uppercase tracking-tight leading-tight">
+          185 Force-Angle Combinations
+        </h2>
+        <p class="text-xs sm:text-sm font-semibold text-zinc-500 mt-3 leading-relaxed max-w-2xl mx-auto">
+          Adjusting is instinctive. Pull, raise, or lower to set the height, then press to tilt. No tools needed. No resistance and no interruption between sets.
+        </p>
+      </div>
+
+      <!-- ── ROW 1: 4 CARDS (Height | Tilt | Width | Smarter Pulley Showcase) ── -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5 mb-5">
+
+        <!-- Card 1: Height (lg:col-span-2) -->
+        <div class="lg:col-span-2 rounded-3xl bg-white border border-zinc-200/80 p-5 shadow-sm flex flex-col justify-between group hover:border-brand-mint/40 transition-colors">
+          <div>
+            <h3 class="font-display font-black text-base text-brand-black uppercase leading-tight">
+              Height <span class="text-brand-mint">9 Levels</span>
+            </h3>
+            <p class="text-[10px] font-bold font-mono text-zinc-400 mt-0.5">3.8 in – 86.6 in</p>
+          </div>
+          <!-- Image Placeholder -->
+          <div class="w-full aspect-[3/4] rounded-2xl bg-zinc-50 border border-zinc-200/60 flex flex-col items-center justify-center mt-4 text-zinc-300 group-hover:border-brand-mint/30 transition-colors">
+            <svg class="h-8 w-8 stroke-[1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+            </svg>
+            <span class="text-[8px] font-mono uppercase tracking-widest text-zinc-400 mt-1">Height Diagram</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Tilt (lg:col-span-2) -->
+        <div class="lg:col-span-2 rounded-3xl bg-white border border-zinc-200/80 p-5 shadow-sm flex flex-col justify-between group hover:border-brand-mint/40 transition-colors">
+          <div>
+            <h3 class="font-display font-black text-base text-brand-black uppercase leading-tight">
+              Tilt <span class="text-brand-mint">7 Levels</span>
+            </h3>
+            <p class="text-[10px] font-bold font-mono text-zinc-400 mt-0.5">0° – 180° Range</p>
+          </div>
+          <!-- Image Placeholder -->
+          <div class="w-full aspect-[3/4] rounded-2xl bg-zinc-50 border border-zinc-200/60 flex flex-col items-center justify-center mt-4 text-zinc-300 group-hover:border-brand-mint/30 transition-colors">
+            <svg class="h-8 w-8 stroke-[1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            <span class="text-[8px] font-mono uppercase tracking-widest text-zinc-400 mt-1">Tilt Diagram</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Width (lg:col-span-2) -->
+        <div class="lg:col-span-2 rounded-3xl bg-white border border-zinc-200/80 p-5 shadow-sm flex flex-col justify-between group hover:border-brand-mint/40 transition-colors">
+          <div>
+            <h3 class="font-display font-black text-base text-brand-black uppercase leading-tight">
+              Width <span class="text-brand-mint">3 Levels</span>
+            </h3>
+            <p class="text-[10px] font-bold font-mono text-zinc-400 mt-0.5">+/- 7.25" to 14.5"</p>
+          </div>
+          <!-- Image Placeholder -->
+          <div class="w-full aspect-[3/4] rounded-2xl bg-zinc-50 border border-zinc-200/60 flex flex-col items-center justify-center mt-4 text-zinc-300 group-hover:border-brand-mint/30 transition-colors">
+            <svg class="h-8 w-8 stroke-[1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
+            </svg>
+            <span class="text-[8px] font-mono uppercase tracking-widest text-zinc-400 mt-1">Width Diagram</span>
+          </div>
+        </div>
+
+        <!-- Card 4: Smarter Pulley. Smoother Movement (lg:col-span-6) -->
+        <div class="lg:col-span-6 rounded-3xl bg-white border border-zinc-200/80 p-6 sm:p-7 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6 group hover:border-brand-mint/40 transition-colors">
+          <!-- Pulley Image Placeholder (Left) -->
+          <div class="w-full sm:w-1/2 aspect-[4/3] rounded-2xl bg-zinc-50 border border-zinc-200/60 flex flex-col items-center justify-center text-zinc-300 shrink-0 group-hover:border-brand-mint/30 transition-colors">
+            <svg class="h-10 w-10 stroke-[1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="text-[9px] font-mono uppercase tracking-widest text-zinc-400 mt-1">Pulley System Photo</span>
+          </div>
+
+          <!-- Content (Right) -->
+          <div class="w-full sm:w-1/2 flex flex-col justify-between">
+            <div>
+              <h3 class="font-display font-black text-lg sm:text-xl text-brand-black uppercase leading-tight tracking-tight">
+                Smarter Pulley.<br/>Smoother Movement.
+              </h3>
+              <p class="text-xs font-semibold text-zinc-500 mt-2 leading-relaxed">
+                ZYLO Precision pulley system adapts to every version of you. It grows with your body, expands your range of motion, and keeps your muscles under fully loaded, fully activated tension.
+              </p>
+            </div>
+
+            <!-- 3 Badges at Bottom -->
+            <div class="grid grid-cols-3 gap-2 mt-5 pt-4 border-t border-zinc-100">
+              {[
+                { label: "Expands Range of Motion", icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 4l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />` },
+                { label: "Smoother, More Natural Feel", icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />` },
+                { label: "Fully Loaded Throughout", icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />` }
+              ].map((badge) => (
+                <div class="flex flex-col items-center text-center">
+                  <div class="h-7 w-7 rounded-full bg-brand-mint/10 flex items-center justify-center mb-1 shrink-0">
+                    <svg class="h-3.5 w-3.5 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" set:html={badge.icon}></svg>
+                  </div>
+                  <span class="text-[8.5px] font-mono font-bold text-zinc-700 leading-tight">{badge.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── ROW 2: 4 CARDS (Full Range | Expanded Range | Higher Reach | Adjustable Arms) ── -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+
+        <!-- Card 5: Full Range Motion -->
+        <div class="rounded-3xl bg-white border border-zinc-200/80 p-5 shadow-sm flex flex-col justify-between group hover:border-brand-mint/40 transition-colors">
+          <div>
+            <h3 class="font-display font-black text-sm sm:text-base text-brand-black uppercase leading-tight">
+              <span class="text-brand-mint">Full</span> Range Motion.
+            </h3>
+            <p class="text-[11px] font-bold text-zinc-400 mt-1 leading-snug">
+              True 3D paths for better muscle activation.
+            </p>
+          </div>
+          <!-- 2 Image Thumbnails Side-by-Side -->
+          <div class="grid grid-cols-2 gap-2 mt-4">
+            <div class="aspect-[4/3] rounded-xl bg-zinc-50 border border-zinc-200/60 flex items-center justify-center text-zinc-300">
+              <span class="text-[8px] font-mono uppercase tracking-wider text-zinc-400">Diagram 1</span>
+            </div>
+            <div class="aspect-[4/3] rounded-xl bg-zinc-50 border border-zinc-200/60 flex items-center justify-center text-zinc-300">
+              <span class="text-[8px] font-mono uppercase tracking-wider text-zinc-400">Diagram 2</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6: Expanded Range -->
+        <div class="rounded-3xl bg-white border border-zinc-200/80 p-5 shadow-sm flex flex-col justify-between group hover:border-brand-mint/40 transition-colors">
+          <div>
+            <h3 class="font-display font-black text-sm sm:text-base text-brand-black uppercase leading-tight">
+              <span class="text-brand-mint">Expanded</span> Range.
+            </h3>
+            <p class="text-[11px] font-bold text-zinc-400 mt-1 leading-snug">
+              Dialed-in chest flys.
+            </p>
+          </div>
+          <!-- 2 Image Thumbnails Side-by-Side -->
+          <div class="grid grid-cols-2 gap-2 mt-4">
+            <div class="aspect-[4/3] rounded-xl bg-zinc-50 border border-zinc-200/60 flex flex-col items-center justify-center text-zinc-300">
+              <span class="text-[8px] font-mono uppercase tracking-wider text-zinc-400">Chest Fly 1</span>
+              <span class="text-[7px] font-mono text-brand-mint font-bold mt-0.5">1.6 m – 5.25 ft</span>
+            </div>
+            <div class="aspect-[4/3] rounded-xl bg-zinc-50 border border-zinc-200/60 flex flex-col items-center justify-center text-zinc-300">
+              <span class="text-[8px] font-mono uppercase tracking-wider text-zinc-400">Chest Fly 2</span>
+              <span class="text-[7px] font-mono text-brand-mint font-bold mt-0.5">1.6 m – 5.25 ft</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 7: Higher Reach -->
+        <div class="rounded-3xl bg-white border border-zinc-200/80 p-5 shadow-sm flex flex-col justify-between group hover:border-brand-mint/40 transition-colors">
+          <div>
+            <h3 class="font-display font-black text-sm sm:text-base text-brand-black uppercase leading-tight">
+              <span class="text-brand-mint">Higher</span> Reach.
+            </h3>
+            <p class="text-[11px] font-bold text-zinc-400 mt-1 leading-snug">
+              Better lat pulldowns.
+            </p>
+          </div>
+          <!-- 2 Image Thumbnails Side-by-Side -->
+          <div class="grid grid-cols-2 gap-2 mt-4">
+            <div class="aspect-[4/3] rounded-xl bg-zinc-50 border border-zinc-200/60 flex flex-col items-center justify-center text-zinc-300">
+              <span class="text-[8px] font-mono uppercase tracking-wider text-zinc-400">Pulldown 1</span>
+            </div>
+            <div class="aspect-[4/3] rounded-xl bg-zinc-50 border border-zinc-200/60 flex flex-col items-center justify-center text-zinc-300">
+              <span class="text-[8px] font-mono uppercase tracking-wider text-zinc-400">Pulldown 2</span>
+              <span class="text-[7px] font-mono text-brand-mint font-bold mt-0.5">2.2 m – 7.22 ft</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 8: Adjustable Arms -->
+        <div class="rounded-3xl bg-white border border-zinc-200/80 p-5 shadow-sm flex flex-col justify-between group hover:border-brand-mint/40 transition-colors">
+          <div>
+            <h3 class="font-display font-black text-sm sm:text-base text-brand-black uppercase leading-tight">
+              <span class="text-brand-mint">Adjustable</span> Arms.
+            </h3>
+            <p class="text-[11px] font-bold text-zinc-400 mt-1 leading-snug">
+              Wide, close, and endless attachments.
+            </p>
+          </div>
+          <!-- 3 Image Thumbnails Side-by-Side -->
+          <div class="grid grid-cols-3 gap-1.5 mt-4">
+            <div class="aspect-[3/4] rounded-xl bg-zinc-50 border border-zinc-200/60 flex items-center justify-center text-zinc-300">
+              <span class="text-[7px] font-mono uppercase tracking-wider text-zinc-400">Wide</span>
+            </div>
+            <div class="aspect-[3/4] rounded-xl bg-zinc-50 border border-zinc-200/60 flex items-center justify-center text-zinc-300">
+              <span class="text-[7px] font-mono uppercase tracking-wider text-zinc-400">Close</span>
+            </div>
+            <div class="aspect-[3/4] rounded-xl bg-zinc-50 border border-zinc-200/60 flex items-center justify-center text-zinc-300">
+              <span class="text-[7px] font-mono uppercase tracking-wider text-zinc-400">Attach</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── 5 ADAPTIVE RESISTANCE MODES SECTION ─── -->
+  <section class="bg-white py-12 lg:py-[80px] border-b border-zinc-100" aria-label="5 Adaptive Resistance Modes">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+      <!-- Section Top Header Bar (Branding & Title) -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8 mb-10 border-b border-zinc-100">
+        <div class="flex items-center gap-2">
+          <span class="font-display font-black text-xl text-brand-black tracking-tighter">ZYLO</span>
+          <span class="font-display font-black text-xl text-brand-mint tracking-tight">AI</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <h2 class="font-mono text-xs sm:text-sm font-extrabold uppercase tracking-widest text-zinc-800">
+            5 ADAPTIVE RESISTANCE MODES
+          </h2>
+          <span class="h-0.5 w-8 bg-brand-mint block"></span>
+        </div>
+      </div>
+
+      <!-- 5 Column Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+        {[
+          {
+            num: "1",
+            title: "STANDARD MODE",
+            formula: "PULL / RETURN",
+            desc: "Balanced resistance during both phases of the movement.",
+            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m0-16l-4 4m4-4l4 4" />`
+          },
+          {
+            num: "2",
+            title: "ECCENTRIC MODE",
+            formula: "PULL < RETURN",
+            desc: "Higher resistance during the return phase for controlled muscle loading.",
+            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />`
+          },
+          {
+            num: "3",
+            title: "CONCENTRIC MODE",
+            formula: "PULL > RETURN",
+            desc: "Higher resistance during the pulling phase for strength and power.",
+            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />`
+          },
+          {
+            num: "4",
+            title: "ELASTIC MODE",
+            formula: "VARIABLE SPRING-LIKE RESISTANCE",
+            desc: "Resistance increases progressively as the cable extends.",
+            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />`
+          },
+          {
+            num: "5",
+            title: "ROWING MODE",
+            formula: "FASTER SPEED, GREATER RESISTANCE",
+            desc: "Dynamic resistance that responds to your movement speed.",
+            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />`
+          }
+        ].map((mode) => (
+          <div class="relative rounded-3xl bg-zinc-50/70 border border-zinc-200/80 p-6 flex flex-col justify-between items-center text-center shadow-xs hover:bg-white hover:border-brand-mint/50 hover:shadow-md transition-all duration-300 group min-h-[340px]">
+            
+            <!-- Card Top Left Number Badge -->
+            <div class="absolute top-4 left-4 h-7 w-7 rounded-full bg-brand-mint text-white font-mono font-black text-xs flex items-center justify-center shadow-2xs group-hover:scale-110 transition-transform">
+              {mode.num}
+            </div>
+
+            <!-- Center Image Illustration Placeholder -->
+            <div class="w-full aspect-[4/5] rounded-2xl bg-white border border-zinc-200/60 flex flex-col items-center justify-center my-4 p-4 text-zinc-300 group-hover:border-brand-mint/30 transition-colors">
+              <div class="h-12 w-12 rounded-full bg-brand-mint/10 flex items-center justify-center mb-2">
+                <svg class="h-6 w-6 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" set:html={mode.icon}></svg>
+              </div>
+              <span class="text-[9px] font-mono uppercase tracking-widest text-zinc-400 font-bold">Mode Diagram</span>
+              <span class="text-[8px] font-mono text-brand-mint font-semibold mt-1">Placeholder</span>
+            </div>
+
+            <!-- Bottom Titles & Formula -->
+            <div class="w-full">
+              <h3 class="font-display font-black text-xs sm:text-sm text-brand-black uppercase tracking-tight">
+                {mode.title}
+              </h3>
+              <p class="font-mono text-[9.5px] font-extrabold tracking-wider text-brand-mint mt-1 uppercase">
+                {mode.formula}
+              </p>
+              <p class="text-[10px] font-medium text-zinc-500 leading-tight mt-2 opacity-90">
+                {mode.desc}
+              </p>
+            </div>
+
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── 9 IMMERSIVE MOTION GAMES SECTION ─── -->
+  <section class="bg-zinc-50/60 py-12 lg:py-[80px] border-b border-zinc-100" aria-label="9 Immersive Motion Games">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+      <!-- Main Showcase Container -->
+      <div class="rounded-3xl bg-white border border-zinc-200/80 shadow-sm p-6 sm:p-10 overflow-hidden">
+        
+        <!-- Top Row: Hero Text (Left) & Gameplay Photo Placeholder (Right) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <!-- Left Text Content (7 cols) -->
+          <div class="lg:col-span-7 flex flex-col justify-between h-full">
+            <div>
+              <!-- Big '9' & Header -->
+              <div class="flex items-start gap-4">
+                <span class="font-display font-black text-6xl sm:text-7xl lg:text-8xl text-brand-mint leading-none shrink-0">9</span>
+                <div class="flex flex-col justify-center pt-1">
+                  <h2 class="font-display font-black text-2xl sm:text-3xl lg:text-4xl text-brand-mint uppercase tracking-tight leading-tight">
+                    IMMERSIVE<br/>MOTION GAMES
+                  </h2>
+                </div>
+              </div>
+
+              <h3 class="font-display font-black text-lg sm:text-xl text-brand-black uppercase tracking-tight mt-4">
+                DESIGNED TO KEEP YOU ACTIVE
+              </h3>
+              <span class="h-0.5 w-10 bg-brand-mint block my-3"></span>
+
+              <p class="text-xs sm:text-sm text-zinc-500 font-semibold leading-relaxed max-w-xl">
+                Who says exercise cannot be fun? <strong class="text-brand-black">9 built-in motion games</strong> make movement feel less like a workout and more like a reason to stay active.
+              </p>
+            </div>
+
+            <!-- 4 Features Horizontal Bar -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-6 border-t border-zinc-100">
+              {[
+                { title: "Interactive", desc: "Fun-driven workouts", icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2H5z" />` },
+                { title: "Engaging", desc: "Challenges that motivate", icon: `<circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5" /><circle cx="12" cy="12" r="1" />` },
+                { title: "Active", desc: "Burn calories while you play", icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />` },
+                { title: "All for Everyone", desc: "Suitable for all fitness levels", icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />` }
+              ].map((item) => (
+                <div class="flex flex-col items-start">
+                  <div class="h-8 w-8 rounded-full bg-brand-mint/10 flex items-center justify-center mb-2 text-brand-mint shrink-0">
+                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" set:html={item.icon}></svg>
+                  </div>
+                  <h4 class="font-display font-bold text-xs text-brand-black leading-tight">{item.title}</h4>
+                  <p class="text-[10px] font-medium text-zinc-400 leading-tight mt-0.5">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Right Gameplay Image Placeholder (5 cols) -->
+          <div class="lg:col-span-5 relative rounded-2xl bg-zinc-100 border border-zinc-200/60 overflow-hidden aspect-[4/3] sm:aspect-[16/10] lg:aspect-square flex flex-col items-center justify-center text-zinc-400 group">
+            <!-- Overlay gradient & placeholder tag -->
+            <div class="flex flex-col items-center gap-2 p-6 text-center">
+              <div class="h-12 w-12 rounded-full bg-white/80 backdrop-blur border border-zinc-200 flex items-center justify-center shadow-xs">
+                <svg class="h-6 w-6 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <span class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-500">Gameplay Photo Placeholder</span>
+              <span class="text-[10px] font-mono text-zinc-400">Motion Gaming Gameplay Photo</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bottom Row: 9 Motion Games Grid Strip -->
+        <div class="mt-10 pt-8 border-t border-zinc-100 bg-zinc-50/70 -mx-6 -mb-6 sm:-mx-10 sm:-mb-10 p-6 sm:p-8 rounded-b-3xl">
+          <div class="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-9 gap-3 text-center">
+            {[
+              { name: "Space Dodger", desc: "Dodge obstacles, move smarter.", gradient: "from-blue-600 via-indigo-600 to-emerald-500", icon: "🚀" },
+              { name: "Target Smash", desc: "Hit targets, score higher.", gradient: "from-emerald-500 via-teal-600 to-cyan-600", icon: "🎯" },
+              { name: "Fruit Slice", desc: "Slice fast, stay sharp.", gradient: "from-purple-600 via-pink-500 to-amber-500", icon: "🍉" },
+              { name: "Speed Run", desc: "Run faster, beat your best.", gradient: "from-cyan-500 via-blue-600 to-indigo-600", icon: "🏃" },
+              { name: "Memory Tiles", desc: "Remember moves, win round.", gradient: "from-purple-700 via-indigo-600 to-pink-500", icon: "🧩" },
+              { name: "Road Challenge", desc: "Stay in lane, go further.", gradient: "from-slate-800 via-blue-900 to-cyan-700", icon: "🏎️" },
+              { name: "Balloon Pop", desc: "Pop high, score big.", gradient: "from-sky-400 via-blue-500 to-rose-500", icon: "🎈" },
+              { name: "Core Defender", desc: "Protect core, stay strong.", gradient: "from-blue-700 via-indigo-800 to-cyan-500", icon: "🛡️" },
+              { name: "Zen Flow", desc: "Breathe, move, find flow.", gradient: "from-amber-600 via-orange-500 to-purple-700", icon: "🧘" }
+            ].map((game) => (
+              <div class="flex flex-col items-center group cursor-pointer p-2 rounded-2xl hover:bg-white transition-all duration-200 hover:shadow-xs">
+                <!-- App Icon -->
+                <div class={`h-14 w-14 rounded-2xl bg-gradient-to-br ${game.gradient} flex items-center justify-center text-xl shadow-sm mb-2 group-hover:scale-105 transition-transform duration-300 border border-white/20`}>
+                  <span>{game.icon}</span>
+                </div>
+                <!-- Title & Desc -->
+                <h4 class="font-display font-bold text-[11px] text-brand-black leading-tight group-hover:text-brand-mint transition-colors">
+                  {game.name}
+                </h4>
+                <p class="text-[8.5px] font-medium text-zinc-400 leading-tight mt-1 hidden sm:block">
+                  {game.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── CONNECTED APP DOWNLOAD SECTION: Your Fitness, Connected ─── -->
+  <section
+    class="relative w-full overflow-hidden bg-[#ebebeb] border-b border-zinc-200/80"
+    aria-labelledby="s1-app-heading"
+    style="min-height: 320px;"
+  >
+    <!-- Background: Group 44 (Z lettermark bg) full bleed -->
+    <img src="/assets/REVAMPED/revamp%20website_/home%20page/assets/Group%2044.webp"
+      alt=""
+      aria-hidden="true"
+      class="absolute inset-0 w-full h-full object-cover object-right pointer-events-none select-none"
+      loading="lazy" decoding="async" />
+
+    <!-- Layout: left copy | right phone bleeds to edge -->
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 flex items-center min-h-[320px] w-full">
+      <!-- Left: Copy + badges — constrained to left half -->
+      <div class="w-full lg:w-1/2 flex flex-col gap-5 py-10 sm:py-12 lg:pr-12">
+        <div>
+          <h2
+            id="s1-app-heading"
+            class="font-display text-2xl sm:text-3xl lg:text-4xl font-black text-brand-black tracking-tight mb-2 leading-tight uppercase"
+          >
+            Your Fitness, Connected &mdash; Anytime, Anywhere
+          </h2>
+          <p class="text-xs sm:text-sm text-zinc-500 font-semibold leading-relaxed">
+            Sync data, track performance, and share your journey with family &amp;&nbsp;friends.
+          </p>
+        </div>
+
+        <!-- Store badges -->
+        <div class="flex flex-wrap gap-3">
+          <!-- App Store Badge -->
+          <a
+            href="https://apps.apple.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2.5 rounded-xl bg-black border border-zinc-700/80 px-4 hover:bg-neutral-900 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint w-[145px] sm:w-[165px] h-[46px] justify-center shrink-0 shadow-md"
+          >
+            <svg
+              class="h-5.5 w-auto text-white fill-current shrink-0"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.22.67-2.94 1.5-.62.71-1.16 1.85-1.01 2.96 1.12.09 2.27-.57 2.96-1.4z"
+              ></path>
+            </svg>
+            <div class="text-left flex flex-col justify-center min-w-0">
+              <span class="text-[8px] text-zinc-300 font-normal leading-none tracking-wide whitespace-nowrap">Download on the</span>
+              <span class="text-white text-[12px] sm:text-[14px] font-semibold leading-none mt-0.5 font-display whitespace-nowrap">App Store</span>
+            </div>
+          </a>
+
+          <!-- Google Play Badge -->
+          <a
+            href="https://play.google.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2.5 rounded-xl bg-black border border-zinc-700/80 px-4 hover:bg-neutral-900 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint w-[145px] sm:w-[165px] h-[46px] justify-center shrink-0 shadow-md"
+          >
+            <svg
+              class="h-5 w-auto shrink-0"
+              viewBox="0 0 256 256"
+              aria-hidden="true"
+            >
+              <path
+                d="M12.6,8.1c-0.6,0.6-1,1.6-1,2.8v234.3c0,1.2,0.4,2.2,1,2.8l0.7,0.7L144.3,128v-1.9L13.3,7.4L12.6,8.1z"
+                fill="#00E5FF"></path>
+              <path
+                d="M187.9,171.7l-43.6-43.7v-1.9l43.6-43.7l0.8,0.5l51.6,29.3c14.8,8.4,14.8,22.1,0,30.5L188.7,171.2L187.9,171.7z"
+                fill="#FFD600"></path>
+              <path
+                d="M145,126.1l-132.4-118c0.8-0.8,2.2-0.9,3.8,0l171.5,97.5l-42.9,20.5"
+                fill="#4CAF50"></path>
+              <path
+                d="M145,129.9l42.9,20.5L16.4,247.9c-1.6,0.9-3,0.8-3.8,0L145,129.9z"
+                fill="#FF3D00"></path>
+            </svg>
+            <div class="text-left flex flex-col justify-center min-w-0">
+              <span class="text-[8px] text-zinc-300 font-normal leading-none tracking-wide uppercase whitespace-nowrap">Get it on</span>
+              <span class="text-white text-[12px] sm:text-[14px] font-semibold leading-none mt-0.5 font-display whitespace-nowrap">Google Play</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Phone bleeds to edge of section -->
+      <div class="hidden lg:flex lg:w-1/2 items-end justify-end h-full absolute right-4 sm:right-6 lg:right-8 bottom-0 top-0 pointer-events-none">
+        <img src="/assets/REVAMPED/revamp%20website_/home%20page/assets/Phone.webp"
+          alt="ZYLO AI mobile app — Data Charts and Workout Data screens on two phones"
+          class="h-[92%] w-auto object-contain object-bottom"
+          loading="lazy" decoding="async" />
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+  <section class="bg-white py-12 lg:py-[80px]">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display font-extrabold text-2xl text-brand-black uppercase tracking-tight mb-8 text-center">Technical Specifications</h2>
+      
+      <div class="border border-brand-midGray/60 rounded-3xl overflow-hidden divide-y divide-brand-midGray/40 text-xs font-semibold bg-white">
+        {[
+          { label: "Digital Resistance", val: "Up to 200 lbs precision weight digital resistance" },
+          { label: "Machine Replacement", val: "Replaces over 23 traditional gym machines" },
+          { label: "Arm Angles", val: "185-angle multi-directional adjustable dual arms" },
+          { label: "Footprint", val: "Foldable compact 3.2 sq. ft. floor space" },
+          { label: "Motion Tracking", val: "42-point computer vision real-time rep & form tracking" },
+          { label: "Resistance Modes", val: "Standard, Eccentric, Concentric, Elastic, Rowing" },
+          { label: "Included Attachments", val: "Utility bench, barbell bar, smart handles, ankle straps" },
+          { label: "Subscription Fee", val: "Zero subscription fees for lifetime software access" }
+        ].map((row, idx) => (
+          <div class={`grid grid-cols-1 sm:grid-cols-3 p-4 sm:p-5 ${idx % 2 === 0 ? "bg-white" : "bg-brand-lightGray/50"}`}>
+            <span class="text-zinc-400 font-bold uppercase tracking-wider text-[10px]">{row.label}</span>
+            <span class="sm:col-span-2 text-brand-black mt-1 sm:mt-0 font-bold">{row.val}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      const mainImg = (document.getElementById("s1-main-image") || document.getElementById("s1-main-gallery-img")) as HTMLImageElement;
+      const thumbs = document.querySelectorAll("[data-gallery-thumb]");
+
+      if (mainImg && thumbs.length > 0) {
+        thumbs.forEach((thumb) => {
+          thumb.addEventListener("click", () => {
+            const newSrc = thumb.getAttribute("data-img-src");
+            if (newSrc) {
+              mainImg.style.opacity = "0.3";
+              setTimeout(() => {
+                mainImg.src = newSrc;
+                mainImg.style.opacity = "1";
+              }, 100);
+
+              thumbs.forEach((t) => {
+                t.classList.remove("border-brand-mint", "ring-2", "ring-brand-mint/20");
+                t.classList.add("border-zinc-200");
+              });
+              thumb.classList.remove("border-zinc-200");
+              thumb.classList.add("border-brand-mint", "ring-2", "ring-brand-mint/20");
+            }
+          });
+        });
+      }
+    })();
+  </script>
+</Layout>

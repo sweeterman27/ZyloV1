@@ -1,0 +1,1175 @@
+---
+const rawPath = Astro.url.pathname;
+// Normalize: remove trailing slash except for root "/"
+const currentPath = rawPath === "/" ? "/" : rawPath.replace(/\/$/, "");
+---
+
+<header
+  id="site-header"
+  class="fixed top-0 left-0 right-0 z-[9999] w-full border-b border-brand-midGray/60 bg-white/90 backdrop-blur-md transition-all duration-300 ease-out transform"
+>
+  <div
+    class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 w-full"
+  >
+    <!-- Brand Logo (Left) -->
+    <div class="flex flex-shrink-0 items-center">
+      <a
+        href="/"
+        class="flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint focus-visible:ring-offset-2 rounded"
+        aria-label="ZYLO AI Home"
+      >
+        <img src="/assets/REVAMPED/revamp website_/home page/assets/ZYLO AI logo no sub.webp"
+          alt="ZYLO AI Logo"
+          class="h-6 w-auto object-contain"
+          loading="eager"
+        decoding="async" />
+      </a>
+    </div>
+
+    <!-- Navigation Links (Center) -->
+    <nav
+      class="hidden md:flex items-center space-x-1 lg:space-x-3"
+      aria-label="Main Navigation"
+    >
+      <!-- Home Link -->
+      <div class="relative flex flex-col items-center">
+        <a
+          href="/"
+          class={`px-3 py-2 text-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint ${
+            currentPath === "/"
+              ? "font-bold text-brand-black"
+              : "font-semibold text-zinc-600 hover:text-brand-black"
+          }`}
+          aria-current={currentPath === "/" ? "page" : undefined}
+        >
+          Home
+        </a>
+        {
+          currentPath === "/" && (
+            <span class="absolute bottom-0 left-3 right-3 h-[3px] bg-brand-mint rounded-full" />
+          )
+        }
+      </div>
+
+      <!-- Product Link -->
+      <div class="relative flex flex-col items-center">
+        <a
+          href="/products"
+          class={`px-3 py-2 text-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint ${
+            currentPath.startsWith("/products") || currentPath.startsWith("/zylo-")
+              ? "font-bold text-brand-black"
+              : "font-semibold text-zinc-600 hover:text-brand-black"
+          }`}
+          aria-current={currentPath.startsWith("/products") ? "page" : undefined}
+        >
+          Product
+        </a>
+        {
+          (currentPath.startsWith("/products") || currentPath.startsWith("/zylo-")) && (
+            <span class="absolute bottom-0 left-3 right-3 h-[3px] bg-brand-mint rounded-full" />
+          )
+        }
+      </div>
+
+      <!-- AI Technology Link -->
+      <div class="relative flex flex-col items-center">
+        <a
+          href="/ai-technology"
+          class={`px-3 py-2 text-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint ${
+            currentPath === "/ai-technology"
+              ? "font-bold text-brand-black"
+              : "font-semibold text-zinc-600 hover:text-brand-black"
+          }`}
+          aria-current={currentPath === "/ai-technology" ? "page" : undefined}
+        >
+          AI Technology
+        </a>
+        {
+          currentPath === "/ai-technology" && (
+            <span class="absolute bottom-0 left-3 right-3 h-[3px] bg-brand-mint rounded-full" />
+          )
+        }
+      </div>
+
+      <!-- About Us Link -->
+      <div class="relative flex flex-col items-center">
+        <a
+          href="/about"
+          class={`px-3 py-2 text-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint ${
+            currentPath === "/about"
+              ? "font-bold text-brand-black"
+              : "font-semibold text-zinc-600 hover:text-brand-black"
+          }`}
+          aria-current={currentPath === "/about" ? "page" : undefined}
+        >
+          About Us
+        </a>
+        {
+          currentPath === "/about" && (
+            <span class="absolute bottom-0 left-3 right-3 h-[3px] bg-brand-mint rounded-full" />
+          )
+        }
+      </div>
+
+      <!-- Blog Link -->
+      <div class="relative flex flex-col items-center">
+        <a
+          href="/blog"
+          class={`px-3 py-2 text-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint ${
+            currentPath.startsWith("/blog")
+              ? "font-bold text-brand-black"
+              : "font-semibold text-zinc-600 hover:text-brand-black"
+          }`}
+          aria-current={currentPath.startsWith("/blog") ? "page" : undefined}
+        >
+          Blog
+        </a>
+        {
+          currentPath.startsWith("/blog") && (
+            <span class="absolute bottom-0 left-3 right-3 h-[3px] bg-brand-mint rounded-full" />
+          )
+        }
+      </div>
+
+      <!-- Gallery Link -->
+      <div class="relative flex flex-col items-center">
+        <a
+          href="/gallery"
+          class={`px-3 py-2 text-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint ${
+            currentPath === "/gallery"
+              ? "font-bold text-brand-black"
+              : "font-semibold text-zinc-600 hover:text-brand-black"
+          }`}
+          aria-current={currentPath === "/gallery" ? "page" : undefined}
+        >
+          Gallery
+        </a>
+        {
+          currentPath === "/gallery" && (
+            <span class="absolute bottom-0 left-3 right-3 h-[3px] bg-brand-mint rounded-full" />
+          )
+        }
+      </div>
+    </nav>
+
+    <!-- Utilities & CTA (Right) -->
+    <div class="flex items-center gap-3">
+      <!-- Icon-only Utility Links -->
+      <div class="hidden lg:flex items-center gap-1">
+        <!-- Search Trigger -->
+        <button
+          type="button"
+          class="flex h-9 w-9 items-center justify-center rounded-full text-zinc-600 hover:text-brand-black hover:bg-zinc-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint transition-colors"
+          aria-label="Search site"
+          title="Search"
+        >
+          <svg
+            class="h-4.5 w-4.5 shrink-0"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </button>
+
+        <!-- User Account Trigger Button -->
+        <button
+          type="button"
+          class="account-modal-trigger flex h-9 w-9 items-center justify-center rounded-full text-zinc-600 hover:text-brand-black hover:bg-zinc-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint transition-colors cursor-pointer"
+          aria-label="User Account"
+          title="Account"
+        >
+          <svg
+            class="h-4.5 w-4.5 shrink-0"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+            ></path>
+          </svg>
+        </button>
+
+        <!-- Cart Trigger Button -->
+        <button
+          type="button"
+          class="cart-empty-trigger flex h-9 w-9 items-center justify-center rounded-full text-zinc-600 hover:text-brand-black hover:bg-zinc-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint transition-colors relative cursor-pointer"
+          aria-label="Shopping Cart"
+          title="Cart"
+        >
+          <svg
+            class="h-4.5 w-4.5 shrink-0"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Primary CTA: Visit Showroom (Desktop) -->
+      <button
+        type="button"
+        class="demo-modal-trigger hidden sm:inline-flex btn-spring items-center justify-center gap-2 rounded-xl bg-brand-black px-4 py-2.5 text-xs font-bold text-white hover:bg-neutral-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint focus-visible:ring-offset-2 shrink-0 cursor-pointer"
+      >
+        <span class="relative flex h-2 w-2 shrink-0">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+        </span>
+        <span>Visit Showroom</span>
+      </button>
+
+      <!-- Mobile Hamburger Button (Touch Target ≥44px) -->
+      <button
+        type="button"
+        id="mobile-menu-button"
+        class="md:hidden flex h-11 w-11 items-center justify-center rounded-xl border border-zinc-200 bg-zinc-50 text-brand-black hover:bg-zinc-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint transition-all shrink-0 ml-1"
+        aria-expanded="false"
+        aria-controls="mobile-menu-drawer"
+        aria-label="Toggle Navigation Menu"
+      >
+        <svg
+          class="h-5 w-5 stroke-current"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2.2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Backdrop Scrim (Fixed to Viewport, Z-Index 9998) -->
+<div
+  id="mobile-backdrop"
+  class="fixed inset-0 bg-brand-black/60 backdrop-blur-sm z-[9998] opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
+></div>
+
+<!-- Mobile Side-Over Drawer Panel (Fixed to Viewport, Z-Index 9999) -->
+<div
+  id="mobile-menu-drawer"
+  class="fixed inset-y-0 left-0 w-[85%] max-w-sm bg-white z-[9999] -translate-x-full transition-transform duration-300 ease-out shadow-2xl flex flex-col justify-between p-6 sm:p-8 md:hidden overflow-y-auto"
+>
+  <!-- Drawer Header: Brand Logo + Close Button -->
+  <div>
+    <div class="flex items-center justify-between pb-6 border-b border-zinc-100">
+      <a href="/" class="flex items-center">
+        <img src="/assets/REVAMPED/revamp website_/home page/assets/ZYLO AI logo no sub.webp"
+          alt="ZYLO AI Logo"
+          class="h-6 w-auto object-contain"
+        decoding="async" loading="lazy" />
+      </a>
+      <button
+        type="button"
+        id="mobile-close-button"
+        class="flex h-10 w-10 items-center justify-center rounded-xl border border-zinc-200 bg-zinc-50 text-brand-black hover:bg-zinc-100 transition-colors"
+        aria-label="Close Menu"
+      >
+        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Navigation Links List (Sleek Professional Active Pill + Mint Dot Indicator) -->
+    <nav class="mt-8 flex flex-col gap-2">
+      {[
+        { href: "/", label: "Home", active: currentPath === "/" },
+        { href: "/products", label: "Products", active: currentPath.startsWith("/products") || currentPath.startsWith("/zylo-") },
+        { href: "/ai-technology", label: "AI Technology", active: currentPath === "/ai-technology" },
+        { href: "/about", label: "About Us", active: currentPath === "/about" },
+        { href: "/blog", label: "Blog", active: currentPath.startsWith("/blog") },
+        { href: "/gallery", label: "Gallery", active: currentPath === "/gallery" }
+      ].map((link) => (
+        <a
+          href={link.href}
+          class={`flex items-center justify-between rounded-xl px-4 py-3.5 text-base transition-all duration-200 ${
+            link.active
+              ? "bg-brand-black text-white font-bold shadow-sm"
+              : "text-zinc-600 font-semibold hover:bg-zinc-100/80 hover:text-brand-black"
+          }`}
+        >
+          <div class="flex items-center gap-2.5">
+            {link.active && (
+              <span class="h-2 w-2 rounded-full bg-brand-mint shadow-[0_0_8px_#30c18a] shrink-0" />
+            )}
+            <span>{link.label}</span>
+          </div>
+          <svg
+            class={`h-4 w-4 transition-transform ${link.active ? "text-brand-mint translate-x-0.5" : "text-zinc-400"}`}
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2.2"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      ))}
+    </nav>
+  </div>
+
+  <!-- Drawer Footer Actions -->
+  <div class="mt-8 pt-6 border-t border-zinc-100 flex flex-col gap-4">
+    <button
+      type="button"
+      class="demo-modal-trigger flex w-full items-center justify-center gap-2 rounded-2xl bg-brand-black py-3.5 text-sm font-bold text-white hover:bg-neutral-800 transition-colors shadow-md cursor-pointer"
+    >
+      <span class="relative flex h-2 w-2 shrink-0">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+      </span>
+      <span>Visit Showroom</span>
+    </button>
+
+    <!-- Quick Contact Info & Secondary Actions -->
+    <div class="grid grid-cols-2 gap-2 pt-1">
+      <button
+        type="button"
+        class="account-modal-trigger flex items-center justify-center gap-2 rounded-xl border border-zinc-200 bg-zinc-50 py-3 text-xs font-bold text-zinc-700 hover:bg-zinc-100 transition-colors cursor-pointer"
+      >
+        <svg class="h-4 w-4 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+        </svg>
+        <span>Account</span>
+      </button>
+      <button
+        type="button"
+        class="cart-empty-trigger flex items-center justify-center gap-2 rounded-xl border border-zinc-200 bg-zinc-50 py-3 text-xs font-bold text-zinc-700 hover:bg-zinc-100 transition-colors cursor-pointer"
+      >
+        <svg class="h-4 w-4 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+        </svg>
+        <span>Cart</span>
+      </button>
+    </div>
+
+    <div class="flex items-center justify-center gap-2 text-xs font-semibold text-zinc-400 pt-1">
+      <span class="inline-block h-2 w-2 rounded-full bg-emerald-400"></span>
+      <span>ZYLO AI Showroom • Manila</span>
+    </div>
+  </div>
+</div>
+
+<!-- ZYLO AI Order Modal Overlay (Concept Inspired by Reference Order Form) -->
+<div
+  id="order-modal"
+  class="fixed inset-0 z-[10000] flex items-center justify-center bg-zinc-950/60 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300 p-4 overflow-y-auto"
+  role="dialog"
+  aria-modal="true"
+>
+  <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative my-8 transform transition-all duration-300 scale-95 border border-zinc-200/80 text-left">
+    <!-- Close Button -->
+    <button
+      type="button"
+      id="order-modal-close"
+      class="absolute top-5 right-5 text-zinc-400 hover:text-brand-black transition-colors focus:outline-none p-2 rounded-xl hover:bg-zinc-100 cursor-pointer"
+      aria-label="Close order form"
+    >
+      <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <!-- Modal Title -->
+    <div class="mb-5 pr-8">
+      <span class="text-[11px] font-mono font-bold uppercase tracking-widest text-brand-mint block mb-1">
+        Place Your Order
+      </span>
+      <h2 class="font-display font-extrabold text-xl sm:text-2xl text-brand-black tracking-tight" id="modal-order-product-title">
+        ZYLO K1 AI Smart Home Gym
+      </h2>
+    </div>
+
+    <!-- Form & Calculator -->
+    <form id="modal-order-form" class="space-y-4">
+      
+      <!-- Item Summary Box -->
+      <div class="bg-zinc-50 border border-zinc-200/80 rounded-2xl p-4 sm:p-5 space-y-3">
+        
+
+
+        <div class="space-y-1.5 text-xs pt-1">
+          <div class="flex justify-between items-center text-zinc-600 font-medium">
+            <span>Configuration</span>
+            <span id="modal-summary-config" class="font-bold text-brand-black">Compact AI Foldable</span>
+          </div>
+
+          <div class="flex justify-between items-center text-zinc-600 font-medium">
+            <span>Unit Price</span>
+            <span id="modal-summary-unit-price" class="font-bold text-brand-black">₱188,000</span>
+          </div>
+
+          <div class="flex justify-between items-center pt-1">
+            <span class="text-zinc-600 font-medium">Quantity</span>
+            <div class="flex items-center gap-3 bg-white border border-zinc-200 rounded-lg px-2 py-0.5">
+              <button type="button" id="modal-qty-minus" class="w-5 h-5 rounded flex items-center justify-center text-zinc-500 hover:bg-zinc-100 font-bold cursor-pointer">-</button>
+              <span id="modal-qty-val" class="font-bold text-brand-black text-xs w-4 text-center">1</span>
+              <button type="button" id="modal-qty-plus" class="w-5 h-5 rounded flex items-center justify-center text-zinc-500 hover:bg-zinc-100 font-bold cursor-pointer">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-zinc-200/80 pt-2.5 flex justify-between items-center">
+          <span class="font-display font-extrabold text-xs text-brand-black">Total</span>
+          <span id="modal-order-total" class="font-display font-extrabold text-base text-brand-black">₱188,000</span>
+        </div>
+
+        <!-- Free Gifts Included -->
+        <div class="mt-2.5 pt-2 border-t border-dashed border-zinc-200 space-y-1">
+          <div class="flex items-center gap-1.5 text-[11px] font-bold text-brand-black">
+            <svg class="w-3.5 h-3.5 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V6a2 2 0 10-2 2h2zm0 13C10.832 21 2 20 2 14.5 2 9 12 3 12 3s10 6 10 11.5C22 20 13.168 21 12 21z" />
+            </svg>
+            <span>Included Accessories (Free)</span>
+          </div>
+          <div id="modal-free-gifts-list" class="space-y-1 max-h-36 overflow-y-auto pr-1">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Customer Inputs -->
+      <div class="space-y-2.5">
+        <div>
+          <input
+            type="text"
+            id="modal-order-name"
+            required
+            placeholder="Full Name *"
+            class="w-full rounded-xl border border-zinc-200 px-3.5 py-2.5 text-xs text-brand-black placeholder-zinc-400 focus:border-brand-black focus:outline-none transition-colors"
+          />
+        </div>
+
+        <div class="grid grid-cols-2 gap-2.5">
+          <input
+            type="email"
+            id="modal-order-email"
+            required
+            placeholder="Email Address *"
+            class="w-full rounded-xl border border-zinc-200 px-3.5 py-2.5 text-xs text-brand-black placeholder-zinc-400 focus:border-brand-black focus:outline-none transition-colors"
+          />
+          <input
+            type="tel"
+            id="modal-order-phone"
+            required
+            placeholder="Phone Number *"
+            class="w-full rounded-xl border border-zinc-200 px-3.5 py-2.5 text-xs text-brand-black placeholder-zinc-400 focus:border-brand-black focus:outline-none transition-colors"
+          />
+        </div>
+
+        <div>
+          <textarea
+            id="modal-order-address"
+            rows="2"
+            required
+            placeholder="Delivery Address *"
+            class="w-full rounded-xl border border-zinc-200 px-3.5 py-2.5 text-xs text-brand-black placeholder-zinc-400 focus:border-brand-black focus:outline-none transition-colors resize-none"
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- Payment Pills -->
+      <div>
+        <label class="block text-[10px] font-bold text-zinc-700 uppercase tracking-wider mb-1">
+          Preferred Payment
+        </label>
+        <div class="grid grid-cols-2 gap-1.5">
+          <button type="button" data-payment="cod" class="modal-pay-pill active border-2 border-brand-black bg-brand-black/5 text-brand-black rounded-xl py-2 px-2.5 text-[10px] font-bold text-center cursor-pointer">Cash on Delivery</button>
+          <button type="button" data-payment="bank" class="modal-pay-pill border border-zinc-200 bg-white text-zinc-600 rounded-xl py-2 px-2.5 text-[10px] font-bold text-center cursor-pointer">Bank Transfer</button>
+          <button type="button" data-payment="gcash" class="modal-pay-pill border border-zinc-200 bg-white text-zinc-600 rounded-xl py-2 px-2.5 text-[10px] font-bold text-center cursor-pointer">GCash</button>
+          <button type="button" data-payment="card" class="modal-pay-pill border border-zinc-200 bg-white text-zinc-600 rounded-xl py-2 px-2.5 text-[10px] font-bold text-center cursor-pointer">Card / Installment</button>
+        </div>
+      </div>
+
+      <!-- Submit CTA -->
+      <button
+        type="submit"
+        class="btn-spring w-full flex items-center justify-center gap-2 rounded-xl bg-brand-black py-3.5 text-xs font-bold uppercase tracking-widest text-white hover:bg-neutral-800 shadow-sm cursor-pointer mt-3"
+      >
+        <span id="modal-submit-btn-text">Complete Order (₱188,000)</span>
+        <svg class="h-3.5 w-3.5 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+      </button>
+
+    </form>
+
+    <!-- Modal Success Screen -->
+    <div id="modal-order-success" class="hidden text-center py-6 space-y-4">
+      <div class="w-14 h-14 rounded-full bg-brand-mint/10 border border-brand-mint/30 flex items-center justify-center mx-auto text-brand-mint">
+        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+      </div>
+      <div>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-[10px] font-bold text-emerald-700 mb-2">Order Confirmed #ZYLO-89241</span>
+        <h3 class="font-display font-extrabold text-xl text-brand-black mb-1">Thank you for your order!</h3>
+        <p class="text-xs font-medium text-zinc-500 max-w-xs mx-auto">Our luxury concierge team will reach out to you within 15 minutes to confirm delivery scheduling.</p>
+      </div>
+      <button type="button" id="modal-success-done-btn" class="btn-spring inline-flex items-center justify-center gap-2 rounded-xl bg-brand-black px-6 py-2.5 text-xs font-bold uppercase tracking-widest text-white hover:bg-neutral-800 cursor-pointer">Done</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- Book a Demo Modal Overlay -->
+<div
+  id="demo-modal"
+  class="fixed inset-0 z-[10000] flex items-center justify-center bg-zinc-950/60 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300 p-3 sm:p-4 overflow-y-auto"
+  role="dialog"
+  aria-modal="true"
+>
+  <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative transform transition-all duration-300 scale-95 border border-zinc-200/80 my-auto max-h-[90vh] overflow-y-auto">
+    
+    <!-- Close Button -->
+    <button
+      type="button"
+      id="demo-modal-close"
+      class="absolute top-5 right-5 text-zinc-400 hover:text-brand-black transition-colors focus:outline-none p-2 rounded-xl hover:bg-zinc-100 cursor-pointer z-10"
+      aria-label="Close demo booking modal"
+    >
+      <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <!-- Modal Header -->
+    <div class="mb-5 pr-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-mint/10 border border-brand-mint/30 text-[10px] font-mono text-brand-mint font-bold uppercase tracking-widest mb-3">
+        <span class="h-2 w-2 rounded-full bg-brand-mint animate-pulse"></span>
+        VIP Demonstration
+      </div>
+      <h2 class="font-display font-extrabold text-xl sm:text-2xl text-brand-black tracking-tight mb-1">
+        Book a Free AI Gym Demo
+      </h2>
+      <p class="text-xs text-zinc-500 font-medium leading-relaxed">
+        Experience real-time posture scanning, form coaching & digital resistance in person or via live video call.
+      </p>
+    </div>
+
+    <!-- Booking Form -->
+    <form id="modal-demo-form" class="space-y-4">
+      <div class="space-y-3">
+        <!-- Name -->
+        <div>
+          <label for="demo-name" class="block text-[11px] font-bold text-zinc-700 uppercase tracking-wider mb-1">Full Name *</label>
+          <input
+            type="text"
+            id="demo-name"
+            name="name"
+            required
+            placeholder="e.g. Maria Santos"
+            class="w-full rounded-xl border border-zinc-200 px-3.5 py-2.5 text-xs text-brand-black placeholder-zinc-400 focus:border-brand-black focus:ring-1 focus:ring-brand-black focus:outline-none transition-colors"
+          />
+        </div>
+
+        <!-- Phone & Email Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label for="demo-phone" class="block text-[11px] font-bold text-zinc-700 uppercase tracking-wider mb-1">Phone / Mobile *</label>
+            <input
+              type="tel"
+              id="demo-phone"
+              name="phone"
+              required
+              placeholder="0917 123 4567"
+              class="w-full rounded-xl border border-zinc-200 px-3.5 py-2.5 text-xs text-brand-black placeholder-zinc-400 focus:border-brand-black focus:ring-1 focus:ring-brand-black focus:outline-none transition-colors"
+            />
+          </div>
+
+          <div>
+            <label for="demo-email" class="block text-[11px] font-bold text-zinc-700 uppercase tracking-wider mb-1">Email Address *</label>
+            <input
+              type="email"
+              id="demo-email"
+              name="email"
+              required
+              placeholder="maria@example.com"
+              class="w-full rounded-xl border border-zinc-200 px-3.5 py-2.5 text-xs text-brand-black placeholder-zinc-400 focus:border-brand-black focus:ring-1 focus:ring-brand-black focus:outline-none transition-colors"
+            />
+          </div>
+        </div>
+
+        <!-- Format & Product Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label for="demo-type" class="block text-[11px] font-bold text-zinc-700 uppercase tracking-wider mb-1">Demo Format *</label>
+            <select
+              id="demo-type"
+              name="experience_type"
+              required
+              class="w-full rounded-xl border border-zinc-200 px-3 py-2.5 text-xs text-brand-black bg-white focus:border-brand-black focus:ring-1 focus:ring-brand-black focus:outline-none transition-colors cursor-pointer"
+            >
+              <option value="In-Person Showroom Visit (Manila)">In-Person Showroom Visit (Manila)</option>
+              <option value="Virtual Video Demo (1-on-1)">Virtual Video Demo (1-on-1)</option>
+              <option value="Private Home Consultation">Private Home Consultation</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="demo-product" class="block text-[11px] font-bold text-zinc-700 uppercase tracking-wider mb-1">Model Focus *</label>
+            <select
+              id="demo-product"
+              name="product"
+              required
+              class="w-full rounded-xl border border-zinc-200 px-3 py-2.5 text-xs text-brand-black bg-white focus:border-brand-black focus:ring-1 focus:ring-brand-black focus:outline-none transition-colors cursor-pointer"
+            >
+              <option value="ZYLO K1 AI Smart Home Gym">ZYLO K1 (Compact AI Foldable)</option>
+              <option value="ZYLO S1 Pro Smart Gym">ZYLO S1 Pro (Executive Studio)</option>
+              <option value="Both Models / Compare">Both Models / Compare</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Date & Time Slot Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label for="demo-date" class="block text-[11px] font-bold text-zinc-700 uppercase tracking-wider mb-1">Preferred Date *</label>
+            <input
+              type="date"
+              id="demo-date"
+              name="date"
+              required
+              class="w-full rounded-xl border border-zinc-200 px-3 py-2.5 text-xs text-brand-black bg-white focus:border-brand-black focus:ring-1 focus:ring-brand-black focus:outline-none transition-colors cursor-pointer"
+            />
+          </div>
+
+          <div>
+            <label for="demo-slot" class="block text-[11px] font-bold text-zinc-700 uppercase tracking-wider mb-1">Preferred Time *</label>
+            <select
+              id="demo-slot"
+              name="time_slot"
+              required
+              class="w-full rounded-xl border border-zinc-200 px-3 py-2.5 text-xs text-brand-black bg-white focus:border-brand-black focus:ring-1 focus:ring-brand-black focus:outline-none transition-colors cursor-pointer"
+            >
+              <option value="Morning (9:00 AM - 12:00 PM)">Morning (9:00 AM - 12:00 PM)</option>
+              <option value="Early Afternoon (1:00 PM - 3:00 PM)">Early Afternoon (1:00 PM - 3:00 PM)</option>
+              <option value="Late Afternoon (3:00 PM - 5:00 PM)">Late Afternoon (3:00 PM - 5:00 PM)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Special Requests / Notes -->
+        <div>
+          <label for="demo-notes" class="block text-[11px] font-bold text-zinc-700 uppercase tracking-wider mb-1">Notes / Questions (Optional)</label>
+          <textarea
+            id="demo-notes"
+            name="notes"
+            rows="2"
+            placeholder="Tell us any specific features or goals you'd like to test..."
+            class="w-full rounded-xl border border-zinc-200 px-3.5 py-2 text-xs text-brand-black placeholder-zinc-400 focus:border-brand-black focus:ring-1 focus:ring-brand-black focus:outline-none transition-colors resize-none"
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        id="demo-submit-btn"
+        class="w-full btn-spring flex items-center justify-center gap-2 rounded-xl bg-brand-black py-3.5 text-xs font-bold uppercase tracking-widest text-white hover:bg-neutral-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint shadow-md cursor-pointer transition-all"
+      >
+        <span>Confirm Booking Request</span>
+        <svg class="h-4 w-4 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </button>
+    </form>
+
+    <!-- Success State -->
+    <div id="modal-demo-success" class="hidden text-center py-6 space-y-4">
+      <div class="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-500 flex items-center justify-center mx-auto shadow-sm">
+        <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+      <div>
+        <h3 class="font-display font-extrabold text-2xl text-brand-black tracking-tight mb-1">
+          Demo Session Reserved!
+        </h3>
+        <p class="text-xs text-zinc-500 leading-relaxed max-w-sm mx-auto">
+          Thank you! Our ZYLO AI team will contact you shortly on WhatsApp / Phone to confirm your scheduled slot and provide location directions.
+        </p>
+      </div>
+      <button
+        type="button"
+        id="modal-demo-success-done-btn"
+        class="btn-spring px-6 py-2.5 rounded-xl bg-brand-black text-white text-xs font-bold uppercase tracking-wider hover:bg-neutral-800 cursor-pointer"
+      >
+        Close
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- Empty Cart Modal Overlay -->
+<div
+  id="cart-empty-modal"
+  class="fixed inset-0 z-[10000] flex items-center justify-center bg-zinc-950/60 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300 p-4"
+  role="dialog"
+  aria-modal="true"
+>
+  <div class="bg-white rounded-3xl max-w-sm w-full p-8 shadow-2xl relative text-center transform transition-all duration-300 scale-95 border border-zinc-200/80">
+    <button
+      type="button"
+      id="cart-empty-modal-close"
+      class="absolute top-5 right-5 text-zinc-400 hover:text-brand-black transition-colors focus:outline-none p-2 rounded-xl hover:bg-zinc-100 cursor-pointer"
+      aria-label="Close modal"
+    >
+      <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <!-- Empty Bag Icon -->
+    <div class="w-16 h-16 rounded-2xl bg-zinc-100 border border-zinc-200/80 flex items-center justify-center mx-auto mb-5 shrink-0 shadow-2xs text-zinc-400">
+      <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+      </svg>
+    </div>
+
+    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200 text-[10px] font-mono text-zinc-500 font-bold uppercase tracking-widest mb-3">
+      Shopping Cart (0)
+    </span>
+
+    <h3 class="font-display font-extrabold text-xl text-brand-black tracking-tight leading-tight mb-2">
+      Your cart is empty
+    </h3>
+
+    <p class="text-xs font-medium text-zinc-500 leading-relaxed mb-6">
+      Looks like you haven't added any ZYLO AI products yet. Explore our Smart Home Gym models below to start your order.
+    </p>
+
+    <div class="flex flex-col gap-2">
+      <button
+        type="button"
+        id="cart-empty-order-btn"
+        class="order-modal-trigger btn-spring w-full inline-flex items-center justify-center gap-2 rounded-xl bg-brand-black px-5 py-3.5 text-xs font-bold uppercase tracking-widest text-white hover:bg-neutral-800 shadow-sm cursor-pointer"
+      >
+        <span>Order ZYLO AI Gym</span>
+        <svg class="h-3.5 w-3.5 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </button>
+      
+      <a
+        href="/products"
+        class="text-[11px] font-bold text-zinc-500 hover:text-brand-black py-1 transition-colors"
+      >
+        View All Product Specifications →
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const btn = document.getElementById("mobile-menu-button");
+    const closeBtn = document.getElementById("mobile-close-button");
+    const drawer = document.getElementById("mobile-menu-drawer");
+    const backdrop = document.getElementById("mobile-backdrop");
+    const siteHeader = document.getElementById("site-header");
+
+    const accountModal = document.getElementById("account-modal");
+    const accountModalClose = document.getElementById("account-modal-close");
+    const accountModalContactBtn = document.getElementById("account-modal-contact-btn");
+    const accountTriggers = document.querySelectorAll(".account-modal-trigger");
+
+    const orderModal = document.getElementById("order-modal");
+    const orderModalClose = document.getElementById("order-modal-close");
+    const orderModalForm = document.getElementById("modal-order-form");
+    const orderModalSuccess = document.getElementById("modal-order-success");
+    const orderModalSuccessDone = document.getElementById("modal-success-done-btn");
+    const orderTriggers = document.querySelectorAll(".order-modal-trigger");
+
+    const demoModal = document.getElementById("demo-modal");
+    const demoModalClose = document.getElementById("demo-modal-close");
+    const demoModalForm = document.getElementById("modal-demo-form") as HTMLFormElement | null;
+    const demoModalSuccess = document.getElementById("modal-demo-success");
+    const demoModalSuccessDone = document.getElementById("modal-demo-success-done-btn");
+    const demoTriggers = document.querySelectorAll(".demo-modal-trigger");
+
+    const cartEmptyModal = document.getElementById("cart-empty-modal");
+    const cartEmptyModalClose = document.getElementById("cart-empty-modal-close");
+    const cartEmptyOrderBtn = document.getElementById("cart-empty-order-btn");
+    const cartTriggers = document.querySelectorAll(".cart-empty-trigger");
+
+    if (!btn || !drawer || !backdrop) return;
+
+    function openDrawer() {
+      btn?.setAttribute("aria-expanded", "true");
+      drawer?.classList.remove("-translate-x-full");
+      drawer?.classList.add("translate-x-0");
+      backdrop?.classList.remove("opacity-0", "pointer-events-none");
+      backdrop?.classList.add("opacity-100");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeDrawer() {
+      btn?.setAttribute("aria-expanded", "false");
+      drawer?.classList.remove("translate-x-0");
+      drawer?.classList.add("-translate-x-full");
+      backdrop?.classList.remove("opacity-100");
+      backdrop?.classList.add("opacity-0", "pointer-events-none");
+      document.body.style.overflow = "";
+    }
+
+    function openAccountModal() {
+      if (btn?.getAttribute("aria-expanded") === "true") closeDrawer();
+      accountModal?.classList.remove("opacity-0", "pointer-events-none");
+      accountModal?.classList.add("opacity-100");
+      accountModal?.querySelector(".scale-95")?.classList.remove("scale-95");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeAccountModal() {
+      accountModal?.classList.remove("opacity-100");
+      accountModal?.classList.add("opacity-0", "pointer-events-none");
+      accountModal?.querySelector("div")?.classList.add("scale-95");
+      document.body.style.overflow = "";
+    }
+
+    function openOrderModal(targetProduct?: string | null) {
+      if (btn?.getAttribute("aria-expanded") === "true") closeDrawer();
+
+      // Automatically configure form based on targetProduct or current page URL
+      const currentPath = window.location.pathname.toLowerCase();
+      const isS1 = targetProduct === "s1" || currentPath.includes("zylo-s1") || currentPath.includes("s1");
+
+      const k1Accessories = [
+        "B1 Adjustable Training Bench",
+        "Multi-Function Crossbar",
+        "Smart 8-Electrode Body Composition Scale",
+        "Crossbar Safety Unloader",
+        "Smart Training Grips",
+        "Ankle Straps",
+        "Heart Rate Armband",
+        "Yoga Mat",
+        "Backup Resistance Cords",
+        "Camera Privacy Cover"
+      ];
+      const s1Accessories = [
+        "Pro-Grip Smart Handles (Pair)",
+        "Reinforced Ankle Straps (Pair)",
+        "Smart Barbell (Long Bar)",
+        "Smart Heart Rate Armband",
+        "High-Density Floor Mat",
+        "Instructional Manual & Power Toolkit",
+        "Smart Adjustable Bench"
+      ];
+
+      if (isS1) {
+        mUnitPrice = 248000;
+        if (mProdTitle) mProdTitle.textContent = "ZYLO S1 Pro AI Smart Home Gym";
+        if (mUnitPriceEl) mUnitPriceEl.textContent = fmtPhp(248000);
+        if (mConfigEl) mConfigEl.textContent = "Dual Motor 100kg Digital Resistance";
+      } else {
+        mUnitPrice = 188000;
+        if (mProdTitle) mProdTitle.textContent = "ZYLO K1 AI Smart Home Gym";
+        if (mUnitPriceEl) mUnitPriceEl.textContent = fmtPhp(188000);
+        if (mConfigEl) mConfigEl.textContent = "Compact AI Foldable";
+      }
+
+      const modalGiftsList = document.getElementById("modal-free-gifts-list");
+      const currentGifts = isS1 ? s1Accessories : k1Accessories;
+      if (modalGiftsList) {
+        modalGiftsList.innerHTML = currentGifts.map(item => `
+          <div class="flex justify-between items-center text-[10px] text-zinc-600 pl-4">
+            <span>1× ${item}</span>
+            <span class="font-bold text-brand-mint shrink-0 ml-2">FREE</span>
+          </div>
+        `).join('');
+      }
+
+      calcModal();
+
+      orderModal?.classList.remove("opacity-0", "pointer-events-none");
+      orderModal?.classList.add("opacity-100");
+      orderModal?.querySelector(".scale-95")?.classList.remove("scale-95");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeOrderModal() {
+      orderModal?.classList.remove("opacity-100");
+      orderModal?.classList.add("opacity-0", "pointer-events-none");
+      orderModal?.querySelector("div")?.classList.add("scale-95");
+      document.body.style.overflow = "";
+    }
+
+    function openCartEmptyModal() {
+      if (btn?.getAttribute("aria-expanded") === "true") closeDrawer();
+      cartEmptyModal?.classList.remove("opacity-0", "pointer-events-none");
+      cartEmptyModal?.classList.add("opacity-100");
+      cartEmptyModal?.querySelector(".scale-95")?.classList.remove("scale-95");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeCartEmptyModal() {
+      cartEmptyModal?.classList.remove("opacity-100");
+      cartEmptyModal?.classList.add("opacity-0", "pointer-events-none");
+      cartEmptyModal?.querySelector("div")?.classList.add("scale-95");
+      document.body.style.overflow = "";
+    }
+
+    accountTriggers.forEach((trig) => {
+      trig.addEventListener("click", (e) => {
+        e.preventDefault();
+        openAccountModal();
+      });
+    });
+
+    orderTriggers.forEach((trig) => {
+      trig.addEventListener("click", (e) => {
+        e.preventDefault();
+        const targetProd = trig.getAttribute("data-select-product");
+        openOrderModal(targetProd);
+      });
+    });
+
+    cartTriggers.forEach((trig) => {
+      trig.addEventListener("click", (e) => {
+        e.preventDefault();
+        openCartEmptyModal();
+      });
+    });
+
+    accountModalClose?.addEventListener("click", closeAccountModal);
+    accountModalContactBtn?.addEventListener("click", closeAccountModal);
+    accountModal?.addEventListener("click", (e) => {
+      if (e.target === accountModal) closeAccountModal();
+    });
+
+    orderModalClose?.addEventListener("click", closeOrderModal);
+    orderModalSuccessDone?.addEventListener("click", closeOrderModal);
+    orderModal?.addEventListener("click", (e) => {
+      if (e.target === orderModal) closeOrderModal();
+    });
+
+    cartEmptyModalClose?.addEventListener("click", closeCartEmptyModal);
+    cartEmptyOrderBtn?.addEventListener("click", () => {
+      closeCartEmptyModal();
+      openOrderModal();
+    });
+    cartEmptyModal?.addEventListener("click", (e) => {
+      if (e.target === cartEmptyModal) closeCartEmptyModal();
+    });
+
+    // Modal Interactive Order Calculator Logic
+    let mUnitPrice = 188000;
+    let mQty = 1;
+
+    const mProdBtns = document.querySelectorAll(".modal-prod-btn");
+    const mPayBtns = document.querySelectorAll(".modal-pay-pill");
+    const mQtyMinus = document.getElementById("modal-qty-minus");
+    const mQtyPlus = document.getElementById("modal-qty-plus");
+    const mQtyVal = document.getElementById("modal-qty-val");
+    const mProdTitle = document.getElementById("modal-order-product-title");
+    const mUnitPriceEl = document.getElementById("modal-summary-unit-price");
+    const mConfigEl = document.getElementById("modal-summary-config");
+    const mTotalEl = document.getElementById("modal-order-total");
+    const mSubmitBtnText = document.getElementById("modal-submit-btn-text");
+
+    function fmtPhp(num: number) {
+      return "₱" + num.toLocaleString("en-PH");
+    }
+
+    function calcModal() {
+      const tot = mUnitPrice * mQty;
+      if (mQtyVal) mQtyVal.textContent = mQty.toString();
+      if (mTotalEl) mTotalEl.textContent = fmtPhp(tot);
+      if (mSubmitBtnText) mSubmitBtnText.textContent = `Complete Order (${fmtPhp(tot)})`;
+    }
+
+
+
+    mPayBtns.forEach((b) => {
+      b.addEventListener("click", () => {
+        mPayBtns.forEach((x) => {
+          x.classList.remove("active", "border-2", "border-brand-black", "bg-brand-black/5", "text-brand-black");
+          x.classList.add("border", "border-zinc-200", "bg-white", "text-zinc-600");
+        });
+        b.classList.add("active", "border-2", "border-brand-black", "bg-brand-black/5", "text-brand-black");
+        b.classList.remove("border", "border-zinc-200", "bg-white", "text-zinc-600");
+      });
+    });
+
+    mQtyMinus?.addEventListener("click", () => {
+      if (mQty > 1) {
+        mQty--;
+        calcModal();
+      }
+    });
+
+    mQtyPlus?.addEventListener("click", () => {
+      if (mQty < 10) {
+        mQty++;
+        calcModal();
+      }
+    });
+
+    // Demo Modal handlers
+    function openDemoModal() {
+      if (!demoModal) return;
+      demoModal.classList.remove("opacity-0", "pointer-events-none");
+      demoModal.classList.add("opacity-100", "pointer-events-auto");
+      const card = demoModal.firstElementChild as HTMLElement;
+      if (card) {
+        card.classList.remove("scale-95");
+        card.classList.add("scale-100");
+      }
+    }
+
+    function closeDemoModal() {
+      if (!demoModal) return;
+      demoModal.classList.remove("opacity-100", "pointer-events-auto");
+      demoModal.classList.add("opacity-0", "pointer-events-none");
+      const card = demoModal.firstElementChild as HTMLElement;
+      if (card) {
+        card.classList.remove("scale-100");
+        card.classList.add("scale-95");
+      }
+    }
+
+    demoTriggers.forEach(t => t.addEventListener("click", () => {
+      closeDrawer();
+      openDemoModal();
+    }));
+
+    demoModalClose?.addEventListener("click", closeDemoModal);
+    demoModalSuccessDone?.addEventListener("click", closeDemoModal);
+    demoModal?.addEventListener("click", (e) => {
+      if (e.target === demoModal) closeDemoModal();
+    });
+
+    // Unified Google Sheets Form Dispatcher
+    const ZYLO_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbye6Mci50d-M780n5C1dhMTk1O-n0Mb0CiQ37JAcXOPLA7oChXf51l6aCJBEEgTpROhzQ/exec";
+
+    async function sendToGSheet(payload: Record<string, any>) {
+      const gsheetUrl = (window as any).ZYLO_GSHEET_URL || localStorage.getItem("zylo_gsheet_url") || ZYLO_SCRIPT_URL;
+      if (!gsheetUrl) return;
+
+      try {
+        await fetch(gsheetUrl, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ ...payload, timestamp: new Date().toLocaleString("en-PH", { timeZone: "Asia/Manila" }) })
+        });
+      } catch (err) {
+        console.warn("GSheet submission error:", err);
+      }
+    }
+
+    demoModalForm?.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(demoModalForm);
+      const payload = {
+        form_type: "Demo Booking",
+        name: formData.get("name"),
+        phone: formData.get("phone"),
+        email: formData.get("email"),
+        experience_type: formData.get("experience_type"),
+        product: formData.get("product"),
+        date: formData.get("date"),
+        time_slot: formData.get("time_slot"),
+        notes: formData.get("notes") || "N/A"
+      };
+
+      sendToGSheet(payload);
+
+      if (demoModalForm) demoModalForm.style.display = "none";
+      if (demoModalSuccess) demoModalSuccess.classList.remove("hidden");
+    });
+
+    orderModalForm?.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const nameInput = document.getElementById("modal-order-name") as HTMLInputElement | null;
+      const emailInput = document.getElementById("modal-order-email") as HTMLInputElement | null;
+      const phoneInput = document.getElementById("modal-order-phone") as HTMLInputElement | null;
+
+      sendToGSheet({
+        form_type: "Order Form (Modal)",
+        product: (document.getElementById("modal-order-product-title")?.textContent || "").trim(),
+        name: nameInput?.value || "",
+        email: emailInput?.value || "",
+        phone: phoneInput?.value || "",
+        quantity: mQty,
+        total_price: (document.getElementById("modal-order-total")?.textContent || "").trim()
+      });
+
+      if (orderModalForm) orderModalForm.style.display = "none";
+      if (orderModalSuccess) orderModalSuccess.classList.remove("hidden");
+    });
+
+    btn.addEventListener("click", openDrawer);
+    closeBtn?.addEventListener("click", closeDrawer);
+    backdrop.addEventListener("click", closeDrawer);
+
+    // Close drawer when clicking any link
+    drawer.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeDrawer);
+    });
+
+    // Close on Escape key
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        if (btn.getAttribute("aria-expanded") === "true") closeDrawer();
+        if (accountModal?.classList.contains("opacity-100")) closeAccountModal();
+      }
+    });
+
+    // Bulletproof Smart Reveal Navigation Header
+    let lastScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+
+    function handleHeaderScroll() {
+      const currentScrollY = Math.max(0, window.scrollY || document.documentElement.scrollTop || 0);
+
+      // Do not hide header if mobile drawer menu is currently open
+      if (btn?.getAttribute("aria-expanded") === "true") return;
+
+      // 1. Elevation shadow when scrolled past 10px
+      if (currentScrollY > 10) {
+        siteHeader?.classList.add("shadow-md");
+      } else {
+        siteHeader?.classList.remove("shadow-md");
+      }
+
+      // 2. Always reveal header near top of page
+      if (currentScrollY <= 50) {
+        siteHeader?.classList.remove("-translate-y-full");
+      } else {
+        // 3. Check scroll direction delta
+        const scrollDelta = currentScrollY - lastScrollY;
+
+        if (scrollDelta > 6) {
+          // Scrolling DOWN -> hide header off-screen smoothly
+          siteHeader?.classList.add("-translate-y-full");
+        } else if (scrollDelta < -6) {
+          // Scrolling UP -> reveal header back into view immediately
+          siteHeader?.classList.remove("-translate-y-full");
+        }
+      }
+
+      lastScrollY = currentScrollY;
+    }
+
+    window.addEventListener("scroll", handleHeaderScroll, { passive: true });
+  })();
+</script>

@@ -1,0 +1,68 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const cartSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemPage",
+  "name": "Your Shopping Cart | ZYLO AI",
+  "description": "Your shopping cart is currently empty."
+};
+---
+
+<Layout
+  title="Your Shopping Cart — ZYLO AI"
+  description="Your shopping cart is currently empty. Explore ZYLO K1 and ZYLO S1 Pro AI Smart Home Gyms."
+  canonical="/cart"
+  schema={cartSchema}
+>
+  <main class="min-h-[75vh] flex items-center justify-center py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="max-w-md w-full text-center bg-white border border-zinc-200/80 rounded-3xl p-8 sm:p-12 shadow-md relative overflow-hidden">
+      
+      <!-- Top Glow Accent -->
+      <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-32 h-32 bg-zinc-100 rounded-full blur-2xl pointer-events-none"></div>
+
+      <!-- Empty Cart Bag Icon -->
+      <div class="w-16 h-16 rounded-2xl bg-zinc-100 border border-zinc-200/80 flex items-center justify-center mx-auto mb-6 shrink-0 shadow-2xs text-zinc-400">
+        <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+        </svg>
+      </div>
+
+      <!-- Badge -->
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200 text-[10px] font-mono text-zinc-500 font-bold uppercase tracking-widest mb-4">
+        Shopping Cart (0 Items)
+      </span>
+
+      <!-- Headline -->
+      <h1 class="font-display font-extrabold text-2xl sm:text-3xl text-brand-black tracking-tight leading-tight mb-3">
+        Your cart is empty
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-xs sm:text-sm font-medium text-zinc-500 leading-relaxed mb-8 max-w-sm mx-auto">
+        Looks like you haven't added any ZYLO AI products yet. Explore our Smart Home Gym models below to place your order.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col gap-3">
+        <a
+          href="/products"
+          class="btn-spring w-full inline-flex items-center justify-center gap-2 rounded-xl bg-brand-black px-6 py-3.5 text-xs font-bold uppercase tracking-widest text-white hover:bg-neutral-800 shadow-sm"
+        >
+          <span>Explore Products</span>
+          <svg class="h-4 w-4 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+
+        <a
+          href="/order"
+          class="inline-flex items-center justify-center text-xs font-bold text-zinc-500 hover:text-brand-black transition-colors py-2"
+        >
+          Or Go Direct To Order Form →
+        </a>
+      </div>
+
+    </div>
+  </main>
+</Layout>

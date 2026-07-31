@@ -1,0 +1,483 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const productsSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "ZYLO AI Smart Home Gym Systems",
+  "description": "Explore ZYLO AI intelligent home fitness hardware systems including ZYLO K1 and ZYLO S1.",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "ZYLO K1 AI Smart Home Gym",
+      "url": "https://zylowebsite.pages.dev/products/zylo-k1"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ZYLO S1 AI Smart Home Gym",
+      "url": "https://zylowebsite.pages.dev/products/zylo-s1"
+    }
+  ]
+};
+---
+
+<Layout
+  title="Smart AI Home Gym Products & Systems | ZYLO AI"
+  description="Explore the ZYLO AI smart home gym catalog. Featuring ZYLO K1 and ZYLO S1 with motorized digital resistance and real-time AI form coaching."
+  canonical="/products"
+  schema={productsSchema}
+>
+
+
+  <!-- Products Catalog Main Section -->
+  <section class="bg-white py-12 lg:py-[80px]" aria-label="Products Catalog">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      
+      <!-- ─── 1. UPGRADED ECOSYSTEM HERO HEADER ─── -->
+      <div class="text-center mb-12 max-w-3xl mx-auto">
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-mint/10 border border-brand-mint/30 text-[10px] font-mono text-brand-mint font-bold uppercase tracking-widest mb-4">
+          <span class="h-2 w-2 rounded-full bg-brand-mint"></span>
+          ZYLO AI Hardware Ecosystem
+        </span>
+        <h1 class="font-display font-extrabold text-3xl sm:text-5xl text-brand-black tracking-tight leading-tight uppercase">
+          Intelligent Home Fitness Systems
+        </h1>
+        <p class="text-xs sm:text-sm font-medium text-zinc-500 mt-4 leading-relaxed max-w-xl mx-auto">
+          Engineered with AI coaching, digital motorized resistance, and real-time motion tracking. Designed for peak performance and modern living.
+        </p>
+      </div>
+
+      <!-- ─── 2. INTERACTIVE CATEGORY FILTER BAR ─── -->
+      <div class="flex items-center justify-center gap-1.5 sm:gap-3 mb-8 sm:mb-14 overflow-x-auto pb-2 scrollbar-none px-4 sm:px-0 w-full max-w-full">
+        {[
+          { id: "gyms", label: "Smart Home Gyms" },
+          { id: "accessories", label: "Included Accessories" }
+        ].map((tab, idx) => (
+          <button
+            type="button"
+            data-filter-tab={tab.id}
+            class={`catalog-filter-btn shrink-0 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-[10.5px] sm:text-xs font-bold uppercase tracking-wide sm:tracking-wider transition-all duration-200 cursor-pointer whitespace-nowrap focus:outline-none ${idx === 0 ? "bg-brand-black text-white shadow-sm" : "bg-brand-lightGray text-zinc-600 hover:bg-zinc-200"}`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      <!-- ─── 3. FEATURED HARDWARE SYSTEMS ─── -->
+      <div id="catalog-gyms-container" class="catalog-section transition-all duration-300">
+        
+        <!-- Featured Product 1: K1 Smart Home Gym -->
+        <a 
+          href="/products/zylo-k1"
+          class="block group relative bg-white border border-brand-midGray/60 rounded-3xl overflow-hidden shadow-sm cursor-pointer mb-12 flex flex-col lg:flex-row text-left transition-all duration-300 hover:shadow-xl hover:border-brand-mint"
+        >
+          <!-- Large Preview Visualizer -->
+          <div class="relative lg:w-3/5 aspect-video bg-white border-b lg:border-b-0 lg:border-r border-brand-midGray/60 flex items-center justify-center overflow-hidden select-none">
+            <img src="/assets/products/k1.webp"
+              alt="ZYLO K1 AI Smart Home Gym"
+              class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03] p-4 sm:p-6"
+              loading="lazy" decoding="async" />
+          </div>
+
+          <!-- Featured Card Details -->
+          <div class="p-8 lg:p-10 lg:w-2/5 flex flex-col justify-between relative bg-white">
+            <div>
+              <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-brand-black leading-tight">
+                K1 Smart Home Gym
+              </h2>
+              <p class="text-xs font-bold text-zinc-400 uppercase tracking-widest mt-1">
+                AI-Powered Performance System
+              </p>
+              
+              <div class="mt-5 flex items-baseline gap-3">
+                <span class="text-3xl sm:text-4xl font-black text-brand-black tracking-tight">₱398,000</span>
+                <span class="text-sm text-zinc-400 line-through font-semibold">₱498,000</span>
+              </div>
+
+              <p class="text-xs font-medium text-zinc-500 mt-4 leading-relaxed">
+                The ZYLO AI K1 Smart Home Gym combines AI coaching, real-time form correction, up to 100 kg of digital resistance, and smart progress tracking in one compact, foldable system.
+              </p>
+            </div>
+
+            <!-- Primary Action CTA Button -->
+            <div class="mt-8 flex items-center justify-between border-t border-brand-midGray/40 pt-6">
+              <span class="btn-spring inline-flex items-center justify-center gap-2 rounded-xl bg-brand-black px-6 py-3 text-xs font-bold tracking-widest uppercase text-white group-hover:bg-neutral-800 transition-colors">
+                <span>Explore K1</span>
+                <svg class="h-3.5 w-3.5 text-brand-mint group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </span>
+              <span class="text-[10px] font-bold text-brand-mint uppercase tracking-widest hidden sm:inline">VIEW SPECIFICATIONS →</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Featured Product 2: S1 PRO Home Gym -->
+        <a 
+          href="/products/zylo-s1"
+          class="block group relative bg-white border border-brand-midGray/60 rounded-3xl overflow-hidden shadow-sm cursor-pointer mb-16 flex flex-col lg:flex-row text-left transition-all duration-300 hover:shadow-xl hover:border-brand-mint"
+        >
+          <!-- Large Preview Visualizer -->
+          <div class="relative lg:w-3/5 aspect-video bg-white border-b lg:border-b-0 lg:border-r border-brand-midGray/60 flex items-center justify-center overflow-hidden select-none">
+            <img src="/assets/products/product%20page/S1/photo/3.webp"
+              alt="S1 PRO Home Gym"
+              class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03] p-4 sm:p-6"
+              loading="lazy" decoding="async" />
+          </div>
+
+          <!-- Featured Card Details -->
+          <div class="p-8 lg:p-10 lg:w-2/5 flex flex-col justify-between relative bg-white">
+            <div>
+              <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-brand-black leading-tight">
+                S1 PRO Home Gym
+              </h2>
+              <p class="text-xs font-bold text-zinc-400 uppercase tracking-widest mt-1">
+                Full-Body Fitness Gym System
+              </p>
+              
+              <div class="mt-5 flex items-baseline gap-3">
+                <span class="text-3xl sm:text-4xl font-black text-brand-black tracking-tight">₱249,000</span>
+                <span class="text-sm text-zinc-400 line-through font-semibold">₱299,000</span>
+              </div>
+
+              <p class="text-xs font-medium text-zinc-500 mt-4 leading-relaxed">
+                The ZYLO S1 Pro is a professional-grade, space-efficient smart gym engineered to replace over 23 traditional gym machines by utilizing motorized digital resistance and real-time motion tracking.
+              </p>
+            </div>
+
+            <!-- Primary Action CTA Button -->
+            <div class="mt-8 flex items-center justify-between border-t border-brand-midGray/40 pt-6">
+              <span class="btn-spring inline-flex items-center justify-center gap-2 rounded-xl bg-brand-black px-6 py-3 text-xs font-bold tracking-widest uppercase text-white group-hover:bg-neutral-800 transition-colors">
+                <span>Explore S1</span>
+                <svg class="h-3.5 w-3.5 text-brand-mint group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </span>
+              <span class="text-[10px] font-bold text-brand-mint uppercase tracking-widest hidden sm:inline">VIEW SPECIFICATIONS →</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- ─── 4. ACCESSORY GRID ─── -->
+      <div id="catalog-accessories-container" class="catalog-section transition-all duration-300 hidden">
+        <!-- Accessories Sub-Header -->
+        <div class="text-left mb-8 border-b border-brand-midGray/60 pb-4 flex items-end justify-between">
+          <div>
+            <h3 class="font-display font-bold text-xs sm:text-sm text-zinc-400 uppercase tracking-widest">
+              SYSTEM ACCESSORIES &amp; ADD-ONS
+            </h3>
+            <p class="text-[11px] sm:text-xs text-zinc-500 font-medium mt-1">
+              Click any accessory to view details or add to your inquiry package.
+            </p>
+          </div>
+          <span class="text-xs font-mono font-bold text-zinc-400 uppercase tracking-widest hidden sm:inline">10 Items Available</span>
+        </div>
+
+        <!-- Grid of Accessories (2-Column Grid on Mobile, 5 Columns on Desktop) -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-2.5 sm:gap-5">
+          {[
+            { id: "bench", name: "Fitness Bench", price: "₱48,000", tag: "Bench", desc: "Multi-angle adjustable utility workout bench.", img: "/assets/products/product%20page/S1/accessories/bench.webp" },
+            { id: "grips", name: "Smart Grips", price: "₱12,500", tag: "Grips", desc: "Interactive pair with weight sensing.", img: "/assets/products/product%20page/S1/accessories/grip.webp" },
+            { id: "crossbar", name: "Crossbar", price: "₱12,500", tag: "Barbell", desc: "Long barbell training attachment.", img: "/assets/products/product%20page/S1/accessories/bar.webp" },
+            { id: "scale", name: "Smart 8 Electrode Scale", price: "₱8,000", tag: "Sensors", desc: "Advanced body composition analyzer.", img: "/assets/products/product%20page/S1/accessories/weight.webp" },
+            { id: "mat", name: "Yoga Mat", price: "₱6,000", tag: "Mat", desc: "High-density alignment assistance training mat.", img: "/assets/products/product%20page/k1/k1-accessories/High-Density%20Yoga%20Mat.webp" },
+            { id: "armband", name: "Heart Rate Armband", price: "₱3,800", tag: "Sensors", desc: "Real-time optical heart rate tracker.", img: "/assets/products/product%20page/S1/accessories/Heart%20Rate%20Armband.webp" },
+            { id: "unloader", name: "Crossbar Unloader", price: "₱2,800", tag: "Safety", desc: "Quick-release loading stand hook.", img: "/assets/products/product%20page/S1/accessories/Resistance%20Controller.webp" },
+            { id: "camera", name: "Camera Cover", price: "₱1,800", tag: "Privacy", desc: "Magnetic privacy shield cover.", img: "/assets/products/product%20page/S1/accessories/lens%20cap.webp" },
+            { id: "straps", name: "Ankle Straps", price: "₱1,500", tag: "Cuffs", desc: "Reinforced adjustable lower body cuffs.", img: "/assets/products/product%20page/S1/accessories/ankle%20strap.webp" },
+            { id: "cords", name: "Backup Cords", price: "₱1,500", tag: "Cords", desc: "Replacement heavy tension cords pair.", img: "/assets/products/product%20page/S1/accessories/rope.webp" }
+          ].map((addon) => (
+            <div 
+              data-modal-target={`modal-${addon.id}`}
+              class="accessory-card flex flex-col group relative bg-brand-lightGray border border-brand-midGray/40 rounded-xl sm:rounded-2xl overflow-hidden shadow-xs cursor-pointer hover:shadow-md hover:border-brand-mint/60 transition-all duration-300"
+            >
+              <!-- Asset Container -->
+              <div class={`relative aspect-[4/3] w-full bg-white border-b border-brand-midGray/40 flex flex-col items-center justify-center overflow-hidden select-none ${addon.img.includes("Yoga%20Mat") ? "p-0" : "p-3 sm:p-4"}`}>
+                {addon.img ? (
+                  <img src={addon.img}
+                    alt={addon.name}
+                    loading="lazy" class={
+                      addon.img.includes("Yoga%20Mat")
+                        ? "w-full h-full object-contain object-right scale-[1.03] translate-x-1 transition-transform duration-500 group-hover:scale-[1.06]"
+                        : addon.img.includes("lens%20cap")
+                          ? "w-full h-full object-contain scale-[0.62] transition-transform duration-500 group-hover:scale-[0.67]"
+                          : "w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.06]"
+                    }
+                  decoding="async" />
+                ) : (
+                  <>
+                    <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px] opacity-30"></div>
+                    <svg class="h-10 w-10 text-neutral-600 opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2">
+                      <rect x="4" y="4" width="16" height="16" rx="2" />
+                      <path d="M12 8v8m-4-4h8" />
+                    </svg>
+                  </>
+                )}
+              </div>
+
+              <!-- Content Area -->
+              <div class="p-2.5 sm:p-4 relative flex items-end justify-between bg-brand-lightGray min-h-[65px] sm:min-h-[100px]">
+                <div class="flex flex-col pr-6 sm:pr-8">
+                  <span class="font-display font-bold text-brand-black leading-none uppercase tracking-tight block w-full truncate group-hover:text-brand-black" style="font-size: clamp(7.5px, 0.7vw, 10px) !important; white-space: nowrap !important;">{addon.name}</span>
+                  <span class="text-[10px] sm:text-[11px] font-extrabold text-brand-mint tracking-wider uppercase mt-0.5">{addon.price}</span>
+                  <p class="hidden sm:block text-[10px] font-medium text-zinc-500 mt-1 leading-snug line-clamp-2">{addon.desc}</p>
+                </div>
+
+                <!-- Plus Trigger -->
+                <button 
+                  type="button" 
+                  class="absolute bottom-2 right-2 sm:bottom-3.5 sm:right-3.5 h-6.5 w-6.5 sm:h-8 sm:w-8 rounded-full border border-neutral-300 group-hover:border-brand-mint bg-white group-hover:bg-brand-mint group-hover:text-brand-black text-neutral-600 flex items-center justify-center transition-all duration-300 btn-spring focus:outline-none shadow-2xs"
+                  aria-label={`View details of ${addon.name}`}
+                >
+                  <svg class="h-3.5 w-3.5 sm:h-4 sm:w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-6-6h12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- ─── 5. SYSTEM COMPARISON MATRIX ─── -->
+      <div id="catalog-compare-container" class="catalog-section mt-24 border-t border-brand-midGray/60 pt-16">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-mint/10 border border-brand-mint/30 text-[10px] font-mono text-brand-mint font-bold uppercase tracking-widest mb-3">
+            System Recommendation
+          </span>
+          <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-brand-black uppercase tracking-tight">
+            Which ZYLO AI System is Right for You?
+          </h2>
+          <p class="text-xs sm:text-sm text-zinc-500 font-medium mt-3">
+            Compare key capabilities to choose the perfect setup for your home and goals.
+          </p>
+        </div>
+
+        <div class="overflow-x-auto rounded-2xl sm:rounded-3xl border border-brand-midGray/60 bg-white shadow-sm">
+          <table class="w-full text-left text-xs sm:text-sm border-collapse table-fixed min-w-full">
+            <thead>
+              <tr class="bg-brand-lightGray border-b border-brand-midGray/60 font-display">
+                <th class="p-2.5 sm:p-6 text-zinc-400 font-mono text-[8.5px] sm:text-[10px] uppercase tracking-wider w-[32%] sm:w-1/3">Feature</th>
+                <th class="p-2.5 sm:p-6 font-extrabold text-brand-black text-xs sm:text-base w-[34%] sm:w-1/3">ZYLO K1</th>
+                <th class="p-2.5 sm:p-6 font-extrabold text-brand-black text-xs sm:text-base w-[34%] sm:w-1/3">ZYLO S1 PRO</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-brand-midGray/40 font-medium text-zinc-700">
+              <tr>
+                <td class="p-2.5 sm:p-6 font-bold text-brand-black text-[10.5px] sm:text-sm leading-tight">SRP Price</td>
+                <td class="p-2.5 sm:p-6 font-bold text-brand-black text-[10.5px] sm:text-sm leading-tight">
+                  ₱398,000 <span class="block sm:inline text-[8.5px] sm:text-[10px] text-zinc-400 line-through font-normal">₱498,000</span>
+                </td>
+                <td class="p-2.5 sm:p-6 font-bold text-brand-black text-[10.5px] sm:text-sm leading-tight">
+                  ₱249,000 <span class="block sm:inline text-[8.5px] sm:text-[10px] text-zinc-400 line-through font-normal">₱299,000</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="p-2.5 sm:p-6 font-bold text-brand-black text-[10.5px] sm:text-sm leading-tight">Digital Resistance</td>
+                <td class="p-2.5 sm:p-6 text-[10.5px] sm:text-sm leading-tight sm:leading-normal">Up to 100 kg (Motorized)</td>
+                <td class="p-2.5 sm:p-6 text-[10.5px] sm:text-sm leading-tight sm:leading-normal">Up to 100 kg (Motorized)</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 sm:p-6 font-bold text-brand-black text-[10.5px] sm:text-sm leading-tight">Interactive Display</td>
+                <td class="p-2.5 sm:p-6 text-[10.5px] sm:text-sm leading-tight sm:leading-normal"><span class="font-bold text-brand-mint">43" 4K Smart Mirror</span></td>
+                <td class="p-2.5 sm:p-6 text-[10.5px] sm:text-sm leading-tight sm:leading-normal text-zinc-500">Integrated Tech Interface</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 sm:p-6 font-bold text-brand-black text-[10.5px] sm:text-sm leading-tight">AI Posture &amp; Tracking</td>
+                <td class="p-2.5 sm:p-6 text-[10.5px] sm:text-sm leading-tight sm:leading-normal"><span class="font-bold text-brand-mint">42-Point AI Camera</span></td>
+                <td class="p-2.5 sm:p-6 text-[10.5px] sm:text-sm leading-tight sm:leading-normal">Real-Time Cable Sensor</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 sm:p-6 font-bold text-brand-black text-[10.5px] sm:text-sm leading-tight">Subscription Fee</td>
+                <td class="p-2.5 sm:p-6 text-[10.5px] sm:text-sm leading-tight sm:leading-normal"><span class="font-bold text-brand-mint">₱0 / Month (Lifetime Free)</span></td>
+                <td class="p-2.5 sm:p-6 text-[10.5px] sm:text-sm leading-tight sm:leading-normal"><span class="font-bold text-brand-mint">₱0 / Month (Lifetime Free)</span></td>
+              </tr>
+              <tr>
+                <td class="p-2.5 sm:p-6 font-bold text-brand-black text-[10.5px] sm:text-sm leading-tight">Ideal For</td>
+                <td class="p-2.5 sm:p-6 text-[10px] sm:text-sm leading-tight sm:leading-normal">Full-body coaching, form correction &amp; family workouts</td>
+                <td class="p-2.5 sm:p-6 text-[10px] sm:text-sm leading-tight sm:leading-normal">Space-efficient strength &amp; targeted muscle lifting</td>
+              </tr>
+              <tr class="bg-brand-lightGray/50">
+                <td class="p-2 sm:p-6"></td>
+                <td class="p-2 sm:p-6">
+                  <a href="/products/zylo-k1" class="btn-spring flex w-full items-center justify-center gap-1 sm:gap-2 rounded-lg sm:rounded-xl bg-brand-black px-1.5 sm:px-5 py-2 sm:py-2.5 text-[9px] sm:text-xs font-bold text-white uppercase tracking-wider text-center">
+                    <span>VIEW K1</span> <span class="hidden sm:inline">DETAILS &rarr;</span>
+                  </a>
+                </td>
+                <td class="p-2 sm:p-6">
+                  <a href="/products/zylo-s1" class="btn-spring flex w-full items-center justify-center gap-1 sm:gap-2 rounded-lg sm:rounded-xl bg-brand-black px-1.5 sm:px-5 py-2 sm:py-2.5 text-[9px] sm:text-xs font-bold text-white uppercase tracking-wider text-center">
+                    <span>VIEW S1 PRO</span> <span class="hidden sm:inline">DETAILS &rarr;</span>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Quick-View Modals for Accessories -->
+  {[
+    { id: "bench", name: "Fitness Bench", price: "₱48,000", img: "/assets/products/product%20page/S1/accessories/bench.webp", desc: "Multi-angle adjustable utility workout bench. Offers rock-solid structural steel backing, custom synthetic sweat-wicking padding, and a quick-release slide rail system to transform your space." },
+    { id: "grips", name: "Smart Grips", price: "₱12,500", img: "/assets/products/product%20page/S1/accessories/grip.webp", desc: "Interactive pair with Bluetooth weight-sensing. Dynamically measures grip strength, detects unilateral muscle imbalances, and triggers live micro-coaching form adjustments." },
+    { id: "crossbar", name: "Crossbar", price: "₱12,500", img: "/assets/products/product%20page/S1/accessories/bar.webp", desc: "Long barbell training attachment for compound lifting. Ideal for squat, press, and clean exercises with the ZYLO digital resistance arms." },
+    { id: "scale", name: "Smart 8 Electrode Scale", price: "₱8,000", img: "/assets/products/product%20page/S1/accessories/weight.webp", desc: "Advanced segmental body composition analyzer. Measures skeletal muscle mass, body water, protein index, and body fat percentage across 5 diagnostic zones." },
+    { id: "mat", name: "Yoga Mat", price: "₱6,000", img: "/assets/products/product%20page/k1/k1-accessories/High-Density%20Yoga%20Mat.webp", desc: "High-density natural rubber alignment assistance training mat. Offers dual non-slip textures, laser-etched guidelines, and extra cushioning for joint support." },
+    { id: "armband", name: "Heart Rate Armband", price: "₱3,800", img: "/assets/products/product%20page/S1/accessories/Heart%20Rate%20Armband.webp", desc: "Real-time optical heart rate tracker. Integrates with the ZYLO companion app to log heart rate zones, calories burned, and post-workout cardiovascular reports." },
+    { id: "unloader", name: "Crossbar Unloader", price: "₱2,800", img: "/assets/products/product%20page/S1/accessories/Resistance%20Controller.webp", desc: "Quick-release loading stand hook. Safely dock and unload the Crossbar attachment between sets without lowering resistance arms." },
+    { id: "camera", name: "Camera Cover", price: "₱1,800", img: "/assets/products/product%20page/S1/accessories/lens%20cap.webp", desc: "Magnetic privacy privacy shield cover. Provides an elegant physical blocker for the integrated 1080p sensor when not in use for coaching." },
+    { id: "straps", name: "Ankle Straps", price: "₱1,500", img: "/assets/products/product%20page/S1/accessories/ankle%20strap.webp", desc: "Reinforced adjustable lower body cuffs. Soft interior padding, stainless steel dual D-rings, and heavy-duty velcro closure." },
+    { id: "cords", name: "Backup Cords", price: "₱1,500", img: "/assets/products/product%20page/S1/accessories/rope.webp", desc: "Replacement heavy tension cords pair. Extends training longevity and ensures consistent resistance performance." }
+  ].map((addon) => (
+    <div 
+      id={`modal-${addon.id}`}
+      class="custom-modal fixed inset-0 z-50 flex items-center justify-center bg-zinc-950/60 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300 p-4"
+    >
+      <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-10 shadow-2xl relative transform transition-transform duration-300 scale-95">
+        <button 
+          type="button" 
+          class="modal-close-btn absolute top-6 right-6 text-zinc-400 hover:text-brand-black transition-colors focus:outline-none"
+          data-modal-id={`modal-${addon.id}`}
+          aria-label="Close modal"
+        >
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
+          <div class={`relative aspect-square w-full bg-zinc-50 border border-zinc-100 rounded-2xl flex flex-col items-center justify-center select-none overflow-hidden ${addon.img.includes("Yoga%20Mat") ? "p-0" : "p-6"}`}>
+            {addon.img ? (
+              <img src={addon.img}
+                alt={addon.name}
+                class={addon.img.includes("Yoga%20Mat") ? "w-full h-full object-contain object-right scale-[1.03] translate-x-1" : "w-full h-full object-contain p-4"}
+              decoding="async" loading="lazy" />
+            ) : (
+              <>
+                <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-30"></div>
+                <svg class="h-20 w-20 text-neutral-600 opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2">
+                  <rect x="4" y="4" width="16" height="16" rx="2" />
+                  <path d="M12 8v8m-4-4h8" />
+                </svg>
+                <span class="absolute bottom-4 left-4 text-[8px] font-mono text-zinc-400 uppercase tracking-widest">Illustration</span>
+              </>
+            )}
+          </div>
+
+          <div class="flex flex-col justify-between">
+            <div>
+              <h3 class="font-display font-extrabold text-xl sm:text-2xl text-brand-black leading-tight">
+                {addon.name}
+              </h3>
+              <div class="mt-2 flex items-baseline gap-2">
+                <span class="text-xl font-bold text-brand-black">{addon.price}</span>
+                <span class="text-[9px] font-bold text-zinc-400 uppercase tracking-widest">PH SRP</span>
+              </div>
+              <p class="mt-4 text-xs leading-relaxed text-zinc-500 font-medium">
+                {addon.desc}
+              </p>
+            </div>
+
+            <div class="mt-8 flex gap-3">
+              <button
+                type="button"
+                class="order-modal-trigger flex-1 btn-spring inline-flex items-center justify-center gap-2 rounded-xl bg-brand-black py-4 text-xs font-bold tracking-widest text-white uppercase cursor-pointer"
+                data-product-name={addon.name}
+              >
+                Order Now
+              </button>
+              <button
+                type="button"
+                class="modal-close-btn flex-1 inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-200 py-4 text-xs font-bold tracking-widest text-zinc-600 hover:text-brand-black uppercase"
+                data-modal-id={`modal-${addon.id}`}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  ))}
+
+  <script>
+    // Category Filter Tabs Logic
+    const filterTabs = document.querySelectorAll(".catalog-filter-btn");
+    const gymsContainer = document.getElementById("catalog-gyms-container");
+    const accessoriesContainer = document.getElementById("catalog-accessories-container");
+    const compareContainer = document.getElementById("catalog-compare-container");
+
+    filterTabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        const filter = tab.getAttribute("data-filter-tab");
+        
+        // Update active tab button styling
+        filterTabs.forEach(t => {
+          t.classList.remove("bg-brand-black", "text-white", "shadow-sm");
+          t.classList.add("bg-brand-lightGray", "text-zinc-600");
+        });
+        tab.classList.remove("bg-brand-lightGray", "text-zinc-600");
+        tab.classList.add("bg-brand-black", "text-white", "shadow-sm");
+
+        // Handle section visibility
+        if (filter === "accessories") {
+          if (gymsContainer) gymsContainer.style.display = "none";
+          if (accessoriesContainer) accessoriesContainer.style.display = "block";
+        } else {
+          // Default: "gyms"
+          if (gymsContainer) gymsContainer.style.display = "block";
+          if (accessoriesContainer) accessoriesContainer.style.display = "none";
+        }
+      });
+    });
+
+    // Accessories Modal Logic
+    const accessoryCards = document.querySelectorAll(".accessory-card");
+    const modals = document.querySelectorAll(".custom-modal");
+    const closeBtns = document.querySelectorAll(".modal-close-btn");
+
+    accessoryCards.forEach(card => {
+      card.addEventListener("click", () => {
+        const targetId = card.getAttribute("data-modal-target");
+        if (targetId) openModal(targetId);
+      });
+    });
+
+    closeBtns.forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const modalId = btn.getAttribute("data-modal-id");
+        if (modalId) closeModal(modalId);
+      });
+    });
+
+    modals.forEach(modal => {
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal(modal.id);
+      });
+    });
+
+    function openModal(id: string) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.remove("opacity-0", "pointer-events-none");
+        const dialog = modal.querySelector("div");
+        if (dialog) dialog.classList.replace("scale-95", "scale-100");
+      }
+    }
+
+    function closeModal(id: string) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.add("opacity-0", "pointer-events-none");
+        const dialog = modal.querySelector("div");
+        if (dialog) dialog.classList.replace("scale-100", "scale-95");
+      }
+    }
+  </script>
+</Layout>

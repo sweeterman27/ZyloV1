@@ -1,0 +1,3 @@
+# Exclude large video files that exceed Cloudflare Pages 25MB per-file limit
+# These should be hosted on Cloudflare R2 or another CDN instead
+assets/products/K1/S1/S1 PRO AVP.mov

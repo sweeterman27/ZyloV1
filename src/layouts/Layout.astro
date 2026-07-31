@@ -1,0 +1,156 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
+  type?: string;
+  keywords?: string;
+  noindex?: boolean;
+  schema?: Record<string, any> | Array<Record<string, any>>;
+  lcpImage?: string | null;
+}
+
+const SITE_URL = "https://zylowebsite.pages.dev";
+
+const {
+  title = "ZYLO AI — World's Most Advanced AI Smart Home Gym",
+  description = "Experience the world's most advanced AI-powered home gym. Personalized workouts, real-time posture scan, form coaching, and adaptive digital resistance.",
+  image = "/assets/homepage/hcard3.webp",
+  canonical = Astro.url.pathname,
+  type = "website",
+  keywords = "AI home gym, smart home gym, digital resistance, AI posture scan, form coaching, home fitness Philippines, ZYLO K1, ZYLO S1",
+  noindex = false,
+  schema,
+  lcpImage = undefined,
+} = Astro.props;
+
+const canonicalUrl = new URL(canonical, SITE_URL).href;
+const imageUrl = new URL(image, SITE_URL).href;
+
+// Default Organization + Website Schema
+const defaultOrganizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "ZYLO AI",
+  "url": SITE_URL,
+  "logo": `${SITE_URL}/favicon.svg`,
+  "description": "Premium AI-powered smart home gym and personal fitness technology.",
+  "sameAs": [
+    "https://facebook.com",
+    "https://instagram.com"
+  ]
+};
+
+const defaultWebSiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "ZYLO AI",
+  "url": SITE_URL,
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": `${SITE_URL}/blog?q={search_term_string}`,
+    "query-input": "required name=search_term_string"
+  }
+};
+
+const finalSchemas = schema 
+  ? (Array.isArray(schema) ? [defaultOrganizationSchema, ...schema] : [defaultOrganizationSchema, schema])
+  : [defaultOrganizationSchema, defaultWebSiteSchema];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
+    
+    <!-- Canonical Link -->
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:site_name" content="ZYLO AI" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalUrl} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={imageUrl} />
+
+    <!-- Preconnect to Font Origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Custom Fonts: Montserrat & Geist Mono (non-blocking) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500;700&display=swap" /></noscript>
+
+    <!-- LCP Image Preload (only when explicitly provided by the page) -->
+    {lcpImage && (
+      <link rel="preload" as="image" href={lcpImage} fetchpriority="high" />
+    )}
+
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- Automatic Scroll Position Preservation on Page Refresh -->
+    <script>
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'auto';
+      }
+
+      window.addEventListener('beforeunload', () => {
+        sessionStorage.setItem('zylo_scroll_pos', window.scrollY.toString());
+      });
+
+      const restoreScroll = () => {
+        const savedPos = sessionStorage.getItem('zylo_scroll_pos');
+        if (savedPos !== null) {
+          const pos = parseInt(savedPos, 10);
+          if (!isNaN(pos) && pos > 0) {
+            window.scrollTo({ top: pos, behavior: 'auto' });
+          }
+          sessionStorage.removeItem('zylo_scroll_pos');
+        }
+      };
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', restoreScroll);
+      } else {
+        restoreScroll();
+      }
+    </script>
+
+    <!-- JSON-LD Structured Data Schema -->
+    {finalSchemas.map((s) => (
+      <script type="application/ld+json" set:html={JSON.stringify(s)} />
+    ))}
+  </head>
+  <body class="bg-white text-brand-black antialiased selection:bg-brand-mint selection:text-white">
+    <Header />
+    <main class="w-full overflow-x-hidden">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
