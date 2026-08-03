@@ -37,7 +37,7 @@ const productsSchema = {
       
       <!-- ─── 1. UPGRADED ECOSYSTEM HERO HEADER ─── -->
       <div class="text-center mb-12 max-w-3xl mx-auto">
-        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-mint/10 border border-brand-mint/30 text-[10px] font-mono text-brand-mint font-bold uppercase tracking-widest mb-4">
+        <span class="hidden sm:inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-mint/10 border border-brand-mint/30 text-[10px] font-mono text-brand-mint font-bold uppercase tracking-widest mb-4">
           <span class="h-2 w-2 rounded-full bg-brand-mint"></span>
           ZYLO AI Hardware Ecosystem
         </span>
@@ -68,97 +68,333 @@ const productsSchema = {
       <!-- ─── 3. FEATURED HARDWARE SYSTEMS ─── -->
       <div id="catalog-gyms-container" class="catalog-section transition-all duration-300">
         
+        <!-- Mobile Product Switcher (K1 vs S1 Pro Toggle for Mobile View) -->
+        <div class="sm:hidden flex w-full p-1 rounded-2xl bg-zinc-100 border border-zinc-200/80 mb-6">
+          <button
+            type="button"
+            id="mobile-toggle-k1"
+            class="flex-1 py-2.5 px-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-200 bg-brand-black text-white shadow-sm cursor-pointer"
+          >
+            K1 AI Home Gym
+          </button>
+          <button
+            type="button"
+            id="mobile-toggle-s1"
+            class="flex-1 py-2.5 px-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-200 text-zinc-600 hover:text-brand-black cursor-pointer"
+          >
+            S1 Pro Smart Gym
+          </button>
+        </div>
+
         <!-- Featured Product 1: K1 Smart Home Gym -->
-        <a 
-          href="/products/zylo-k1"
-          class="block group relative bg-white border border-brand-midGray/60 rounded-3xl overflow-hidden shadow-sm cursor-pointer mb-12 flex flex-col lg:flex-row text-left transition-all duration-300 hover:shadow-xl hover:border-brand-mint"
+        <div 
+          id="product-card-k1"
+          class="group relative bg-white border border-zinc-200/90 rounded-3xl overflow-hidden shadow-xs hover:shadow-2xl hover:border-brand-mint/60 transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch mb-8 sm:mb-12"
         >
-          <!-- Large Preview Visualizer -->
-          <div class="relative lg:w-3/5 aspect-video bg-white border-b lg:border-b-0 lg:border-r border-brand-midGray/60 flex items-center justify-center overflow-hidden select-none">
+          <!-- Large Preview Visualizer (50% Width on Desktop) -->
+          <a href="/products/zylo-k1" class="lg:col-span-6 bg-gradient-to-br from-zinc-50 via-zinc-100/40 to-white p-6 sm:p-10 border-b lg:border-b-0 lg:border-r border-zinc-200/80 flex items-center justify-center relative overflow-hidden select-none block min-h-[300px] sm:min-h-[440px]">
             <img src="/assets/products/k1.webp"
               alt="ZYLO K1 AI Smart Home Gym"
-              class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03] p-4 sm:p-6"
+              class="max-h-[360px] sm:max-h-[420px] w-auto object-contain transition-transform duration-500 group-hover:scale-[1.05] mix-blend-multiply"
               loading="lazy" decoding="async" />
-          </div>
+          </a>
 
-          <!-- Featured Card Details -->
-          <div class="p-8 lg:p-10 lg:w-2/5 flex flex-col justify-between relative bg-white">
+          <!-- Featured Card Details (50% Width on Desktop) -->
+          <div class="lg:col-span-6 p-6 sm:p-8 lg:p-10 flex flex-col justify-between relative bg-white">
             <div>
-              <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-brand-black leading-tight">
-                K1 Smart Home Gym
-              </h2>
-              <p class="text-xs font-bold text-zinc-400 uppercase tracking-widest mt-1">
-                AI-Powered Performance System
-              </p>
-              
-              <div class="mt-5 flex items-baseline gap-3">
-                <span class="text-3xl sm:text-4xl font-black text-brand-black tracking-tight">₱398,000</span>
-                <span class="text-sm text-zinc-400 line-through font-semibold">₱498,000</span>
-              </div>
+              <a href="/products/zylo-k1" class="block">
+                <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-brand-black leading-tight hover:text-brand-mint transition-colors">
+                  K1 AI Home Gym
+                </h2>
+                <p class="text-xs font-bold text-zinc-400 uppercase tracking-widest mt-1">
+                  AI-Powered Strength &amp; Performance System
+                </p>
+                
+                <div class="mt-4 flex items-baseline gap-3">
+                  <span class="text-3xl sm:text-4xl font-black text-brand-black tracking-tight">₱398,000</span>
+                  <span class="text-sm text-zinc-400 line-through font-semibold">₱498,000</span>
+                </div>
 
-              <p class="text-xs font-medium text-zinc-500 mt-4 leading-relaxed">
-                The ZYLO AI K1 Smart Home Gym combines AI coaching, real-time form correction, up to 100 kg of digital resistance, and smart progress tracking in one compact, foldable system.
-              </p>
+                <p class="text-xs font-medium text-zinc-500 mt-3 leading-relaxed">
+                  The ZYLO AI K1 Smart Home Gym combines AI coaching, real-time form correction, up to 100 kg of digital resistance, and smart progress tracking in one compact, foldable system.
+                </p>
+              </a>
+
+              <!-- Interactive Accordion Dropdowns (Dimensions, Features, Warranty, Shipping) -->
+              <div class="mt-5 divide-y divide-zinc-200/80 border-y border-zinc-200/80 text-left">
+                <!-- 1. DIMENSIONS -->
+                <details class="group/acc py-2.5">
+                  <summary class="flex items-center justify-between font-display font-extrabold text-xs text-brand-black uppercase tracking-wider cursor-pointer list-none select-none">
+                    <span class="flex items-center gap-1.5">
+                      <svg class="h-3.5 w-3.5 text-zinc-400 group-open/acc:text-brand-mint transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                      </svg>
+                      Dimensions
+                    </span>
+                    <span class="h-5 w-5 rounded-full bg-zinc-100 group-open/acc:bg-brand-mint/15 flex items-center justify-center text-zinc-500 group-open/acc:text-brand-mint transition-colors shrink-0">
+                      <svg class="h-3 w-3 transform group-open/acc:rotate-180 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="pt-2 text-xs text-zinc-600 space-y-2 font-medium">
+                    <div class="grid grid-cols-2 gap-2 rounded-xl bg-zinc-50 p-2.5 border border-zinc-200/60 font-mono text-[11px]">
+                      <div>
+                        <span class="block font-bold text-zinc-400 uppercase text-[8px] tracking-wider">Footprint</span>
+                        <span class="font-bold text-brand-black">0.3 m² (3.2 sq. ft.)</span>
+                      </div>
+                      <div>
+                        <span class="block font-bold text-zinc-400 uppercase text-[8px] tracking-wider">Digital Resistance</span>
+                        <span class="font-bold text-brand-black">Up to 100 kg</span>
+                      </div>
+                    </div>
+                  </div>
+                </details>
+
+                <!-- 2. FEATURES -->
+                <details class="group/acc py-2.5">
+                  <summary class="flex items-center justify-between font-display font-extrabold text-xs text-brand-black uppercase tracking-wider cursor-pointer list-none select-none">
+                    <span class="flex items-center gap-1.5">
+                      <svg class="h-3.5 w-3.5 text-zinc-400 group-open/acc:text-brand-mint transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      Features
+                    </span>
+                    <span class="h-5 w-5 rounded-full bg-zinc-100 group-open/acc:bg-brand-mint/15 flex items-center justify-center text-zinc-500 group-open/acc:text-brand-mint transition-colors shrink-0">
+                      <svg class="h-3 w-3 transform group-open/acc:rotate-180 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="pt-2 text-xs text-zinc-600 font-medium">
+                    <ul class="space-y-1.5">
+                      <li class="flex items-center gap-2 text-[11px] font-semibold text-zinc-700">
+                        <span class="h-1.5 w-1.5 rounded-full bg-brand-mint shrink-0"></span>
+                        Real-Time AI Coach &amp; Posture Tracking
+                      </li>
+                      <li class="flex items-center gap-2 text-[11px] font-semibold text-zinc-700">
+                        <span class="h-1.5 w-1.5 rounded-full bg-brand-mint shrink-0"></span>
+                        Adaptive Digital Resistance Motors
+                      </li>
+                      <li class="flex items-center gap-2 text-[11px] font-semibold text-zinc-700">
+                        <span class="h-1.5 w-1.5 rounded-full bg-brand-mint shrink-0"></span>
+                        Lifetime Subscription-Free Access
+                      </li>
+                    </ul>
+                  </div>
+                </details>
+
+                <!-- 3. WARRANTY -->
+                <details class="group/acc py-2.5">
+                  <summary class="flex items-center justify-between font-display font-extrabold text-xs text-brand-black uppercase tracking-wider cursor-pointer list-none select-none">
+                    <span class="flex items-center gap-1.5">
+                      <svg class="h-3.5 w-3.5 text-zinc-400 group-open/acc:text-brand-mint transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                      </svg>
+                      Warranty
+                    </span>
+                    <span class="h-5 w-5 rounded-full bg-zinc-100 group-open/acc:bg-brand-mint/15 flex items-center justify-center text-zinc-500 group-open/acc:text-brand-mint transition-colors shrink-0">
+                      <svg class="h-3 w-3 transform group-open/acc:rotate-180 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="pt-2 text-xs text-zinc-600 space-y-1.5 font-medium">
+                    <p class="text-[11px]"><strong>Lifetime Service Warranty:</strong> Maintenance &amp; motor calibration.</p>
+                    <p class="text-[11px]"><strong>1-Year Parts &amp; Motor Warranty:</strong> Replacement coverage.</p>
+                  </div>
+                </details>
+
+                <!-- 4. SHIPPING -->
+                <details class="group/acc py-2.5">
+                  <summary class="flex items-center justify-between font-display font-extrabold text-xs text-brand-black uppercase tracking-wider cursor-pointer list-none select-none">
+                    <span class="flex items-center gap-1.5">
+                      <svg class="h-3.5 w-3.5 text-zinc-400 group-open/acc:text-brand-mint transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                      </svg>
+                      Shipping
+                    </span>
+                    <span class="h-5 w-5 rounded-full bg-zinc-100 group-open/acc:bg-brand-mint/15 flex items-center justify-center text-zinc-500 group-open/acc:text-brand-mint transition-colors shrink-0">
+                      <svg class="h-3 w-3 transform group-open/acc:rotate-180 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="pt-2 text-xs text-zinc-600 space-y-1.5 font-medium">
+                    <p class="text-[11px]"><strong>Free Door-to-Door Delivery:</strong> Metro Manila &amp; select Luzon urban areas.</p>
+                    <p class="text-[11px]"><strong>White-Glove Assembly:</strong> Professional installation upon delivery.</p>
+                  </div>
+                </details>
+              </div>
             </div>
 
             <!-- Primary Action CTA Button -->
-            <div class="mt-8 flex items-center justify-between border-t border-brand-midGray/40 pt-6">
-              <span class="btn-spring inline-flex items-center justify-center gap-2 rounded-xl bg-brand-black px-6 py-3 text-xs font-bold tracking-widest uppercase text-white group-hover:bg-neutral-800 transition-colors">
+            <div class="mt-6 flex items-center justify-between border-t border-brand-midGray/40 pt-5">
+              <a href="/products/zylo-k1" class="btn-spring inline-flex items-center justify-center gap-2 rounded-xl bg-brand-black px-6 py-3 text-xs font-bold tracking-widest uppercase text-white hover:bg-neutral-800 transition-colors">
                 <span>Explore K1</span>
                 <svg class="h-3.5 w-3.5 text-brand-mint group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
-              </span>
-              <span class="text-[10px] font-bold text-brand-mint uppercase tracking-widest hidden sm:inline">VIEW SPECIFICATIONS →</span>
+              </a>
+              <a href="/products/zylo-k1" class="text-[10px] font-bold text-brand-mint uppercase tracking-widest hidden sm:inline hover:underline">VIEW SPECIFICATIONS →</a>
             </div>
           </div>
-        </a>
+        </div>
 
         <!-- Featured Product 2: S1 PRO Home Gym -->
-        <a 
-          href="/products/zylo-s1"
-          class="block group relative bg-white border border-brand-midGray/60 rounded-3xl overflow-hidden shadow-sm cursor-pointer mb-16 flex flex-col lg:flex-row text-left transition-all duration-300 hover:shadow-xl hover:border-brand-mint"
+        <div 
+          id="product-card-s1"
+          class="hidden sm:grid group relative bg-white border border-zinc-200/90 rounded-3xl overflow-hidden shadow-xs hover:shadow-2xl hover:border-brand-mint/60 transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch mb-16"
         >
-          <!-- Large Preview Visualizer -->
-          <div class="relative lg:w-3/5 aspect-video bg-white border-b lg:border-b-0 lg:border-r border-brand-midGray/60 flex items-center justify-center overflow-hidden select-none">
+          <!-- Large Preview Visualizer (50% Width on Desktop) -->
+          <a href="/products/zylo-s1" class="lg:col-span-6 bg-gradient-to-br from-zinc-50 via-zinc-100/40 to-white p-6 sm:p-10 border-b lg:border-b-0 lg:border-r border-zinc-200/80 flex items-center justify-center relative overflow-hidden select-none block min-h-[300px] sm:min-h-[440px]">
             <img src="/assets/products/product%20page/S1/photo/3.webp"
               alt="S1 PRO Home Gym"
-              class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03] p-4 sm:p-6"
+              class="max-h-[360px] sm:max-h-[420px] w-auto object-contain transition-transform duration-500 group-hover:scale-[1.05] mix-blend-multiply"
               loading="lazy" decoding="async" />
-          </div>
+          </a>
 
-          <!-- Featured Card Details -->
-          <div class="p-8 lg:p-10 lg:w-2/5 flex flex-col justify-between relative bg-white">
+          <!-- Featured Card Details (50% Width on Desktop) -->
+          <div class="lg:col-span-6 p-6 sm:p-8 lg:p-10 flex flex-col justify-between relative bg-white">
             <div>
-              <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-brand-black leading-tight">
-                S1 PRO Home Gym
-              </h2>
-              <p class="text-xs font-bold text-zinc-400 uppercase tracking-widest mt-1">
-                Full-Body Fitness Gym System
-              </p>
-              
-              <div class="mt-5 flex items-baseline gap-3">
-                <span class="text-3xl sm:text-4xl font-black text-brand-black tracking-tight">₱249,000</span>
-                <span class="text-sm text-zinc-400 line-through font-semibold">₱299,000</span>
-              </div>
+              <a href="/products/zylo-s1" class="block">
+                <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-brand-black leading-tight hover:text-brand-mint transition-colors">
+                  S1 Pro Smart Home Gym
+                </h2>
+                <p class="text-xs font-bold text-zinc-400 uppercase tracking-widest mt-1">
+                  Full-Body Fitness Gym System
+                </p>
+                
+                <div class="mt-4 flex items-baseline gap-3">
+                  <span class="text-3xl sm:text-4xl font-black text-brand-black tracking-tight">₱249,000</span>
+                  <span class="text-sm text-zinc-400 line-through font-semibold">₱299,000</span>
+                </div>
 
-              <p class="text-xs font-medium text-zinc-500 mt-4 leading-relaxed">
-                The ZYLO S1 Pro is a professional-grade, space-efficient smart gym engineered to replace over 23 traditional gym machines by utilizing motorized digital resistance and real-time motion tracking.
-              </p>
+                <p class="text-xs font-medium text-zinc-500 mt-3 leading-relaxed">
+                  The ZYLO S1 Pro is a professional-grade, space-efficient smart gym engineered to replace over 23 traditional gym machines by utilizing motorized digital resistance and real-time motion tracking.
+                </p>
+              </a>
+
+              <!-- Interactive Accordion Dropdowns (Dimensions, Features, Warranty, Shipping) -->
+              <div class="mt-5 divide-y divide-zinc-200/80 border-y border-zinc-200/80 text-left">
+                <!-- 1. DIMENSIONS -->
+                <details class="group/acc py-2.5">
+                  <summary class="flex items-center justify-between font-display font-extrabold text-xs text-brand-black uppercase tracking-wider cursor-pointer list-none select-none">
+                    <span class="flex items-center gap-1.5">
+                      <svg class="h-3.5 w-3.5 text-zinc-400 group-open/acc:text-brand-mint transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                      </svg>
+                      Dimensions
+                    </span>
+                    <span class="h-5 w-5 rounded-full bg-zinc-100 group-open/acc:bg-brand-mint/15 flex items-center justify-center text-zinc-500 group-open/acc:text-brand-mint transition-colors shrink-0">
+                      <svg class="h-3 w-3 transform group-open/acc:rotate-180 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="pt-2 text-xs text-zinc-600 space-y-2 font-medium">
+                    <div class="grid grid-cols-2 gap-2 rounded-xl bg-zinc-50 p-2.5 border border-zinc-200/60 font-mono text-[11px]">
+                      <div>
+                        <span class="block font-bold text-zinc-400 uppercase text-[8px] tracking-wider">Footprint</span>
+                        <span class="font-bold text-brand-black">3.2 sq. ft. Foldable</span>
+                      </div>
+                      <div>
+                        <span class="block font-bold text-zinc-400 uppercase text-[8px] tracking-wider">Digital Tension</span>
+                        <span class="font-bold text-brand-black">200 lbs Precision</span>
+                      </div>
+                    </div>
+                  </div>
+                </details>
+
+                <!-- 2. FEATURES -->
+                <details class="group/acc py-2.5">
+                  <summary class="flex items-center justify-between font-display font-extrabold text-xs text-brand-black uppercase tracking-wider cursor-pointer list-none select-none">
+                    <span class="flex items-center gap-1.5">
+                      <svg class="h-3.5 w-3.5 text-zinc-400 group-open/acc:text-brand-mint transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      Features
+                    </span>
+                    <span class="h-5 w-5 rounded-full bg-zinc-100 group-open/acc:bg-brand-mint/15 flex items-center justify-center text-zinc-500 group-open/acc:text-brand-mint transition-colors shrink-0">
+                      <svg class="h-3 w-3 transform group-open/acc:rotate-180 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="pt-2 text-xs text-zinc-600 font-medium">
+                    <ul class="space-y-1.5">
+                      <li class="flex items-center gap-2 text-[11px] font-semibold text-zinc-700">
+                        <span class="h-1.5 w-1.5 rounded-full bg-brand-mint shrink-0"></span>
+                        185° Multi-Angle Adjustable Arms
+                      </li>
+                      <li class="flex items-center gap-2 text-[11px] font-semibold text-zinc-700">
+                        <span class="h-1.5 w-1.5 rounded-full bg-brand-mint shrink-0"></span>
+                        Replaces 23+ Traditional Gym Machines
+                      </li>
+                      <li class="flex items-center gap-2 text-[11px] font-semibold text-zinc-700">
+                        <span class="h-1.5 w-1.5 rounded-full bg-brand-mint shrink-0"></span>
+                        Integrated Bench &amp; Barbell System
+                      </li>
+                    </ul>
+                  </div>
+                </details>
+
+                <!-- 3. WARRANTY -->
+                <details class="group/acc py-2.5">
+                  <summary class="flex items-center justify-between font-display font-extrabold text-xs text-brand-black uppercase tracking-wider cursor-pointer list-none select-none">
+                    <span class="flex items-center gap-1.5">
+                      <svg class="h-3.5 w-3.5 text-zinc-400 group-open/acc:text-brand-mint transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                      </svg>
+                      Warranty
+                    </span>
+                    <span class="h-5 w-5 rounded-full bg-zinc-100 group-open/acc:bg-brand-mint/15 flex items-center justify-center text-zinc-500 group-open/acc:text-brand-mint transition-colors shrink-0">
+                      <svg class="h-3 w-3 transform group-open/acc:rotate-180 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="pt-2 text-xs text-zinc-600 space-y-1.5 font-medium">
+                    <p class="text-[11px]"><strong>Lifetime Service Warranty:</strong> Maintenance &amp; motor calibration.</p>
+                    <p class="text-[11px]"><strong>1-Year Parts &amp; Motor Warranty:</strong> Full module replacement.</p>
+                  </div>
+                </details>
+
+                <!-- 4. SHIPPING -->
+                <details class="group/acc py-2.5">
+                  <summary class="flex items-center justify-between font-display font-extrabold text-xs text-brand-black uppercase tracking-wider cursor-pointer list-none select-none">
+                    <span class="flex items-center gap-1.5">
+                      <svg class="h-3.5 w-3.5 text-zinc-400 group-open/acc:text-brand-mint transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                      </svg>
+                      Shipping
+                    </span>
+                    <span class="h-5 w-5 rounded-full bg-zinc-100 group-open/acc:bg-brand-mint/15 flex items-center justify-center text-zinc-500 group-open/acc:text-brand-mint transition-colors shrink-0">
+                      <svg class="h-3 w-3 transform group-open/acc:rotate-180 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="pt-2 text-xs text-zinc-600 space-y-1.5 font-medium">
+                    <p class="text-[11px]"><strong>Free Door-to-Door Delivery:</strong> Metro Manila &amp; select Luzon areas.</p>
+                    <p class="text-[11px]"><strong>White-Glove Assembly:</strong> Live system demonstration on delivery.</p>
+                  </div>
+                </details>
+              </div>
             </div>
 
             <!-- Primary Action CTA Button -->
-            <div class="mt-8 flex items-center justify-between border-t border-brand-midGray/40 pt-6">
-              <span class="btn-spring inline-flex items-center justify-center gap-2 rounded-xl bg-brand-black px-6 py-3 text-xs font-bold tracking-widest uppercase text-white group-hover:bg-neutral-800 transition-colors">
+            <div class="mt-6 flex items-center justify-between border-t border-brand-midGray/40 pt-5">
+              <a href="/products/zylo-s1" class="btn-spring inline-flex items-center justify-center gap-2 rounded-xl bg-brand-black px-6 py-3 text-xs font-bold tracking-widest uppercase text-white hover:bg-neutral-800 transition-colors">
                 <span>Explore S1</span>
                 <svg class="h-3.5 w-3.5 text-brand-mint group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
-              </span>
-              <span class="text-[10px] font-bold text-brand-mint uppercase tracking-widest hidden sm:inline">VIEW SPECIFICATIONS →</span>
+              </a>
+              <a href="/products/zylo-s1" class="text-[10px] font-bold text-brand-mint uppercase tracking-widest hidden sm:inline hover:underline">VIEW SPECIFICATIONS →</a>
             </div>
           </div>
-        </a>
+        </div>
       </div>
 
       <!-- ─── 4. ACCESSORY GRID ─── -->
@@ -242,8 +478,11 @@ const productsSchema = {
         </div>
       </div>
 
+      <!-- Section Hairline Gradient Divider -->
+      <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-zinc-200 to-transparent my-12"></div>
+
       <!-- ─── 5. SYSTEM COMPARISON MATRIX ─── -->
-      <div id="catalog-compare-container" class="catalog-section mt-24 border-t border-brand-midGray/60 pt-16">
+      <div id="catalog-compare-container" class="catalog-section mt-12 pt-8">
         <div class="text-center max-w-3xl mx-auto mb-12">
           <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-mint/10 border border-brand-mint/30 text-[10px] font-mono text-brand-mint font-bold uppercase tracking-widest mb-3">
             System Recommendation
@@ -389,7 +628,7 @@ const productsSchema = {
                 class="order-modal-trigger flex-1 btn-spring inline-flex items-center justify-center gap-2 rounded-xl bg-brand-black py-4 text-xs font-bold tracking-widest text-white uppercase cursor-pointer"
                 data-product-name={addon.name}
               >
-                Order Now
+                Add to Cart
               </button>
               <button
                 type="button"
@@ -461,6 +700,36 @@ const productsSchema = {
         if (e.target === modal) closeModal(modal.id);
       });
     });
+
+    // Mobile Product Toggle (K1 vs S1 Pro)
+    const mobileToggleK1 = document.getElementById("mobile-toggle-k1");
+    const mobileToggleS1 = document.getElementById("mobile-toggle-s1");
+    const cardK1 = document.getElementById("product-card-k1");
+    const cardS1 = document.getElementById("product-card-s1");
+
+    if (mobileToggleK1 && mobileToggleS1 && cardK1 && cardS1) {
+      mobileToggleK1.addEventListener("click", () => {
+        cardK1.classList.remove("hidden");
+        cardK1.classList.add("block");
+
+        cardS1.classList.remove("block");
+        cardS1.classList.add("hidden", "sm:block");
+
+        mobileToggleK1.className = "flex-1 py-2.5 px-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-200 bg-brand-black text-white shadow-sm cursor-pointer";
+        mobileToggleS1.className = "flex-1 py-2.5 px-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-200 text-zinc-600 hover:text-brand-black cursor-pointer";
+      });
+
+      mobileToggleS1.addEventListener("click", () => {
+        cardS1.classList.remove("hidden");
+        cardS1.classList.add("block");
+
+        cardK1.classList.remove("block");
+        cardK1.classList.add("hidden", "sm:block");
+
+        mobileToggleS1.className = "flex-1 py-2.5 px-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-200 bg-brand-black text-white shadow-sm cursor-pointer";
+        mobileToggleK1.className = "flex-1 py-2.5 px-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-200 text-zinc-600 hover:text-brand-black cursor-pointer";
+      });
+    }
 
     function openModal(id: string) {
       const modal = document.getElementById(id);

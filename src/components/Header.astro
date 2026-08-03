@@ -9,10 +9,35 @@ const currentPath = rawPath === "/" ? "/" : rawPath.replace(/\/$/, "");
   class="fixed top-0 left-0 right-0 z-[9999] w-full border-b border-brand-midGray/60 bg-white/90 backdrop-blur-md transition-all duration-300 ease-out transform"
 >
   <div
-    class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 w-full"
+    class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 w-full relative"
   >
-    <!-- Brand Logo (Left) -->
-    <div class="flex flex-shrink-0 items-center">
+    <!-- Mobile Hamburger Button (Left on Mobile) -->
+    <div class="flex items-center md:hidden w-11 justify-start">
+      <button
+        type="button"
+        id="mobile-menu-button"
+        class="flex h-11 w-11 items-center justify-center rounded-xl border border-zinc-200 bg-zinc-50 text-brand-black hover:bg-zinc-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint transition-all shrink-0"
+        aria-expanded="false"
+        aria-controls="mobile-menu-drawer"
+        aria-label="Toggle Navigation Menu"
+      >
+        <svg
+          class="h-5 w-5 stroke-current"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2.2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Brand Logo (Centered on Mobile, Left on Desktop) -->
+    <div class="flex flex-shrink-0 items-center absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0">
       <a
         href="/"
         class="flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint focus-visible:ring-offset-2 rounded"
@@ -22,11 +47,11 @@ const currentPath = rawPath === "/" ? "/" : rawPath.replace(/\/$/, "");
           alt="ZYLO AI Logo"
           class="h-6 w-auto object-contain"
           loading="eager"
-        decoding="async" />
+          decoding="async" />
       </a>
     </div>
 
-    <!-- Navigation Links (Center) -->
+    <!-- Navigation Links (Center on Desktop) -->
     <nav
       class="hidden md:flex items-center space-x-1 lg:space-x-3"
       aria-label="Main Navigation"
@@ -150,21 +175,41 @@ const currentPath = rawPath === "/" ? "/" : rawPath.replace(/\/$/, "");
           )
         }
       </div>
+
+      <!-- Contact Us Link -->
+      <div class="relative flex flex-col items-center">
+        <a
+          href="/contact"
+          class={`px-3 py-2 text-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint ${
+            currentPath === "/contact"
+              ? "font-bold text-brand-black"
+              : "font-semibold text-zinc-600 hover:text-brand-black"
+          }`}
+          aria-current={currentPath === "/contact" ? "page" : undefined}
+        >
+          Contact Us
+        </a>
+        {
+          currentPath === "/contact" && (
+            <span class="absolute bottom-0 left-3 right-3 h-[3px] bg-brand-mint rounded-full" />
+          )
+        }
+      </div>
     </nav>
 
-    <!-- Utilities & CTA (Right) -->
-    <div class="flex items-center gap-3">
-      <!-- Icon-only Utility Links -->
-      <div class="hidden lg:flex items-center gap-1">
-        <!-- Search Trigger -->
+    <!-- Utilities & CTA (Right - UNIVERSAL VIEW) -->
+    <div class="flex items-center gap-1 sm:gap-3">
+      <!-- Universal Header Action Icons (Search, Account, Cart) -->
+      <div class="flex items-center gap-0.5 sm:gap-1">
+        <!-- 1. Search Trigger (Opens Live Search Modal) -->
         <button
           type="button"
-          class="flex h-9 w-9 items-center justify-center rounded-full text-zinc-600 hover:text-brand-black hover:bg-zinc-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint transition-colors"
+          class="search-modal-trigger flex h-9 w-9 items-center justify-center rounded-full text-zinc-700 hover:text-brand-black hover:bg-zinc-100 active:scale-95 focus:outline-none transition-all cursor-pointer"
           aria-label="Search site"
           title="Search"
         >
           <svg
-            class="h-4.5 w-4.5 shrink-0"
+            class="h-4.5 w-4.5 sm:h-5 sm:w-5 shrink-0"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -177,15 +222,15 @@ const currentPath = rawPath === "/" ? "/" : rawPath.replace(/\/$/, "");
           </svg>
         </button>
 
-        <!-- User Account Trigger Button -->
-        <button
-          type="button"
-          class="account-modal-trigger flex h-9 w-9 items-center justify-center rounded-full text-zinc-600 hover:text-brand-black hover:bg-zinc-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint transition-colors cursor-pointer"
+        <!-- 2. Account Link (Redirects to /account) -->
+        <a
+          href="/account"
+          class="flex h-9 w-9 items-center justify-center rounded-full text-zinc-700 hover:text-brand-black hover:bg-zinc-100 active:scale-95 focus:outline-none transition-all cursor-pointer"
           aria-label="User Account"
           title="Account"
         >
           <svg
-            class="h-4.5 w-4.5 shrink-0"
+            class="h-4.5 w-4.5 sm:h-5 sm:w-5 shrink-0"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -197,17 +242,18 @@ const currentPath = rawPath === "/" ? "/" : rawPath.replace(/\/$/, "");
               d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
             ></path>
           </svg>
-        </button>
+        </a>
 
-        <!-- Cart Trigger Button -->
-        <button
-          type="button"
-          class="cart-empty-trigger flex h-9 w-9 items-center justify-center rounded-full text-zinc-600 hover:text-brand-black hover:bg-zinc-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint transition-colors relative cursor-pointer"
+        <!-- 3. Cart Link (Redirects to /cart with Live Badge Counter) -->
+        <a
+          href="/cart"
+          id="header-cart-icon-link"
+          class="flex h-9 w-9 items-center justify-center rounded-full text-zinc-700 hover:text-brand-black hover:bg-zinc-100 active:scale-95 focus:outline-none transition-all relative cursor-pointer"
           aria-label="Shopping Cart"
           title="Cart"
         >
           <svg
-            class="h-4.5 w-4.5 shrink-0"
+            class="h-4.5 w-4.5 sm:h-5 sm:w-5 shrink-0"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -218,43 +264,24 @@ const currentPath = rawPath === "/" ? "/" : rawPath.replace(/\/$/, "");
               stroke-linejoin="round"
               d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
           </svg>
-        </button>
+          <span
+            id="cart-badge-count"
+            class="hidden absolute -top-1 -right-1 h-4.5 min-w-[18px] px-1 items-center justify-center rounded-full bg-[#34d399] text-brand-black text-[10px] font-black leading-none shadow-xs transition-all duration-200"
+          >0</span>
+        </a>
       </div>
 
-      <!-- Primary CTA: Visit Showroom (Desktop) -->
-      <button
-        type="button"
-        class="demo-modal-trigger hidden sm:inline-flex btn-spring items-center justify-center gap-2 rounded-xl bg-brand-black px-4 py-2.5 text-xs font-bold text-white hover:bg-neutral-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint focus-visible:ring-offset-2 shrink-0 cursor-pointer"
+      <!-- Primary CTA: Visit Showroom (Desktop Only) -->
+      <a
+        href="/contact#showrooms"
+        class="hidden lg:inline-flex btn-spring items-center justify-center gap-2 rounded-xl bg-brand-black px-4 py-2.5 text-xs font-bold text-white hover:bg-neutral-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint focus-visible:ring-offset-2 shrink-0 cursor-pointer"
       >
         <span class="relative flex h-2 w-2 shrink-0">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
           <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
         </span>
         <span>Visit Showroom</span>
-      </button>
-
-      <!-- Mobile Hamburger Button (Touch Target ≥44px) -->
-      <button
-        type="button"
-        id="mobile-menu-button"
-        class="md:hidden flex h-11 w-11 items-center justify-center rounded-xl border border-zinc-200 bg-zinc-50 text-brand-black hover:bg-zinc-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint transition-all shrink-0 ml-1"
-        aria-expanded="false"
-        aria-controls="mobile-menu-drawer"
-        aria-label="Toggle Navigation Menu"
-      >
-        <svg
-          class="h-5 w-5 stroke-current"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="2.2"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
-        </svg>
-      </button>
+      </a>
     </div>
   </div>
 </header>
@@ -293,9 +320,101 @@ const currentPath = rawPath === "/" ? "/" : rawPath.replace(/\/$/, "");
 
     <!-- Navigation Links List (Sleek Professional Active Pill + Mint Dot Indicator) -->
     <nav class="mt-8 flex flex-col gap-2">
+      <!-- 1. Home -->
+      <a
+        href="/"
+        class={`flex items-center justify-between rounded-xl px-4 py-3.5 text-base transition-all duration-200 ${
+          currentPath === "/"
+            ? "bg-brand-black text-white font-bold shadow-sm"
+            : "text-zinc-600 font-semibold hover:bg-zinc-100/80 hover:text-brand-black"
+        }`}
+      >
+        <div class="flex items-center gap-2.5">
+          {currentPath === "/" && (
+            <span class="h-2 w-2 rounded-full bg-brand-mint shadow-[0_0_8px_#30c18a] shrink-0" />
+          )}
+          <span>Home</span>
+        </div>
+        <svg
+          class={`h-4 w-4 ${currentPath === "/" ? "text-brand-mint" : "text-zinc-400"}`}
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2.2"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+        </svg>
+      </a>
+
+      <!-- 2. Products Section (Direct Link + Simple Clean Dropdown Chevron Icon) -->
+      <div class="flex flex-col gap-1">
+        <div
+          class={`flex items-center justify-between rounded-xl px-4 py-3.5 text-base transition-all duration-200 ${
+            (currentPath.startsWith("/products") || currentPath.startsWith("/zylo-"))
+              ? "bg-brand-black text-white font-bold shadow-sm"
+              : "text-zinc-600 font-semibold hover:bg-zinc-100/80 hover:text-brand-black"
+          }`}
+        >
+          <!-- Left Link (Clicking Products text goes directly to /products overview) -->
+          <a href="/products" class="flex-1 flex items-center gap-2.5">
+            {(currentPath.startsWith("/products") || currentPath.startsWith("/zylo-")) && (
+              <span class="h-2 w-2 rounded-full bg-brand-mint shadow-[0_0_8px_#30c18a] shrink-0" />
+            )}
+            <span>Products</span>
+          </a>
+
+          <!-- Right Simple Chevron Dropdown Icon Button -->
+          <button
+            type="button"
+            id="mobile-products-toggle"
+            class="p-1 -mr-1 cursor-pointer shrink-0 active:scale-95 transition-transform"
+            aria-label="Toggle Products Sub-Menu"
+          >
+            <svg
+              id="mobile-products-chevron"
+              class={`h-4 w-4 transform transition-transform duration-300 ${(currentPath.startsWith("/products") || currentPath.startsWith("/zylo-")) ? "rotate-180 text-brand-mint" : "text-zinc-400 hover:text-brand-black"}`}
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2.2"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Sub-Menu (No Badges!) -->
+        <div
+          id="mobile-products-sub-menu"
+          class={`ml-3 pl-3.5 border-l-2 border-emerald-400/50 flex flex-col gap-1 py-1 text-sm font-semibold ${
+            (currentPath.startsWith("/products") || currentPath.startsWith("/zylo-")) ? "block" : "hidden"
+          }`}
+        >
+          <a
+            href="/products/zylo-k1"
+            class={`flex items-center justify-between px-3.5 py-2.5 rounded-lg transition-colors ${
+              currentPath.includes("zylo-k1")
+                ? "bg-emerald-500/10 text-emerald-600 font-bold"
+                : "text-zinc-600 hover:bg-zinc-100 hover:text-brand-black"
+            }`}
+          >
+            <span>ZYLO K1 AI Home Gym</span>
+          </a>
+          <a
+            href="/products/zylo-s1"
+            class={`flex items-center justify-between px-3.5 py-2.5 rounded-lg transition-colors ${
+              currentPath.includes("zylo-s1")
+                ? "bg-emerald-500/10 text-emerald-600 font-bold"
+                : "text-zinc-600 hover:bg-zinc-100 hover:text-brand-black"
+            }`}
+          >
+            <span>ZYLO S1 Pro Smart Home Gym</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Other Links -->
       {[
-        { href: "/", label: "Home", active: currentPath === "/" },
-        { href: "/products", label: "Products", active: currentPath.startsWith("/products") || currentPath.startsWith("/zylo-") },
         { href: "/ai-technology", label: "AI Technology", active: currentPath === "/ai-technology" },
         { href: "/about", label: "About Us", active: currentPath === "/about" },
         { href: "/blog", label: "Blog", active: currentPath.startsWith("/blog") },
@@ -316,7 +435,7 @@ const currentPath = rawPath === "/" ? "/" : rawPath.replace(/\/$/, "");
             <span>{link.label}</span>
           </div>
           <svg
-            class={`h-4 w-4 transition-transform ${link.active ? "text-brand-mint translate-x-0.5" : "text-zinc-400"}`}
+            class={`h-4 w-4 ${link.active ? "text-brand-mint" : "text-zinc-400"}`}
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -331,16 +450,16 @@ const currentPath = rawPath === "/" ? "/" : rawPath.replace(/\/$/, "");
 
   <!-- Drawer Footer Actions -->
   <div class="mt-8 pt-6 border-t border-zinc-100 flex flex-col gap-4">
-    <button
-      type="button"
-      class="demo-modal-trigger flex w-full items-center justify-center gap-2 rounded-2xl bg-brand-black py-3.5 text-sm font-bold text-white hover:bg-neutral-800 transition-colors shadow-md cursor-pointer"
+    <a
+      href="/contact#showrooms"
+      class="flex w-full items-center justify-center gap-2 rounded-2xl bg-brand-black py-3.5 text-sm font-bold text-white hover:bg-neutral-800 transition-colors shadow-md cursor-pointer"
     >
       <span class="relative flex h-2 w-2 shrink-0">
         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
         <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
       </span>
       <span>Visit Showroom</span>
-    </button>
+    </a>
 
     <!-- Quick Contact Info & Secondary Actions -->
     <div class="grid grid-cols-2 gap-2 pt-1">
@@ -529,195 +648,7 @@ const currentPath = rawPath === "/" ? "/" : rawPath.replace(/\/$/, "");
   </div>
 </div>
 
-<!-- Book a Demo Modal Overlay -->
-<div
-  id="demo-modal"
-  class="fixed inset-0 z-[10000] flex items-center justify-center bg-zinc-950/60 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300 p-3 sm:p-4 overflow-y-auto"
-  role="dialog"
-  aria-modal="true"
->
-  <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative transform transition-all duration-300 scale-95 border border-zinc-200/80 my-auto max-h-[90vh] overflow-y-auto">
-    
-    <!-- Close Button -->
-    <button
-      type="button"
-      id="demo-modal-close"
-      class="absolute top-5 right-5 text-zinc-400 hover:text-brand-black transition-colors focus:outline-none p-2 rounded-xl hover:bg-zinc-100 cursor-pointer z-10"
-      aria-label="Close demo booking modal"
-    >
-      <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    </button>
 
-    <!-- Modal Header -->
-    <div class="mb-5 pr-8">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-mint/10 border border-brand-mint/30 text-[10px] font-mono text-brand-mint font-bold uppercase tracking-widest mb-3">
-        <span class="h-2 w-2 rounded-full bg-brand-mint animate-pulse"></span>
-        VIP Demonstration
-      </div>
-      <h2 class="font-display font-extrabold text-xl sm:text-2xl text-brand-black tracking-tight mb-1">
-        Book a Free AI Gym Demo
-      </h2>
-      <p class="text-xs text-zinc-500 font-medium leading-relaxed">
-        Experience real-time posture scanning, form coaching & digital resistance in person or via live video call.
-      </p>
-    </div>
-
-    <!-- Booking Form -->
-    <form id="modal-demo-form" class="space-y-4">
-      <div class="space-y-3">
-        <!-- Name -->
-        <div>
-          <label for="demo-name" class="block text-[11px] font-bold text-zinc-700 uppercase tracking-wider mb-1">Full Name *</label>
-          <input
-            type="text"
-            id="demo-name"
-            name="name"
-            required
-            placeholder="e.g. Maria Santos"
-            class="w-full rounded-xl border border-zinc-200 px-3.5 py-2.5 text-xs text-brand-black placeholder-zinc-400 focus:border-brand-black focus:ring-1 focus:ring-brand-black focus:outline-none transition-colors"
-          />
-        </div>
-
-        <!-- Phone & Email Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div>
-            <label for="demo-phone" class="block text-[11px] font-bold text-zinc-700 uppercase tracking-wider mb-1">Phone / Mobile *</label>
-            <input
-              type="tel"
-              id="demo-phone"
-              name="phone"
-              required
-              placeholder="0917 123 4567"
-              class="w-full rounded-xl border border-zinc-200 px-3.5 py-2.5 text-xs text-brand-black placeholder-zinc-400 focus:border-brand-black focus:ring-1 focus:ring-brand-black focus:outline-none transition-colors"
-            />
-          </div>
-
-          <div>
-            <label for="demo-email" class="block text-[11px] font-bold text-zinc-700 uppercase tracking-wider mb-1">Email Address *</label>
-            <input
-              type="email"
-              id="demo-email"
-              name="email"
-              required
-              placeholder="maria@example.com"
-              class="w-full rounded-xl border border-zinc-200 px-3.5 py-2.5 text-xs text-brand-black placeholder-zinc-400 focus:border-brand-black focus:ring-1 focus:ring-brand-black focus:outline-none transition-colors"
-            />
-          </div>
-        </div>
-
-        <!-- Format & Product Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div>
-            <label for="demo-type" class="block text-[11px] font-bold text-zinc-700 uppercase tracking-wider mb-1">Demo Format *</label>
-            <select
-              id="demo-type"
-              name="experience_type"
-              required
-              class="w-full rounded-xl border border-zinc-200 px-3 py-2.5 text-xs text-brand-black bg-white focus:border-brand-black focus:ring-1 focus:ring-brand-black focus:outline-none transition-colors cursor-pointer"
-            >
-              <option value="In-Person Showroom Visit (Manila)">In-Person Showroom Visit (Manila)</option>
-              <option value="Virtual Video Demo (1-on-1)">Virtual Video Demo (1-on-1)</option>
-              <option value="Private Home Consultation">Private Home Consultation</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="demo-product" class="block text-[11px] font-bold text-zinc-700 uppercase tracking-wider mb-1">Model Focus *</label>
-            <select
-              id="demo-product"
-              name="product"
-              required
-              class="w-full rounded-xl border border-zinc-200 px-3 py-2.5 text-xs text-brand-black bg-white focus:border-brand-black focus:ring-1 focus:ring-brand-black focus:outline-none transition-colors cursor-pointer"
-            >
-              <option value="ZYLO K1 AI Smart Home Gym">ZYLO K1 (Compact AI Foldable)</option>
-              <option value="ZYLO S1 Pro Smart Gym">ZYLO S1 Pro (Executive Studio)</option>
-              <option value="Both Models / Compare">Both Models / Compare</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Date & Time Slot Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div>
-            <label for="demo-date" class="block text-[11px] font-bold text-zinc-700 uppercase tracking-wider mb-1">Preferred Date *</label>
-            <input
-              type="date"
-              id="demo-date"
-              name="date"
-              required
-              class="w-full rounded-xl border border-zinc-200 px-3 py-2.5 text-xs text-brand-black bg-white focus:border-brand-black focus:ring-1 focus:ring-brand-black focus:outline-none transition-colors cursor-pointer"
-            />
-          </div>
-
-          <div>
-            <label for="demo-slot" class="block text-[11px] font-bold text-zinc-700 uppercase tracking-wider mb-1">Preferred Time *</label>
-            <select
-              id="demo-slot"
-              name="time_slot"
-              required
-              class="w-full rounded-xl border border-zinc-200 px-3 py-2.5 text-xs text-brand-black bg-white focus:border-brand-black focus:ring-1 focus:ring-brand-black focus:outline-none transition-colors cursor-pointer"
-            >
-              <option value="Morning (9:00 AM - 12:00 PM)">Morning (9:00 AM - 12:00 PM)</option>
-              <option value="Early Afternoon (1:00 PM - 3:00 PM)">Early Afternoon (1:00 PM - 3:00 PM)</option>
-              <option value="Late Afternoon (3:00 PM - 5:00 PM)">Late Afternoon (3:00 PM - 5:00 PM)</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Special Requests / Notes -->
-        <div>
-          <label for="demo-notes" class="block text-[11px] font-bold text-zinc-700 uppercase tracking-wider mb-1">Notes / Questions (Optional)</label>
-          <textarea
-            id="demo-notes"
-            name="notes"
-            rows="2"
-            placeholder="Tell us any specific features or goals you'd like to test..."
-            class="w-full rounded-xl border border-zinc-200 px-3.5 py-2 text-xs text-brand-black placeholder-zinc-400 focus:border-brand-black focus:ring-1 focus:ring-brand-black focus:outline-none transition-colors resize-none"
-          ></textarea>
-        </div>
-      </div>
-
-      <!-- Submit Button -->
-      <button
-        type="submit"
-        id="demo-submit-btn"
-        class="w-full btn-spring flex items-center justify-center gap-2 rounded-xl bg-brand-black py-3.5 text-xs font-bold uppercase tracking-widest text-white hover:bg-neutral-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint shadow-md cursor-pointer transition-all"
-      >
-        <span>Confirm Booking Request</span>
-        <svg class="h-4 w-4 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
-      </button>
-    </form>
-
-    <!-- Success State -->
-    <div id="modal-demo-success" class="hidden text-center py-6 space-y-4">
-      <div class="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-500 flex items-center justify-center mx-auto shadow-sm">
-        <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-        </svg>
-      </div>
-      <div>
-        <h3 class="font-display font-extrabold text-2xl text-brand-black tracking-tight mb-1">
-          Demo Session Reserved!
-        </h3>
-        <p class="text-xs text-zinc-500 leading-relaxed max-w-sm mx-auto">
-          Thank you! Our ZYLO AI team will contact you shortly on WhatsApp / Phone to confirm your scheduled slot and provide location directions.
-        </p>
-      </div>
-      <button
-        type="button"
-        id="modal-demo-success-done-btn"
-        class="btn-spring px-6 py-2.5 rounded-xl bg-brand-black text-white text-xs font-bold uppercase tracking-wider hover:bg-neutral-800 cursor-pointer"
-      >
-        Close
-      </button>
-    </div>
-
-  </div>
-</div>
 
 <!-- Empty Cart Modal Overlay -->
 <div
@@ -779,6 +710,107 @@ const currentPath = rawPath === "/" ? "/" : rawPath.replace(/\/$/, "");
   </div>
 </div>
 
+<!-- Search Modal Overlay (Z-Index 99999) -->
+<div
+  id="search-modal"
+  class="fixed inset-0 z-[99999] flex items-start justify-center pt-16 sm:pt-24 px-4 bg-black/70 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300 ease-out"
+  aria-modal="true"
+  role="dialog"
+  aria-label="Search ZYLO AI"
+>
+  <div
+    id="search-modal-card"
+    class="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300 ease-out border border-zinc-200/80 flex flex-col max-h-[80vh]"
+  >
+    <!-- Search Header Input Bar -->
+    <div class="p-4 sm:p-5 border-b border-zinc-100 flex items-center gap-3 bg-zinc-50/50">
+      <svg class="h-5 w-5 text-zinc-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+      <input
+        type="search"
+        id="search-input"
+        placeholder="Search products, AI features, workouts..."
+        class="w-full bg-transparent text-sm sm:text-base font-medium text-zinc-900 placeholder:text-zinc-400 focus:outline-none"
+        autocomplete="off"
+      />
+      <button
+        type="button"
+        id="search-modal-close"
+        class="text-xs font-semibold text-zinc-400 hover:text-zinc-900 transition-colors px-2 py-1 rounded-md hover:bg-zinc-200/60 cursor-pointer shrink-0"
+      >
+        ESC
+      </button>
+    </div>
+
+    <!-- Results / Suggestions Container -->
+    <div class="p-4 sm:p-6 overflow-y-auto max-h-[60vh]">
+      <!-- Default Suggestions -->
+      <div id="search-default-suggestions">
+        <div class="text-[10px] font-mono font-semibold tracking-widest text-zinc-400 uppercase mb-3">
+          Popular Products
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6">
+          <a href="/products/zylo-k1" class="flex items-center gap-3 p-3 rounded-xl border border-zinc-200/80 hover:border-zinc-900 hover:bg-zinc-50 transition-all group">
+            <div class="w-10 h-10 rounded-lg bg-zinc-100 flex items-center justify-center shrink-0">
+              <img src="/assets/products/k1.webp" alt="ZYLO K1" class="h-8 w-auto object-contain mix-blend-multiply" />
+            </div>
+            <div>
+              <div class="text-xs font-bold text-zinc-900 group-hover:text-black">ZYLO K1 AI Home Gym</div>
+              <div class="text-[11px] text-zinc-500">Compact Strength Mirror</div>
+            </div>
+          </a>
+          <a href="/products/zylo-s1" class="flex items-center gap-3 p-3 rounded-xl border border-zinc-200/80 hover:border-zinc-900 hover:bg-zinc-50 transition-all group">
+            <div class="w-10 h-10 rounded-lg bg-zinc-100 flex items-center justify-center shrink-0">
+              <img src="/assets/products/product page/S1/photo/3.webp" alt="ZYLO S1 PRO" class="h-8 w-auto object-contain mix-blend-multiply" />
+            </div>
+            <div>
+              <div class="text-xs font-bold text-zinc-900 group-hover:text-black">ZYLO S1 Pro Smart Gym</div>
+              <div class="text-[11px] text-zinc-500">Full-Body Bench System</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="text-[10px] font-mono font-semibold tracking-widest text-zinc-400 uppercase mb-3">
+          Quick Links
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <a href="/ai-technology" class="px-3 py-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-900 hover:text-white text-xs font-medium text-zinc-700 transition-colors">AI Posture Scan</a>
+          <a href="/ai-technology#resistance" class="px-3 py-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-900 hover:text-white text-xs font-medium text-zinc-700 transition-colors">Digital Resistance</a>
+          <a href="/gallery" class="px-3 py-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-900 hover:text-white text-xs font-medium text-zinc-700 transition-colors">Video Gallery</a>
+          <a href="/contact#showrooms" class="px-3 py-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-900 hover:text-white text-xs font-medium text-zinc-700 transition-colors">Showrooms &amp; Demo</a>
+          <a href="/blog" class="px-3 py-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-900 hover:text-white text-xs font-medium text-zinc-700 transition-colors">Fitness Articles</a>
+        </div>
+      </div>
+
+      <!-- Dynamic Live Search Results -->
+      <div id="search-live-results" class="hidden flex flex-col gap-2"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Floating Cart Toast Notification (Z-Index 99999) -->
+<div
+  id="cart-toast"
+  class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[99999] flex items-center gap-3 px-4 py-3 rounded-2xl bg-brand-black/95 backdrop-blur-md text-white border border-white/15 shadow-2xl transition-all duration-300 opacity-0 pointer-events-none translate-y-4 max-w-sm w-[92vw] sm:w-auto"
+>
+  <div class="h-8 w-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center shrink-0 text-brand-mint">
+    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+    </svg>
+  </div>
+  <div class="flex-1 min-w-0">
+    <div id="cart-toast-msg" class="text-xs font-bold tracking-wide text-white truncate">Item Added to Cart</div>
+    <div class="text-[10px] text-zinc-400 font-medium">Your ZYLO AI selection has been saved.</div>
+  </div>
+  <a
+    href="/cart"
+    class="text-[11px] font-extrabold text-brand-mint hover:text-white uppercase tracking-wider pl-2 border-l border-white/10 shrink-0 transition-colors"
+  >
+    View Cart →
+  </a>
+</div>
+
 <script>
   (function () {
     const btn = document.getElementById("mobile-menu-button");
@@ -799,17 +831,147 @@ const currentPath = rawPath === "/" ? "/" : rawPath.replace(/\/$/, "");
     const orderModalSuccessDone = document.getElementById("modal-success-done-btn");
     const orderTriggers = document.querySelectorAll(".order-modal-trigger");
 
-    const demoModal = document.getElementById("demo-modal");
-    const demoModalClose = document.getElementById("demo-modal-close");
-    const demoModalForm = document.getElementById("modal-demo-form") as HTMLFormElement | null;
-    const demoModalSuccess = document.getElementById("modal-demo-success");
-    const demoModalSuccessDone = document.getElementById("modal-demo-success-done-btn");
-    const demoTriggers = document.querySelectorAll(".demo-modal-trigger");
-
     const cartEmptyModal = document.getElementById("cart-empty-modal");
     const cartEmptyModalClose = document.getElementById("cart-empty-modal-close");
     const cartEmptyOrderBtn = document.getElementById("cart-empty-order-btn");
     const cartTriggers = document.querySelectorAll(".cart-empty-trigger");
+
+    // Universal Cart Badge Counter & Notification Manager
+    function updateCartBadge() {
+      const badge = document.getElementById("cart-badge-count");
+      if (!badge) return;
+      try {
+        const items = JSON.parse(localStorage.getItem("zylo_cart_items") || "[]");
+        const totalCount = items.reduce((sum: number, item: any) => sum + (item.quantity || 1), 0);
+        if (totalCount > 0) {
+          badge.textContent = String(totalCount);
+          badge.classList.remove("hidden");
+          badge.classList.add("flex");
+        } else {
+          badge.classList.add("hidden");
+          badge.classList.remove("flex");
+        }
+      } catch(e) {
+        badge.classList.add("hidden");
+      }
+    }
+
+    let toastTimeout: any = null;
+    function showCartToast(msg: string) {
+      const toast = document.getElementById("cart-toast");
+      const toastMsg = document.getElementById("cart-toast-msg");
+      if (!toast || !toastMsg) return;
+      toastMsg.textContent = msg;
+      toast.classList.remove("opacity-0", "pointer-events-none", "translate-y-4");
+      toast.classList.add("opacity-100", "translate-y-0");
+
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove("opacity-100", "translate-y-0");
+        toast.classList.add("opacity-0", "pointer-events-none", "translate-y-4");
+      }, 2800);
+    }
+
+    updateCartBadge();
+    window.addEventListener("zylo-cart-updated", updateCartBadge);
+    window.addEventListener("zylo-show-toast", (e: any) => {
+      if (e.detail) showCartToast(e.detail);
+    });
+    window.addEventListener("storage", updateCartBadge);
+
+    // Search Modal Elements & Engine
+    const searchTriggers = document.querySelectorAll(".search-modal-trigger");
+    const searchModal = document.getElementById("search-modal");
+    const searchModalCard = document.getElementById("search-modal-card");
+    const searchModalClose = document.getElementById("search-modal-close");
+    const searchInput = document.getElementById("search-input") as HTMLInputElement;
+    const searchDefault = document.getElementById("search-default-suggestions");
+    const searchLive = document.getElementById("search-live-results");
+
+    const searchableItems = [
+      { title: "ZYLO K1 AI Home Gym", desc: "Compact strength mirror with 220 lbs digital resistance", url: "/products/zylo-k1", tag: "Product" },
+      { title: "ZYLO S1 Pro Smart Home Gym", desc: "Full-body workout system with built-in bench & bar", url: "/products/zylo-s1", tag: "Product" },
+      { title: "AI Real-Time Posture Scan", desc: "Form tracking and 3D movement analysis", url: "/ai-technology", tag: "AI Tech" },
+      { title: "Adaptive Digital Resistance", desc: "Electromagnetic motor load up to 220 lbs", url: "/ai-technology#resistance", tag: "AI Tech" },
+      { title: "Manila Fitness Showroom", desc: "Visit our physical demo center to try ZYLO AI in person", url: "/contact#showrooms", tag: "Showroom" },
+      { title: "300+ AI Workouts Library", desc: "Strength, Cardio, Yoga, Pilates, Boxing, Mobility", url: "/#library-heading", tag: "Workouts" },
+      { title: "Best Home Gym Equipment Philippines", desc: "Read our guide on smart fitness systems in PH", url: "/blog/best-home-gym-equipment-in-the-philippines", tag: "Blog" },
+      { title: "Contact Sales & Inquiry", desc: "Get in touch with a ZYLO specialist", url: "/contact", tag: "Page" },
+    ];
+
+    function openSearchModal() {
+      if (!searchModal || !searchModalCard) return;
+      searchModal.classList.remove("opacity-0", "pointer-events-none");
+      searchModal.classList.add("opacity-100");
+      searchModalCard.classList.remove("scale-95");
+      searchModalCard.classList.add("scale-100");
+      document.body.style.overflow = "hidden";
+      setTimeout(() => searchInput?.focus(), 150);
+    }
+
+    function closeSearchModal() {
+      if (!searchModal || !searchModalCard) return;
+      searchModal.classList.remove("opacity-100");
+      searchModal.classList.add("opacity-0", "pointer-events-none");
+      searchModalCard.classList.remove("scale-100");
+      searchModalCard.classList.add("scale-95");
+      document.body.style.overflow = "";
+      if (searchInput) searchInput.value = "";
+      if (searchDefault) searchDefault.classList.remove("hidden");
+      if (searchLive) {
+        searchLive.classList.add("hidden");
+        searchLive.innerHTML = "";
+      }
+    }
+
+    searchTriggers.forEach((btn) => btn.addEventListener("click", openSearchModal));
+    searchModalClose?.addEventListener("click", closeSearchModal);
+    searchModal?.addEventListener("click", (e) => {
+      if (e.target === searchModal) closeSearchModal();
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeSearchModal();
+    });
+
+    searchInput?.addEventListener("input", (e) => {
+      const q = (e.target as HTMLInputElement).value.trim().toLowerCase();
+      if (!q) {
+        if (searchDefault) searchDefault.classList.remove("hidden");
+        if (searchLive) {
+          searchLive.classList.add("hidden");
+          searchLive.innerHTML = "";
+        }
+        return;
+      }
+
+      if (searchDefault) searchDefault.classList.add("hidden");
+      if (searchLive) {
+        searchLive.classList.remove("hidden");
+        const matches = searchableItems.filter(item =>
+          item.title.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q) || item.tag.toLowerCase().includes(q)
+        );
+
+        if (matches.length === 0) {
+          searchLive.innerHTML = `
+            <div class="text-center py-8 text-zinc-500">
+              <p class="text-xs font-medium mb-1">No results found for "${q}"</p>
+              <p class="text-[11px] text-zinc-400">Try searching for "K1", "S1", "Posture", or "Showroom"</p>
+            </div>
+          `;
+        } else {
+          searchLive.innerHTML = matches.map(item => `
+            <a href="${item.url}" class="flex items-center justify-between p-3 rounded-xl border border-zinc-200/80 hover:border-zinc-900 hover:bg-zinc-50 transition-all group">
+              <div>
+                <div class="text-xs font-bold text-zinc-900 group-hover:text-black">${item.title}</div>
+                <div class="text-[11px] text-zinc-500 mt-0.5">${item.desc}</div>
+              </div>
+              <span class="px-2 py-0.5 rounded-md bg-zinc-100 text-[10px] font-mono text-zinc-600 shrink-0 ml-3">${item.tag}</span>
+            </a>
+          `).join("");
+        }
+      }
+    });
 
     if (!btn || !drawer || !backdrop) return;
 
@@ -829,6 +991,26 @@ const currentPath = rawPath === "/" ? "/" : rawPath.replace(/\/$/, "");
       backdrop?.classList.remove("opacity-100");
       backdrop?.classList.add("opacity-0", "pointer-events-none");
       document.body.style.overflow = "";
+    }
+    const mobileProdToggle = document.getElementById("mobile-products-toggle");
+    const mobileProdSubMenu = document.getElementById("mobile-products-sub-menu");
+    const mobileProdChevron = document.getElementById("mobile-products-chevron");
+
+    if (mobileProdToggle && mobileProdSubMenu && mobileProdChevron) {
+      mobileProdToggle.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const isHidden = mobileProdSubMenu.classList.contains("hidden");
+        if (isHidden) {
+          mobileProdSubMenu.classList.remove("hidden");
+          mobileProdSubMenu.classList.add("block");
+          mobileProdChevron.classList.add("rotate-180");
+        } else {
+          mobileProdSubMenu.classList.add("hidden");
+          mobileProdSubMenu.classList.remove("block");
+          mobileProdChevron.classList.remove("rotate-180");
+        }
+      });
     }
 
     function openAccountModal() {
@@ -877,12 +1059,12 @@ const currentPath = rawPath === "/" ? "/" : rawPath.replace(/\/$/, "");
 
       if (isS1) {
         mUnitPrice = 248000;
-        if (mProdTitle) mProdTitle.textContent = "ZYLO S1 Pro AI Smart Home Gym";
+        if (mProdTitle) mProdTitle.textContent = "ZYLO S1 Pro Smart Home Gym";
         if (mUnitPriceEl) mUnitPriceEl.textContent = fmtPhp(248000);
         if (mConfigEl) mConfigEl.textContent = "Dual Motor 100kg Digital Resistance";
       } else {
         mUnitPrice = 188000;
-        if (mProdTitle) mProdTitle.textContent = "ZYLO K1 AI Smart Home Gym";
+        if (mProdTitle) mProdTitle.textContent = "ZYLO K1 AI Home Gym";
         if (mUnitPriceEl) mUnitPriceEl.textContent = fmtPhp(188000);
         if (mConfigEl) mConfigEl.textContent = "Compact AI Foldable";
       }
@@ -1024,40 +1206,6 @@ const currentPath = rawPath === "/" ? "/" : rawPath.replace(/\/$/, "");
       }
     });
 
-    // Demo Modal handlers
-    function openDemoModal() {
-      if (!demoModal) return;
-      demoModal.classList.remove("opacity-0", "pointer-events-none");
-      demoModal.classList.add("opacity-100", "pointer-events-auto");
-      const card = demoModal.firstElementChild as HTMLElement;
-      if (card) {
-        card.classList.remove("scale-95");
-        card.classList.add("scale-100");
-      }
-    }
-
-    function closeDemoModal() {
-      if (!demoModal) return;
-      demoModal.classList.remove("opacity-100", "pointer-events-auto");
-      demoModal.classList.add("opacity-0", "pointer-events-none");
-      const card = demoModal.firstElementChild as HTMLElement;
-      if (card) {
-        card.classList.remove("scale-100");
-        card.classList.add("scale-95");
-      }
-    }
-
-    demoTriggers.forEach(t => t.addEventListener("click", () => {
-      closeDrawer();
-      openDemoModal();
-    }));
-
-    demoModalClose?.addEventListener("click", closeDemoModal);
-    demoModalSuccessDone?.addEventListener("click", closeDemoModal);
-    demoModal?.addEventListener("click", (e) => {
-      if (e.target === demoModal) closeDemoModal();
-    });
-
     // Unified Google Sheets Form Dispatcher
     const ZYLO_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbye6Mci50d-M780n5C1dhMTk1O-n0Mb0CiQ37JAcXOPLA7oChXf51l6aCJBEEgTpROhzQ/exec";
 
@@ -1076,27 +1224,6 @@ const currentPath = rawPath === "/" ? "/" : rawPath.replace(/\/$/, "");
         console.warn("GSheet submission error:", err);
       }
     }
-
-    demoModalForm?.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const formData = new FormData(demoModalForm);
-      const payload = {
-        form_type: "Demo Booking",
-        name: formData.get("name"),
-        phone: formData.get("phone"),
-        email: formData.get("email"),
-        experience_type: formData.get("experience_type"),
-        product: formData.get("product"),
-        date: formData.get("date"),
-        time_slot: formData.get("time_slot"),
-        notes: formData.get("notes") || "N/A"
-      };
-
-      sendToGSheet(payload);
-
-      if (demoModalForm) demoModalForm.style.display = "none";
-      if (demoModalSuccess) demoModalSuccess.classList.remove("hidden");
-    });
 
     orderModalForm?.addEventListener("submit", (e) => {
       e.preventDefault();

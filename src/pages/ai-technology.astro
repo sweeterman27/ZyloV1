@@ -10,7 +10,7 @@ const techSchema = {
   "publisher": {
     "@type": "Organization",
     "name": "ZYLO AI",
-    "logo": "https://zylowebsite.pages.dev/favicon.svg"
+    "logo": "https://zylowebsite.pages.dev/android-chrome-512x512.png"
   }
 };
 ---
@@ -48,7 +48,7 @@ const techSchema = {
       <div class="relative">
         <div 
           id="tech-cards-track"
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 transition-all duration-300"
+          class="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6 transition-all duration-300"
         >
           {[
             {
@@ -76,42 +76,42 @@ const techSchema = {
               iconPath: "M4 5a1 1 0 011-1h14a1 1 0 011 1v14a1 1 0 01-1 1H5a1 1 0 01-1-1V5z"
             }
           ].map((card, idx) => (
-            <div class="flex flex-col rounded-3xl bg-white border border-brand-midGray/80 overflow-hidden shadow-sm hover:shadow-md hover:border-brand-mint/60 transition-all duration-300 group">
+            <div class="flex flex-col rounded-2xl sm:rounded-3xl bg-white border border-brand-midGray/80 overflow-hidden shadow-sm hover:shadow-md hover:border-brand-mint/60 transition-all duration-300 group">
               
               <!-- Top Image Container (Placeholder) -->
-              <div class="relative aspect-[4/5] w-full bg-brand-lightGray border-b border-brand-midGray/60 flex flex-col items-center justify-center p-6 select-none overflow-hidden group-hover:bg-zinc-100/80 transition-colors">
-                <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] opacity-40"></div>
+              <div class="relative aspect-[4/3] sm:aspect-[4/5] w-full bg-brand-lightGray border-b border-brand-midGray/60 flex flex-col items-center justify-center p-3 sm:p-6 select-none overflow-hidden group-hover:bg-zinc-100/80 transition-colors">
+                <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] sm:[background-size:20px_20px] opacity-40"></div>
                 
                 <!-- Placeholder Icon & Badge -->
-                <div class="relative z-10 flex flex-col items-center text-center gap-3">
-                  <div class="w-16 h-16 rounded-2xl bg-white border border-zinc-200 shadow-sm flex items-center justify-center text-zinc-400 group-hover:border-brand-mint group-hover:text-brand-mint transition-colors">
-                    <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <div class="relative z-10 flex flex-col items-center text-center gap-1.5 sm:gap-3">
+                  <div class="w-10 h-10 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-white border border-zinc-200 shadow-sm flex items-center justify-center text-zinc-400 group-hover:border-brand-mint group-hover:text-brand-mint transition-colors">
+                    <svg class="h-5 w-5 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  <span class="text-[10px] font-bold uppercase tracking-wider text-zinc-400">Image Placeholder</span>
+                  <span class="text-[8.5px] sm:text-[10px] font-bold uppercase tracking-wider text-zinc-400">Image Placeholder</span>
                 </div>
 
-                <span class="absolute top-4 left-4 text-[9px] font-mono text-zinc-400 uppercase tracking-widest bg-white/80 backdrop-blur px-2.5 py-1 rounded-md border border-zinc-200/60">
+                <span class="absolute top-2 left-2 sm:top-4 sm:left-4 text-[8px] sm:text-[9px] font-mono text-zinc-400 uppercase tracking-widest bg-white/80 backdrop-blur px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md border border-zinc-200/60">
                   Feature 0{idx + 1}
                 </span>
               </div>
 
               <!-- Bottom Content Area -->
-              <div class="p-6 bg-white flex items-start gap-4">
+              <div class="p-3 sm:p-6 bg-white flex flex-col sm:flex-row items-start gap-2.5 sm:gap-4">
                 <!-- Custom Green Icon -->
-                <div class="w-10 h-10 rounded-xl bg-brand-mint/10 border border-brand-mint/30 flex items-center justify-center text-brand-mint shrink-0 mt-0.5">
-                  <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <div class="w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-brand-mint/10 border border-brand-mint/30 flex items-center justify-center text-brand-mint shrink-0 mt-0.5">
+                  <svg class="h-4 w-4 sm:h-5 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d={card.iconPath} />
                   </svg>
                 </div>
 
                 <!-- Text Block -->
                 <div class="flex flex-col">
-                  <h3 class="font-display font-bold text-base sm:text-lg text-brand-black leading-snug">
+                  <h3 class="font-display font-bold text-xs sm:text-lg text-brand-black leading-snug">
                     {card.title}
                   </h3>
-                  <p class="text-xs text-zinc-500 font-medium leading-relaxed mt-1.5">
+                  <p class="text-[10px] sm:text-xs text-zinc-500 font-medium leading-tight sm:leading-relaxed mt-1 sm:mt-1.5">
                     {card.desc}
                   </p>
                 </div>
@@ -123,11 +123,14 @@ const techSchema = {
 
       </div>
 
-    </div>
+  </div>
   </section>
 
+  <!-- Section Hairline Gradient Divider -->
+  <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-zinc-200 to-transparent"></div>
+
   <!-- ─── SECTION 2: YOUR BODY. YOUR DATA. YOUR BEST VERSION. ─── -->
-  <section class="bg-white py-12 lg:py-[80px] border-b border-brand-midGray/60">
+  <section class="bg-[#F8FAFC] py-12 lg:py-[80px]">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       
       <!-- Section Title & Subhead -->

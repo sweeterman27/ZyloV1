@@ -1,69 +1,50 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
-const accountSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Member Account Portal | ZYLO AI",
-  "description": "Personalized member accounts and order tracking coming soon to ZYLO AI."
-};
 ---
 
 <Layout
-  title="Member Account Portal — Accounts Coming Soon | ZYLO AI"
-  description="Personalized member accounts, order history, and custom AI workout tracking will arrive with our online store. Reach out to ZYLO AI support for direct assistance."
-  canonical="/account"
-  schema={accountSchema}
+  title="Account — ZYLO AI"
+  description="Personalized accounts and order history are coming soon to ZYLO AI Philippines."
 >
-  <main class="min-h-[75vh] flex items-center justify-center py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white">
-    <div class="max-w-md w-full text-center bg-white border border-brand-midGray/60 rounded-3xl p-8 sm:p-12 shadow-md relative overflow-hidden">
-      
-      <!-- Top Mint Glow Decorative Accent -->
-      <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-32 h-32 bg-brand-mint/15 rounded-full blur-2xl pointer-events-none"></div>
-
-      <!-- User Avatar Icon -->
-      <div class="w-16 h-16 rounded-2xl bg-[#ebf7f4] border border-emerald-100/90 flex items-center justify-center mx-auto mb-6 shrink-0 shadow-2xs">
-        <svg class="w-8 h-8 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+  <main class="min-h-[72vh] flex items-center justify-center bg-white py-16 sm:py-24 px-4">
+    <div class="max-w-md w-full text-center mx-auto flex flex-col items-center">
+      <!-- Person Icon -->
+      <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-zinc-50 border border-zinc-200/80 text-zinc-700 shadow-2xs">
+        <svg
+          class="h-8 w-8 stroke-current"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="1.6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+          ></path>
         </svg>
       </div>
 
-      <!-- Badge -->
-      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-lightGray border border-brand-midGray/60 text-[10px] font-mono text-zinc-500 font-bold uppercase tracking-widest mb-4">
-        <span class="h-1.5 w-1.5 rounded-full bg-brand-mint"></span>
-        Member Portal
-      </span>
-
-      <!-- Headline -->
-      <h1 class="font-display font-extrabold text-2xl sm:text-3xl text-brand-black tracking-tight leading-tight mb-3">
+      <!-- Main Heading -->
+      <h1 class="font-display text-3xl sm:text-4xl font-extrabold text-brand-black tracking-tight mb-3 leading-tight">
         Accounts are coming soon
       </h1>
 
-      <!-- Subtitle -->
-      <p class="text-xs sm:text-sm font-medium text-zinc-500 leading-relaxed mb-8 max-w-sm mx-auto">
+      <!-- Description -->
+      <p class="font-display text-xs sm:text-sm text-zinc-500 font-medium leading-relaxed mb-8 max-w-md">
         Personalized accounts and order history will arrive with our online store. For now, reach out and we'll take care of you directly.
       </p>
 
-      <!-- Primary Action CTA Button -->
-      <div class="flex flex-col gap-3">
-        <a
-          href="/about#contact"
-          class="btn-spring w-full inline-flex items-center justify-center gap-2 rounded-xl bg-brand-black px-6 py-3.5 text-xs font-bold uppercase tracking-widest text-white hover:bg-neutral-800 shadow-sm"
-        >
-          <span>Contact Us</span>
-          <svg class="h-4 w-4 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        </a>
-
-        <a
-          href="/products"
-          class="inline-flex items-center justify-center text-xs font-bold text-zinc-500 hover:text-brand-black transition-colors py-2"
-        >
-          ← Explore ZYLO AI Products
-        </a>
-      </div>
-
+      <!-- Primary CTA Button (ZYLO Signature Black Button) -->
+      <a
+        href="/contact"
+        class="btn-spring inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-brand-black text-white font-bold text-xs uppercase tracking-widest hover:bg-neutral-800 transition-colors shadow-lg shadow-black/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint cursor-pointer"
+      >
+        <span>Contact Us</span>
+        <svg class="h-4 w-4 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
     </div>
   </main>
 </Layout>

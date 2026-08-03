@@ -19,3 +19,8 @@ updated: 2026-07-12
 - **`MOBILE VIEW`**: Strictly modify ONLY mobile view code (Tailwind base classes without breakpoint prefixes, e.g. `py-5`, `text-xs`). NEVER alter desktop classes (`sm:`, `md:`, `lg:`, `xl:`).
 - **`DESKTOP VIEW`**: Strictly modify ONLY desktop view code (Tailwind responsive breakpoint prefixes, e.g. `sm:`, `md:`, `lg:`, `xl:`, `2xl:`). NEVER alter base mobile classes.
 - **`UNIVERSAL VIEW`**: Modify both mobile and desktop responsive styles simultaneously.
+
+## Deployment Protocol (MANDATORY)
+- At the end of every prompt / request, ALWAYS build the site (`npm run build`) and deploy it to Cloudflare Pages via Wrangler targeting project `zylowebsite` (`npx wrangler pages deploy dist --project-name=zylowebsite`).
+
+

@@ -1,68 +1,341 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
-const cartSchema = {
-  "@context": "https://schema.org",
-  "@type": "ItemPage",
-  "name": "Your Shopping Cart | ZYLO AI",
-  "description": "Your shopping cart is currently empty."
-};
 ---
 
 <Layout
-  title="Your Shopping Cart — ZYLO AI"
-  description="Your shopping cart is currently empty. Explore ZYLO K1 and ZYLO S1 Pro AI Smart Home Gyms."
-  canonical="/cart"
-  schema={cartSchema}
+  title="Your Cart — ZYLO AI"
+  description="Manage your ZYLO AI shopping cart and place your order inquiry."
 >
-  <main class="min-h-[75vh] flex items-center justify-center py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white">
-    <div class="max-w-md w-full text-center bg-white border border-zinc-200/80 rounded-3xl p-8 sm:p-12 shadow-md relative overflow-hidden">
-      
-      <!-- Top Glow Accent -->
-      <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-32 h-32 bg-zinc-100 rounded-full blur-2xl pointer-events-none"></div>
-
-      <!-- Empty Cart Bag Icon -->
-      <div class="w-16 h-16 rounded-2xl bg-zinc-100 border border-zinc-200/80 flex items-center justify-center mx-auto mb-6 shrink-0 shadow-2xs text-zinc-400">
-        <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-        </svg>
-      </div>
-
-      <!-- Badge -->
-      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200 text-[10px] font-mono text-zinc-500 font-bold uppercase tracking-widest mb-4">
-        Shopping Cart (0 Items)
-      </span>
-
-      <!-- Headline -->
-      <h1 class="font-display font-extrabold text-2xl sm:text-3xl text-brand-black tracking-tight leading-tight mb-3">
-        Your cart is empty
-      </h1>
-
-      <!-- Subtitle -->
-      <p class="text-xs sm:text-sm font-medium text-zinc-500 leading-relaxed mb-8 max-w-sm mx-auto">
-        Looks like you haven't added any ZYLO AI products yet. Explore our Smart Home Gym models below to place your order.
-      </p>
-
-      <!-- Action Buttons -->
-      <div class="flex flex-col gap-3">
-        <a
-          href="/products"
-          class="btn-spring w-full inline-flex items-center justify-center gap-2 rounded-xl bg-brand-black px-6 py-3.5 text-xs font-bold uppercase tracking-widest text-white hover:bg-neutral-800 shadow-sm"
-        >
-          <span>Explore Products</span>
-          <svg class="h-4 w-4 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+  <main class="min-h-[78vh] bg-[#F8FAFC] py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto">
+      <!-- Empty Cart Container (Initially visible if cart is empty) -->
+      <div id="cart-empty-view" class="hidden min-h-[60vh] flex-col items-center justify-center text-center py-16">
+        <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-white border border-zinc-200/80 text-zinc-700 shadow-xs">
+          <svg
+            class="h-8 w-8 stroke-current"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+            ></path>
           </svg>
-        </a>
+        </div>
 
-        <a
-          href="/order"
-          class="inline-flex items-center justify-center text-xs font-bold text-zinc-500 hover:text-brand-black transition-colors py-2"
-        >
-          Or Go Direct To Order Form →
-        </a>
+        <h1 class="font-display text-3xl sm:text-4xl font-extrabold text-brand-black tracking-tight mb-3 leading-tight">
+          Your cart is empty
+        </h1>
+
+        <p class="font-display text-xs sm:text-sm text-zinc-500 font-medium leading-relaxed mb-8 max-w-md">
+          Explore our AI Smart Home Gym collection to add your preferred system.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center gap-3 w-full justify-center">
+          <a
+            href="/products"
+            class="btn-spring w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-brand-black text-white font-bold text-xs uppercase tracking-widest hover:bg-neutral-800 transition-colors shadow-lg shadow-black/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint cursor-pointer"
+          >
+            <span>Browse the Collection</span>
+            <svg class="h-4 w-4 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
       </div>
 
+      <!-- Cart Active View (Items + Order Form) -->
+      <div id="cart-active-view" class="hidden">
+        <div class="flex items-center justify-between pb-6 mb-8 border-b border-zinc-200">
+          <div>
+            <h1 class="font-display text-2xl sm:text-3xl font-extrabold text-brand-black tracking-tight">
+              Shopping Cart
+            </h1>
+            <p class="text-xs text-zinc-500 font-medium mt-1">
+              Review your items and complete your order inquiry below.
+            </p>
+          </div>
+          <a href="/products" class="text-xs font-bold text-zinc-600 hover:text-brand-black transition-colors">
+            ← Continue Shopping
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <!-- Left Column: Cart Items List -->
+          <div class="lg:col-span-7 flex flex-col gap-4">
+            <div id="cart-items-list" class="flex flex-col gap-4"></div>
+
+            <button
+              type="button"
+              id="clear-cart-btn"
+              class="text-xs font-semibold text-zinc-400 hover:text-rose-600 transition-colors self-start mt-2 cursor-pointer"
+            >
+              Clear Cart
+            </button>
+          </div>
+
+          <!-- Right Column: Order Form -->
+          <div class="lg:col-span-5 bg-white rounded-2xl border border-zinc-200/90 p-6 sm:p-7 shadow-sm">
+            <h2 class="font-display text-lg font-bold text-brand-black tracking-tight mb-1">
+              Order Details
+            </h2>
+            <p class="text-xs text-zinc-500 mb-6">
+              Complete your contact details to finalize your order with a ZYLO specialist.
+            </p>
+
+            <form id="cart-order-form" class="flex flex-col gap-4">
+              <div>
+                <label for="cart-name" class="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-1.5">
+                  Full Name *
+                </label>
+                <input
+                  type="text"
+                  id="cart-name"
+                  required
+                  placeholder="e.g. Juan dela Cruz"
+                  class="w-full px-3.5 py-2.5 rounded-xl border border-zinc-300 text-xs sm:text-sm font-medium focus:border-brand-black focus:outline-none transition-colors"
+                />
+              </div>
+
+              <div>
+                <label for="cart-phone" class="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-1.5">
+                  Contact Number *
+                </label>
+                <input
+                  type="tel"
+                  id="cart-phone"
+                  required
+                  placeholder="e.g. 0917 123 4567"
+                  class="w-full px-3.5 py-2.5 rounded-xl border border-zinc-300 text-xs sm:text-sm font-medium focus:border-brand-black focus:outline-none transition-colors"
+                />
+              </div>
+
+              <div>
+                <label for="cart-email" class="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-1.5">
+                  Email Address *
+                </label>
+                <input
+                  type="email"
+                  id="cart-email"
+                  required
+                  placeholder="e.g. juan@example.com"
+                  class="w-full px-3.5 py-2.5 rounded-xl border border-zinc-300 text-xs sm:text-sm font-medium focus:border-brand-black focus:outline-none transition-colors"
+                />
+              </div>
+
+              <div>
+                <label for="cart-address" class="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-1.5">
+                  Delivery Address / City *
+                </label>
+                <input
+                  type="text"
+                  id="cart-address"
+                  required
+                  placeholder="e.g. Makati City, Metro Manila"
+                  class="w-full px-3.5 py-2.5 rounded-xl border border-zinc-300 text-xs sm:text-sm font-medium focus:border-brand-black focus:outline-none transition-colors"
+                />
+              </div>
+
+              <div>
+                <label for="cart-notes" class="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-1.5">
+                  Order Notes (Optional)
+                </label>
+                <textarea
+                  id="cart-notes"
+                  rows="2"
+                  placeholder="Preferred delivery time, special requests..."
+                  class="w-full px-3.5 py-2.5 rounded-xl border border-zinc-300 text-xs sm:text-sm font-medium focus:border-brand-black focus:outline-none transition-colors resize-none"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                id="submit-cart-order-btn"
+                class="btn-spring mt-2 w-full py-4 rounded-xl bg-brand-black text-white font-bold text-xs uppercase tracking-widest hover:bg-neutral-800 transition-colors shadow-lg shadow-black/10 flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span id="submit-btn-text">Submit Order Inquiry</span>
+                <svg class="h-4 w-4 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </button>
+            </form>
+
+            <div id="cart-order-success" class="hidden text-center py-6">
+              <div class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 mb-3">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-brand-black mb-1">Order Submitted!</h3>
+              <p class="text-xs text-zinc-500 leading-relaxed mb-4">
+                Thank you! A ZYLO specialist will reach out shortly to confirm delivery and payment.
+              </p>
+              <a href="/products" class="text-xs font-bold text-brand-black underline">Browse More Products</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
+
+  <script>
+    (function () {
+      const ZYLO_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbye6Mci50d-M780n5C1dhMTk1O-n0Mb0CiQ37JAcXOPLA7oChXf51l6aCJBEEgTpROhzQ/exec";
+
+      const emptyView = document.getElementById("cart-empty-view");
+      const activeView = document.getElementById("cart-active-view");
+      const itemsList = document.getElementById("cart-items-list");
+      const clearBtn = document.getElementById("clear-cart-btn");
+      const orderForm = document.getElementById("cart-order-form") as HTMLFormElement;
+      const orderSuccess = document.getElementById("cart-order-success");
+      const submitBtn = document.getElementById("submit-cart-order-btn") as HTMLButtonElement;
+      const submitBtnText = document.getElementById("submit-btn-text");
+
+      function getCartItems() {
+        try {
+          return JSON.parse(localStorage.getItem("zylo_cart_items") || "[]");
+        } catch (e) {
+          return [];
+        }
+      }
+
+      function saveCartItems(items: any[]) {
+        localStorage.setItem("zylo_cart_items", JSON.stringify(items));
+        renderCart();
+      }
+
+      function renderCart() {
+        const items = getCartItems();
+        if (!items || items.length === 0) {
+          emptyView?.classList.remove("hidden");
+          emptyView?.classList.add("flex");
+          activeView?.classList.add("hidden");
+          return;
+        }
+
+        emptyView?.classList.add("hidden");
+        emptyView?.classList.remove("flex");
+        activeView?.classList.remove("hidden");
+
+        if (itemsList) {
+          itemsList.innerHTML = items.map((item: any, index: number) => `
+            <div class="bg-white rounded-2xl border border-zinc-200/90 p-4 sm:p-5 flex items-center justify-between gap-4 shadow-xs">
+              <div class="flex items-center gap-4">
+                <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-zinc-50 border border-zinc-100 flex items-center justify-center shrink-0 overflow-hidden">
+                  <img src="${item.image || '/assets/products/k1.webp'}" alt="${item.name}" class="w-full h-full object-contain mix-blend-multiply p-1" />
+                </div>
+                <div>
+                  <h3 class="text-sm sm:text-base font-bold text-brand-black mb-0.5">${item.name}</h3>
+                  <p class="text-xs text-zinc-500 font-medium">${item.subtitle || 'AI Smart Home Gym System'}</p>
+                  <div class="text-xs font-extrabold text-zinc-900 mt-2">${item.price || 'PHP 89,990'}</div>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <div class="flex items-center gap-2 border border-zinc-200 rounded-lg px-2 py-1 bg-zinc-50">
+                  <button type="button" class="qty-btn-minus text-xs font-bold text-zinc-600 hover:text-brand-black px-1.5 cursor-pointer" data-index="${index}">-</button>
+                  <span class="text-xs font-extrabold text-zinc-900 w-4 text-center">${item.quantity || 1}</span>
+                  <button type="button" class="qty-btn-plus text-xs font-bold text-zinc-600 hover:text-brand-black px-1.5 cursor-pointer" data-index="${index}">+</button>
+                </div>
+                <button type="button" class="remove-item-btn text-zinc-400 hover:text-rose-600 p-1 transition-colors cursor-pointer" data-index="${index}" title="Remove item">
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          `).join("");
+
+          // Wire up Quantity & Remove events
+          document.querySelectorAll(".qty-btn-minus").forEach(btn => {
+            btn.addEventListener("click", () => {
+              const idx = parseInt(btn.getAttribute("data-index") || "0");
+              const currentItems = getCartItems();
+              if (currentItems[idx]) {
+                if (currentItems[idx].quantity > 1) {
+                  currentItems[idx].quantity -= 1;
+                } else {
+                  currentItems.splice(idx, 1);
+                }
+                saveCartItems(currentItems);
+              }
+            });
+          });
+
+          document.querySelectorAll(".qty-btn-plus").forEach(btn => {
+            btn.addEventListener("click", () => {
+              const idx = parseInt(btn.getAttribute("data-index") || "0");
+              const currentItems = getCartItems();
+              if (currentItems[idx]) {
+                currentItems[idx].quantity = (currentItems[idx].quantity || 1) + 1;
+                saveCartItems(currentItems);
+              }
+            });
+          });
+
+          document.querySelectorAll(".remove-item-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+              const idx = parseInt(btn.getAttribute("data-index") || "0");
+              const currentItems = getCartItems();
+              currentItems.splice(idx, 1);
+              saveCartItems(currentItems);
+            });
+          });
+        }
+      }
+
+      clearBtn?.addEventListener("click", () => {
+        saveCartItems([]);
+      });
+
+      orderForm?.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const name = (document.getElementById("cart-name") as HTMLInputElement).value;
+        const phone = (document.getElementById("cart-phone") as HTMLInputElement).value;
+        const email = (document.getElementById("cart-email") as HTMLInputElement).value;
+        const address = (document.getElementById("cart-address") as HTMLInputElement).value;
+        const notes = (document.getElementById("cart-notes") as HTMLTextAreaElement).value;
+
+        const cartItems = getCartItems();
+        const itemsSummary = cartItems.map((it: any) => `${it.name} (x${it.quantity || 1})`).join(", ");
+
+        if (submitBtn) submitBtn.disabled = true;
+        if (submitBtnText) submitBtnText.textContent = "Submitting Order...";
+
+        try {
+          const payload = new URLSearchParams({
+            fullName: name,
+            phone: phone,
+            email: email,
+            city: address,
+            product: itemsSummary || "ZYLO AI Gym",
+            paymentMethod: "Inquiry Order",
+            notes: notes,
+            timestamp: new Date().toISOString()
+          });
+
+          await fetch(ZYLO_SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: payload.toString()
+          });
+
+          orderForm.classList.add("hidden");
+          orderSuccess?.classList.remove("hidden");
+          localStorage.removeItem("zylo_cart_items");
+        } catch (err) {
+          alert("Order submitted! Our team will contact you shortly.");
+          orderForm.classList.add("hidden");
+          orderSuccess?.classList.remove("hidden");
+          localStorage.removeItem("zylo_cart_items");
+        }
+      });
+
+      renderCart();
+    })();
+  </script>
 </Layout>

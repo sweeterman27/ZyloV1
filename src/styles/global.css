@@ -96,42 +96,29 @@ article > div.mx-auto {
   }
 }
 
-/* Universal Anti-Hanging Word & Minimalist Typography Rules (Headers: 24.752px, Subheadings: 15.2575px, NO BOLD) */
-h1, h2, h3, h4, h5, h6,
-.font-heading,
-.ab12-name {
-  font-size: 24.752px !important;
-  font-weight: 400 !important;
-  letter-spacing: -0.01em;
-  text-wrap: balance;
+/* ─────────────────────────────────────────────────────────────
+   UNIVERSAL ANTI-ORPHAN — ALL ELEMENTS, ALL VIEWS
+   Nuclear: every single element gets text-wrap: balance.
+   Headings (H), Subheadings (S), paragraphs (p), spans, divs —
+   no exceptions except pre/code and explicit nowrap utilities.
+───────────────────────────────────────────────────────────── */
+
+*:not(pre):not(code):not(script):not(style):not(svg):not(path):not(input):not(textarea):not(select):not([class*="truncate"]):not([class*="whitespace-nowrap"]):not([class*="whitespace-pre"]) {
+  text-wrap: balance !important;
+  overflow-wrap: break-word !important;
+  word-break: normal !important;
+  orphans: 4 !important;
+  widows: 4 !important;
 }
 
-h1 *, h2 *, h3 *, h4 *, h5 *, h6 *,
-.ab12-name * {
-  font-weight: 400 !important;
-}
-
-p.subheading,
-p.subtitle,
-.subheading,
-.subtitle,
-.ab12-subtitle,
-h1 + p,
-h2 + p,
-h3 + p,
-h4 + p {
-  font-size: 15.2575px !important;
-  font-weight: 400 !important;
-  text-wrap: pretty;
-}
-
-p,
-li,
-td,
-blockquote,
-figcaption,
-.ab12-desc {
-  text-wrap: pretty;
+/* Universal Hero Section Header Font Size Directive (33.3115px for all Hero Headlines) */
+h1,
+section:first-of-type h1,
+main > section:first-child h1,
+.hero-title,
+#hero-heading {
+  font-size: 33.3115px !important;
+  line-height: 1.25 !important;
 }
 
 /* Universal Minimalist Thin Typography Directive: Strip all heavy bold font weights globally across all pages, headings, texts, numbers, buttons, and cards */

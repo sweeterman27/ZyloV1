@@ -89,12 +89,12 @@ const articles = [
 ];
 
 const categoriesList = [
-  { name: "AI Technology", count: 12 },
-  { name: "Strength & Performance", count: 8 },
-  { name: "Body Composition", count: 6 },
-  { name: "Home Fitness", count: 15 },
-  { name: "Ecosystem & Value", count: 4 },
-  { name: "Recovery & Mobility", count: 9 }
+  { name: "AI Technology", count: 2 },
+  { name: "Strength & Performance", count: 1 },
+  { name: "Home Fitness", count: 1 },
+  { name: "Ecosystem & Value", count: 1 },
+  { name: "Press & Partnerships", count: 1 },
+  { name: "Lifestyle", count: 1 }
 ];
 ---
 
@@ -103,138 +103,117 @@ const categoriesList = [
   description="Read articles, guides, and insights on AI smart home gyms, digital resistance training, posture correction, and home fitness in the Philippines."
   canonical="/blog"
 >
-  <!-- Sticky Header Navbar -->
-
-
   <!-- Editorial Main Container -->
-  <div class="bg-brand-lightGray/40 min-h-screen py-12 sm:py-16">
+  <div class="bg-zinc-50 min-h-screen py-8 sm:py-16">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       
       <!-- Editorial Header Banner -->
-      <div class="text-center max-w-3xl mx-auto mb-12 border-b border-zinc-200 pb-10">
-        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-mint/10 border border-brand-mint/30 text-[10px] font-mono text-brand-mint font-bold uppercase tracking-widest mb-3">
-          <span class="h-2 w-2 rounded-full bg-brand-mint"></span>
-          ZYLO AI JOURNAL &amp; RESEARCH
-        </span>
-        <h1 class="font-display font-extrabold text-3xl sm:text-5xl text-brand-black tracking-tight leading-tight uppercase">
+      <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12 border-b border-zinc-200/80 pb-8 sm:pb-10">
+        <h1 class="font-display font-black text-2xl sm:text-5xl text-brand-black tracking-tight leading-tight uppercase">
           Smart Fitness Insights
         </h1>
-        <p class="text-xs sm:text-sm text-zinc-500 font-medium leading-relaxed mt-3 max-w-xl mx-auto">
+        <p class="text-xs sm:text-sm text-zinc-600 font-medium leading-relaxed mt-2.5 max-w-xl mx-auto">
           Explore the latest research on 42-point AI skeletal tracking, motorized digital resistance, body composition analysis, and executive home wellness.
         </p>
       </div>
 
       <!-- ─── TOP 3 FEATURED HIGHLIGHTS GRID ─── -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 mb-12 sm:mb-16">
         {articles.slice(0, 3).map((art) => (
           <a 
             href={`/blog/${art.slug}`}
-            class="group flex flex-col bg-white rounded-3xl border border-zinc-200/80 overflow-hidden shadow-sm hover:shadow-xl hover:border-brand-mint/60 transition-all duration-300"
+            class="group flex flex-col bg-white rounded-2xl sm:rounded-3xl border border-zinc-200/80 overflow-hidden shadow-2xs hover:shadow-xl hover:border-emerald-400/60 active:scale-[0.99] transition-all duration-300"
           >
-            
-            <!-- Placeholder Image Box (No generated images, pure CSS schematic placeholder) -->
-            <div class="relative aspect-[16/9] w-full bg-zinc-900 border-b border-zinc-100 overflow-hidden select-none p-6 flex flex-col items-center justify-center text-center group-hover:bg-zinc-950 transition-colors">
-              <div class="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px] opacity-15"></div>
+            <!-- Stylish Graphic Header Box -->
+            <div class="relative aspect-[16/9] w-full bg-zinc-950 border-b border-zinc-100 overflow-hidden p-5 flex flex-col items-center justify-center text-center select-none group-hover:bg-zinc-900 transition-colors">
+              <div class="absolute inset-0 bg-[radial-gradient(#30c18a_1px,transparent_1px)] [background-size:20px_20px] opacity-20"></div>
               
-              <!-- Placeholder Graphic Badge -->
+              <!-- Badge Graphic -->
               <div class="relative z-10 flex flex-col items-center gap-2">
                 <div class="h-10 w-10 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-brand-mint group-hover:scale-110 transition-transform">
                   <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                   </svg>
                 </div>
-                <span class="text-[9px] font-mono text-zinc-400 uppercase tracking-widest">{art.tag} Image Placeholder</span>
+                <span class="text-[9.5px] font-mono text-zinc-300 font-bold uppercase tracking-widest">{art.tag}</span>
               </div>
-
-              <!-- Top Left Tag -->
-              <span class="absolute top-4 left-4 text-[9px] font-mono font-bold text-white bg-white/10 backdrop-blur-md border border-white/20 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-                {art.category}
-              </span>
             </div>
 
             <!-- Card Content -->
-            <div class="p-6 flex flex-col justify-between flex-1">
+            <div class="p-5 sm:p-6 flex flex-col justify-between flex-1">
               <div>
                 <div class="flex items-center gap-2 text-[10px] font-mono text-zinc-400 mb-2">
                   <span>{art.date}</span>
                   <span>•</span>
                   <span>{art.readTime}</span>
                 </div>
-                <h3 class="font-display font-extrabold text-base text-brand-black leading-snug group-hover:text-brand-black transition-colors">
+                <h3 class="font-display font-extrabold text-base sm:text-lg text-brand-black leading-snug group-hover:text-emerald-600 transition-colors uppercase">
                   {art.title}
                 </h3>
               </div>
 
-              <div class="mt-6 border-t border-zinc-100 pt-4 flex items-center justify-between text-xs font-bold text-brand-black">
-                <span class="group-hover:text-brand-mint transition-colors">Read Article →</span>
+              <div class="mt-5 border-t border-zinc-100 pt-3.5 flex items-center justify-between text-xs font-bold text-brand-black">
+                <span class="group-hover:text-emerald-500 transition-colors flex items-center gap-1">
+                  <span>Read Article</span>
+                  <span>&rarr;</span>
+                </span>
                 <span class="text-[10px] text-zinc-400 font-mono">{art.author}</span>
               </div>
             </div>
-
           </a>
         ))}
       </div>
 
-      <!-- ─── MAIN 2-COLUMN MAGAZINE LAYOUT ─── -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <!-- ─── MAIN MAGAZINE FEED & SIDEBAR ─── -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start" id="blog-feed-container">
         
         <!-- LEFT COLUMN: ARTICLES FEED (8 COLS) -->
-        <div class="lg:col-span-8 flex flex-col gap-10">
+        <div class="lg:col-span-8 flex flex-col gap-8">
           
           <!-- Main Featured Lead Story Card -->
           <a 
             href={`/blog/${articles[0].slug}`}
-            class="block group bg-white rounded-3xl border border-zinc-200/80 overflow-hidden shadow-sm hover:shadow-xl hover:border-brand-mint/60 transition-all duration-300"
+            class="block group bg-white rounded-2xl sm:rounded-3xl border border-zinc-200/80 overflow-hidden shadow-sm hover:shadow-xl hover:border-emerald-400/60 active:scale-[0.99] transition-all duration-300"
           >
-            <!-- Large Image Placeholder Box -->
-            <div class="relative aspect-[21/9] sm:aspect-[16/7] w-full bg-zinc-950 border-b border-zinc-100 flex flex-col items-center justify-center select-none p-8 text-center">
+            <!-- Large Hero Banner Box -->
+            <div class="relative aspect-[16/8] sm:aspect-[16/7] w-full bg-zinc-950 border-b border-zinc-100 flex flex-col items-center justify-center select-none p-6 text-center">
               <div class="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] opacity-15"></div>
               
-              <div class="relative z-10 flex flex-col items-center gap-3">
-                <div class="h-14 w-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-brand-mint group-hover:scale-110 transition-transform">
-                  <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <div class="relative z-10 flex flex-col items-center gap-2.5">
+                <div class="h-12 w-12 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-brand-mint group-hover:scale-110 transition-transform">
+                  <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5" />
                   </svg>
                 </div>
-                <span class="text-xs font-mono text-zinc-400 uppercase tracking-widest">Featured Article 1 Cover Placeholder</span>
+                <span class="text-[10px] font-mono text-zinc-300 font-bold uppercase tracking-widest">Featured Research Article</span>
               </div>
-
-              <span class="absolute top-6 left-6 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-black text-white text-[10px] font-mono uppercase tracking-widest font-bold">
-                <span class="h-2 w-2 rounded-full bg-brand-mint"></span>
-                Lead Story
-              </span>
             </div>
 
             <!-- Content Details -->
-            <div class="p-8 sm:p-10">
-              <div class="flex items-center gap-3 text-xs font-mono text-zinc-400 mb-3">
-                <span class="font-bold text-brand-mint uppercase tracking-wider">{articles[0].category}</span>
+            <div class="p-5 sm:p-8">
+              <div class="flex items-center gap-2.5 text-xs font-mono text-zinc-400 mb-2">
+                <span class="font-bold text-emerald-600 uppercase tracking-wider">{articles[0].category}</span>
                 <span>•</span>
                 <span>{articles[0].date}</span>
                 <span>•</span>
                 <span>{articles[0].readTime}</span>
               </div>
 
-              <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-brand-black leading-tight group-hover:text-brand-black">
+              <h2 class="font-display font-black text-xl sm:text-3xl text-brand-black leading-snug group-hover:text-emerald-600 transition-colors uppercase">
                 {articles[0].title}
               </h2>
 
-              <p class="text-xs sm:text-sm text-zinc-600 font-medium leading-relaxed mt-4">
+              <p class="text-xs sm:text-sm text-zinc-600 font-medium leading-relaxed mt-3 sm:mt-4">
                 {articles[0].excerpt}
               </p>
 
-              <div class="mt-8 pt-6 border-t border-zinc-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                <div class="flex items-center gap-3">
-                  <div class="h-9 w-9 rounded-full bg-zinc-900 flex items-center justify-center text-white text-xs font-extrabold">
-                    ZY
-                  </div>
-                  <div>
-                    <span class="block text-xs font-bold text-brand-black">{articles[0].author}</span>
-                    <span class="block text-[10px] text-zinc-400">Computer Vision &amp; Biomechanics Lab</span>
-                  </div>
+              <div class="mt-6 pt-5 border-t border-zinc-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div>
+                  <span class="block text-xs font-bold text-brand-black">{articles[0].author}</span>
+                  <span class="block text-[10px] text-zinc-400">Computer Vision &amp; Biomechanics Lab</span>
                 </div>
 
-                <span class="btn-spring inline-flex items-center justify-center gap-2 rounded-xl bg-brand-black px-6 py-3 text-xs font-bold text-white uppercase tracking-wider group-hover:bg-neutral-800 transition-colors">
+                <span class="btn-spring min-h-[44px] w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-brand-black px-5 py-3 text-xs font-bold text-white uppercase tracking-wider group-hover:bg-neutral-800 transition-colors">
                   <span>Read Full Article</span>
                   <svg class="h-3.5 w-3.5 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -244,38 +223,37 @@ const categoriesList = [
             </div>
           </a>
 
-          <!-- Remaining Articles Feed Grid (Articles 4 to 7) -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-            {articles.slice(3).map((art) => (
+          <!-- Interactive Feed Grid (All Articles with data-blog-card attributes) -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8" id="blog-grid-feed">
+            {articles.slice(1).map((art, idx) => (
               <a 
                 href={`/blog/${art.slug}`}
-                class="group flex flex-col bg-white rounded-3xl border border-zinc-200/80 overflow-hidden shadow-sm hover:shadow-xl hover:border-brand-mint/60 transition-all duration-300"
+                data-blog-card
+                data-category={art.category}
+                data-index={idx}
+                class="group flex flex-col bg-white rounded-2xl sm:rounded-3xl border border-zinc-200/80 overflow-hidden shadow-2xs hover:shadow-xl hover:border-emerald-400/60 active:scale-[0.99] transition-all duration-300"
               >
-                <!-- Image Placeholder Box -->
-                <div class="relative aspect-[16/9] w-full bg-zinc-900 border-b border-zinc-100 flex flex-col items-center justify-center text-center select-none p-6 group-hover:bg-zinc-950 transition-colors">
+                <!-- Image Box -->
+                <div class="relative aspect-[16/9] w-full bg-zinc-950 border-b border-zinc-100 flex flex-col items-center justify-center text-center select-none p-5 group-hover:bg-zinc-900 transition-colors">
                   <div class="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px] opacity-15"></div>
                   
                   <div class="relative z-10 flex flex-col items-center gap-1.5">
                     <svg class="h-6 w-6 text-brand-mint group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                     </svg>
-                    <span class="text-[9px] font-mono text-zinc-400 uppercase tracking-widest">{art.tag} Image Placeholder</span>
+                    <span class="text-[9px] font-mono text-zinc-300 font-bold uppercase tracking-widest">{art.tag}</span>
                   </div>
-
-                  <span class="absolute top-3 left-3 text-[9px] font-mono font-bold text-white bg-white/10 backdrop-blur-md px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-                    {art.category}
-                  </span>
                 </div>
 
                 <!-- Content Area -->
-                <div class="p-6 flex flex-col justify-between flex-1">
+                <div class="p-5 sm:p-6 flex flex-col justify-between flex-1">
                   <div>
                     <div class="flex items-center gap-2 text-[10px] font-mono text-zinc-400 mb-2">
                       <span>{art.date}</span>
                       <span>•</span>
                       <span>{art.readTime}</span>
                     </div>
-                    <h3 class="font-display font-extrabold text-base text-brand-black leading-snug group-hover:text-brand-black transition-colors">
+                    <h3 class="font-display font-extrabold text-base text-brand-black leading-snug group-hover:text-emerald-600 transition-colors uppercase">
                       {art.title}
                     </h3>
                     <p class="text-xs text-zinc-500 font-medium mt-2 leading-relaxed line-clamp-2">
@@ -283,8 +261,11 @@ const categoriesList = [
                     </p>
                   </div>
 
-                  <div class="mt-6 pt-4 border-t border-zinc-100 flex items-center justify-between text-xs font-bold text-brand-black">
-                    <span class="group-hover:text-brand-mint transition-colors">Read Story →</span>
+                  <div class="mt-5 pt-3.5 border-t border-zinc-100 flex items-center justify-between text-xs font-bold text-brand-black">
+                    <span class="group-hover:text-emerald-500 transition-colors flex items-center gap-1">
+                      <span>Read Story</span>
+                      <span>&rarr;</span>
+                    </span>
                     <span class="text-[10px] text-zinc-400 font-mono">{art.author}</span>
                   </div>
                 </div>
@@ -292,28 +273,41 @@ const categoriesList = [
             ))}
           </div>
 
-          <!-- Pagination Bar -->
-          <div class="flex items-center justify-center gap-2 mt-6">
-            <button type="button" class="h-10 w-10 rounded-full bg-brand-black text-white font-mono text-xs font-bold flex items-center justify-center">1</button>
-            <button type="button" class="h-10 w-10 rounded-full bg-white border border-zinc-200 text-zinc-600 hover:border-brand-mint font-mono text-xs font-bold flex items-center justify-center transition-colors">2</button>
-            <button type="button" class="h-10 w-10 rounded-full bg-white border border-zinc-200 text-zinc-600 hover:border-brand-mint font-mono text-xs font-bold flex items-center justify-center transition-colors">3</button>
-            <button type="button" class="h-10 px-4 rounded-full bg-white border border-zinc-200 text-zinc-600 hover:border-brand-mint font-mono text-xs font-bold flex items-center justify-center transition-colors">Next →</button>
+          <!-- Interactive Dynamic Pagination Bar -->
+          <div id="blog-pagination-bar" class="flex items-center justify-center gap-2 mt-6 sm:mt-8">
+            <button
+              type="button"
+              id="page-prev-btn"
+              class="h-10 px-4 rounded-lg bg-white border border-zinc-200/90 text-zinc-700 hover:border-zinc-950 font-mono text-xs font-bold flex items-center justify-center transition-all cursor-pointer shadow-2xs"
+            >
+              &larr; Prev
+            </button>
+            <div id="page-numbers-container" class="flex items-center gap-2">
+              <!-- Dynamically populated page buttons (1, 2, 3...) -->
+            </div>
+            <button
+              type="button"
+              id="page-next-btn"
+              class="h-10 px-4 rounded-lg bg-white border border-zinc-200/90 text-zinc-700 hover:border-zinc-950 font-mono text-xs font-bold flex items-center justify-center transition-all cursor-pointer shadow-2xs"
+            >
+              Next &rarr;
+            </button>
           </div>
 
         </div>
 
         <!-- RIGHT COLUMN: SIDEBAR WIDGETS (4 COLS) -->
-        <div class="lg:col-span-4 flex flex-col gap-8">
+        <div class="lg:col-span-4 flex flex-col gap-6 sm:gap-8">
           
           <!-- Widget 1: ZYLO AI Story Card -->
-          <div class="bg-zinc-950 text-white rounded-3xl p-6 sm:p-8 border border-zinc-800 shadow-lg relative overflow-hidden">
+          <div class="bg-zinc-950 text-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-zinc-800 shadow-md relative overflow-hidden">
             <div class="relative z-10">
               <div class="h-10 w-10 rounded-2xl bg-brand-mint/20 border border-brand-mint/30 flex items-center justify-center text-brand-mint mb-4">
                 <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
                 </svg>
               </div>
-              <h3 class="font-display font-extrabold text-lg text-white uppercase tracking-tight">
+              <h3 class="font-display font-extrabold text-base sm:text-lg text-white uppercase tracking-tight">
                 About ZYLO AI
               </h3>
               <p class="text-xs text-zinc-400 leading-relaxed mt-2 font-medium">
@@ -327,55 +321,50 @@ const categoriesList = [
           </div>
 
           <!-- Widget 2: Article Categories List -->
-          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-zinc-200/80 shadow-sm">
-            <h3 class="font-display font-extrabold text-base text-brand-black uppercase tracking-tight mb-4 border-b border-zinc-100 pb-3">
+          <div class="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-zinc-200/80 shadow-2xs">
+            <h3 class="font-display font-extrabold text-sm sm:text-base text-brand-black uppercase tracking-tight mb-3 border-b border-zinc-100 pb-3">
               Categories
             </h3>
             <ul class="flex flex-col divide-y divide-zinc-100 text-xs font-semibold text-zinc-700">
               {categoriesList.map((cat) => (
-                <li class="py-2.5 flex items-center justify-between hover:text-brand-black cursor-pointer transition-colors group">
-                  <span class="group-hover:text-brand-black">{cat.name}</span>
-                  <span class="font-mono text-[10px] text-zinc-400 bg-zinc-100 px-2 py-0.5 rounded-full">{cat.count}</span>
+                <li data-sidebar-cat={cat.name} class="py-2.5 flex items-center justify-between hover:text-emerald-600 cursor-pointer transition-colors group">
+                  <span class="group-hover:text-emerald-600">{cat.name}</span>
                 </li>
               ))}
             </ul>
           </div>
 
           <!-- Widget 3: Quote of the Day -->
-          <div class="bg-brand-mint/10 border border-brand-mint/30 rounded-3xl p-6 sm:p-8 relative">
-            <span class="text-xs font-mono font-bold text-brand-mint uppercase tracking-widest block mb-2">Quote of the Day</span>
-            <blockquote class="font-display font-extrabold text-base text-brand-black leading-snug">
+          <div class="bg-emerald-500/10 border border-emerald-500/25 rounded-2xl sm:rounded-3xl p-5 sm:p-8 relative">
+            <span class="text-[10px] font-mono font-bold text-emerald-600 uppercase tracking-widest block mb-2">Quote of the Day</span>
+            <blockquote class="font-display font-extrabold text-sm sm:text-base text-brand-black leading-snug">
               &ldquo;Intelligence is the ultimate force multiplier in physical performance.&rdquo;
             </blockquote>
             <span class="block text-[10px] font-mono text-zinc-500 mt-3">&mdash; ZYLO AI Research Team</span>
           </div>
 
           <!-- Widget 4: Popular Posts -->
-          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-zinc-200/80 shadow-sm">
-            <h3 class="font-display font-extrabold text-base text-brand-black uppercase tracking-tight mb-4 border-b border-zinc-100 pb-3">
+          <div class="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-zinc-200/80 shadow-2xs">
+            <h3 class="font-display font-extrabold text-sm sm:text-base text-brand-black uppercase tracking-tight mb-4 border-b border-zinc-100 pb-3">
               Popular Posts
             </h3>
             <div class="flex flex-col gap-4">
               {articles.slice(1, 4).map((pop) => (
-                <div class="flex items-center gap-3 group cursor-pointer">
-                  <!-- Thumbnail Placeholder -->
-                  <div class="h-12 w-12 rounded-xl bg-zinc-900 shrink-0 border border-zinc-200 flex items-center justify-center text-brand-mint text-[9px] font-mono select-none">
-                    IMG
-                  </div>
+                <a href={`/blog/${pop.slug}`} class="flex items-center gap-3 group cursor-pointer">
                   <div>
-                    <h4 class="font-display font-bold text-xs text-brand-black group-hover:text-brand-black leading-tight line-clamp-2 transition-colors">
+                    <h4 class="font-display font-bold text-xs text-brand-black group-hover:text-emerald-600 leading-tight line-clamp-2 transition-colors uppercase">
                       {pop.title}
                     </h4>
                     <span class="text-[9px] font-mono text-zinc-400 mt-1 block">{pop.date}</span>
                   </div>
-                </div>
+                </a>
               ))}
             </div>
           </div>
 
           <!-- Widget 5: Newsletter Box -->
-          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-zinc-200/80 shadow-sm">
-            <h3 class="font-display font-extrabold text-base text-brand-black uppercase tracking-tight mb-2">
+          <div class="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-zinc-200/80 shadow-2xs">
+            <h3 class="font-display font-extrabold text-sm sm:text-base text-brand-black uppercase tracking-tight mb-1.5">
               Stay Informed
             </h3>
             <p class="text-xs text-zinc-500 font-medium leading-relaxed mb-4">
@@ -385,11 +374,11 @@ const categoriesList = [
               <input
                 type="email"
                 placeholder="Enter your email address"
-                class="w-full rounded-xl border border-zinc-200 px-4 py-3 text-xs focus:outline-none focus:border-brand-mint focus:ring-1 focus:ring-brand-mint font-medium"
+                class="w-full rounded-xl border border-zinc-200/90 px-4 py-3 text-xs focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 font-medium"
               />
               <button
                 type="button"
-                class="btn-spring w-full rounded-xl bg-brand-black py-3 text-xs font-bold uppercase tracking-widest text-white hover:bg-neutral-800"
+                class="btn-spring min-h-[44px] w-full rounded-xl bg-brand-black py-3 text-xs font-bold uppercase tracking-widest text-white hover:bg-neutral-800 cursor-pointer active:scale-[0.98] transition-all"
               >
                 Subscribe Free
               </button>
@@ -403,4 +392,156 @@ const categoriesList = [
     </div>
   </div>
 
+  <script>
+    function initBlogPagination() {
+      const cards = Array.from(document.querySelectorAll<HTMLElement>("[data-blog-card]"));
+      const catBtns = document.querySelectorAll<HTMLButtonElement>(".category-pill-btn");
+      const sidebarCatItems = document.querySelectorAll<HTMLElement>("[data-sidebar-cat]");
+      const pageNumbersContainer = document.getElementById("page-numbers-container");
+      const prevBtn = document.getElementById("page-prev-btn") as HTMLButtonElement;
+      const nextBtn = document.getElementById("page-next-btn") as HTMLButtonElement;
+      const feedContainer = document.getElementById("blog-feed-container");
+
+      if (!cards.length) return;
+
+      const ITEMS_PER_PAGE = 2; // 2 cards per page gives 3 pages total (1, 2, 3) for the 6 grid cards
+      let currentCategory = "all";
+      let currentPage = 1;
+
+      function getFilteredCards() {
+        if (currentCategory === "all") return cards;
+        return cards.filter((card) => {
+          const cat = card.getAttribute("data-category") || "";
+          return cat.toLowerCase().includes(currentCategory.toLowerCase());
+        });
+      }
+
+      function render() {
+        const filtered = getFilteredCards();
+        const totalPages = Math.max(1, Math.ceil(filtered.length / ITEMS_PER_PAGE));
+
+        if (currentPage > totalPages) currentPage = totalPages;
+        if (currentPage < 1) currentPage = 1;
+
+        cards.forEach((card) => {
+          card.style.display = "none";
+        });
+
+        const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+        const endIndex = startIndex + ITEMS_PER_PAGE;
+        const pageCards = filtered.slice(startIndex, endIndex);
+
+        pageCards.forEach((card) => {
+          card.style.display = "flex";
+        });
+
+        // Render Page Number Buttons (1, 2, 3) matching square button styling
+        if (pageNumbersContainer) {
+          pageNumbersContainer.innerHTML = "";
+          for (let i = 1; i <= totalPages; i++) {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.textContent = String(i);
+            btn.className = `h-10 w-10 rounded-lg border font-mono text-xs font-bold flex items-center justify-center cursor-pointer transition-all ${
+              i === currentPage
+                ? "bg-zinc-950 text-white border-zinc-950 shadow-md scale-105"
+                : "bg-white border-zinc-200/90 text-zinc-700 hover:border-zinc-950 hover:text-black"
+            }`;
+            btn.addEventListener("click", (e) => {
+              e.preventDefault();
+              currentPage = i;
+              render();
+              scrollToFeed();
+            });
+            pageNumbersContainer.appendChild(btn);
+          }
+        }
+
+        // Prev / Next Buttons State
+        if (prevBtn) {
+          if (currentPage === 1) {
+            prevBtn.classList.add("opacity-30", "pointer-events-none");
+          } else {
+            prevBtn.classList.remove("opacity-30", "pointer-events-none");
+          }
+        }
+
+        if (nextBtn) {
+          if (currentPage === totalPages) {
+            nextBtn.classList.add("opacity-30", "pointer-events-none");
+          } else {
+            nextBtn.classList.remove("opacity-30", "pointer-events-none");
+          }
+        }
+      }
+
+      function scrollToFeed() {
+        if (feedContainer) {
+          const y = feedContainer.getBoundingClientRect().top + window.scrollY - 80;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }
+      }
+
+      // Filter Pill Listeners
+      catBtns.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          currentCategory = btn.getAttribute("data-cat-btn") || "all";
+          catBtns.forEach((b) => {
+            b.classList.remove("bg-brand-black", "text-white", "shadow-xs");
+            b.classList.add("bg-white", "border", "border-zinc-200/90", "text-zinc-600");
+          });
+          btn.classList.remove("bg-white", "border", "border-zinc-200/90", "text-zinc-600");
+          btn.classList.add("bg-brand-black", "text-white", "shadow-xs");
+
+          currentPage = 1;
+          render();
+        });
+      });
+
+      // Sidebar Category Click Listeners
+      sidebarCatItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          const targetCat = item.getAttribute("data-sidebar-cat") || "all";
+          currentCategory = currentCategory === targetCat ? "all" : targetCat;
+          currentPage = 1;
+          render();
+          scrollToFeed();
+        });
+      });
+
+      if (prevBtn) {
+        prevBtn.onclick = (e) => {
+          e.preventDefault();
+          if (currentPage > 1) {
+            currentPage--;
+            render();
+            scrollToFeed();
+          }
+        };
+      }
+
+      if (nextBtn) {
+        nextBtn.onclick = (e) => {
+          e.preventDefault();
+          const filtered = getFilteredCards();
+          const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
+          if (currentPage < totalPages) {
+            currentPage++;
+            render();
+            scrollToFeed();
+          }
+        };
+      }
+
+      // Initial Render
+      render();
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initBlogPagination);
+    } else {
+      initBlogPagination();
+    }
+  </script>
 </Layout>

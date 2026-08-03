@@ -23,51 +23,54 @@ const aboutSchema = {
 
 
   <!-- ─── 1. HERO ─────────────────────────────────────────────────── -->
-  <section class="relative min-h-[92dvh] bg-zinc-950 flex items-end overflow-hidden">
+  <section class="relative min-h-[85dvh] sm:min-h-[92dvh] bg-zinc-950 flex items-end overflow-hidden">
     <!-- Full-bleed background image -->
     <div class="absolute inset-0">
       <img src="/assets/about/hero-lifestyle.webp"
         alt="ZYLO AI in action — premium home fitness"
-        class="w-full h-full object-cover object-center"
+        class="w-full h-full object-cover object-center opacity-70 sm:opacity-100"
         loading="eager"
-      decoding="async" />
+        decoding="async" />
       <!-- Dark overlay gradient from bottom -->
-      <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-zinc-950/10"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/70 to-zinc-950/20"></div>
     </div>
 
     <!-- Content anchored bottom-left -->
-    <div class="relative z-10 w-full px-6 sm:px-10 lg:px-16 pb-16 sm:pb-24">
+    <div class="relative z-10 w-full px-5 sm:px-10 lg:px-16 pb-12 sm:pb-24">
       <div class="max-w-3xl">
-        <p class="font-mono text-[10px] uppercase tracking-[0.28em] text-brand-mint mb-5">About ZYLO AI</p>
-        <h1 class="font-display font-black text-4xl sm:text-6xl lg:text-7xl text-white leading-none tracking-tighter">
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-mint/15 border border-brand-mint/30 text-[9px] sm:text-[10px] font-mono text-brand-mint font-bold uppercase tracking-widest mb-4">
+          <span class="h-1.5 w-1.5 rounded-full bg-brand-mint animate-pulse"></span>
+          About ZYLO AI
+        </span>
+        <h1 class="font-display font-black text-3xl sm:text-6xl lg:text-7xl text-white leading-[1.05] tracking-tighter uppercase">
           Redefining How<br/>
           <em class="not-italic text-brand-mint">Filipinos</em> Train.
         </h1>
-        <p class="mt-6 text-sm sm:text-base text-zinc-300 font-medium leading-relaxed max-w-xl">
+        <p class="mt-4 sm:mt-6 text-xs sm:text-base text-zinc-300 font-medium leading-relaxed max-w-xl">
           AI-powered smart wellness and fitness, built for the modern Filipino home.
         </p>
-        <div class="mt-8 h-[1px] w-20 bg-brand-mint opacity-60"></div>
+        <div class="mt-6 sm:mt-8 h-[2px] w-16 sm:w-20 bg-brand-mint opacity-80"></div>
       </div>
     </div>
 
-    <!-- Scroll hint -->
-    <div class="absolute bottom-8 right-8 z-10 flex flex-col items-center gap-2 opacity-50">
+    <!-- Scroll hint (hidden on tiny screens) -->
+    <div class="hidden sm:flex absolute bottom-8 right-8 z-10 flex-col items-center gap-2 opacity-50">
       <span class="font-mono text-[9px] uppercase tracking-widest text-white rotate-90 origin-center translate-y-4">Scroll</span>
       <div class="w-[1px] h-12 bg-white mt-4"></div>
     </div>
   </section>
 
-  <!-- ─── 2.  <!-- Section 2: Story & Vision (Editorial 2-Column Split) -->
-  <section class="bg-white py-12 lg:py-[80px]">
-    <div class="mx-auto max-w-7xl px-6 sm:px-10 lg:px-16">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+  <!-- ─── 2. STORY & VISION ────────────────────────────────────── -->
+  <section class="bg-white py-10 sm:py-16 lg:py-[80px]">
+    <div class="mx-auto max-w-7xl px-5 sm:px-10 lg:px-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-20 items-center">
         <!-- Left: Copy -->
         <div class="lg:col-span-5">
-          <p class="font-mono text-[10px] uppercase tracking-[0.28em] text-brand-mint mb-6">Our Story</p>
-          <h2 class="font-display font-black text-3xl sm:text-4xl text-brand-black leading-tight tracking-tight">
+          <span class="inline-block font-mono text-[10px] font-bold uppercase tracking-[0.24em] text-emerald-600 mb-3">Our Story</span>
+          <h2 class="font-display font-black text-2xl sm:text-4xl text-brand-black leading-tight tracking-tight uppercase">
             A New Chapter<br/>for Philippine Innovation
           </h2>
-          <div class="mt-8 space-y-5 text-[13px] sm:text-sm text-zinc-600 font-medium leading-relaxed">
+          <div class="mt-5 sm:mt-8 space-y-4 text-xs sm:text-sm text-zinc-600 font-medium leading-relaxed">
             <p>
               ZYLO AI is an AI-powered smart wellness and fitness brand created to redefine how Filipinos train, recover, and stay active at home.
             </p>
@@ -80,43 +83,46 @@ const aboutSchema = {
           </div>
         </div>
 
-        <!-- Right: Image -->
+        <!-- Right: Image & Mobile Badge -->
         <div class="lg:col-span-7 relative">
-          <div class="relative aspect-[4/3] rounded-3xl overflow-hidden bg-zinc-100">
+          <div class="relative aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden bg-zinc-100 shadow-md">
             <img src="/assets/about/hero-lifestyle.webp"
               alt="ZYLO AI — Premium Home Gym System"
               class="w-full h-full object-cover object-center"
               loading="lazy" decoding="async" />
             <!-- Corner accent -->
-            <div class="absolute top-6 left-6">
-              <span class="inline-flex items-center bg-zinc-950/80 backdrop-blur-sm text-white rounded-full px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest">
+            <div class="absolute top-4 left-4 sm:top-6 sm:left-6">
+              <span class="inline-flex items-center bg-zinc-950/85 backdrop-blur-sm text-white rounded-full px-3 py-1.5 text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-widest border border-white/10">
                 ZK Summit Holdings Inc.
               </span>
             </div>
           </div>
-          <!-- Floating stat card -->
-          <div class="absolute -bottom-6 -left-6 bg-brand-black rounded-2xl px-6 py-5 shadow-2xl hidden sm:block">
-            <p class="font-mono text-[9px] uppercase tracking-widest text-zinc-400 mb-1">Market</p>
-            <p class="font-display font-black text-2xl text-white leading-none">Philippines</p>
-            <p class="text-xs text-brand-mint font-semibold mt-1">AI-Driven Wellness</p>
+
+          <!-- Responsive Stat Card (Visible on Mobile & Desktop) -->
+          <div class="mt-4 sm:mt-0 sm:absolute sm:-bottom-6 sm:-left-6 bg-brand-black rounded-2xl p-4 sm:px-6 sm:py-5 shadow-xl flex items-center justify-between sm:block border border-zinc-800">
+            <div>
+              <p class="font-mono text-[9px] uppercase tracking-widest text-zinc-400 mb-0.5">Market Focus</p>
+              <p class="font-display font-black text-lg sm:text-2xl text-white leading-none">Philippines</p>
+            </div>
+            <span class="text-[11px] sm:text-xs text-brand-mint font-bold sm:mt-1 bg-brand-mint/10 sm:bg-transparent px-2.5 py-1 sm:p-0 rounded-lg">AI-Driven Wellness</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ─── 3. MANIFESTO  <!-- Section 3: Core Mission Pillars (3 Bento Cards) -->
-  <section class="bg-zinc-950 py-12 lg:py-[80px] overflow-hidden">
-    <div class="mx-auto max-w-7xl px-6 sm:px-10 lg:px-16">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+  <!-- ─── 3. CORE MISSION PILLARS ───────────────────────────────── -->
+  <section class="bg-zinc-950 py-10 sm:py-16 lg:py-[80px] overflow-hidden">
+    <div class="mx-auto max-w-7xl px-5 sm:px-10 lg:px-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
         <div>
-          <p class="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white leading-tight tracking-tight">
+          <h2 class="font-display font-black text-2xl sm:text-4xl lg:text-5xl text-white leading-tight tracking-tight uppercase">
             Premium wellness.<br/>
             <span class="text-brand-mint">Smart technology.</span><br/>
             Human-centered design.
-          </p>
+          </h2>
         </div>
-        <div class="space-y-6 text-[13px] sm:text-sm text-zinc-400 font-medium leading-relaxed border-l border-zinc-800 pl-10">
+        <div class="space-y-4 sm:space-y-6 text-xs sm:text-sm text-zinc-400 font-medium leading-relaxed border-t border-zinc-800 pt-6 sm:pt-0 sm:border-t-0 sm:border-l sm:pl-8 lg:pl-10">
           <p>
             Founded under <strong class="text-white font-bold">Zion Soothing Haven Inc.</strong>, ZYLO AI combines premium wellness, smart technology, and human-centered design into one intelligent home fitness ecosystem.
           </p>
@@ -128,20 +134,21 @@ const aboutSchema = {
     </div>
   </section>
 
-  <!-- ─── 4. NUMBERS  <!-- Section 4: Key Metrics / Milestones Strip -->
-  <section class="bg-brand-lightGray border-y border-brand-midGray/60 py-12 lg:py-[80px]">
-    <div class="mx-auto max-w-7xl px-6 sm:px-10 lg:px-16">
-      <dl class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x lg:divide-brand-midGray/60">
+  <!-- ─── 4. KEY METRICS STRIP ───────────────────────────────────── -->
+  <section class="bg-zinc-50 border-y border-zinc-200/80 py-10 sm:py-16 lg:py-[80px]">
+    <div class="mx-auto max-w-7xl px-5 sm:px-10 lg:px-16">
+      <dl class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-0 lg:divide-x lg:divide-zinc-200">
         {[
           { num: "42", unit: "Points", label: "Skeletal AI Tracking" },
           { num: "23+", unit: "Machines", label: "Replaced by One System" },
           { num: "200", unit: "lbs", label: "Digital Resistance Range" },
           { num: "100%", unit: "No Sub", label: "Lifetime Software Access" }
         ].map((stat) => (
-          <div class="flex flex-col lg:px-10 first:pl-0 last:pr-0">
-            <dt class="font-mono text-[9px] uppercase tracking-[0.22em] text-zinc-400 mb-2">{stat.label}</dt>
-            <dd class="font-display font-black text-4xl sm:text-5xl text-brand-black leading-none">
-              {stat.num}<span class="text-brand-mint text-2xl ml-1 font-bold">{stat.unit}</span>
+          <div class="flex flex-col bg-white sm:bg-transparent rounded-2xl p-4 sm:p-0 border border-zinc-200/70 sm:border-0 shadow-2xs sm:shadow-none lg:px-10 first:pl-0 last:pr-0">
+            <dt class="font-mono text-[9px] sm:text-[9.5px] uppercase tracking-wider text-zinc-500 font-bold mb-1.5">{stat.label}</dt>
+            <dd class="font-display font-black text-2xl sm:text-5xl text-brand-black leading-none flex items-baseline gap-1">
+              <span>{stat.num}</span>
+              <span class="text-emerald-500 text-sm sm:text-2xl font-bold">{stat.unit}</span>
             </dd>
           </div>
         ))}
@@ -149,95 +156,98 @@ const aboutSchema = {
     </div>
   </section>
 
-  <!-- ─── 5. TECHNOLOGY SECTION ────────────────────────────────────── -->
-  <section class="bg-white py-12 lg:py-[80px]">
-    <div class="mx-auto max-w-7xl px-6 sm:px-10 lg:px-16">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
-        <!-- Right: Image (reversed order on LG) -->
-        <div class="lg:col-span-7 order-2 lg:order-1 relative">
-          <div class="relative aspect-[4/3] rounded-3xl overflow-hidden bg-zinc-900">
-            <img src="/assets/about/tech-innovation.webp"
-              alt="ZYLO AI — 42-Point Skeletal Tracking Technology"
-              class="w-full h-full object-cover object-center"
-              loading="lazy" decoding="async" />
-            <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent"></div>
-            <!-- Tech label overlay -->
-            <div class="absolute bottom-6 left-6 right-6">
-              <p class="font-mono text-[9px] uppercase tracking-widest text-brand-mint mb-2">AEKE — Award-Winning Innovation</p>
-              <p class="font-display font-bold text-lg text-white leading-snug">42-Point Skeletal Tracking &amp; Real-Time Form Correction</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Left: Copy -->
-        <div class="lg:col-span-5 order-1 lg:order-2">
-          <h2 class="font-display font-black text-3xl sm:text-4xl text-brand-black leading-tight tracking-tight">
+  <!-- ─── 5. AEKE TECHNOLOGY SECTION ─────────────────────────────── -->
+  <section class="bg-white py-10 sm:py-16 lg:py-[80px]">
+    <div class="mx-auto max-w-7xl px-5 sm:px-10 lg:px-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-20 items-center">
+        
+        <!-- Left: Copy & 2-Col Mobile Pill Grid -->
+        <div class="lg:col-span-5 order-1">
+          <span class="inline-block font-mono text-[10px] font-bold uppercase tracking-[0.24em] text-emerald-600 mb-2">AEKE Powered</span>
+          <h2 class="font-display font-black text-2xl sm:text-4xl text-brand-black leading-tight tracking-tight uppercase">
             Powered by<br/>
             Award-Winning<br/>
-            <span class="text-brand-mint">AEKE Innovation</span>
+            <span class="text-emerald-500">AEKE Innovation</span>
           </h2>
-          <div class="mt-8 space-y-5 text-[13px] sm:text-sm text-zinc-600 font-medium leading-relaxed">
+          <div class="mt-4 sm:mt-6 text-xs sm:text-sm text-zinc-600 font-medium leading-relaxed">
             <p>
               ZYLO AI features AI coaching, real-time form correction, 42-point skeletal tracking, digital resistance, smart body assessment, and personalized workout plans that adapt to every user's progress.
             </p>
           </div>
 
-          <!-- Feature pills grid -->
-          <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <!-- Feature Pills Grid (2-Cols on Mobile for Clean Layout) -->
+          <div class="mt-6 sm:mt-8 grid grid-cols-2 gap-2 sm:gap-3">
             {[
               "AI Coaching",
-              "Real-Time Form Correction",
-              "42-Point Skeletal Tracking",
+              "Form Correction",
+              "42-Point Tracking",
               "Digital Resistance",
-              "Smart Body Assessment",
-              "Adaptive Workout Plans"
+              "Body Assessment",
+              "Adaptive Plans"
             ].map((feat) => (
-              <div class="flex items-center gap-3 rounded-xl border border-brand-midGray/60 bg-brand-lightGray px-4 py-3">
-                <span class="h-2 w-2 rounded-full bg-brand-mint flex-shrink-0"></span>
-                <span class="font-display font-bold text-[11px] sm:text-xs text-brand-black">{feat}</span>
+              <div class="flex items-center gap-2 rounded-xl border border-zinc-200/90 bg-zinc-50 px-3 py-2.5">
+                <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 shrink-0"></span>
+                <span class="font-display font-bold text-[10.5px] sm:text-xs text-brand-black truncate">{feat}</span>
               </div>
             ))}
           </div>
         </div>
+
+        <!-- Right: Image -->
+        <div class="lg:col-span-7 order-2 relative">
+          <div class="relative aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden bg-zinc-900 shadow-md">
+            <img src="/assets/about/tech-innovation.webp"
+              alt="ZYLO AI — 42-Point Skeletal Tracking Technology"
+              class="w-full h-full object-cover object-center"
+              loading="lazy" decoding="async" />
+            <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/85 via-zinc-950/20 to-transparent"></div>
+            <!-- Tech label overlay -->
+            <div class="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6">
+              <p class="font-mono text-[9px] uppercase tracking-widest text-brand-mint mb-1">AEKE Innovation</p>
+              <p class="font-display font-bold text-sm sm:text-lg text-white leading-snug">42-Point Skeletal Tracking &amp; Real-Time Form Correction</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ─── 6. FULL-BLEED  <!-- Section 6: Showroom & Experience Center Spotlight -->
-  <section class="relative bg-zinc-950 py-12 lg:py-[80px] overflow-hidden">
-    <!-- Decorative mint lines -->
+  <!-- ─── 6. SHOWROOM & MANIFESTO SPOTLIGHT ───────────────────────── -->
+  <section class="relative bg-zinc-950 py-12 sm:py-20 lg:py-[80px] overflow-hidden text-center">
+    <!-- Decorative mint vertical line -->
     <div class="absolute left-0 top-0 h-full w-[2px] bg-gradient-to-b from-transparent via-brand-mint/40 to-transparent"></div>
     <div class="absolute right-0 top-0 h-full w-[2px] bg-gradient-to-b from-transparent via-brand-mint/20 to-transparent"></div>
 
-    <div class="mx-auto max-w-4xl px-6 sm:px-10 lg:px-16 text-center relative z-10">
-      <p class="font-mono text-[9px] uppercase tracking-[0.3em] text-brand-mint mb-8">Our Commitment</p>
-      <blockquote class="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white leading-tight tracking-tight">
+    <div class="mx-auto max-w-4xl px-5 sm:px-10 lg:px-16 relative z-10">
+      <span class="inline-block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.28em] text-brand-mint mb-4">Our Commitment</span>
+      <blockquote class="font-display font-black text-2xl sm:text-4xl lg:text-5xl text-white leading-tight tracking-tight uppercase">
         "More than a home gym, ZYLO AI is a step toward the future of <span class="text-brand-mint">intelligent wellness</span>."
       </blockquote>
-      <p class="mt-10 text-[13px] sm:text-sm text-zinc-400 font-medium leading-relaxed max-w-2xl mx-auto">
+      <p class="mt-6 sm:mt-10 text-xs sm:text-sm text-zinc-400 font-medium leading-relaxed max-w-2xl mx-auto">
         It reflects ZK Summit Holdings Inc.'s commitment to introduce AI-powered brands that are not only advanced, but also <strong class="text-zinc-200">practical, premium, and relevant to the Filipino lifestyle</strong>.
       </p>
     </div>
   </section>
 
-  <!-- ─── 7. PARENT COMPANY  <!-- Section 7: Media & Recognition Logos Wall -->
-  <section class="bg-white border-b border-brand-midGray/60 py-12 lg:py-[80px]">
-    <div class="mx-auto max-w-7xl px-6 sm:px-10 lg:px-16">
-      <div class="flex flex-col lg:flex-row items-start lg:items-center gap-10 lg:gap-20">
-        <div class="lg:w-1/3 flex-shrink-0">
-          <p class="font-mono text-[9px] uppercase tracking-[0.22em] text-zinc-400 mb-3">Part of</p>
-          <p class="font-display font-black text-xl sm:text-2xl text-brand-black leading-snug">ZK Summit Holdings Inc.</p>
-          <div class="mt-3 h-[2px] w-10 bg-brand-mint"></div>
+  <!-- ─── 7. CORPORATE HIERARCHY CARDS ───────────────────────────── -->
+  <section class="bg-white border-b border-zinc-200/80 py-10 sm:py-16 lg:py-[80px]">
+    <div class="mx-auto max-w-7xl px-5 sm:px-10 lg:px-16">
+      <div class="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-16">
+        <div class="lg:w-1/3 shrink-0">
+          <span class="block font-mono text-[9.5px] font-bold uppercase tracking-[0.22em] text-zinc-400 mb-1">Corporate Group</span>
+          <h2 class="font-display font-black text-xl sm:text-2xl text-brand-black leading-snug uppercase">ZK Summit Holdings Inc.</h2>
+          <div class="mt-2.5 h-[2px] w-10 bg-emerald-500"></div>
         </div>
-        <div class="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-8">
+        <div class="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-6 w-full">
           {[
             { label: "Holding Company", value: "ZK Summit Holdings Inc.", desc: "Strategic innovation toward AI-driven brands." },
             { label: "Operating Brand", value: "Zion Soothing Haven Inc.", desc: "Founded ZYLO AI as its premier AI wellness venture." },
             { label: "Technology Partner", value: "AEKE", desc: "Award-winning smart gym innovation powering ZYLO AI." }
           ].map((item) => (
-            <div class="border-l-2 border-brand-midGray/40 pl-5 hover:border-brand-mint transition-colors duration-300">
-              <p class="font-mono text-[9px] uppercase tracking-widest text-zinc-400 mb-1">{item.label}</p>
-              <p class="font-display font-bold text-sm text-brand-black leading-snug mb-2">{item.value}</p>
+            <div class="bg-zinc-50 border border-zinc-200/80 rounded-2xl p-4 sm:p-5 hover:border-emerald-400/60 hover:bg-white transition-all duration-300 shadow-2xs">
+              <p class="font-mono text-[8.5px] sm:text-[9px] font-bold uppercase tracking-widest text-zinc-400 mb-1">{item.label}</p>
+              <p class="font-display font-bold text-xs sm:text-sm text-brand-black leading-snug mb-1.5">{item.value}</p>
               <p class="text-[11px] text-zinc-500 font-medium leading-relaxed">{item.desc}</p>
             </div>
           ))}
@@ -246,32 +256,33 @@ const aboutSchema = {
     </div>
   </section>
 
-  <!-- ─── 8. CLOSING CTA ─────────────────────────────────────────────  <!-- Section 8: Final CTA Banner -->
-  <section class="bg-brand-black py-12 lg:py-[80px] text-center">
-    <div class="mx-auto max-w-3xl px-6">
-      <p class="font-mono text-[10px] uppercase tracking-[0.3em] text-brand-mint mb-6">The Future of Fitness is Here</p>
-      <h2 class="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-white leading-none tracking-tighter">
+  <!-- ─── 8. FINAL CALL TO ACTION ─────────────────────────────────── -->
+  <section class="bg-brand-black py-12 sm:py-20 lg:py-[80px] text-center">
+    <div class="mx-auto max-w-3xl px-5 sm:px-6">
+      <span class="inline-block font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.28em] text-brand-mint mb-4">The Future of Fitness is Here</span>
+      <h2 class="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-white leading-tight tracking-tighter uppercase">
         ZYLO AI.<br/>
         <span class="text-brand-mint">Train with Intelligence.</span>
       </h2>
-      <p class="mt-8 text-sm text-zinc-400 font-medium leading-relaxed max-w-md mx-auto">
+      <p class="mt-4 sm:mt-8 text-xs sm:text-sm text-zinc-400 font-medium leading-relaxed max-w-md mx-auto">
         Experience the world's most advanced AI-powered home gym, built for Filipino homes.
       </p>
-      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+
+      <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 max-w-md mx-auto">
         <a
           href="/products"
-          class="btn-spring inline-flex items-center justify-center gap-2 rounded-xl bg-brand-mint px-8 py-4 text-xs font-bold tracking-widest uppercase text-brand-black hover:opacity-90 focus:outline-none"
+          class="btn-spring min-h-[48px] inline-flex items-center justify-center gap-2 rounded-xl bg-brand-mint px-6 py-3.5 text-xs font-bold tracking-widest uppercase text-brand-black hover:opacity-90 active:scale-[0.98] transition-all cursor-pointer"
         >
-          Explore Products
+          <span>Explore Products</span>
           <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
         </a>
         <a
-          href="/#contact"
-          class="inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-700 hover:border-zinc-400 px-8 py-4 text-xs font-bold tracking-widest uppercase text-zinc-300 hover:text-white transition-all duration-200 focus:outline-none"
+          href="/contact#showrooms"
+          class="min-h-[48px] inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-700 bg-zinc-900/60 hover:bg-zinc-800 px-6 py-3.5 text-xs font-bold tracking-widest uppercase text-zinc-300 hover:text-white active:scale-[0.98] transition-all cursor-pointer"
         >
-          Visit Showroom
+          <span>Visit Showroom</span>
         </a>
       </div>
     </div>

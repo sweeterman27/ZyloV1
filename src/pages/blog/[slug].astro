@@ -286,7 +286,7 @@ const articleSchema = {
     "name": "ZYLO AI",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://zylowebsite.pages.dev/favicon.svg"
+      "url": "https://zylowebsite.pages.dev/android-chrome-512x512.png"
     }
   },
   "datePublished": article.date,
@@ -304,58 +304,61 @@ const articleSchema = {
   type="article"
   schema={articleSchema}
 >
-
+  <!-- Top Reading Progress Indicator Bar -->
+  <div class="fixed top-0 left-0 right-0 z-50 h-1 bg-zinc-200/50">
+    <div id="reading-progress-bar" class="h-full bg-emerald-500 w-0 transition-all duration-150"></div>
+  </div>
 
   <!-- Top Breadcrumb Bar -->
-  <nav class="bg-brand-lightGray border-b border-brand-midGray/40 py-3.5" aria-label="Breadcrumb">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6 flex items-center gap-2 text-xs font-bold tracking-wide text-zinc-500">
-      <a href="/blog" class="hover:text-brand-black transition-colors">Blog Journal</a>
+  <nav class="bg-zinc-100/80 border-b border-zinc-200/80 py-3 sm:py-3.5" aria-label="Breadcrumb">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 flex items-center gap-2 text-[11px] sm:text-xs font-bold tracking-wide text-zinc-500">
+      <a href="/blog" class="hover:text-brand-black transition-colors shrink-0">Journal</a>
       <span class="text-zinc-300">/</span>
-      <span class="text-brand-mint uppercase tracking-wider">{article.category}</span>
-      <span class="text-zinc-300">/</span>
-      <span class="text-brand-black font-extrabold truncate max-w-[200px] sm:max-w-xs">{article.title}</span>
+      <span class="text-emerald-600 uppercase tracking-wider shrink-0">{article.category}</span>
+      <span class="text-zinc-300 hidden sm:inline">/</span>
+      <span class="text-brand-black font-extrabold truncate hidden sm:inline max-w-[200px] sm:max-w-xs">{article.title}</span>
     </div>
   </nav>
 
   <!-- Article Reader Container -->
-  <article class="bg-white py-12 sm:py-20">
+  <article class="bg-white py-8 sm:py-16 lg:py-20">
     <div class="mx-auto max-w-4xl px-4 sm:px-6">
       
       <!-- Article Header -->
-      <div class="mb-10 text-center sm:text-left">
-        <div class="flex flex-wrap items-center justify-center sm:justify-start gap-3 mb-4">
-          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-mint/10 border border-brand-mint/30 text-[10px] font-mono text-brand-mint font-bold uppercase tracking-widest">
-            <span class="h-2 w-2 rounded-full bg-brand-mint"></span>
+      <div class="mb-8 sm:mb-10 text-left">
+        <div class="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-4">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-[9.5px] font-mono text-emerald-600 font-bold uppercase tracking-widest">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
             {article.category}
           </span>
-          <span class="text-xs font-mono text-zinc-400">{article.date}</span>
+          <span class="text-[11px] font-mono text-zinc-400">{article.date}</span>
           <span class="text-zinc-300">•</span>
-          <span class="text-xs font-mono text-zinc-400">{article.readTime}</span>
+          <span class="text-[11px] font-mono text-zinc-400">{article.readTime}</span>
         </div>
 
-        <h1 class="font-display font-extrabold text-2xl sm:text-4xl lg:text-5xl text-brand-black leading-tight tracking-tight uppercase">
+        <h1 class="font-display font-black text-2xl sm:text-4xl lg:text-5xl text-brand-black leading-snug sm:leading-tight tracking-tight uppercase">
           {article.title}
         </h1>
 
         <!-- ─── SHARE THIS ARTICLE BAR ─── -->
-        <div class="mt-8 pt-6 pb-6 border-t border-b border-zinc-200/80 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span class="font-display font-bold text-xl sm:text-2xl text-brand-black tracking-tight">
-            Share this article
+        <div class="mt-6 sm:mt-8 pt-5 pb-5 border-t border-b border-zinc-200/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <span class="font-display font-black text-base sm:text-xl text-brand-black uppercase tracking-tight">
+            Share Article
           </span>
 
           <!-- 7 Circular Social Sharing Icons (ZYLO AI Brand Styling) -->
-          <div class="flex items-center gap-2.5 sm:gap-3 flex-wrap">
+          <div class="flex items-center gap-2 sm:gap-3 flex-wrap">
             <!-- 1. Facebook -->
             <a
               id="share-fb"
               href="#"
               target="_blank"
               rel="noopener noreferrer"
-              class="w-10 h-10 rounded-full bg-emerald-50/90 border border-brand-mint/30 text-brand-black hover:bg-brand-black hover:text-brand-mint hover:border-brand-black flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-sm"
+              class="w-10 h-10 rounded-full bg-zinc-50 border border-zinc-200/90 text-zinc-700 hover:bg-brand-black hover:text-brand-mint hover:border-brand-black flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 shadow-2xs"
               title="Share on Facebook"
               aria-label="Share on Facebook"
             >
-              <svg class="h-4.5 w-4.5" fill="currentColor" viewBox="0 0 24 24">
+              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
               </svg>
             </a>
@@ -366,11 +369,11 @@ const articleSchema = {
               href="#"
               target="_blank"
               rel="noopener noreferrer"
-              class="w-10 h-10 rounded-full bg-emerald-50/90 border border-brand-mint/30 text-brand-black hover:bg-brand-black hover:text-brand-mint hover:border-brand-black flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-sm"
+              class="w-10 h-10 rounded-full bg-zinc-50 border border-zinc-200/90 text-zinc-700 hover:bg-brand-black hover:text-brand-mint hover:border-brand-black flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 shadow-2xs"
               title="Share on X (Twitter)"
               aria-label="Share on X"
             >
-              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+              <svg class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
               </svg>
             </a>
@@ -381,11 +384,11 @@ const articleSchema = {
               href="#"
               target="_blank"
               rel="noopener noreferrer"
-              class="w-10 h-10 rounded-full bg-emerald-50/90 border border-brand-mint/30 text-brand-black hover:bg-brand-black hover:text-brand-mint hover:border-brand-black flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-sm"
+              class="w-10 h-10 rounded-full bg-zinc-50 border border-zinc-200/90 text-zinc-700 hover:bg-brand-black hover:text-brand-mint hover:border-brand-black flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 shadow-2xs"
               title="Share on LinkedIn"
               aria-label="Share on LinkedIn"
             >
-              <svg class="h-4.5 w-4.5" fill="currentColor" viewBox="0 0 24 24">
+              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.78a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26Z"/>
               </svg>
             </a>
@@ -396,11 +399,11 @@ const articleSchema = {
               href="#"
               target="_blank"
               rel="noopener noreferrer"
-              class="w-10 h-10 rounded-full bg-emerald-50/90 border border-brand-mint/30 text-brand-black hover:bg-brand-black hover:text-brand-mint hover:border-brand-black flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-sm"
+              class="w-10 h-10 rounded-full bg-zinc-50 border border-zinc-200/90 text-zinc-700 hover:bg-brand-black hover:text-brand-mint hover:border-brand-black flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 shadow-2xs"
               title="Share on Pinterest"
               aria-label="Share on Pinterest"
             >
-              <svg class="h-4.5 w-4.5" fill="currentColor" viewBox="0 0 24 24">
+              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/>
               </svg>
             </a>
@@ -411,11 +414,11 @@ const articleSchema = {
               href="#"
               target="_blank"
               rel="noopener noreferrer"
-              class="w-10 h-10 rounded-full bg-emerald-50/90 border border-brand-mint/30 text-brand-black hover:bg-brand-black hover:text-brand-mint hover:border-brand-black flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-sm"
+              class="w-10 h-10 rounded-full bg-zinc-50 border border-zinc-200/90 text-zinc-700 hover:bg-brand-black hover:text-brand-mint hover:border-brand-black flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 shadow-2xs"
               title="Share via WhatsApp"
               aria-label="Share via WhatsApp"
             >
-              <svg class="h-4.5 w-4.5" fill="currentColor" viewBox="0 0 24 24">
+              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
               </svg>
             </a>
@@ -426,11 +429,11 @@ const articleSchema = {
               href="#"
               target="_blank"
               rel="noopener noreferrer"
-              class="w-10 h-10 rounded-full bg-emerald-50/90 border border-brand-mint/30 text-brand-black hover:bg-brand-black hover:text-brand-mint hover:border-brand-black flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-sm"
+              class="w-10 h-10 rounded-full bg-zinc-50 border border-zinc-200/90 text-zinc-700 hover:bg-brand-black hover:text-brand-mint hover:border-brand-black flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 shadow-2xs"
               title="Share via Viber"
               aria-label="Share via Viber"
             >
-              <svg class="h-4.5 w-4.5" fill="currentColor" viewBox="0 0 24 24">
+              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M19.782 14.397c-.604-.374-1.341-.75-2.083-1.025-.515-.191-.986-.012-1.312.352-.394.437-.841.928-1.18 1.366-.118.15-.295.2-.477.104-.694-.36-1.992-1.096-3.08-2.18-.894-.89-1.57-1.92-1.876-2.618-.083-.186-.034-.356.109-.475.405-.333.874-.75 1.282-1.127.361-.335.485-.807.291-1.321-.275-.742-.65-1.479-1.025-2.083-.357-.577-.852-.619-1.458-.291-.703.38-1.517.971-1.966 1.583-.687.935-.909 2.148-.567 3.328.784 2.704 2.871 5.86 5.885 8.874 3.014 3.014 6.17 5.101 8.874 5.885 1.18.342 2.393.12 3.328-.567.612-.449 1.203-1.263 1.583-1.966.328-.606.286-1.101-.291-1.458zM14.646.042c-2.483.21-4.834 1.164-6.75 2.723A12.022 12.022 0 0 0 4.19 6.702c-.521.849-.916 1.764-1.173 2.721-.144.536.21 1.054.755 1.054.43 0 .809-.304.908-.725.215-.91.564-1.772 1.043-2.57.822-1.371 1.996-2.485 3.39-3.23A10.373 10.373 0 0 1 14.88 2.66c.421-.099.725-.478.725-.908 0-.545-.518-.899-1.054-.755z"/>
               </svg>
             </a>
@@ -439,11 +442,11 @@ const articleSchema = {
             <button
               type="button"
               id="share-copy"
-              class="w-10 h-10 rounded-full bg-emerald-50/90 border border-brand-mint/30 text-brand-black hover:bg-brand-black hover:text-brand-mint hover:border-brand-black flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-sm cursor-pointer border-none"
+              class="w-10 h-10 rounded-full bg-zinc-50 border border-zinc-200/90 text-zinc-700 hover:bg-brand-black hover:text-brand-mint hover:border-brand-black flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 shadow-2xs cursor-pointer"
               title="Copy Link to Clipboard"
               aria-label="Copy Link"
             >
-              <svg class="h-4.5 w-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
               </svg>
             </button>
@@ -455,61 +458,61 @@ const articleSchema = {
           id="share-toast" 
           class="fixed bottom-6 right-6 z-50 bg-zinc-950 text-white px-5 py-3 rounded-2xl shadow-2xl border border-zinc-800 text-xs font-bold flex items-center gap-2.5 opacity-0 translate-y-4 pointer-events-none transition-all duration-300"
         >
-          <span class="h-2 w-2 rounded-full bg-brand-mint animate-pulse"></span>
+          <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
           <span>Link copied to clipboard!</span>
         </div>
       </div>
 
-      <!-- Hero Visual Placeholder Container -->
-      <div class="relative aspect-[21/9] w-full bg-zinc-950 rounded-3xl border border-zinc-800 shadow-xl overflow-hidden select-none mb-12 flex flex-col items-center justify-center p-8 text-center">
+      <!-- Hero Graphic Visual Banner -->
+      <div class="relative aspect-[16/8] sm:aspect-[21/9] w-full bg-zinc-950 rounded-2xl sm:rounded-3xl border border-zinc-800 shadow-lg overflow-hidden select-none mb-8 sm:mb-12 flex flex-col items-center justify-center p-6 text-center">
         <div class="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] opacity-15"></div>
-        <div class="relative z-10 flex flex-col items-center gap-3">
-          <div class="h-16 w-16 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-brand-mint">
-            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+        <div class="relative z-10 flex flex-col items-center gap-2.5">
+          <div class="h-12 w-12 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-brand-mint">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5" />
             </svg>
           </div>
-          <span class="text-xs font-mono text-zinc-400 uppercase tracking-widest">{article.title} Visual Cover Placeholder</span>
+          <span class="text-[10px] font-mono text-zinc-300 font-bold uppercase tracking-widest">{article.title}</span>
         </div>
       </div>
 
-      <!-- Executive Summary Highlight Box -->
-      <div class="bg-brand-mint/10 border-l-4 border-brand-mint p-6 sm:p-8 rounded-r-2xl mb-12">
-        <span class="text-xs font-mono font-bold text-brand-mint uppercase tracking-widest block mb-2">💡 Key Takeaway</span>
-        <p class="text-sm sm:text-base font-semibold text-brand-black leading-relaxed">
+      <!-- Executive Key Takeaway Callout Box -->
+      <div class="bg-emerald-500/10 border-l-4 border-emerald-500 p-5 sm:p-7 rounded-r-2xl mb-8 sm:mb-12">
+        <span class="text-[10px] font-mono font-bold text-emerald-600 uppercase tracking-widest block mb-1.5">💡 Key Takeaway</span>
+        <p class="text-xs sm:text-base font-semibold text-brand-black leading-relaxed">
           {article.summary}
         </p>
       </div>
 
       <!-- Structured Article Paragraph Sections -->
-      <div class="prose prose-zinc max-w-none space-y-10">
+      <div class="prose prose-zinc max-w-none space-y-8 sm:space-y-10">
         {article.content.map((sec, idx) => (
           <>
-            <div class="space-y-4">
-              <h2 class="font-display font-extrabold text-xl sm:text-2xl text-brand-black tracking-tight">
+            <div class="space-y-3 sm:space-y-4">
+              <h2 class="font-display font-extrabold text-lg sm:text-2xl text-brand-black tracking-tight uppercase">
                 {sec.heading}
               </h2>
-              <p class="text-base sm:text-lg text-zinc-700 font-medium leading-relaxed">
+              <p class="text-xs sm:text-base text-zinc-700 font-medium leading-relaxed sm:leading-relaxed">
                 {sec.body}
               </p>
             </div>
 
             {idx === 1 && (
-              <div class="my-10 p-6 sm:p-8 rounded-3xl bg-zinc-950 text-white border border-zinc-800 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
-                <div class="space-y-2 text-center sm:text-left">
-                  <span class="text-[10px] font-mono font-bold text-brand-mint uppercase tracking-widest bg-brand-mint/10 px-3 py-1 rounded-full border border-brand-mint/30 inline-block">
+              <div class="my-8 sm:my-10 p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-zinc-950 text-white border border-zinc-800 shadow-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+                <div class="space-y-2 text-left">
+                  <span class="text-[9.5px] font-mono font-bold text-brand-mint uppercase tracking-widest bg-brand-mint/15 px-3 py-1 rounded-full border border-brand-mint/30 inline-block">
                     Featured Ecosystem Spotlight
                   </span>
-                  <h3 class="font-display font-extrabold text-xl sm:text-2xl text-white tracking-tight">
+                  <h3 class="font-display font-black text-lg sm:text-2xl text-white tracking-tight uppercase">
                     ZYLO K1 AI Smart Home Gym
                   </h3>
-                  <p class="text-xs sm:text-sm text-zinc-400 max-w-md">
+                  <p class="text-xs text-zinc-400 max-w-md font-medium leading-relaxed">
                     100kg digital resistance, 43" 4K touch mirror display, 42-point motion tracking, and zero monthly subscription fees.
                   </p>
                 </div>
                 <a
                   href="/products/zylo-k1"
-                  class="btn-spring shrink-0 inline-flex items-center gap-2 rounded-xl bg-brand-mint px-5 py-3.5 text-xs font-bold text-zinc-950 uppercase tracking-wider hover:bg-emerald-400 shadow-lg shadow-brand-mint/20"
+                  class="btn-spring min-h-[44px] w-full sm:w-auto shrink-0 inline-flex items-center justify-center gap-2 rounded-xl bg-brand-mint px-5 py-3 text-xs font-bold text-zinc-950 uppercase tracking-wider hover:bg-emerald-400 shadow-lg cursor-pointer"
                 >
                   <span>Explore ZYLO K1</span>
                   <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
@@ -523,19 +526,19 @@ const articleSchema = {
       </div>
 
       <!-- Next Actions / CTA Strip -->
-      <div class="mt-16 pt-10 border-t border-zinc-200 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="mt-12 sm:mt-16 pt-8 border-t border-zinc-200 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
         <a
           href="/blog"
-          class="inline-flex items-center gap-2 text-xs font-bold text-zinc-600 hover:text-brand-black uppercase tracking-wider transition-colors"
+          class="min-h-[44px] inline-flex items-center justify-center gap-2 text-xs font-bold text-zinc-600 hover:text-brand-black uppercase tracking-wider transition-colors border border-zinc-200/80 rounded-xl px-4 py-3 sm:border-0 sm:p-0"
         >
-          <span>&larr; Back to All Articles</span>
+          <span>&larr; Back to Journal</span>
         </a>
 
         <a
-          href="/products/zylo-k1"
-          class="btn-spring inline-flex items-center gap-2 rounded-xl bg-brand-black px-6 py-3.5 text-xs font-bold text-white uppercase tracking-wider"
+          href="/products"
+          class="btn-spring min-h-[48px] inline-flex items-center justify-center gap-2 rounded-xl bg-brand-black px-6 py-3.5 text-xs font-bold text-white uppercase tracking-wider active:scale-[0.98] transition-all cursor-pointer"
         >
-          <span>Explore ZYLO K1 Smart Home Gym</span>
+          <span>Explore All Products</span>
           <svg class="h-3.5 w-3.5 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>

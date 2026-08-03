@@ -1,0 +1,1244 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Contact Us — ZYLO AI Philippines"
+  description="Reach ZYLO AI customer service hotline, contact form, showrooms and warehouses across the Philippines, plus product care, warranty, and after-sales support."
+>
+  <!-- Leaflet CSS for Map -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+
+  <!-- Top Breadcrumb Bar -->
+  <div class="mx-auto max-w-[1280px] px-4 sm:px-6 pt-5 md:pt-10 pb-3">
+    <a
+      href="/"
+      class="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-zinc-500 hover:text-brand-black transition-colors min-h-[44px] py-2"
+    >
+      <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+      Back to Home
+    </a>
+  </div>
+
+  <!-- Main Split Layout Container -->
+  <section class="border-t border-zinc-200/80 bg-white">
+    <div class="mx-auto grid max-w-[1280px] gap-8 px-4 sm:px-6 py-6 md:py-10 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-14">
+      
+      <!-- Sticky Sidebar Navigation (On this page) -->
+      <aside class="lg:sticky lg:top-[6rem] lg:self-start lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto lg:pr-2 z-20">
+        <nav aria-label="On this page navigation" class="grid gap-2 sm:gap-3.5 bg-zinc-50 lg:bg-transparent p-3.5 lg:p-0 rounded-2xl border lg:border-none border-zinc-200">
+          <p class="text-[10px] sm:text-[11px] font-mono tracking-[0.25em] uppercase text-zinc-400 font-bold px-1">
+            On this page
+          </p>
+          <ul class="grid gap-1 font-semibold text-xs sm:text-sm">
+            <li>
+              <a
+                href="#showrooms"
+                class="contact-nav-link flex items-center py-2.5 pl-3.5 border-l-2 border-brand-mint text-brand-black font-bold transition-all min-h-[44px]"
+                data-section="showrooms"
+              >
+                Showrooms &amp; Warehouses
+              </a>
+            </li>
+            <li>
+              <a
+                href="#customer-service"
+                class="contact-nav-link flex items-center py-2.5 pl-3.5 border-l-2 border-transparent text-zinc-500 hover:text-brand-black hover:border-zinc-300 transition-all min-h-[44px]"
+                data-section="customer-service"
+              >
+                Customer Service
+              </a>
+            </li>
+            <li>
+              <a
+                href="#faq"
+                class="contact-nav-link flex items-center py-2.5 pl-3.5 border-l-2 border-transparent text-zinc-500 hover:text-brand-black hover:border-zinc-300 transition-all min-h-[44px]"
+                data-section="faq"
+              >
+                FAQs
+              </a>
+            </li>
+            <li>
+              <a
+                href="#care-support"
+                class="contact-nav-link flex items-center py-2.5 pl-3.5 border-l-2 border-transparent text-zinc-500 hover:text-brand-black hover:border-zinc-300 transition-all min-h-[44px]"
+                data-section="care-support"
+              >
+                Care &amp; Support
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Right Main Content Body -->
+      <div class="grid min-w-0 gap-12 sm:gap-16">
+        
+        <!-- SECTION 1: Showrooms & Warehouses -->
+        <section id="showrooms" class="scroll-mt-24 md:scroll-mt-28">
+          <div class="grid gap-2.5 pb-5 text-center md:pb-8">
+            <p class="text-[10px] sm:text-[11px] font-mono tracking-[0.3em] uppercase text-brand-mint font-bold">
+              ZYLO Near You
+            </p>
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-brand-black tracking-tight leading-tight">
+              Showrooms &amp; Warehouses
+            </h2>
+          </div>
+
+          <!-- Interactive Map Container -->
+          <div class="relative overflow-hidden rounded-3xl h-[380px] sm:h-[500px] md:h-[560px] mb-6 sm:mb-8 shadow-xl border border-zinc-200 bg-emerald-50/20 group">
+            <div id="philippines-map" class="w-full h-full z-10"></div>
+
+            <!-- Top Left Floating Badge -->
+            <div class="absolute top-3 left-14 sm:top-4 sm:left-16 z-[500] max-w-[calc(100%-4.5rem)] px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-white/95 backdrop-blur-md text-brand-black text-[11px] sm:text-xs font-bold flex items-center gap-2 shadow-md border border-zinc-200/90 shrink-0">
+              <span class="relative flex h-2.5 w-2.5 shrink-0">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+              </span>
+              <span class="truncate">12 Showrooms &amp; 5 Warehouses Nationwide</span>
+            </div>
+
+            <!-- Reset Zoom Button -->
+            <button
+              type="button"
+              id="reset-map-view"
+              class="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 z-[500] min-h-[44px] px-3.5 py-2 rounded-xl bg-white/95 backdrop-blur-md text-zinc-700 text-xs font-semibold hover:bg-white hover:text-brand-black transition-all shadow-md border border-zinc-200/90 flex items-center gap-1.5 cursor-pointer touch-manipulation"
+            >
+              <svg class="h-4 w-4 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+              </svg>
+              <span>Reset Map</span>
+            </button>
+          </div>
+
+          <!-- Tab Switcher: Showrooms vs Warehouses -->
+          <div class="flex justify-center md:justify-end pb-6 sm:pb-8">
+            <div role="tablist" aria-label="Choose showrooms or warehouses" class="inline-flex rounded-full border border-zinc-200 bg-zinc-100 p-1 shadow-inner w-full sm:w-auto">
+              <button
+                type="button"
+                id="tab-showrooms"
+                role="tab"
+                aria-selected="true"
+                class="tab-btn flex-1 sm:flex-none min-h-[44px] rounded-full px-5 py-2.5 text-xs sm:text-sm font-bold transition-all bg-white text-brand-black shadow-sm cursor-pointer touch-manipulation"
+              >
+                Showrooms (12)
+              </button>
+              <button
+                type="button"
+                id="tab-warehouses"
+                role="tab"
+                aria-selected="false"
+                class="tab-btn flex-1 sm:flex-none min-h-[44px] rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all text-zinc-500 hover:text-brand-black cursor-pointer touch-manipulation"
+              >
+                Warehouses (5)
+              </button>
+            </div>
+          </div>
+
+          <!-- SHOWROOMS GRID PANEL -->
+          <div id="panel-showrooms" class="grid gap-3.5 sm:gap-4 sm:grid-cols-2">
+            
+            <!-- 1. SM Mall of Asia -->
+            <article data-lat="14.5352" data-lng="120.9822" data-name="SM Mall of Asia" class="showroom-card flex flex-col sm:flex-row items-start sm:items-center gap-3.5 p-3.5 sm:p-4 rounded-2xl border border-zinc-200 bg-white hover:border-brand-mint/50 hover:shadow-md transition-all group cursor-pointer touch-manipulation">
+              <div class="w-full sm:w-24 h-14 sm:h-16 shrink-0 rounded-xl bg-zinc-100 border border-zinc-200/80 flex flex-row sm:flex-col items-center justify-center gap-2 sm:gap-1 p-1.5 group-hover:bg-zinc-200/60 transition-colors">
+                <svg class="h-4 w-4 sm:h-5 sm:w-5 text-zinc-400 stroke-[1.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 0V5" />
+                </svg>
+                <span class="text-[9px] font-mono uppercase text-zinc-400 font-semibold tracking-tighter">Showroom</span>
+              </div>
+              <div class="grid gap-1 min-w-0 flex-1 w-full">
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="text-sm font-bold tracking-tight text-brand-black group-hover:text-brand-mint transition-colors truncate">
+                    SM Mall of Asia
+                  </h3>
+                  <span class="text-[10px] font-semibold text-brand-mint uppercase tracking-wider shrink-0">3rd Floor</span>
+                </div>
+                <p class="text-xs text-zinc-600 truncate leading-snug">
+                  J.W. Diokno Blvd., Mall of Asia Complex, Pasay
+                </p>
+                <div class="pt-1.5 border-t border-zinc-100 flex items-center justify-between text-xs min-h-[36px]">
+                  <a href="tel:09655112944" class="font-semibold text-zinc-700 hover:text-brand-mint inline-flex items-center gap-1.5 py-1">
+                    <svg class="h-3.5 w-3.5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                    <span class="truncate">Anne Galicha — 0965 511 2944</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 2. SM North EDSA -->
+            <article data-lat="14.6565" data-lng="121.0289" data-name="SM North EDSA" class="showroom-card flex flex-col sm:flex-row items-start sm:items-center gap-3.5 p-3.5 sm:p-4 rounded-2xl border border-zinc-200 bg-white hover:border-brand-mint/50 hover:shadow-md transition-all group cursor-pointer touch-manipulation">
+              <div class="w-full sm:w-24 h-14 sm:h-16 shrink-0 rounded-xl bg-zinc-100 border border-zinc-200/80 flex flex-row sm:flex-col items-center justify-center gap-2 sm:gap-1 p-1.5 group-hover:bg-zinc-200/60 transition-colors">
+                <svg class="h-4 w-4 sm:h-5 sm:w-5 text-zinc-400 stroke-[1.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 0V5" />
+                </svg>
+                <span class="text-[9px] font-mono uppercase text-zinc-400 font-semibold tracking-tighter">Showroom</span>
+              </div>
+              <div class="grid gap-1 min-w-0 flex-1 w-full">
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="text-sm font-bold tracking-tight text-brand-black group-hover:text-brand-mint transition-colors truncate">
+                    SM North EDSA
+                  </h3>
+                  <span class="text-[10px] font-semibold text-brand-mint uppercase tracking-wider shrink-0">Ground Floor</span>
+                </div>
+                <p class="text-xs text-zinc-600 truncate leading-snug">
+                  CPP 105B-106A, Interior Zone, Quezon City
+                </p>
+                <div class="pt-1.5 border-t border-zinc-100 flex items-center justify-between text-xs min-h-[36px]">
+                  <a href="tel:09124155682" class="font-semibold text-zinc-700 hover:text-brand-mint inline-flex items-center gap-1.5 py-1">
+                    <svg class="h-3.5 w-3.5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                    <span class="truncate">Jenny Domingo — 0912 415 5682</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 3. Clark Cityfront Mall -->
+            <article data-lat="15.1684" data-lng="120.5404" data-name="Clark Cityfront Mall" class="showroom-card flex flex-col sm:flex-row items-start sm:items-center gap-3.5 p-3.5 sm:p-4 rounded-2xl border border-zinc-200 bg-white hover:border-brand-mint/50 hover:shadow-md transition-all group cursor-pointer touch-manipulation">
+              <div class="w-full sm:w-24 h-14 sm:h-16 shrink-0 rounded-xl bg-zinc-100 border border-zinc-200/80 flex flex-row sm:flex-col items-center justify-center gap-2 sm:gap-1 p-1.5 group-hover:bg-zinc-200/60 transition-colors">
+                <svg class="h-4 w-4 sm:h-5 sm:w-5 text-zinc-400 stroke-[1.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 0V5" />
+                </svg>
+                <span class="text-[9px] font-mono uppercase text-zinc-400 font-semibold tracking-tighter">Showroom</span>
+              </div>
+              <div class="grid gap-1 min-w-0 flex-1 w-full">
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="text-sm font-bold tracking-tight text-brand-black group-hover:text-brand-mint transition-colors truncate">
+                    Clark Cityfront Mall
+                  </h3>
+                  <span class="text-[10px] font-semibold text-brand-mint uppercase tracking-wider shrink-0">3rd Floor</span>
+                </div>
+                <p class="text-xs text-zinc-600 truncate leading-snug">
+                  Manuel A. Roxas Highway, Angeles, Pampanga
+                </p>
+                <div class="pt-1.5 border-t border-zinc-100 flex items-center justify-between text-xs min-h-[36px]">
+                  <a href="tel:09610722942" class="font-semibold text-zinc-700 hover:text-brand-mint inline-flex items-center gap-1.5 py-1">
+                    <svg class="h-3.5 w-3.5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                    <span class="truncate">Justine Sendiong — 0961 072 2942</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 4. Robinsons San Fernando -->
+            <article data-lat="16.6093" data-lng="120.3137" data-name="Robinsons San Fernando" class="showroom-card flex flex-col sm:flex-row items-start sm:items-center gap-3.5 p-3.5 sm:p-4 rounded-2xl border border-zinc-200 bg-white hover:border-brand-mint/50 hover:shadow-md transition-all group cursor-pointer touch-manipulation">
+              <div class="w-full sm:w-24 h-14 sm:h-16 shrink-0 rounded-xl bg-zinc-100 border border-zinc-200/80 flex flex-row sm:flex-col items-center justify-center gap-2 sm:gap-1 p-1.5 group-hover:bg-zinc-200/60 transition-colors">
+                <svg class="h-4 w-4 sm:h-5 sm:w-5 text-zinc-400 stroke-[1.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 0V5" />
+                </svg>
+                <span class="text-[9px] font-mono uppercase text-zinc-400 font-semibold tracking-tighter">Showroom</span>
+              </div>
+              <div class="grid gap-1 min-w-0 flex-1 w-full">
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="text-sm font-bold tracking-tight text-brand-black group-hover:text-brand-mint transition-colors truncate">
+                    Robinsons San Fernando
+                  </h3>
+                  <span class="text-[10px] font-semibold text-brand-mint uppercase tracking-wider shrink-0">3rd Floor</span>
+                </div>
+                <p class="text-xs text-zinc-600 truncate leading-snug">
+                  MacArthur Highway, San Fernando, La Union
+                </p>
+                <div class="pt-1.5 border-t border-zinc-100 flex items-center justify-between text-xs min-h-[36px]">
+                  <a href="tel:09925269168" class="font-semibold text-zinc-700 hover:text-brand-mint inline-flex items-center gap-1.5 py-1">
+                    <svg class="h-3.5 w-3.5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                    <span class="truncate">Rasheed Manzano — 0992 526 9168</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 5. Robinsons Place Naga -->
+            <article data-lat="13.6266" data-lng="123.1855" data-name="Robinsons Place Naga" class="showroom-card flex flex-col sm:flex-row items-start sm:items-center gap-3.5 p-3.5 sm:p-4 rounded-2xl border border-zinc-200 bg-white hover:border-brand-mint/50 hover:shadow-md transition-all group cursor-pointer touch-manipulation">
+              <div class="w-full sm:w-24 h-14 sm:h-16 shrink-0 rounded-xl bg-zinc-100 border border-zinc-200/80 flex flex-row sm:flex-col items-center justify-center gap-2 sm:gap-1 p-1.5 group-hover:bg-zinc-200/60 transition-colors">
+                <svg class="h-4 w-4 sm:h-5 sm:w-5 text-zinc-400 stroke-[1.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 0V5" />
+                </svg>
+                <span class="text-[9px] font-mono uppercase text-zinc-400 font-semibold tracking-tighter">Showroom</span>
+              </div>
+              <div class="grid gap-1 min-w-0 flex-1 w-full">
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="text-sm font-bold tracking-tight text-brand-black group-hover:text-brand-mint transition-colors truncate">
+                    Robinsons Place Naga
+                  </h3>
+                  <span class="text-[10px] font-semibold text-brand-mint uppercase tracking-wider shrink-0">2nd Floor</span>
+                </div>
+                <p class="text-xs text-zinc-600 truncate leading-snug">
+                  Roxas Avenue cor Almeda Highway, Naga
+                </p>
+                <div class="pt-1.5 border-t border-zinc-100 flex items-center justify-between text-xs min-h-[36px]">
+                  <a href="tel:09465351460" class="font-semibold text-zinc-700 hover:text-brand-mint inline-flex items-center gap-1.5 py-1">
+                    <svg class="h-3.5 w-3.5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                    <span class="truncate">Mary Mace Dominggo — 0946 535 1460</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 6. Ayala Malls Feliz -->
+            <article data-lat="14.6022" data-lng="121.0978" data-name="Ayala Malls Feliz" class="showroom-card flex flex-col sm:flex-row items-start sm:items-center gap-3.5 p-3.5 sm:p-4 rounded-2xl border border-zinc-200 bg-white hover:border-brand-mint/50 hover:shadow-md transition-all group cursor-pointer touch-manipulation">
+              <div class="w-full sm:w-24 h-14 sm:h-16 shrink-0 rounded-xl bg-zinc-100 border border-zinc-200/80 flex flex-row sm:flex-col items-center justify-center gap-2 sm:gap-1 p-1.5 group-hover:bg-zinc-200/60 transition-colors">
+                <svg class="h-4 w-4 sm:h-5 sm:w-5 text-zinc-400 stroke-[1.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 0V5" />
+                </svg>
+                <span class="text-[9px] font-mono uppercase text-zinc-400 font-semibold tracking-tighter">Showroom</span>
+              </div>
+              <div class="grid gap-1 min-w-0 flex-1 w-full">
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="text-sm font-bold tracking-tight text-brand-black group-hover:text-brand-mint transition-colors truncate">
+                    Ayala Malls Feliz
+                  </h3>
+                  <span class="text-[10px] font-semibold text-brand-mint uppercase tracking-wider shrink-0">4th Floor</span>
+                </div>
+                <p class="text-xs text-zinc-600 truncate leading-snug">
+                  Amang Rodriguez Ave cor J.P. Rizal St, Pasig
+                </p>
+                <div class="pt-1.5 border-t border-zinc-100 flex items-center justify-between text-xs min-h-[36px]">
+                  <a href="tel:09660646673" class="font-semibold text-zinc-700 hover:text-brand-mint inline-flex items-center gap-1.5 py-1">
+                    <svg class="h-3.5 w-3.5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                    <span class="truncate">Marvin Cariaga — 0966 064 6673</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 7. Ayala Center Cebu -->
+            <article data-lat="10.3170" data-lng="123.9054" data-name="Ayala Center Cebu" class="showroom-card flex flex-col sm:flex-row items-start sm:items-center gap-3.5 p-3.5 sm:p-4 rounded-2xl border border-zinc-200 bg-white hover:border-brand-mint/50 hover:shadow-md transition-all group cursor-pointer touch-manipulation">
+              <div class="w-full sm:w-24 h-14 sm:h-16 shrink-0 rounded-xl bg-zinc-100 border border-zinc-200/80 flex flex-row sm:flex-col items-center justify-center gap-2 sm:gap-1 p-1.5 group-hover:bg-zinc-200/60 transition-colors">
+                <svg class="h-4 w-4 sm:h-5 sm:w-5 text-zinc-400 stroke-[1.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 0V5" />
+                </svg>
+                <span class="text-[9px] font-mono uppercase text-zinc-400 font-semibold tracking-tighter">Showroom</span>
+              </div>
+              <div class="grid gap-1 min-w-0 flex-1 w-full">
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="text-sm font-bold tracking-tight text-brand-black group-hover:text-brand-mint transition-colors truncate">
+                    Ayala Center Cebu
+                  </h3>
+                  <span class="text-[10px] font-semibold text-brand-mint uppercase tracking-wider shrink-0">3rd Floor</span>
+                </div>
+                <p class="text-xs text-zinc-600 truncate leading-snug">
+                  Cebu Business Park, Cardinal Rosales Ave, Cebu
+                </p>
+                <div class="pt-1.5 border-t border-zinc-100 flex items-center justify-between text-xs min-h-[36px]">
+                  <a href="tel:09202011550" class="font-semibold text-zinc-700 hover:text-brand-mint inline-flex items-center gap-1.5 py-1">
+                    <svg class="h-3.5 w-3.5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                    <span class="truncate">Arlene Luciño — 0920 201 1550</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 8. SM General Santos -->
+            <article data-lat="6.1140" data-lng="125.1721" data-name="SM General Santos" class="showroom-card flex flex-col sm:flex-row items-start sm:items-center gap-3.5 p-3.5 sm:p-4 rounded-2xl border border-zinc-200 bg-white hover:border-brand-mint/50 hover:shadow-md transition-all group cursor-pointer touch-manipulation">
+              <div class="w-full sm:w-24 h-14 sm:h-16 shrink-0 rounded-xl bg-zinc-100 border border-zinc-200/80 flex flex-row sm:flex-col items-center justify-center gap-2 sm:gap-1 p-1.5 group-hover:bg-zinc-200/60 transition-colors">
+                <svg class="h-4 w-4 sm:h-5 sm:w-5 text-zinc-400 stroke-[1.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 0V5" />
+                </svg>
+                <span class="text-[9px] font-mono uppercase text-zinc-400 font-semibold tracking-tighter">Showroom</span>
+              </div>
+              <div class="grid gap-1 min-w-0 flex-1 w-full">
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="text-sm font-bold tracking-tight text-brand-black group-hover:text-brand-mint transition-colors truncate">
+                    SM General Santos
+                  </h3>
+                  <span class="text-[10px] font-semibold text-brand-mint uppercase tracking-wider shrink-0">2nd Floor</span>
+                </div>
+                <p class="text-xs text-zinc-600 truncate leading-snug">
+                  Santiago Blvd cor San Miguel St, GenSan
+                </p>
+                <div class="pt-1.5 border-t border-zinc-100 flex items-center justify-between text-xs min-h-[36px]">
+                  <a href="tel:09171336226" class="font-semibold text-zinc-700 hover:text-brand-mint inline-flex items-center gap-1.5 py-1">
+                    <svg class="h-3.5 w-3.5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                    <span class="truncate">Maureen Yap — 0917 133 6226</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 9. SM Ecoland Davao -->
+            <article data-lat="7.0532" data-lng="125.5828" data-name="SM Ecoland, Davao City" class="showroom-card flex flex-col sm:flex-row items-start sm:items-center gap-3.5 p-3.5 sm:p-4 rounded-2xl border border-zinc-200 bg-white hover:border-brand-mint/50 hover:shadow-md transition-all group cursor-pointer touch-manipulation">
+              <div class="w-full sm:w-24 h-14 sm:h-16 shrink-0 rounded-xl bg-zinc-100 border border-zinc-200/80 flex flex-row sm:flex-col items-center justify-center gap-2 sm:gap-1 p-1.5 group-hover:bg-zinc-200/60 transition-colors">
+                <svg class="h-4 w-4 sm:h-5 sm:w-5 text-zinc-400 stroke-[1.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 0V5" />
+                </svg>
+                <span class="text-[9px] font-mono uppercase text-zinc-400 font-semibold tracking-tighter">Showroom</span>
+              </div>
+              <div class="grid gap-1 min-w-0 flex-1 w-full">
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="text-sm font-bold tracking-tight text-brand-black group-hover:text-brand-mint transition-colors truncate">
+                    SM Ecoland, Davao City
+                  </h3>
+                  <span class="text-[10px] font-semibold text-brand-mint uppercase tracking-wider shrink-0">2nd Floor</span>
+                </div>
+                <p class="text-xs text-zinc-600 truncate leading-snug">
+                  Quimpo Blvd cor Tulip Dr, Ecoland, Davao
+                </p>
+                <div class="pt-1.5 border-t border-zinc-100 flex items-center justify-between text-xs min-h-[36px]">
+                  <a href="tel:09610722942" class="font-semibold text-zinc-700 hover:text-brand-mint inline-flex items-center gap-1.5 py-1">
+                    <svg class="h-3.5 w-3.5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                    <span class="truncate">Justine Sendiong — 0961 072 2942</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 10. SM Tuguegarao -->
+            <article data-lat="17.6160" data-lng="121.7269" data-name="SM Tuguegarao" class="showroom-card flex flex-col sm:flex-row items-start sm:items-center gap-3.5 p-3.5 sm:p-4 rounded-2xl border border-zinc-200 bg-white hover:border-brand-mint/50 hover:shadow-md transition-all group cursor-pointer touch-manipulation">
+              <div class="w-full sm:w-24 h-14 sm:h-16 shrink-0 rounded-xl bg-zinc-100 border border-zinc-200/80 flex flex-row sm:flex-col items-center justify-center gap-2 sm:gap-1 p-1.5 group-hover:bg-zinc-200/60 transition-colors">
+                <svg class="h-4 w-4 sm:h-5 sm:w-5 text-zinc-400 stroke-[1.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 0V5" />
+                </svg>
+                <span class="text-[9px] font-mono uppercase text-zinc-400 font-semibold tracking-tighter">Showroom</span>
+              </div>
+              <div class="grid gap-1 min-w-0 flex-1 w-full">
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="text-sm font-bold tracking-tight text-brand-black group-hover:text-brand-mint transition-colors truncate">
+                    SM Tuguegarao
+                  </h3>
+                  <span class="text-[10px] font-semibold text-brand-mint uppercase tracking-wider shrink-0">2nd Floor</span>
+                </div>
+                <p class="text-xs text-zinc-600 truncate leading-snug">
+                  Brgy. Caritan, Tuguegarao City, Cagayan
+                </p>
+                <div class="pt-1.5 border-t border-zinc-100 flex items-center justify-between text-xs min-h-[36px]">
+                  <a href="tel:09610722942" class="font-semibold text-zinc-700 hover:text-brand-mint inline-flex items-center gap-1.5 py-1">
+                    <svg class="h-3.5 w-3.5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                    <span class="truncate">Justine Sendiong — 0961 072 2942</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 11. SM City Bacolod -->
+            <article data-lat="10.6649" data-lng="122.9595" data-name="SM City Bacolod" class="showroom-card flex flex-col sm:flex-row items-start sm:items-center gap-3.5 p-3.5 sm:p-4 rounded-2xl border border-zinc-200 bg-white hover:border-brand-mint/50 hover:shadow-md transition-all group cursor-pointer touch-manipulation">
+              <div class="w-full sm:w-24 h-14 sm:h-16 shrink-0 rounded-xl bg-zinc-100 border border-zinc-200/80 flex flex-row sm:flex-col items-center justify-center gap-2 sm:gap-1 p-1.5 group-hover:bg-zinc-200/60 transition-colors">
+                <svg class="h-4 w-4 sm:h-5 sm:w-5 text-zinc-400 stroke-[1.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 0V5" />
+                </svg>
+                <span class="text-[9px] font-mono uppercase text-zinc-400 font-semibold tracking-tighter">Showroom</span>
+              </div>
+              <div class="grid gap-1 min-w-0 flex-1 w-full">
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="text-sm font-bold tracking-tight text-brand-black group-hover:text-brand-mint transition-colors truncate">
+                    SM City Bacolod
+                  </h3>
+                  <span class="text-[10px] font-semibold text-brand-mint uppercase tracking-wider shrink-0">2nd Floor</span>
+                </div>
+                <p class="text-xs text-zinc-600 truncate leading-snug">
+                  Rizal St, Reclamation Area, Bacolod City
+                </p>
+                <div class="pt-1.5 border-t border-zinc-100 flex items-center justify-between text-xs min-h-[36px]">
+                  <a href="tel:09291715860" class="font-semibold text-zinc-700 hover:text-brand-mint inline-flex items-center gap-1.5 py-1">
+                    <svg class="h-3.5 w-3.5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                    <span class="truncate">Christy Dolor — 0929 171 5860</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 12. Festival Mall Alabang -->
+            <article data-lat="14.4193" data-lng="121.0414" data-name="Festival Mall Alabang" class="showroom-card flex flex-col sm:flex-row items-start sm:items-center gap-3.5 p-3.5 sm:p-4 rounded-2xl border border-zinc-200 bg-white hover:border-brand-mint/50 hover:shadow-md transition-all group cursor-pointer touch-manipulation">
+              <div class="w-full sm:w-24 h-14 sm:h-16 shrink-0 rounded-xl bg-zinc-100 border border-zinc-200/80 flex flex-row sm:flex-col items-center justify-center gap-2 sm:gap-1 p-1.5 group-hover:bg-zinc-200/60 transition-colors">
+                <svg class="h-4 w-4 sm:h-5 sm:w-5 text-zinc-400 stroke-[1.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 0V5" />
+                </svg>
+                <span class="text-[9px] font-mono uppercase text-zinc-400 font-semibold tracking-tighter">Showroom</span>
+              </div>
+              <div class="grid gap-1 min-w-0 flex-1 w-full">
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="text-sm font-bold tracking-tight text-brand-black group-hover:text-brand-mint transition-colors truncate">
+                    Festival Mall Alabang
+                  </h3>
+                  <span class="text-[10px] font-semibold text-brand-mint uppercase tracking-wider shrink-0">2nd Floor</span>
+                </div>
+                <p class="text-xs text-zinc-600 truncate leading-snug">
+                  Filinvest Corporate City, Commerce Ave, Muntinlupa
+                </p>
+                <div class="pt-1.5 border-t border-zinc-100 flex items-center justify-between text-xs min-h-[36px]">
+                  <a href="tel:09610722942" class="font-semibold text-zinc-700 hover:text-brand-mint inline-flex items-center gap-1.5 py-1">
+                    <svg class="h-3.5 w-3.5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                    <span class="truncate">Justine Sendiong — 0961 072 2942</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- WAREHOUSES PANEL (Hidden by default) -->
+          <div id="panel-warehouses" class="hidden grid gap-3.5 sm:gap-4 sm:grid-cols-2">
+            
+            <!-- 1. Valenzuela Warehouse -->
+            <article data-lat="14.7011" data-lng="120.9830" data-name="Valenzuela Warehouse" class="warehouse-card flex flex-col sm:flex-row items-start sm:items-center gap-3.5 p-3.5 sm:p-4 rounded-2xl border border-zinc-200 bg-white hover:border-brand-mint/50 hover:shadow-md transition-all group cursor-pointer touch-manipulation">
+              <div class="w-full sm:w-24 h-14 sm:h-16 shrink-0 rounded-xl bg-zinc-100 border border-zinc-200/80 flex flex-row sm:flex-col items-center justify-center gap-2 sm:gap-1 p-1.5 group-hover:bg-zinc-200/60 transition-colors">
+                <svg class="h-4 w-4 sm:h-5 sm:w-5 text-zinc-400 stroke-[1.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                </svg>
+                <span class="text-[9px] font-mono uppercase text-zinc-400 font-semibold tracking-tighter">Warehouse</span>
+              </div>
+              <div class="grid gap-1 min-w-0 flex-1 w-full">
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="text-sm font-bold tracking-tight text-brand-black group-hover:text-brand-mint transition-colors truncate">
+                    Valenzuela Warehouse
+                  </h3>
+                  <span class="text-[10px] font-semibold text-brand-mint uppercase tracking-wider shrink-0">KPC Hub 3</span>
+                </div>
+                <p class="text-xs text-zinc-600 truncate leading-snug">
+                  Dulalia St., Valenzuela City, Metro Manila
+                </p>
+                <div class="pt-1.5 border-t border-zinc-100 flex items-center justify-between text-xs min-h-[36px]">
+                  <a href="tel:09051656289" class="font-semibold text-zinc-700 hover:text-brand-mint inline-flex items-center gap-1.5 py-1">
+                    <svg class="h-3.5 w-3.5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                    <span class="truncate">Dannice Caraballe — 0905 165 6289</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 2. Iloilo Warehouse -->
+            <article data-lat="10.7202" data-lng="122.5621" data-name="Iloilo Warehouse" class="warehouse-card flex flex-col sm:flex-row items-start sm:items-center gap-3.5 p-3.5 sm:p-4 rounded-2xl border border-zinc-200 bg-white hover:border-brand-mint/50 hover:shadow-md transition-all group cursor-pointer touch-manipulation">
+              <div class="w-full sm:w-24 h-14 sm:h-16 shrink-0 rounded-xl bg-zinc-100 border border-zinc-200/80 flex flex-row sm:flex-col items-center justify-center gap-2 sm:gap-1 p-1.5 group-hover:bg-zinc-200/60 transition-colors">
+                <svg class="h-4 w-4 sm:h-5 sm:w-5 text-zinc-400 stroke-[1.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                </svg>
+                <span class="text-[9px] font-mono uppercase text-zinc-400 font-semibold tracking-tighter">Warehouse</span>
+              </div>
+              <div class="grid gap-1 min-w-0 flex-1 w-full">
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="text-sm font-bold tracking-tight text-brand-black group-hover:text-brand-mint transition-colors truncate">
+                    Iloilo Warehouse
+                  </h3>
+                  <span class="text-[10px] font-semibold text-brand-mint uppercase tracking-wider shrink-0">Farmcon Hub</span>
+                </div>
+                <p class="text-xs text-zinc-600 truncate leading-snug">
+                  2012 Democracia St., Jaro, Iloilo City
+                </p>
+                <div class="pt-1.5 border-t border-zinc-100 flex items-center justify-between text-xs min-h-[36px]">
+                  <a href="tel:09102430211" class="font-semibold text-zinc-700 hover:text-brand-mint inline-flex items-center gap-1.5 py-1">
+                    <svg class="h-3.5 w-3.5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                    <span class="truncate">Rommel Rodriguez — 0910 243 0211</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 3. Bacolod Warehouse -->
+            <article data-lat="10.6765" data-lng="122.9509" data-name="Bacolod Warehouse" class="warehouse-card flex flex-col sm:flex-row items-start sm:items-center gap-3.5 p-3.5 sm:p-4 rounded-2xl border border-zinc-200 bg-white hover:border-brand-mint/50 hover:shadow-md transition-all group cursor-pointer touch-manipulation">
+              <div class="w-full sm:w-24 h-14 sm:h-16 shrink-0 rounded-xl bg-zinc-100 border border-zinc-200/80 flex flex-row sm:flex-col items-center justify-center gap-2 sm:gap-1 p-1.5 group-hover:bg-zinc-200/60 transition-colors">
+                <svg class="h-4 w-4 sm:h-5 sm:w-5 text-zinc-400 stroke-[1.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                </svg>
+                <span class="text-[9px] font-mono uppercase text-zinc-400 font-semibold tracking-tighter">Warehouse</span>
+              </div>
+              <div class="grid gap-1 min-w-0 flex-1 w-full">
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="text-sm font-bold tracking-tight text-brand-black group-hover:text-brand-mint transition-colors truncate">
+                    Bacolod Warehouse
+                  </h3>
+                  <span class="text-[10px] font-semibold text-brand-mint uppercase tracking-wider shrink-0">Gonzaga Hub</span>
+                </div>
+                <p class="text-xs text-zinc-600 truncate leading-snug">
+                  82 Gonzaga St., Bacolod City, Negros Occ.
+                </p>
+                <div class="pt-1.5 border-t border-zinc-100 flex items-center justify-between text-xs min-h-[36px]">
+                  <a href="tel:09950642281" class="font-semibold text-zinc-700 hover:text-brand-mint inline-flex items-center gap-1.5 py-1">
+                    <svg class="h-3.5 w-3.5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                    <span class="truncate">Christian Galande — 0995 064 2281</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 4. Cebu Warehouse -->
+            <article data-lat="10.3236" data-lng="123.9223" data-name="Cebu Warehouse" class="warehouse-card flex flex-col sm:flex-row items-start sm:items-center gap-3.5 p-3.5 sm:p-4 rounded-2xl border border-zinc-200 bg-white hover:border-brand-mint/50 hover:shadow-md transition-all group cursor-pointer touch-manipulation">
+              <div class="w-full sm:w-24 h-14 sm:h-16 shrink-0 rounded-xl bg-zinc-100 border border-zinc-200/80 flex flex-row sm:flex-col items-center justify-center gap-2 sm:gap-1 p-1.5 group-hover:bg-zinc-200/60 transition-colors">
+                <svg class="h-4 w-4 sm:h-5 sm:w-5 text-zinc-400 stroke-[1.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                </svg>
+                <span class="text-[9px] font-mono uppercase text-zinc-400 font-semibold tracking-tighter">Warehouse</span>
+              </div>
+              <div class="grid gap-1 min-w-0 flex-1 w-full">
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="text-sm font-bold tracking-tight text-brand-black group-hover:text-brand-mint transition-colors truncate">
+                    Cebu Warehouse
+                  </h3>
+                  <span class="text-[10px] font-semibold text-brand-mint uppercase tracking-wider shrink-0">Visayas Hub</span>
+                </div>
+                <p class="text-xs text-zinc-600 truncate leading-snug">
+                  Mandaue City, Cebu
+                </p>
+                <div class="pt-1.5 border-t border-zinc-100 flex items-center justify-between text-xs min-h-[36px]">
+                  <span class="text-zinc-500 font-medium">Servicing Visayas Region</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 5. Davao Warehouse -->
+            <article data-lat="7.0731" data-lng="125.6128" data-name="Davao Warehouse" class="warehouse-card flex flex-col sm:flex-row items-start sm:items-center gap-3.5 p-3.5 sm:p-4 rounded-2xl border border-zinc-200 bg-white hover:border-brand-mint/50 hover:shadow-md transition-all group cursor-pointer touch-manipulation">
+              <div class="w-full sm:w-24 h-14 sm:h-16 shrink-0 rounded-xl bg-zinc-100 border border-zinc-200/80 flex flex-row sm:flex-col items-center justify-center gap-2 sm:gap-1 p-1.5 group-hover:bg-zinc-200/60 transition-colors">
+                <svg class="h-4 w-4 sm:h-5 sm:w-5 text-zinc-400 stroke-[1.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                </svg>
+                <span class="text-[9px] font-mono uppercase text-zinc-400 font-semibold tracking-tighter">Warehouse</span>
+              </div>
+              <div class="grid gap-1 min-w-0 flex-1 w-full">
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="text-sm font-bold tracking-tight text-brand-black group-hover:text-brand-mint transition-colors truncate">
+                    Davao Warehouse
+                  </h3>
+                  <span class="text-[10px] font-semibold text-brand-mint uppercase tracking-wider shrink-0">Mindanao Hub</span>
+                </div>
+                <p class="text-xs text-zinc-600 truncate leading-snug">
+                  Davao City, Davao del Sur
+                </p>
+                <div class="pt-1.5 border-t border-zinc-100 flex items-center justify-between text-xs min-h-[36px]">
+                  <span class="text-zinc-500 font-medium">Servicing Mindanao Region</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- Centered Full-Width Container (1280px Max Width) for Customer Service, FAQs, and Care & Support -->
+    <div class="mx-auto max-w-[1280px] px-4 sm:px-6 py-12 md:py-16 space-y-16 sm:space-y-20">
+      
+      <!-- SECTION 2: Customer Service & Contact Form -->
+      <section id="customer-service" class="scroll-mt-24 md:scroll-mt-28 pt-8 border-t border-zinc-200">
+        <div class="grid gap-2.5 pb-6 text-center md:pb-10">
+          <p class="text-[10px] sm:text-[11px] font-mono tracking-[0.3em] uppercase text-brand-mint font-bold">
+            Contact Us
+          </p>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-brand-black tracking-tight leading-tight">
+            Customer Service
+          </h2>
+        </div>
+
+        <!-- Direct Hotline Banner (Aligned to 1280px navbar edges) -->
+        <div class="w-full p-5 sm:p-6 rounded-2xl bg-zinc-900 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8 sm:mb-10 shadow-lg border border-zinc-800">
+          <div class="flex items-center gap-3.5">
+            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-brand-mint/20 border border-brand-mint/40 flex items-center justify-center shrink-0">
+              <svg class="h-5 w-5 sm:h-6 sm:w-6 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+            </div>
+            <div>
+              <span class="text-[10px] font-mono uppercase tracking-widest text-zinc-400 block">Direct Hotline</span>
+              <span class="text-xs sm:text-sm font-semibold text-zinc-300">Mon – Sat, 9am – 7pm PHT</span>
+            </div>
+          </div>
+          <a
+            href="tel:09103102418"
+            class="w-full sm:w-auto min-h-[44px] px-6 py-3 rounded-xl bg-brand-mint text-brand-black font-extrabold text-sm sm:text-base tracking-wide hover:bg-emerald-300 transition-all shrink-0 cursor-pointer shadow-md flex items-center justify-center touch-manipulation"
+          >
+            0910 310 2418
+          </a>
+        </div>
+
+        <!-- Contact Form Container (Aligned to 1280px navbar edges) -->
+        <div class="w-full p-5 sm:p-10 rounded-3xl bg-zinc-50 border border-zinc-200">
+          <p class="text-xs font-semibold text-zinc-500 mb-6">
+            * Required information
+          </p>
+
+          <form id="contact-form" class="grid gap-5 sm:gap-6">
+            <div class="grid sm:grid-cols-2 gap-5 sm:gap-6">
+              <!-- First Name -->
+              <div class="grid gap-2">
+                <label for="first-name" class="text-xs font-bold text-brand-black">
+                  First name <span class="text-rose-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="first-name"
+                  name="firstName"
+                  required
+                  placeholder="Enter your first name"
+                  class="w-full min-h-[44px] px-4 py-2.5 rounded-xl border border-zinc-300 bg-white text-base sm:text-sm focus:outline-none focus:border-brand-mint focus:ring-2 focus:ring-brand-mint/20 transition-all"
+                />
+              </div>
+              <!-- Last Name -->
+              <div class="grid gap-2">
+                <label for="last-name" class="text-xs font-bold text-brand-black">
+                  Last name <span class="text-rose-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="last-name"
+                  name="lastName"
+                  required
+                  placeholder="Enter your last name"
+                  class="w-full min-h-[44px] px-4 py-2.5 rounded-xl border border-zinc-300 bg-white text-base sm:text-sm focus:outline-none focus:border-brand-mint focus:ring-2 focus:ring-brand-mint/20 transition-all"
+                />
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-3 gap-5 sm:gap-6">
+              <!-- Email -->
+              <div class="sm:col-span-2 grid gap-2">
+                <label for="email" class="text-xs font-bold text-brand-black">
+                  E-mail <span class="text-rose-500">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="name@example.com"
+                  class="w-full min-h-[44px] px-4 py-2.5 rounded-xl border border-zinc-300 bg-white text-base sm:text-sm focus:outline-none focus:border-brand-mint focus:ring-2 focus:ring-brand-mint/20 transition-all"
+                />
+              </div>
+              <!-- Area Code -->
+              <div class="grid gap-2">
+                <label for="area-code" class="text-xs font-bold text-brand-black">
+                  Area code <span class="text-rose-500">*</span>
+                </label>
+                <select
+                  id="area-code"
+                  name="areaCode"
+                  required
+                  class="w-full min-h-[44px] px-4 py-2.5 rounded-xl border border-zinc-300 bg-white text-base sm:text-sm focus:outline-none focus:border-brand-mint focus:ring-2 focus:ring-brand-mint/20 transition-all"
+                >
+                  <option value="+63">PH +63</option>
+                  <option value="+1">US +1</option>
+                  <option value="+44">UK +44</option>
+                  <option value="+65">SG +65</option>
+                  <option value="+61">AU +61</option>
+                  <option value="+81">JP +81</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-5 sm:gap-6">
+              <!-- Phone Number -->
+              <div class="grid gap-2">
+                <label for="phone" class="text-xs font-bold text-brand-black">
+                  Telephone number <span class="text-rose-500">*</span>
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  required
+                  placeholder="e.g. 9171234567"
+                  class="w-full min-h-[44px] px-4 py-2.5 rounded-xl border border-zinc-300 bg-white text-base sm:text-sm focus:outline-none focus:border-brand-mint focus:ring-2 focus:ring-brand-mint/20 transition-all"
+                />
+              </div>
+              <!-- Subject -->
+              <div class="grid gap-2">
+                <label for="subject" class="text-xs font-bold text-brand-black">
+                  Subject <span class="text-rose-500">*</span>
+                </label>
+                <select
+                  id="subject"
+                  name="subject"
+                  required
+                  class="w-full min-h-[44px] px-4 py-2.5 rounded-xl border border-zinc-300 bg-white text-base sm:text-sm focus:outline-none focus:border-brand-mint focus:ring-2 focus:ring-brand-mint/20 transition-all"
+                >
+                  <option value="" disabled selected>Please select a subject</option>
+                  <option value="Product inquiry">Product inquiry</option>
+                  <option value="Warranty & service">Warranty &amp; service</option>
+                  <option value="Showroom visit">Showroom visit</option>
+                  <option value="Order status">Order status</option>
+                  <option value="Bulk / business">Bulk / business</option>
+                  <option value="Press / partnerships">Press / partnerships</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Message -->
+            <div class="grid gap-2">
+              <label for="message" class="text-xs font-bold text-brand-black">
+                Your message <span class="text-rose-500">*</span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                required
+                placeholder="How can our team assist you?"
+                class="w-full px-4 py-3 rounded-xl border border-zinc-300 bg-white text-base sm:text-sm focus:outline-none focus:border-brand-mint focus:ring-2 focus:ring-brand-mint/20 transition-all"
+              ></textarea>
+            </div>
+
+            <!-- Agreement Statement -->
+            <p class="text-xs text-zinc-500 leading-relaxed">
+              By sending your message, you agree to accept the <a href="/about" class="underline hover:text-brand-black">Terms and Conditions of Use</a> and that your data will be processed in compliance with our <a href="/about" class="underline hover:text-brand-black">Privacy Policy</a>.
+            </p>
+
+            <!-- Submit Button -->
+            <div>
+              <button
+                type="submit"
+                id="submit-contact-btn"
+                class="btn-spring w-full sm:w-auto min-h-[48px] px-8 py-3.5 rounded-xl bg-brand-black text-white font-bold text-xs sm:text-sm uppercase tracking-wider hover:bg-neutral-800 transition-colors shadow-md cursor-pointer touch-manipulation flex items-center justify-center"
+              >
+                Send Message
+              </button>
+            </div>
+
+            <!-- Success Toast Banner (Hidden initially) -->
+            <div id="contact-success-toast" class="hidden p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-800 text-xs sm:text-sm font-semibold">
+              🎉 Thank you! Your message has been sent successfully. Our team will contact you within 24 hours.
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- SECTION 3: Help Center & FAQs -->
+      <section id="faq" class="scroll-mt-24 md:scroll-mt-28 pt-8 border-t border-zinc-200">
+        <div class="grid gap-2.5 pb-6 text-center md:pb-10">
+          <p class="text-[10px] sm:text-[11px] font-mono tracking-[0.3em] uppercase text-brand-mint font-bold">
+            Help Center
+          </p>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-brand-black tracking-tight leading-tight">
+            Frequently Asked Questions
+          </h2>
+          <p class="text-xs sm:text-sm text-zinc-600 max-w-xl mx-auto">
+            Everything you need to know about ZYLO products, services, delivery, and after-sales support.
+          </p>
+        </div>
+
+        <div class="grid gap-3.5 sm:gap-4 w-full">
+          
+          <!-- FAQ 1 -->
+          <details class="group p-4 sm:p-5 rounded-2xl border border-zinc-200 bg-white hover:border-zinc-300 transition-all [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex items-center justify-between gap-4 font-bold text-sm sm:text-base text-brand-black cursor-pointer min-h-[44px]">
+              <span>What products does ZYLO AI offer?</span>
+              <span class="transition-transform duration-300 group-open:rotate-180 text-zinc-400 shrink-0">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </span>
+            </summary>
+            <div class="pt-3 text-xs sm:text-sm text-zinc-600 leading-relaxed border-t border-zinc-100 mt-3">
+              <p>ZYLO AI offers a full range of AI-powered smart home gym equipment:</p>
+              <ul class="list-disc pl-5 mt-2 flex flex-col gap-1">
+                <li><strong>ZYLO K1</strong> — All-in-One Compact Smart Home Gym</li>
+                <li><strong>ZYLO S1 PRO</strong> — Dual Cable AI Resistance Trainer</li>
+                <li><strong>ZYLO AI Subscription-Free App</strong> — Posture Scan &amp; Real-time AI Coaching</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- FAQ 2 -->
+          <details class="group p-4 sm:p-5 rounded-2xl border border-zinc-200 bg-white hover:border-zinc-300 transition-all [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex items-center justify-between gap-4 font-bold text-sm sm:text-base text-brand-black cursor-pointer min-h-[44px]">
+              <span>Does ZYLO have physical showrooms in the Philippines?</span>
+              <span class="transition-transform duration-300 group-open:rotate-180 text-zinc-400 shrink-0">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </span>
+            </summary>
+            <div class="pt-3 text-xs sm:text-sm text-zinc-600 leading-relaxed border-t border-zinc-100 mt-3">
+              <p>Yes, ZYLO AI has 12 physical showrooms across Metro Manila, Luzon, Visayas, and Mindanao (including SM Mall of Asia, SM North EDSA, Clark, Cebu, Davao, and Bacolod). You can test and experience all models firsthand.</p>
+            </div>
+          </details>
+
+          <!-- FAQ 3 -->
+          <details class="group p-4 sm:p-5 rounded-2xl border border-zinc-200 bg-white hover:border-zinc-300 transition-all [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex items-center justify-between gap-4 font-bold text-sm sm:text-base text-brand-black cursor-pointer min-h-[44px]">
+              <span>What payment methods are accepted?</span>
+              <span class="transition-transform duration-300 group-open:rotate-180 text-zinc-400 shrink-0">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </span>
+            </summary>
+            <div class="pt-3 text-xs sm:text-sm text-zinc-600 leading-relaxed border-t border-zinc-100 mt-3">
+              <p>We offer multiple convenient payment options:</p>
+              <ul class="list-disc pl-5 mt-2 flex flex-col gap-1">
+                <li>Cash on Delivery (COD)</li>
+                <li>Bank Transfer / GCash</li>
+                <li>BDO Credit Card 0% Installment</li>
+                <li>Debit Card Straight Payment</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- FAQ 4 -->
+          <details class="group p-4 sm:p-5 rounded-2xl border border-zinc-200 bg-white hover:border-zinc-300 transition-all [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex items-center justify-between gap-4 font-bold text-sm sm:text-base text-brand-black cursor-pointer min-h-[44px]">
+              <span>How long does delivery and installation take?</span>
+              <span class="transition-transform duration-300 group-open:rotate-180 text-zinc-400 shrink-0">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </span>
+            </summary>
+            <div class="pt-3 text-xs sm:text-sm text-zinc-600 leading-relaxed border-t border-zinc-100 mt-3">
+              <p>For nearby warehouse coverage areas (NCR, Cebu, Davao, GenSan, Bacolod, Iloilo, Naga), delivery is typically completed within <strong>2 to 3 days</strong>. All deliveries include <strong>free professional assembly and live product demo</strong>.</p>
+            </div>
+          </details>
+
+          <!-- FAQ 5 -->
+          <details class="group p-4 sm:p-5 rounded-2xl border border-zinc-200 bg-white hover:border-zinc-300 transition-all [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex items-center justify-between gap-4 font-bold text-sm sm:text-base text-brand-black cursor-pointer min-h-[44px]">
+              <span>What is ZYLO's warranty coverage?</span>
+              <span class="transition-transform duration-300 group-open:rotate-180 text-zinc-400 shrink-0">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </span>
+            </summary>
+            <div class="pt-3 text-xs sm:text-sm text-zinc-600 leading-relaxed border-t border-zinc-100 mt-3">
+              <p>All ZYLO AI Smart Gym models include a <strong>Lifetime Service Warranty</strong> plus <strong>1 Year Warranty on Parts and Digital Motors</strong>.</p>
+            </div>
+          </details>
+
+        </div>
+      </section>
+
+      <!-- SECTION 4: Care & Support -->
+      <section id="care-support" class="scroll-mt-24 md:scroll-mt-28 pt-8 border-t border-zinc-200">
+        <div class="grid gap-2.5 pb-6 text-center md:pb-10">
+          <p class="text-[10px] sm:text-[11px] font-mono tracking-[0.3em] uppercase text-brand-mint font-bold">
+            Customer Care
+          </p>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-brand-black tracking-tight leading-tight">
+            ZYLO Care &amp; Support
+          </h2>
+          <p class="text-xs sm:text-sm text-zinc-600 max-w-xl mx-auto">
+            Created for daily performance, strength, and long-term home wellness, every ZYLO AI product includes comprehensive after-sales care.
+          </p>
+        </div>
+
+        <!-- Product Care Cards (Aligned to 1280px navbar edges) -->
+        <div class="grid sm:grid-cols-2 gap-5 sm:gap-6 mb-8 sm:mb-10 w-full">
+          <!-- Card 1: ZYLO K1 -->
+          <div class="p-5 sm:p-6 rounded-2xl border border-zinc-200 bg-white flex flex-col justify-between gap-4">
+            <div>
+              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold uppercase tracking-wider mb-3">
+                <span>Lifetime Service Warranty</span>
+              </div>
+              <h3 class="text-base sm:text-lg font-bold text-brand-black mb-2">ZYLO K1 AI Home Gym</h3>
+              <p class="text-xs text-zinc-600 leading-relaxed">
+                Supported by our technical team for mechanism inspection, digital motor calibration, and replacement parts.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-zinc-100">
+              <span class="text-xs font-semibold text-brand-mint">Coverage: Lifetime Service + 1 Year Parts &amp; Motor</span>
+            </div>
+          </div>
+
+          <!-- Card 2: ZYLO S1 PRO -->
+          <div class="p-5 sm:p-6 rounded-2xl border border-zinc-200 bg-white flex flex-col justify-between gap-4">
+            <div>
+              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold uppercase tracking-wider mb-3">
+                <span>Lifetime Service Warranty</span>
+              </div>
+              <h3 class="text-base sm:text-lg font-bold text-brand-black mb-2">ZYLO S1 Pro Smart Home Gym</h3>
+              <p class="text-xs text-zinc-600 leading-relaxed">
+                Full after-sales support for cable tension, digital resistance motor, and accessory attachments.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-zinc-100">
+              <span class="text-xs font-semibold text-brand-mint">Coverage: Lifetime Service + 1 Year Parts &amp; Motor</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Callout Box (Aligned to 1280px navbar edges) -->
+        <div class="w-full p-6 sm:p-8 rounded-3xl bg-zinc-900 text-white text-center flex flex-col items-center gap-4 shadow-xl">
+          <h3 class="text-xl sm:text-2xl font-extrabold tracking-tight">Have a Technical or Warranty Question?</h3>
+          <p class="text-xs sm:text-sm text-zinc-400 max-w-lg leading-relaxed">
+            Our nationwide service team is ready to arrange on-site technical inspection or product maintenance anytime.
+          </p>
+          <div class="flex flex-col sm:flex-row justify-center gap-3.5 w-full sm:w-auto pt-2">
+            <a
+              href="tel:09103102418"
+              class="w-full sm:w-auto min-h-[44px] px-6 py-3 rounded-xl bg-brand-mint text-brand-black font-extrabold text-xs uppercase tracking-wider hover:bg-emerald-300 transition-colors cursor-pointer flex items-center justify-center touch-manipulation"
+            >
+              Request Service
+            </a>
+            <a
+              href="#showrooms"
+              class="w-full sm:w-auto min-h-[44px] px-6 py-3 rounded-xl border border-zinc-700 text-white font-bold text-xs uppercase tracking-wider hover:border-zinc-500 transition-colors cursor-pointer flex items-center justify-center touch-manipulation"
+            >
+              Find a Showroom
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- Leaflet JS Library -->
+  <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- Custom Map CSS -->
+  <style is:global>
+    /* Reset Leaflet Default divIcon Square Box */
+    .custom-node-wrapper.leaflet-div-icon {
+      background: transparent !important;
+      border: none !important;
+      border-radius: 50% !important;
+      box-shadow: none !important;
+    }
+
+    /* Perfect Round Green Map Nodes Matching ZYLO Theme */
+    .ph-map-node, .ph-map-node-wh {
+      position: relative;
+      width: 18px;
+      height: 18px;
+      background: radial-gradient(circle at 35% 35%, #6ee7b7, #10b981 60%, #047857);
+      border: 2.5px solid #ffffff;
+      border-radius: 50% !important;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25), 0 4px 12px rgba(16, 185, 129, 0.45);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+      cursor: pointer;
+    }
+    .ph-map-node::after, .ph-map-node-wh::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50% !important;
+      background: rgba(16, 185, 129, 0.35);
+      z-index: -1;
+      animation: pulseNode 2s infinite;
+    }
+    @keyframes pulseNode {
+      0% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 0; }
+    }
+    .ph-map-node:hover, .ph-map-node-wh:hover {
+      transform: scale(1.4);
+      box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.35), 0 6px 16px rgba(16, 185, 129, 0.7);
+    }
+
+    /* Custom Leaflet Popup Card — High End Clean Light Aesthetic */
+    .leaflet-popup-content-wrapper {
+      background: #ffffff !important;
+      border-radius: 18px !important;
+      padding: 14px 16px !important;
+      box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.16), 0 0 1px rgba(0, 0, 0, 0.1) !important;
+      border: 1px solid rgba(228, 228, 231, 0.95) !important;
+      font-family: inherit !important;
+    }
+    .leaflet-popup-content {
+      margin: 0 !important;
+      line-height: 1.35 !important;
+    }
+    .leaflet-popup-content a {
+      color: inherit !important;
+      text-decoration: none !important;
+    }
+    .leaflet-popup-tip-container {
+      margin-top: -1px;
+    }
+    .leaflet-popup-tip {
+      background: #ffffff !important;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12) !important;
+    }
+    .leaflet-container a.leaflet-popup-close-button {
+      top: 12px !important;
+      right: 12px !important;
+      padding: 2px 6px !important;
+      color: #9ca3af !important;
+      font-size: 15px !important;
+      font-weight: 500 !important;
+      border-radius: 50% !important;
+      transition: all 0.2s ease !important;
+    }
+    .leaflet-container a.leaflet-popup-close-button:hover {
+      color: #000000 !important;
+      background: #f4f4f5 !important;
+    }
+  </style>
+
+  <!-- Client JavaScript for Map & Interactions -->
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", function () {
+      // 1. Showroom & Warehouse Location Data
+      var locations = [
+        // SHOWROOMS
+        { id: "moa", type: "showroom", name: "SM Mall of Asia", floor: "3rd Floor, New Entertainment Mall", address: "J.W. Diokno Blvd., Pasay, Metro Manila", contact: "Anne Galicha (0965 511 2944)", lat: 14.5352, lng: 120.9822 },
+        { id: "sm-north", type: "showroom", name: "SM North EDSA", floor: "Ground Floor, Interior Zone", address: "CPP 105B-106A, Interior Zone, Quezon City", contact: "Jenny Domingo (0912 415 5682)", lat: 14.6565, lng: 121.0289 },
+        { id: "clark", type: "showroom", name: "Clark Cityfront Mall", floor: "3rd Floor", address: "Manuel A. Roxas Highway, Angeles, Pampanga", contact: "Justine Sendiong (0961 072 2942)", lat: 15.1684, lng: 120.5404 },
+        { id: "san-fernando", type: "showroom", name: "Robinsons San Fernando", floor: "3rd Floor", address: "MacArthur Highway, San Fernando, La Union", contact: "Rasheed Manzano (0992 526 9168)", lat: 16.6093, lng: 120.3137 },
+        { id: "naga", type: "showroom", name: "Robinsons Place Naga", floor: "2nd Floor", address: "Roxas Avenue corner Almeda Highway, Naga, Camarines Sur", contact: "Mary Mace Dominggo (0946 535 1460)", lat: 13.6266, lng: 123.1855 },
+        { id: "feliz", type: "showroom", name: "Ayala Malls Feliz", floor: "4th Floor", address: "Amang Rodriguez Ave cor J.P. Rizal St, Pasig City", contact: "Marvin Cariaga (0966 064 6673)", lat: 14.6022, lng: 121.0978 },
+        { id: "cebu", type: "showroom", name: "Ayala Center Cebu", floor: "3rd Floor", address: "Cebu Business Park, Cardinal Rosales Ave, Cebu City", contact: "Arlene Luciño (0920 201 1550)", lat: 10.3170, lng: 123.9054 },
+        { id: "gensan", type: "showroom", name: "SM General Santos", floor: "2nd Floor", address: "Santiago Blvd cor San Miguel St, General Santos City", contact: "Maureen Yap (0917 133 6226)", lat: 6.1140, lng: 125.1721 },
+        { id: "davao", type: "showroom", name: "SM Ecoland, Davao City", floor: "2nd Floor", address: "Quimpo Blvd cor Tulip Dr, Ecoland, Davao City", contact: "Justine Sendiong (0961 072 2942)", lat: 7.0532, lng: 125.5828 },
+        { id: "tuguegarao", type: "showroom", name: "SM Tuguegarao", floor: "2nd Floor", address: "Brgy. Caritan, Tuguegarao City, Cagayan", contact: "Justine Sendiong (0961 072 2942)", lat: 17.6160, lng: 121.7269 },
+        { id: "bacolod", type: "showroom", name: "SM City Bacolod", floor: "2nd Floor", address: "Rizal St, Reclamation Area, Bacolod City", contact: "Christy Dolor (0929 171 5860)", lat: 10.6649, lng: 122.9595 },
+        { id: "alabang", type: "showroom", name: "Festival Mall Alabang", floor: "2nd Floor", address: "Filinvest Corporate City, Commerce Ave, Muntinlupa", contact: "Justine Sendiong (0961 072 2942)", lat: 14.4193, lng: 121.0414 },
+
+        // WAREHOUSES
+        { id: "wh-valenzuela", type: "warehouse", name: "Valenzuela Warehouse", floor: "KPC Warehouse 3", address: "Dulalia St., Valenzuela City, Metro Manila", contact: "Dannice Caraballe (0905 165 6289)", lat: 14.7011, lng: 120.9830 },
+        { id: "wh-iloilo", type: "warehouse", name: "Iloilo Warehouse", floor: "Farmcon Building", address: "2012 Democracia St., Jaro, Iloilo City", contact: "Rommel Rodriguez (0910 243 0211)", lat: 10.7202, lng: 122.5621 },
+        { id: "wh-bacolod", type: "warehouse", name: "Bacolod Warehouse", floor: "Gonzaga Logistics Hub", address: "82 Gonzaga St., Bacolod City, Negros Occidental", contact: "Christian Galande (0995 064 2281)", lat: 10.6765, lng: 122.9509 },
+        { id: "wh-cebu", type: "warehouse", name: "Cebu Warehouse", floor: "Visayas Central Logistics", address: "Mandaue City, Cebu", contact: "Cebu Hub", lat: 10.3236, lng: 123.9223 },
+        { id: "wh-davao", type: "warehouse", name: "Davao Warehouse", floor: "Mindanao Central Hub", address: "Davao City, Davao del Sur", contact: "Davao Hub", lat: 7.0731, lng: 125.6128 }
+      ];
+
+      // Default Philippines Zoom Center
+      var defaultCenter = [12.8797, 121.7740];
+      var defaultZoom = 6;
+
+      // 2. Initialize Leaflet Map with smooth mobile touch options
+      if (typeof L === "undefined") return;
+
+      var map = L.map("philippines-map", {
+        center: defaultCenter,
+        zoom: defaultZoom,
+        zoomControl: true,
+        scrollWheelZoom: false,
+        touchZoom: true,
+        tap: true
+      });
+
+      // Use CartoDB Voyager tiles for clean vector appearance matching ZYLO theme
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
+        attribution: '&copy; <a href="https://carto.com/">CARTO</a> &copy; <a href="https://openstreetmap.org">OpenStreetMap</a>',
+        subdomains: "abcd",
+        maxZoom: 19
+      }).addTo(map);
+
+      // Store Marker Instance Map
+      var markerMap = {};
+
+      // 3. Create Compact Round Green Pin Markers & Clean Light Popups
+      locations.forEach(function (loc) {
+        var isWarehouse = loc.type === "warehouse";
+
+        var customIcon = L.divIcon({
+          className: "custom-node-wrapper",
+          html: '<div class="ph-map-node"></div>',
+          iconSize: [16, 16],
+          iconAnchor: [8, 8],
+          popupAnchor: [0, -10]
+        });
+
+        var mapsUrl = "https://www.google.com/maps?q=" + loc.lat + "," + loc.lng + "(" + encodeURIComponent(loc.name) + ")";
+        var phoneOnly = loc.contact.replace(/[^0-9+]/g, '');
+
+        // Crisp Light Mint Directions Button Popup Card
+        var popupContent = `
+          <div class="grid gap-2 min-w-[250px] sm:min-w-[290px] max-w-[320px] p-0.5">
+            <!-- Top Micro Row -->
+            <div class="flex items-center justify-between gap-2 pr-6">
+              <span class="text-zinc-500 text-[11px] font-semibold">
+                ${loc.floor}
+              </span>
+            </div>
+
+            <!-- Title -->
+            <h4 class="text-sm font-bold text-zinc-900 tracking-tight leading-snug">
+              ${loc.name}
+            </h4>
+
+            <!-- Address with Location Pin Icon -->
+            <div class="flex items-start gap-1.5 text-xs text-zinc-500 leading-snug">
+              <svg class="h-3.5 w-3.5 text-zinc-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span>${loc.address}</span>
+            </div>
+
+            <!-- Bottom Contact & Directions Row (Crisp Light Mint Button) -->
+            <div class="pt-2 border-t border-zinc-100 mt-1 flex items-center justify-between gap-2 text-xs">
+              <a href="tel:${phoneOnly}" class="font-semibold text-zinc-700 hover:text-emerald-600 inline-flex items-center gap-1.5 transition-colors group">
+                <svg class="h-3.5 w-3.5 text-zinc-400 group-hover:text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <span class="truncate max-w-[160px]">${loc.contact}</span>
+              </a>
+              <a href="${mapsUrl}" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-zinc-950 hover:bg-zinc-800 border border-zinc-800 text-white text-[11px] font-bold tracking-wide transition-all shrink-0 flex items-center gap-1.5 shadow-xs group cursor-pointer">
+                <span class="text-white font-bold">Directions</span>
+                <svg class="h-3 w-3 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        `;
+
+        var marker = L.marker([loc.lat, loc.lng], { icon: customIcon }).addTo(map);
+        marker.bindPopup(popupContent);
+        markerMap[loc.name.toLowerCase()] = marker;
+      });
+
+      // Reset Map View Button
+      var resetBtn = document.getElementById("reset-map-view");
+      if (resetBtn) {
+        resetBtn.addEventListener("click", function () {
+          map.flyTo(defaultCenter, defaultZoom, { duration: 1.2 });
+          map.closePopup();
+        });
+      }
+
+      // 4. Tab Switcher Logic
+      var tabShowrooms = document.getElementById("tab-showrooms");
+      var tabWarehouses = document.getElementById("tab-warehouses");
+      var panelShowrooms = document.getElementById("panel-showrooms");
+      var panelWarehouses = document.getElementById("panel-warehouses");
+
+      if (tabShowrooms && tabWarehouses && panelShowrooms && panelWarehouses) {
+        tabShowrooms.addEventListener("click", function () {
+          tabShowrooms.classList.add("bg-white", "text-brand-black", "shadow-sm");
+          tabShowrooms.classList.remove("text-zinc-500");
+          tabWarehouses.classList.remove("bg-white", "text-brand-black", "shadow-sm");
+          tabWarehouses.classList.add("text-zinc-500");
+
+          panelShowrooms.classList.remove("hidden");
+          panelWarehouses.classList.add("hidden");
+        });
+
+        tabWarehouses.addEventListener("click", function () {
+          tabWarehouses.classList.add("bg-white", "text-brand-black", "shadow-sm");
+          tabWarehouses.classList.remove("text-zinc-500");
+          tabShowrooms.classList.remove("bg-white", "text-brand-black", "shadow-sm");
+          tabShowrooms.classList.add("text-zinc-500");
+
+          panelWarehouses.classList.remove("hidden");
+          panelShowrooms.classList.add("hidden");
+        });
+      }
+
+      // 5. Card Click $\to$ Focus Node on Map
+      document.querySelectorAll(".showroom-card, .warehouse-card").forEach(function (card) {
+        card.addEventListener("click", function (e) {
+          if (e.target.closest("a")) return; // Don't intercept direct phone links
+
+          var lat = parseFloat(card.getAttribute("data-lat"));
+          var lng = parseFloat(card.getAttribute("data-lng"));
+          var name = (card.getAttribute("data-name") || "").toLowerCase();
+
+          if (lat && lng) {
+            map.flyTo([lat, lng], 13, { duration: 1.2 });
+            var targetMarker = markerMap[name];
+            if (targetMarker) {
+              setTimeout(function () {
+                targetMarker.openPopup();
+              }, 1200);
+            }
+            // Smooth scroll to map on mobile
+            if (window.innerWidth < 1024) {
+              document.getElementById("showrooms")?.scrollIntoView({ behavior: "smooth" });
+            }
+          }
+        });
+      });
+
+      // 6. Contact Form Logic
+      var contactForm = document.getElementById("contact-form");
+      var successToast = document.getElementById("contact-success-toast");
+
+      if (contactForm && successToast) {
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          successToast.classList.remove("hidden");
+          contactForm.reset();
+          setTimeout(function () {
+            successToast.classList.add("hidden");
+          }, 6000);
+        });
+      }
+    });
+  </script>
+</Layout>

@@ -1,0 +1,310 @@
+---
+// WelcomeModal.astro — ZYLO AI 3% Welcome Discount Popup Modal
+---
+
+<!-- Welcome Discount Modal Overlay (Z-Index 99999) -->
+<div
+  id="welcome-discount-modal"
+  class="fixed inset-0 z-[99999] flex items-center justify-center p-4 sm:p-6 lg:p-8 bg-black/70 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300 ease-out"
+  aria-modal="true"
+  role="dialog"
+  aria-labelledby="welcome-modal-heading"
+>
+  <!-- Modal Card Box (Split Desktop, Stacked Mobile) -->
+  <div
+    id="welcome-modal-card"
+    class="relative w-full max-w-4xl bg-white rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row transform scale-95 transition-transform duration-300 ease-out border border-zinc-200/80"
+  >
+    <!-- Close Button (Absolute Top-Right) -->
+    <button
+      type="button"
+      id="close-welcome-modal"
+      class="absolute top-3 right-3 sm:top-4 sm:right-4 z-30 flex h-9 w-9 items-center justify-center rounded-full bg-zinc-100/90 text-zinc-600 hover:bg-zinc-900 hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint cursor-pointer"
+      aria-label="Close welcome offer modal"
+    >
+      <svg class="h-4.5 w-4.5 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <!-- Left Visual Panel (Desktop Photography Asset) -->
+    <div class="hidden md:flex md:w-1/2 relative bg-zinc-950 overflow-hidden min-h-[460px]">
+      <img
+        src="/assets/REVAMPED/revamp website_/home page/assets/Gemini_Generated_Image_gugh24gugh24gugh.webp"
+        alt="ZYLO AI Smart Home Gym Training"
+        class="absolute inset-0 w-full h-full object-cover object-center opacity-85 hover:scale-105 transition-transform duration-700 ease-out"
+        loading="eager"
+        decoding="async"
+      />
+      <!-- Gradient Overlays -->
+      <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/30 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-zinc-950/20"></div>
+
+      <!-- Left Panel Copy Teaser -->
+      <div class="relative z-10 p-8 flex flex-col justify-end text-white mt-auto">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-mint/20 backdrop-blur-md border border-brand-mint/40 text-[10px] font-bold text-brand-mint uppercase tracking-widest w-max mb-3">
+          <span class="h-1.5 w-1.5 rounded-full bg-brand-mint animate-pulse"></span>
+          Exclusive Offer
+        </div>
+        <h3 class="font-display text-2xl font-extrabold text-white leading-tight mb-2">
+          Train Smarter at Home with ZYLO AI.
+        </h3>
+        <p class="text-xs text-zinc-300 leading-relaxed max-w-sm">
+          Get 3% instant discount on your order plus lifetime subscription-free AI coaching software.
+        </p>
+      </div>
+    </div>
+
+    <!-- Right Interactive Panel (Mobile & Desktop Content) -->
+    <div class="w-full md:w-1/2 p-6 sm:p-8 lg:p-10 flex flex-col justify-between bg-white relative">
+      <!-- Step 1: Initial Question View -->
+      <div id="welcome-step-1" class="flex flex-col h-full justify-between gap-6 transition-all duration-300">
+        <div>
+          <!-- Eyebrow Tag -->
+          <div class="text-[10px] font-mono font-semibold tracking-[0.2em] text-zinc-400 uppercase mb-2">
+            Welcome Offer
+          </div>
+
+          <!-- Main Heading -->
+          <h2
+            id="welcome-modal-heading"
+            class="font-display text-2xl sm:text-3xl font-bold text-zinc-900 tracking-tight mb-2 leading-tight"
+          >
+            Unlock 3% Off Your Order
+          </h2>
+
+          <p class="text-xs sm:text-sm text-zinc-500 leading-relaxed mb-5">
+            Select your primary fitness goal below to reveal your instant welcome discount code:
+          </p>
+
+          <!-- Interactive Goal Option Cards (Minimalist, Hairline Borders, Zero Emojis) -->
+          <div class="flex flex-col gap-2.5 my-1">
+            <button
+              type="button"
+              class="welcome-option-btn w-full flex items-center justify-between p-3.5 sm:p-4 rounded-xl border border-zinc-200 bg-white hover:border-zinc-900 hover:bg-zinc-50/60 text-left transition-all group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint cursor-pointer"
+              data-goal="strength"
+            >
+              <span class="text-xs sm:text-sm font-medium text-zinc-900 group-hover:text-black transition-colors">
+                Build Muscle &amp; Strength
+              </span>
+              <svg class="h-4 w-4 text-zinc-400 group-hover:text-zinc-900 group-hover:translate-x-1 transition-all shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </button>
+
+            <button
+              type="button"
+              class="welcome-option-btn w-full flex items-center justify-between p-3.5 sm:p-4 rounded-xl border border-zinc-200 bg-white hover:border-zinc-900 hover:bg-zinc-50/60 text-left transition-all group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint cursor-pointer"
+              data-goal="fatloss"
+            >
+              <span class="text-xs sm:text-sm font-medium text-zinc-900 group-hover:text-black transition-colors">
+                Burn Fat &amp; High-Energy Cardio
+              </span>
+              <svg class="h-4 w-4 text-zinc-400 group-hover:text-zinc-900 group-hover:translate-x-1 transition-all shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </button>
+
+            <button
+              type="button"
+              class="welcome-option-btn w-full flex items-center justify-between p-3.5 sm:p-4 rounded-xl border border-zinc-200 bg-white hover:border-zinc-900 hover:bg-zinc-50/60 text-left transition-all group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint cursor-pointer"
+              data-goal="posture"
+            >
+              <span class="text-xs sm:text-sm font-medium text-zinc-900 group-hover:text-black transition-colors">
+                Improve Posture &amp; Mobility
+              </span>
+              <svg class="h-4 w-4 text-zinc-400 group-hover:text-zinc-900 group-hover:translate-x-1 transition-all shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </button>
+
+            <button
+              type="button"
+              class="welcome-option-btn w-full flex items-center justify-between p-3.5 sm:p-4 rounded-xl border border-zinc-200 bg-white hover:border-zinc-900 hover:bg-zinc-50/60 text-left transition-all group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint cursor-pointer"
+              data-goal="allinone"
+            >
+              <span class="text-xs sm:text-sm font-medium text-zinc-900 group-hover:text-black transition-colors">
+                All-in-One Family Home Fitness
+              </span>
+              <svg class="h-4 w-4 text-zinc-400 group-hover:text-zinc-900 group-hover:translate-x-1 transition-all shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Footer Skip Link -->
+        <div class="pt-2 text-center border-t border-zinc-100">
+          <button
+            type="button"
+            id="skip-welcome-modal"
+            class="text-xs font-medium text-zinc-400 hover:text-zinc-900 transition-colors focus:outline-none cursor-pointer"
+          >
+            Skip for now
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 2: Unlocked Discount View (Hidden initially) -->
+      <div id="welcome-step-2" class="hidden flex-col h-full justify-between gap-6 transition-all duration-300">
+        <div>
+          <!-- Eyebrow Badge -->
+          <div class="text-[10px] font-mono font-semibold tracking-[0.2em] text-emerald-600 uppercase mb-2">
+            Voucher Unlocked
+          </div>
+
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-zinc-900 tracking-tight mb-2 leading-tight">
+            Here is Your 3% Discount
+          </h2>
+
+          <p class="text-xs sm:text-sm text-zinc-500 leading-relaxed mb-5">
+            Use this promo code at checkout to claim 3% off any ZYLO AI Home Gym purchase:
+          </p>
+
+          <!-- Minimalist Promo Code Box -->
+          <div class="p-4 rounded-xl bg-zinc-950 text-white flex items-center justify-between gap-3 shadow-sm mb-4">
+            <div class="flex flex-col">
+              <span class="text-[9px] uppercase tracking-[0.2em] text-zinc-400 font-mono">Promo Code</span>
+              <span class="font-mono text-xl sm:text-2xl font-bold tracking-wider text-brand-mint" id="welcome-promo-code">ZYLO3WELCOME</span>
+            </div>
+            <button
+              type="button"
+              id="copy-welcome-code-btn"
+              class="px-4 py-2.5 rounded-lg bg-zinc-800 text-white font-semibold text-xs hover:bg-zinc-700 transition-colors flex items-center gap-1.5 shrink-0 cursor-pointer"
+            >
+              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+              <span id="copy-code-text">Copy Code</span>
+            </button>
+          </div>
+
+          <!-- Benefit Bullets -->
+          <ul class="flex flex-col gap-2 text-xs text-zinc-500 mb-2">
+            <li class="flex items-center gap-2">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 shrink-0"></span>
+              <span>Valid on ZYLO K1 &amp; ZYLO S1 PRO models</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 shrink-0"></span>
+              <span>Includes Lifetime Subscription-Free AI Software</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Primary CTA: Shop Now -->
+        <div class="flex flex-col gap-3 pt-2">
+          <a
+            href="/products"
+            id="claim-welcome-discount-btn"
+            class="w-full py-3.5 px-6 rounded-xl bg-zinc-950 text-white font-semibold text-xs sm:text-sm uppercase tracking-widest text-center hover:bg-zinc-800 transition-colors shadow-sm flex items-center justify-center gap-2"
+          >
+            <span>Shop Now &amp; Apply Discount</span>
+            <svg class="h-4 w-4 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const modal = document.getElementById("welcome-discount-modal");
+    const modalCard = document.getElementById("welcome-modal-card");
+    const closeBtn = document.getElementById("close-welcome-modal");
+    const skipBtn = document.getElementById("skip-welcome-modal");
+    const optionBtns = document.querySelectorAll(".welcome-option-btn");
+    const step1 = document.getElementById("welcome-step-1");
+    const step2 = document.getElementById("welcome-step-2");
+    const copyBtn = document.getElementById("copy-welcome-code-btn");
+    const copyText = document.getElementById("copy-code-text");
+    const claimBtn = document.getElementById("claim-welcome-discount-btn");
+
+    if (!modal || !modalCard) return;
+
+    // Check if user has already seen or closed the modal in this browser session/local storage
+    const LOCAL_STORAGE_KEY = "zylo_welcome_modal_dismissed_v1";
+
+    function showModal() {
+      if (localStorage.getItem(LOCAL_STORAGE_KEY) === "true") return;
+
+      // Slight 1.5s delay on visit for premium user experience
+      setTimeout(() => {
+        modal.classList.remove("opacity-0", "pointer-events-none");
+        modal.classList.add("opacity-100");
+        modalCard.classList.remove("scale-95");
+        modalCard.classList.add("scale-100");
+        document.body.style.overflow = "hidden"; // Prevent background scroll
+      }, 1500);
+    }
+
+    function hideModal() {
+      modal.classList.remove("opacity-100");
+      modal.classList.add("opacity-0", "pointer-events-none");
+      modalCard.classList.remove("scale-100");
+      modalCard.classList.add("scale-95");
+      document.body.style.overflow = ""; // Restore scroll
+      localStorage.setItem(LOCAL_STORAGE_KEY, "true");
+    }
+
+    // Goal Option Selection -> Unlock Discount Step
+    optionBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        if (step1 && step2) {
+          step1.classList.add("hidden");
+          step1.classList.remove("flex");
+
+          step2.classList.remove("hidden");
+          step2.classList.add("flex");
+        }
+      });
+    });
+
+    // Copy Code Action
+    if (copyBtn && copyText) {
+      copyBtn.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText("ZYLO3WELCOME");
+          copyText.textContent = "Copied! 🎉";
+          copyBtn.classList.remove("bg-brand-mint");
+          copyBtn.classList.add("bg-emerald-400", "text-black");
+
+          setTimeout(() => {
+            copyText.textContent = "Copy Code";
+            copyBtn.classList.remove("bg-emerald-400");
+            copyBtn.classList.add("bg-brand-mint");
+          }, 3000);
+        } catch (err) {
+          console.error("Failed to copy promo code:", err);
+        }
+      });
+    }
+
+    // Dismissal Actions
+    if (closeBtn) closeBtn.addEventListener("click", hideModal);
+    if (skipBtn) skipBtn.addEventListener("click", hideModal);
+    if (claimBtn) claimBtn.addEventListener("click", hideModal);
+
+    // Backdrop Click Dismiss
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) hideModal();
+    });
+
+    // Keyboard ESC Dismiss
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("opacity-100")) {
+        hideModal();
+      }
+    });
+
+    // Initialize on page visit
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+      showModal();
+    } else {
+      document.addEventListener("DOMContentLoaded", showModal);
+    }
+  })();
+</script>

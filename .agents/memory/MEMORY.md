@@ -4,3 +4,5 @@
 - [project] Always create a new dedicated branch for major code changes → project-conventions.md
 - [project] AG Kit only supports Gemini CLI and Google Antigravity (not other AI coding tools) → project-conventions.md
 - [user_preference] MOBILE VIEW (mobile only), DESKTOP VIEW (desktop only), UNIVERSAL VIEW (both) viewport scope rule → project-conventions.md
+- [deployment] Always run build & deploy via Wrangler at the end of every prompt → project-conventions.md
+
