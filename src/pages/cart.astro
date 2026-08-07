@@ -6,26 +6,18 @@ import Layout from "../layouts/Layout.astro";
   title="Your Cart — ZYLO AI"
   description="Manage your ZYLO AI shopping cart and place your order inquiry."
 >
-  <main class="min-h-[78vh] bg-[#F8FAFC] py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-5xl mx-auto">
-      <!-- Empty Cart Container (Initially visible if cart is empty) -->
+  <main class="min-h-[82vh] bg-white py-10 sm:py-14 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+
+      <!-- Empty Cart View -->
       <div id="cart-empty-view" class="hidden min-h-[60vh] flex-col items-center justify-center text-center py-16">
-        <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-white border border-zinc-200/80 text-zinc-700 shadow-xs">
-          <svg
-            class="h-8 w-8 stroke-current"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="1.6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-            ></path>
+        <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-zinc-50 border border-zinc-200/80 text-zinc-700 shadow-2xs">
+          <svg class="h-8 w-8 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
           </svg>
         </div>
 
+        <p class="font-display text-[10px] font-bold tracking-[0.2em] uppercase text-brand-mint mb-3">Your Cart</p>
         <h1 class="font-display text-3xl sm:text-4xl font-extrabold text-brand-black tracking-tight mb-3 leading-tight">
           Your cart is empty
         </h1>
@@ -37,7 +29,7 @@ import Layout from "../layouts/Layout.astro";
         <div class="flex flex-col sm:flex-row items-center gap-3 w-full justify-center">
           <a
             href="/products"
-            class="btn-spring w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-brand-black text-white font-bold text-xs uppercase tracking-widest hover:bg-neutral-800 transition-colors shadow-lg shadow-black/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint cursor-pointer"
+            class="btn-spring w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-brand-black text-white font-bold text-xs uppercase tracking-widest hover:bg-zinc-800 transition-colors shadow-md focus:outline-none cursor-pointer"
           >
             <span>Browse the Collection</span>
             <svg class="h-4 w-4 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
@@ -47,23 +39,25 @@ import Layout from "../layouts/Layout.astro";
         </div>
       </div>
 
-      <!-- Cart Active View (Items + Order Form) -->
-      <div id="cart-active-view" class="hidden">
-        <div class="flex items-center justify-between pb-6 mb-8 border-b border-zinc-200">
+      <!-- Cart Active View -->
+      <div id="cart-active-view" class="hidden flex-col gap-8">
+        
+        <!-- Header Title -->
+        <div class="flex items-center justify-between">
           <div>
-            <h1 class="font-display text-2xl sm:text-3xl font-extrabold text-brand-black tracking-tight">
-              Shopping Cart
+            <p class="font-display text-[10px] font-bold tracking-[0.2em] uppercase text-brand-mint mb-1">Review</p>
+            <h1 class="font-display text-3xl sm:text-4xl font-extrabold text-brand-black tracking-tight leading-tight">
+              Your Cart
             </h1>
-            <p class="text-xs text-zinc-500 font-medium mt-1">
-              Review your items and complete your order inquiry below.
-            </p>
           </div>
-          <a href="/products" class="text-xs font-bold text-zinc-600 hover:text-brand-black transition-colors">
+          <a href="/products" class="text-xs font-semibold text-zinc-400 hover:text-brand-black transition-colors font-display">
             ← Continue Shopping
           </a>
         </div>
 
+        <!-- Main 2-Column Grid -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
           <!-- Left Column: Cart Items List -->
           <div class="lg:col-span-7 flex flex-col gap-4">
             <div id="cart-items-list" class="flex flex-col gap-4"></div>
@@ -71,128 +65,62 @@ import Layout from "../layouts/Layout.astro";
             <button
               type="button"
               id="clear-cart-btn"
-              class="text-xs font-semibold text-zinc-400 hover:text-rose-600 transition-colors self-start mt-2 cursor-pointer"
+              class="text-xs font-medium text-zinc-400 hover:text-rose-600 transition-colors self-start mt-1 cursor-pointer font-display"
             >
-              Clear Cart
+              Clear all items
             </button>
           </div>
 
-          <!-- Right Column: Order Form -->
-          <div class="lg:col-span-5 bg-white rounded-2xl border border-zinc-200/90 p-6 sm:p-7 shadow-sm">
-            <h2 class="font-display text-lg font-bold text-brand-black tracking-tight mb-1">
-              Order Details
-            </h2>
-            <p class="text-xs text-zinc-500 mb-6">
-              Complete your contact details to finalize your order with a ZYLO specialist.
-            </p>
+          <!-- Right Column: Order Summary Card -->
+          <div class="lg:col-span-5 flex flex-col gap-6">
+            
+            <div class="bg-white border border-brand-midGray/60 rounded-2xl p-6 sm:p-7 flex flex-col gap-4 shadow-sm">
+              
+              <!-- Summary Label -->
+              <p class="font-display text-[10px] font-bold tracking-[0.2em] uppercase text-brand-mint">Order Summary</p>
 
-            <form id="cart-order-form" class="flex flex-col gap-4">
-              <div>
-                <label for="cart-name" class="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-1.5">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  id="cart-name"
-                  required
-                  placeholder="e.g. Juan dela Cruz"
-                  class="w-full px-3.5 py-2.5 rounded-xl border border-zinc-300 text-xs sm:text-sm font-medium focus:border-brand-black focus:outline-none transition-colors"
-                />
+              <div class="flex items-center justify-between text-xs sm:text-sm text-zinc-400">
+                <span class="font-display">Subtotal</span>
+                <span id="summary-subtotal" class="font-mono font-medium text-zinc-700">₱0.00</span>
               </div>
 
-              <div>
-                <label for="cart-phone" class="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-1.5">
-                  Contact Number *
-                </label>
-                <input
-                  type="tel"
-                  id="cart-phone"
-                  required
-                  placeholder="e.g. 0917 123 4567"
-                  class="w-full px-3.5 py-2.5 rounded-xl border border-zinc-300 text-xs sm:text-sm font-medium focus:border-brand-black focus:outline-none transition-colors"
-                />
+              <div class="border-b border-brand-midGray/60 my-0.5"></div>
+
+              <div class="flex items-center justify-between text-sm sm:text-base text-brand-black">
+                <span class="font-display font-bold">Total</span>
+                <span id="summary-total" class="font-mono font-extrabold text-brand-black text-base sm:text-lg">₱0.00</span>
               </div>
 
-              <div>
-                <label for="cart-email" class="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-1.5">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="cart-email"
-                  required
-                  placeholder="e.g. juan@example.com"
-                  class="w-full px-3.5 py-2.5 rounded-xl border border-zinc-300 text-xs sm:text-sm font-medium focus:border-brand-black focus:outline-none transition-colors"
-                />
-              </div>
-
-              <div>
-                <label for="cart-address" class="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-1.5">
-                  Delivery Address / City *
-                </label>
-                <input
-                  type="text"
-                  id="cart-address"
-                  required
-                  placeholder="e.g. Makati City, Metro Manila"
-                  class="w-full px-3.5 py-2.5 rounded-xl border border-zinc-300 text-xs sm:text-sm font-medium focus:border-brand-black focus:outline-none transition-colors"
-                />
-              </div>
-
-              <div>
-                <label for="cart-notes" class="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-1.5">
-                  Order Notes (Optional)
-                </label>
-                <textarea
-                  id="cart-notes"
-                  rows="2"
-                  placeholder="Preferred delivery time, special requests..."
-                  class="w-full px-3.5 py-2.5 rounded-xl border border-zinc-300 text-xs sm:text-sm font-medium focus:border-brand-black focus:outline-none transition-colors resize-none"
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                id="submit-cart-order-btn"
-                class="btn-spring mt-2 w-full py-4 rounded-xl bg-brand-black text-white font-bold text-xs uppercase tracking-widest hover:bg-neutral-800 transition-colors shadow-lg shadow-black/10 flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <span id="submit-btn-text">Submit Order Inquiry</span>
-                <svg class="h-4 w-4 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </button>
-            </form>
-
-            <div id="cart-order-success" class="hidden text-center py-6">
-              <div class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 mb-3">
-                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <h3 class="text-lg font-bold text-brand-black mb-1">Order Submitted!</h3>
-              <p class="text-xs text-zinc-500 leading-relaxed mb-4">
-                Thank you! A ZYLO specialist will reach out shortly to confirm delivery and payment.
+              <p class="text-[11px] text-zinc-400 leading-relaxed font-display">
+                Shipping is confirmed at checkout based on your delivery location.
               </p>
-              <a href="/products" class="text-xs font-bold text-brand-black underline">Browse More Products</a>
+
+              <a
+                href="/checkout"
+                id="proceed-to-checkout-btn"
+                class="w-full rounded-full bg-brand-black py-3.5 px-6 text-xs sm:text-sm font-extrabold text-white font-display uppercase tracking-widest hover:bg-zinc-800 transition-all shadow-md text-center cursor-pointer mt-1 inline-block group"
+              >
+                Proceed to Checkout
+              </a>
             </div>
+
           </div>
+
         </div>
+
       </div>
+
     </div>
   </main>
 
   <script>
     (function () {
-      const ZYLO_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbye6Mci50d-M780n5C1dhMTk1O-n0Mb0CiQ37JAcXOPLA7oChXf51l6aCJBEEgTpROhzQ/exec";
-
       const emptyView = document.getElementById("cart-empty-view");
       const activeView = document.getElementById("cart-active-view");
       const itemsList = document.getElementById("cart-items-list");
       const clearBtn = document.getElementById("clear-cart-btn");
-      const orderForm = document.getElementById("cart-order-form") as HTMLFormElement;
-      const orderSuccess = document.getElementById("cart-order-success");
-      const submitBtn = document.getElementById("submit-cart-order-btn") as HTMLButtonElement;
-      const submitBtnText = document.getElementById("submit-btn-text");
+      const summarySubtotal = document.getElementById("summary-subtotal");
+      const summaryTotal = document.getElementById("summary-total");
 
       function getCartItems() {
         try {
@@ -202,8 +130,20 @@ import Layout from "../layouts/Layout.astro";
         }
       }
 
+      function parsePrice(priceStr: string | number): number {
+        if (typeof priceStr === "number") return priceStr;
+        if (!priceStr) return 0;
+        const cleaned = String(priceStr).replace(/[^0-9.]/g, "");
+        return parseFloat(cleaned) || 0;
+      }
+
+      function formatMoney(num: number): string {
+        return "₱" + num.toLocaleString("en-PH", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+
       function saveCartItems(items: any[]) {
         localStorage.setItem("zylo_cart_items", JSON.stringify(items));
+        window.dispatchEvent(new CustomEvent("zylo-cart-updated"));
         renderCart();
       }
 
@@ -213,43 +153,64 @@ import Layout from "../layouts/Layout.astro";
           emptyView?.classList.remove("hidden");
           emptyView?.classList.add("flex");
           activeView?.classList.add("hidden");
+          activeView?.classList.remove("flex");
           return;
         }
 
         emptyView?.classList.add("hidden");
         emptyView?.classList.remove("flex");
         activeView?.classList.remove("hidden");
+        activeView?.classList.add("flex");
+
+        let calcSubtotal = 0;
 
         if (itemsList) {
-          itemsList.innerHTML = items.map((item: any, index: number) => `
-            <div class="bg-white rounded-2xl border border-zinc-200/90 p-4 sm:p-5 flex items-center justify-between gap-4 shadow-xs">
-              <div class="flex items-center gap-4">
-                <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-zinc-50 border border-zinc-100 flex items-center justify-center shrink-0 overflow-hidden">
-                  <img src="${item.image || '/assets/products/k1.webp'}" alt="${item.name}" class="w-full h-full object-contain mix-blend-multiply p-1" />
-                </div>
-                <div>
-                  <h3 class="text-sm sm:text-base font-bold text-brand-black mb-0.5">${item.name}</h3>
-                  <p class="text-xs text-zinc-500 font-medium">${item.subtitle || 'AI Smart Home Gym System'}</p>
-                  <div class="text-xs font-extrabold text-zinc-900 mt-2">${item.price || 'PHP 89,990'}</div>
-                </div>
-              </div>
+          itemsList.innerHTML = items.map((item: any, index: number) => {
+            const unitPriceNum = parsePrice(item.price);
+            const qty = item.quantity || 1;
+            const itemTotalNum = unitPriceNum * qty;
+            calcSubtotal += itemTotalNum;
 
-              <div class="flex items-center gap-3">
-                <div class="flex items-center gap-2 border border-zinc-200 rounded-lg px-2 py-1 bg-zinc-50">
-                  <button type="button" class="qty-btn-minus text-xs font-bold text-zinc-600 hover:text-brand-black px-1.5 cursor-pointer" data-index="${index}">-</button>
-                  <span class="text-xs font-extrabold text-zinc-900 w-4 text-center">${item.quantity || 1}</span>
-                  <button type="button" class="qty-btn-plus text-xs font-bold text-zinc-600 hover:text-brand-black px-1.5 cursor-pointer" data-index="${index}">+</button>
-                </div>
-                <button type="button" class="remove-item-btn text-zinc-400 hover:text-rose-600 p-1 transition-colors cursor-pointer" data-index="${index}" title="Remove item">
-                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            const unitPriceFormatted = unitPriceNum > 0 ? formatMoney(unitPriceNum) : (item.price || "₱0.00");
+            const itemTotalFormatted = formatMoney(itemTotalNum);
+
+            return `
+              <div class="bg-white border border-brand-midGray/60 rounded-2xl p-5 sm:p-6 shadow-sm relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all hover:border-brand-mint/40">
+                <!-- Delete Button -->
+                <button type="button" class="remove-item-btn absolute top-4 right-4 text-zinc-400 hover:text-rose-500 transition-colors p-1 cursor-pointer" data-index="${index}" title="Remove item">
+                  <svg class="h-4 w-4 stroke-[1.8]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                   </svg>
                 </button>
-              </div>
-            </div>
-          `).join("");
 
-          // Wire up Quantity & Remove events
+                <div class="flex items-center gap-4 min-w-0 pr-6">
+                  <!-- Image Thumbnail -->
+                  <div class="w-20 h-20 sm:w-24 sm:h-24 bg-brand-lightGray rounded-xl flex items-center justify-center p-2 shrink-0 border border-brand-midGray/60 overflow-hidden">
+                    <img src="${item.image || '/assets/products/s1.webp'}" alt="${item.name}" class="w-full h-full object-contain" />
+                  </div>
+
+                  <!-- Product Title + Unit Price + Qty -->
+                  <div class="flex flex-col gap-1 min-w-0">
+                    <h3 class="font-display text-sm sm:text-base font-bold text-brand-black leading-snug">${item.name}</h3>
+                    <span class="font-mono text-xs text-brand-mint font-semibold">${unitPriceFormatted}</span>
+
+                    <!-- Quantity Pill -->
+                    <div class="flex items-center border border-brand-midGray/80 rounded-full px-3 py-1 bg-brand-lightGray w-fit gap-3.5 text-xs text-zinc-600 mt-2">
+                      <button type="button" class="qty-btn-minus text-zinc-500 hover:text-brand-black transition-colors font-bold px-0.5 cursor-pointer" data-index="${index}">–</button>
+                      <span class="font-bold text-brand-black min-w-[12px] text-center">${qty}</span>
+                      <button type="button" class="qty-btn-plus text-zinc-500 hover:text-brand-black transition-colors font-bold px-0.5 cursor-pointer" data-index="${index}">+</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Item Total -->
+                <div class="font-mono text-sm sm:text-base font-extrabold text-brand-black self-end sm:self-auto sm:ml-auto shrink-0 tracking-tight">
+                  ${itemTotalFormatted}
+                </div>
+              </div>
+            `;
+          }).join("");
+
           document.querySelectorAll(".qty-btn-minus").forEach(btn => {
             btn.addEventListener("click", () => {
               const idx = parseInt(btn.getAttribute("data-index") || "0");
@@ -285,54 +246,13 @@ import Layout from "../layouts/Layout.astro";
             });
           });
         }
+
+        if (summarySubtotal) summarySubtotal.textContent = formatMoney(calcSubtotal);
+        if (summaryTotal) summaryTotal.textContent = formatMoney(calcSubtotal);
       }
 
       clearBtn?.addEventListener("click", () => {
         saveCartItems([]);
-      });
-
-      orderForm?.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const name = (document.getElementById("cart-name") as HTMLInputElement).value;
-        const phone = (document.getElementById("cart-phone") as HTMLInputElement).value;
-        const email = (document.getElementById("cart-email") as HTMLInputElement).value;
-        const address = (document.getElementById("cart-address") as HTMLInputElement).value;
-        const notes = (document.getElementById("cart-notes") as HTMLTextAreaElement).value;
-
-        const cartItems = getCartItems();
-        const itemsSummary = cartItems.map((it: any) => `${it.name} (x${it.quantity || 1})`).join(", ");
-
-        if (submitBtn) submitBtn.disabled = true;
-        if (submitBtnText) submitBtnText.textContent = "Submitting Order...";
-
-        try {
-          const payload = new URLSearchParams({
-            fullName: name,
-            phone: phone,
-            email: email,
-            city: address,
-            product: itemsSummary || "ZYLO AI Gym",
-            paymentMethod: "Inquiry Order",
-            notes: notes,
-            timestamp: new Date().toISOString()
-          });
-
-          await fetch(ZYLO_SCRIPT_URL, {
-            method: "POST",
-            mode: "no-cors",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: payload.toString()
-          });
-
-          orderForm.classList.add("hidden");
-          orderSuccess?.classList.remove("hidden");
-          localStorage.removeItem("zylo_cart_items");
-        } catch (err) {
-          alert("Order submitted! Our team will contact you shortly.");
-          orderForm.classList.add("hidden");
-          orderSuccess?.classList.remove("hidden");
-          localStorage.removeItem("zylo_cart_items");
-        }
       });
 
       renderCart();

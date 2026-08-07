@@ -83,7 +83,7 @@ import Layout from "../layouts/Layout.astro";
 
       <!-- ── Ultra-Soft Seamless Left Gradient Scrim (Blended wide gradual fade for desktop text) ── -->
       <div
-        class="hidden lg:block absolute inset-y-0 left-0 w-[60%] bg-gradient-to-r from-white/85 via-white/45 via-[42%] to-transparent pointer-events-none z-10"
+        class="hidden lg:block absolute inset-y-0 left-0 w-[62%] bg-gradient-to-r from-white/95 via-white/75 via-[48%] to-transparent pointer-events-none z-10"
       >
       </div>
 
@@ -107,14 +107,14 @@ import Layout from "../layouts/Layout.astro";
 
             <h1
               id="hero-heading"
-              class="font-display text-2xl font-extrabold text-white lg:text-black sm:text-3xl lg:text-3xl xl:text-4xl leading-[1.25] mb-4 sm:mb-5 max-w-md lg:max-w-lg mx-auto lg:mx-0 text-center lg:text-left tracking-tight transition-opacity duration-300 drop-shadow-sm lg:drop-shadow-none"
+              class="font-display text-2xl font-extrabold text-white lg:text-zinc-950 sm:text-3xl lg:text-3xl xl:text-4xl leading-[1.25] mb-4 sm:mb-5 max-w-md lg:max-w-lg mx-auto lg:mx-0 text-center lg:text-left tracking-tight transition-opacity duration-300 drop-shadow-sm lg:drop-shadow-none"
             >
-              Your AI Coach at Home for 300+ Workouts, 400+ Movements, &amp; Smarter Training
+              Your AI Coach at Home for <span class="text-emerald-400 lg:text-emerald-600 font-extrabold">300+ Workouts</span>, 400+ Movements, &amp; Smarter Training
             </h1>
 
             <p
               id="hero-subheading"
-              class="text-xs sm:text-sm font-medium text-zinc-200 lg:text-black max-w-xs sm:max-w-md mx-auto lg:mx-0 text-center lg:text-left mb-4 sm:mb-5 leading-relaxed transition-opacity duration-300"
+              class="text-xs sm:text-sm font-medium text-zinc-200 lg:text-zinc-600 max-w-xs sm:max-w-md mx-auto lg:mx-0 text-center lg:text-left mb-4 sm:mb-5 leading-relaxed transition-opacity duration-300"
             >
               Personalized workouts, real-time posture scan &amp; adaptive digital resistance in one ultra-compact mirror.
             </p>
@@ -4173,50 +4173,49 @@ import Layout from "../layouts/Layout.astro";
   <!-- Section Hairline Gradient Divider -->
   <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-zinc-200 to-transparent"></div>
 
-  <!-- Section 6: App Download — Your Fitness, Connected (Artboard 5 copy) -->
+  <!-- Section 6: App Download — Your Fitness, Connected -->
   <section
-    class="relative w-full bg-[#ebebeb] flex flex-col justify-between z-10"
+    class="relative w-full bg-[#ebebeb] block sm:flex sm:items-center z-10 pt-8 pb-0 sm:py-5 lg:py-2.5 overflow-hidden border-y border-zinc-200/60"
     aria-labelledby="app-heading"
-    style="min-height: 290px;"
   >
     <!-- Background: Group 44 (Z lettermark bg) full bleed -->
     <img src="/assets/REVAMPED/revamp%20website_/home%20page/assets/Group%2044.webp"
       alt=""
       aria-hidden="true"
-      class="absolute inset-0 w-full h-full object-cover object-right pointer-events-none select-none overflow-hidden"
+      class="hidden sm:block absolute inset-0 w-full h-full object-cover object-right pointer-events-none select-none opacity-80"
       loading="lazy" decoding="async" />
 
-    <!-- Layout: copy | phone mockup -->
+    <!-- Layout: copy | compact levitating mockup strip -->
     <div
-      class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center lg:items-center justify-between min-h-[290px] w-full pt-6 lg:pt-6 pb-0 lg:pb-0"
+      class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center justify-between w-full pt-1 pb-0 lg:py-1 gap-6 lg:gap-0"
     >
-      <!-- Copy + badges -->
+      <!-- Copy Column -->
       <div
-        class="w-full lg:w-1/2 flex flex-col gap-3 lg:gap-4 lg:py-4 lg:pr-12 text-center lg:text-left items-center lg:items-start mb-2 lg:mb-0"
+        class="w-full lg:w-1/2 flex flex-col gap-3 lg:pr-6 text-center lg:text-left items-center lg:items-start"
       >
         <div>
           <h2
             id="app-heading"
-            class="font-display text-lg sm:text-2xl lg:text-3xl font-semibold sm:font-bold text-brand-black tracking-tight mb-1.5 sm:mb-2 leading-tight"
+            class="font-display text-base sm:text-lg lg:text-xl font-bold text-brand-black tracking-tight mb-1.5 leading-tight"
           >
             Your Fitness, Connected &mdash; Anytime, Anywhere
           </h2>
-          <p class="text-xs sm:text-sm text-zinc-500 leading-relaxed max-w-xl">
+          <p class="text-xs sm:text-[11.5px] text-zinc-500 leading-relaxed max-w-md mx-auto lg:mx-0">
             Sync data, track performance, and share your journey with family &amp;&nbsp;friends.
           </p>
         </div>
 
-        <!-- Store badges -->
-        <div class="flex flex-wrap gap-2.5 justify-center lg:justify-start">
+        <!-- Store badges (App Store & Google Play) -->
+        <div class="flex flex-wrap gap-3 justify-center lg:justify-start mt-1">
           <!-- App Store Badge -->
           <a
             href="https://apps.apple.com/us/app/aeke-fit/id6738979301"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 rounded-lg bg-black border border-zinc-700/80 px-2.5 hover:bg-neutral-900 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint w-[130px] sm:w-[145px] h-[38px] justify-center shrink-0"
+            class="inline-flex items-center gap-1.5 rounded-md bg-black border border-zinc-700/80 px-2.5 hover:bg-neutral-900 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint w-[125px] sm:w-[125px] h-[34px] justify-center shrink-0 shadow-xs"
           >
             <svg
-              class="h-4.5 w-auto text-white fill-current shrink-0"
+              class="h-3.5 w-auto text-white fill-current shrink-0"
               viewBox="0 0 24 24"
               aria-hidden="true"
             >
@@ -4226,11 +4225,11 @@ import Layout from "../layouts/Layout.astro";
             </svg>
             <div class="text-left flex flex-col justify-center min-w-0">
               <span
-                class="text-[7px] text-zinc-300 font-normal leading-none tracking-wide whitespace-nowrap"
+                class="text-[6px] text-zinc-300 font-normal leading-none tracking-wide whitespace-nowrap"
                 >Download on the</span
               >
               <span
-                class="text-white text-[10px] sm:text-[12px] font-semibold leading-none mt-0.5 font-display whitespace-nowrap"
+                class="text-white text-[9.5px] sm:text-[10px] font-semibold leading-none mt-0.5 font-display whitespace-nowrap"
                 >App Store</span
               >
             </div>
@@ -4241,10 +4240,10 @@ import Layout from "../layouts/Layout.astro";
             href="https://play.google.com/store/apps/details?id=com.aekefit.fitness&pcampaignid=web_share"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 rounded-lg bg-black border border-zinc-700/80 px-2.5 hover:bg-neutral-900 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint w-[130px] sm:w-[145px] h-[38px] justify-center shrink-0"
+            class="inline-flex items-center gap-1.5 rounded-md bg-black border border-zinc-700/80 px-2.5 hover:bg-neutral-900 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint w-[125px] sm:w-[125px] h-[34px] justify-center shrink-0 shadow-xs"
           >
             <svg
-              class="h-4 w-auto shrink-0"
+              class="h-3 w-auto shrink-0"
               viewBox="0 0 256 256"
               aria-hidden="true"
             >
@@ -4263,11 +4262,11 @@ import Layout from "../layouts/Layout.astro";
             </svg>
             <div class="text-left flex flex-col justify-center min-w-0">
               <span
-                class="text-[7px] text-zinc-300 font-normal leading-none tracking-wide uppercase whitespace-nowrap"
+                class="text-[6px] text-zinc-300 font-normal leading-none tracking-wide uppercase whitespace-nowrap"
                 >Get it on</span
               >
               <span
-                class="text-white text-[10px] sm:text-[12px] font-semibold leading-none mt-0.5 font-display whitespace-nowrap"
+                class="text-white text-[9.5px] sm:text-[10px] font-semibold leading-none mt-0.5 font-display whitespace-nowrap"
                 >Google Play</span
               >
             </div>
@@ -4275,33 +4274,106 @@ import Layout from "../layouts/Layout.astro";
         </div>
       </div>
 
-      <!-- Mobile Phone Display (Enlarged & Bleeding Seamlessly onto Dark CTA Section Below) -->
-      <div
-        class="lg:hidden w-full flex justify-center items-end self-end mt-4 relative z-20 -mb-7 sm:-mb-9"
-      >
-        <div
-          class="absolute bottom-0 inset-x-0 h-24 bg-brand-mint/20 blur-2xl rounded-full transform scale-90 pointer-events-none"
-        >
-        </div>
-        <img src="/assets/REVAMPED/revamp%20website_/home%20page/assets/Phone.webp"
-          alt="ZYLO AI mobile app screens"
-          class="max-h-[300px] sm:max-h-[340px] w-auto object-contain object-bottom align-bottom block relative z-10 transform translate-y-3 sm:translate-y-4 scale-100 origin-bottom"
-          loading="lazy" decoding="async" />
-      </div>
+      <!-- Right Side: Device Composition -->
+      <!-- MOBILE: tall container with absolutely positioned depth staging -->
+      <!-- DESKTOP: unchanged flex row layout -->
+      <div class="w-full lg:w-1/2 block lg:flex lg:items-center lg:justify-end relative z-20">
 
-      <!-- Desktop Phone Display (Enlarged to Left, Anchored Right at 1280px Grid Edge & Touching Bottom Section) -->
-      <div
-        class="hidden lg:flex items-end justify-end absolute right-4 sm:right-6 lg:right-8 bottom-0 z-20 pointer-events-none"
-      >
-        <img src="/assets/REVAMPED/revamp%20website_/home%20page/assets/Phone.webp"
-          alt="ZYLO AI mobile app — Data Charts and Workout Data screens"
-          class="lg:max-h-[350px] xl:max-h-[390px] 2xl:max-h-[420px] w-auto object-contain object-right-bottom align-bottom block transform lg:translate-y-[75px] xl:translate-y-[85px] 2xl:translate-y-[95px] origin-bottom-right"
-          loading="lazy" decoding="async" />
+        <!-- MOBILE COMPOSITION: aspect-ratio matched stage -->
+        <div class="relative -mx-4 -mb-6 w-[calc(100%+2rem)] aspect-[1200/1636] sm:hidden overflow-hidden">
+
+          <!-- ============================================ -->
+          <!-- LAYER 0: Background (Aspect ratio matching) -->
+          <!-- ============================================ -->
+          <img
+            src="/assets/homepage/fitness-connected-section/background.webp"
+            alt="ZYLO Stage Background"
+            class="absolute inset-0 w-full h-full object-cover pointer-events-none z-0 max-w-none"
+            loading="lazy" decoding="async"
+          />
+
+          <!-- ============================================ -->
+          <!-- LAYER 1: Left Phone — heatmap (foreground)  -->
+          <!-- Tune: bottom, left, w-[], max-w-[]          -->
+          <!-- ============================================ -->
+          <div class="absolute bottom-[10%] left-[7%] z-10 w-[41%] max-w-[155px]">
+            <img
+              src="/assets/homepage/fitness-connected-section/Group%202.webp"
+              alt="ZYLO Mobile Workout App"
+              class="w-full h-auto object-contain block drop-shadow-[0_20px_40px_rgba(0,0,0,0.45)]"
+              loading="lazy" decoding="async"
+            />
+          </div>
+
+          <!-- ============================================ -->
+          <!-- LAYER 2: Right Phone — data (foreground)    -->
+          <!-- Tune: bottom, right, w-[], max-w-[]         -->
+          <!-- ============================================ -->
+          <div class="absolute bottom-[10%] right-[4%] z-20 w-[51%] max-w-[190px]">
+            <img
+              src="/assets/homepage/fitness-connected-section/Rectangle%2034626873.webp"
+              alt="ZYLO Smart Fitness Console Screen"
+              class="w-full h-auto object-contain block drop-shadow-[0_16px_32px_rgba(0,0,0,0.40)]"
+              loading="lazy" decoding="async"
+            />
+          </div>
+        </div>
+
+        <!-- DESKTOP COMPOSITION: unchanged flex row (sm and up) -->
+        <div class="hidden sm:flex items-center justify-center lg:justify-end gap-3 sm:gap-4 max-w-full relative">
+          <!-- Levitating Ambient Shadow/Glow Base -->
+          <div class="absolute -bottom-4 inset-x-0 h-10 bg-brand-black/20 blur-xl rounded-full pointer-events-none z-0 animate-pulse"></div>
+
+          <!-- Left Phone -->
+          <div class="relative z-10 bg-transparent animate-levitate-slow max-w-[165px] lg:max-w-[195px] xl:max-w-[210px] shrink">
+            <img src="/assets/homepage/fitness-connected-section/Group%202.webp"
+              alt="ZYLO Mobile Workout App"
+              class="w-full h-auto object-contain block mix-blend-screen drop-shadow-[0_12px_24px_rgba(0,0,0,0.35)]"
+              loading="lazy" decoding="async" />
+          </div>
+
+          <!-- Right Phone -->
+          <div class="relative z-20 bg-transparent animate-levitate-fast max-w-[110px] lg:max-w-[125px] xl:max-w-[135px] shrink-0">
+            <img src="/assets/homepage/fitness-connected-section/Rectangle%2034626873.webp"
+              alt="ZYLO Smart Fitness Console Screen"
+              class="w-full h-auto object-contain block mix-blend-screen drop-shadow-[0_12px_24px_rgba(0,0,0,0.4)]"
+              loading="lazy" decoding="async" />
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Section 7: CTA Banner â€” Ready to Train Smarter at Home? (Artboard 11) -->
+  <!-- Inline Style for Smooth Levitating Animations -->
+  <style>
+    @keyframes levitateSlow {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+
+    @keyframes levitateFast {
+      0%, 100% {
+        transform: translateY(4px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .animate-levitate-slow {
+      animation: levitateSlow 5s ease-in-out infinite;
+    }
+
+    .animate-levitate-fast {
+      animation: levitateFast 4.2s ease-in-out 0.8s infinite;
+    }
+  </style>
+
+  <!-- Section 7: CTA Banner — Ready to Train Smarter at Home? (Artboard 11) -->
   <section
     class="relative w-full overflow-hidden bg-[#0b1a16]"
     aria-labelledby="cta-heading"
@@ -4334,7 +4406,8 @@ import Layout from "../layouts/Layout.astro";
         Experience the Philippines' first &amp; only AI Home Gym with real-time
         coaching, smart resistance, and full-body progress tracking.
       </p>
-      <div class="flex flex-row items-center justify-center gap-2 sm:gap-4 w-full sm:w-auto max-w-[340px] sm:max-w-none px-1">
+      <!-- Desktop CTA Buttons (Shown on Desktop) -->
+      <div class="hidden md:flex flex-row items-center justify-center gap-2 sm:gap-4 w-full sm:w-auto max-w-[340px] sm:max-w-none px-1">
         <a
           href="/products/zylo-k1"
           class="flex-1 sm:flex-initial inline-flex items-center justify-center h-8 sm:h-auto rounded-full bg-white px-3 sm:px-8 lg:px-6 py-0 sm:py-4 lg:py-2.5 text-[9.5px] sm:text-sm lg:text-xs font-bold text-brand-black tracking-wider uppercase hover:bg-zinc-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white shrink-0 whitespace-nowrap"
@@ -4348,139 +4421,78 @@ import Layout from "../layouts/Layout.astro";
           Visit Showroom
         </a>
       </div>
+
+      <!-- Mobile App Store & Google Play Badges (Shown on Mobile View) -->
+      <div class="flex md:hidden flex-wrap gap-2.5 justify-center items-center">
+        <!-- App Store Badge -->
+        <a
+          href="https://apps.apple.com/us/app/aeke-fit/id6738979301"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1.5 rounded-md bg-black border border-zinc-700/80 px-3 hover:bg-neutral-900 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint w-[130px] h-[34px] justify-center shrink-0"
+        >
+          <svg
+            class="h-4 w-auto text-white fill-current shrink-0"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.22.67-2.94 1.5-.62.71-1.16 1.85-1.01 2.96 1.12.09 2.27-.57 2.96-1.4z"
+            ></path>
+          </svg>
+          <div class="text-left flex flex-col justify-center min-w-0">
+            <span
+              class="text-[6.5px] text-zinc-300 font-normal leading-none tracking-wide whitespace-nowrap"
+              >Download on the</span
+            >
+            <span
+              class="text-white text-[10px] font-semibold leading-none mt-0.5 font-display whitespace-nowrap"
+              >App Store</span
+            >
+          </div>
+        </a>
+
+        <!-- Google Play Badge -->
+        <a
+          href="https://play.google.com/store/apps/details?id=com.aekefit.fitness&pcampaignid=web_share"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1.5 rounded-md bg-black border border-zinc-700/80 px-3 hover:bg-neutral-900 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint w-[130px] h-[34px] justify-center shrink-0"
+        >
+          <svg
+            class="h-3.5 w-auto shrink-0"
+            viewBox="0 0 256 256"
+            aria-hidden="true"
+          >
+            <path
+              d="M12.6,8.1c-0.6,0.6-1,1.6-1,2.8v234.3c0,1.2,0.4,2.2,1,2.8l0.7,0.7L144.3,128v-1.9L13.3,7.4L12.6,8.1z"
+              fill="#00E5FF"></path>
+            <path
+              d="M187.9,171.7l-43.6-43.7v-1.9l43.6-43.7l0.8,0.5l51.6,29.3c14.8,8.4,14.8,22.1,0,30.5L188.7,171.2L187.9,171.7z"
+              fill="#FFD600"></path>
+            <path
+              d="M145,126.1l-132.4-118c0.8-0.8,2.2-0.9,3.8,0l171.5,97.5l-42.9,20.5"
+              fill="#4CAF50"></path>
+            <path
+              d="M145,129.9l42.9,20.5L16.4,247.9c-1.6,0.9-3,0.8-3.8,0L145,129.9z"
+              fill="#FF3D00"></path>
+          </svg>
+          <div class="text-left flex flex-col justify-center min-w-0">
+            <span
+              class="text-[6.5px] text-zinc-300 font-normal leading-none tracking-wide uppercase whitespace-nowrap"
+              >Get it on</span
+            >
+            <span
+              class="text-white text-[10px] font-semibold leading-none mt-0.5 font-display whitespace-nowrap"
+              >Google Play</span
+            >
+          </div>
+        </a>
+      </div>
     </div>
   </section>
 
   <script>
-    // Dynamic Athlete Image Background Removal
-    function blendAthleteImages() {
-      const athleteImgs =
-        document.querySelectorAll<HTMLImageElement>(".blend-athlete-img");
-      console.log(
-        "[BlendAthlete] Starting script. Found images:",
-        athleteImgs.length,
-      );
-
-      athleteImgs.forEach((img, index) => {
-        // Skip canvas blending for transparent PNGs — just reveal them directly
-        if (img.dataset.noBlend === "true") {
-          const reveal = () => {
-            img.classList.remove("opacity-0");
-            img.classList.add("opacity-100");
-          };
-          if (img.complete && img.naturalWidth !== 0) {
-            reveal();
-          } else {
-            img.addEventListener("load", reveal);
-            img.addEventListener("error", reveal);
-          }
-          return;
-        }
-
-        const process = () => {
-          if (img.dataset.processed === "true") return;
-          if (img.naturalWidth === 0) {
-            console.warn(
-              `[BlendAthlete] Image #${index} naturalWidth is 0, retrying on next frame.`,
-            );
-            requestAnimationFrame(process);
-            return;
-          }
-
-          try {
-            const canvas = document.createElement("canvas");
-            canvas.width = img.naturalWidth;
-            canvas.height = img.naturalHeight;
-            const ctx = canvas.getContext("2d");
-            if (!ctx) return;
-            ctx.drawImage(img, 0, 0);
-
-            const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            const data = imgData.data;
-            const width = canvas.width;
-            const height = canvas.height;
-
-            const bgR = data[0];
-            const bgG = data[1];
-            const bgB = data[2];
-
-            for (let i = 0; i < data.length; i += 4) {
-              const r = data[i];
-              const g = data[i + 1];
-              const b = data[i + 2];
-
-              const dist =
-                Math.abs(r - bgR) + Math.abs(g - bgG) + Math.abs(b - bgB);
-
-              if (dist < 32) {
-                data[i + 3] = 0;
-              } else if (dist < 60) {
-                const alpha = ((dist - 32) / (60 - 32)) * 255;
-                data[i + 3] = Math.min(data[i + 3], alpha);
-              }
-
-              // Dynamic left and bottom edge fading to eliminate floor reflection cutoffs
-              const pixelIndex = i / 4;
-              const x = pixelIndex % width;
-              const y = Math.floor(pixelIndex / width);
-
-              let fade = 1.0;
-              if (x < 35) {
-                fade *= x / 35;
-              }
-              const distToBottom = height - y;
-              if (distToBottom < 25) {
-                fade *= distToBottom / 25;
-              }
-
-              data[i + 3] = Math.round(data[i + 3] * fade);
-            }
-
-            ctx.putImageData(imgData, 0, 0);
-            img.src = canvas.toDataURL("image/png");
-            img.dataset.processed = "true";
-            img.classList.remove("opacity-0");
-            img.classList.add("opacity-100");
-            console.log(
-              `[BlendAthlete] Image #${index} processed successfully.`,
-            );
-          } catch (e) {
-            console.error(
-              `[BlendAthlete] Failed to blend image #${index}:`,
-              img.src,
-              e,
-            );
-            img.classList.remove("opacity-0");
-            img.classList.add("opacity-100");
-          }
-        };
-
-        if (img.complete && img.naturalWidth !== 0) {
-          process();
-        } else {
-          if (typeof img.decode === "function") {
-            img
-              .decode()
-              .then(process)
-              .catch(() => {
-                img.addEventListener("load", process);
-              });
-          } else {
-            img.addEventListener("load", process);
-          }
-          img.addEventListener("error", (err) => {
-            console.error(
-              `[BlendAthlete] Image #${index} failed to load:`,
-              img.src,
-              err,
-            );
-            img.classList.remove("opacity-0");
-            img.classList.add("opacity-100");
-          });
-        }
-      });
-    }
-
     // Interactive AI Dashboard Highlight & Node Connections
     function initAIDashboard() {
       const cards = document.querySelectorAll<HTMLElement>("[data-ai-card]");
@@ -5095,7 +5107,6 @@ import Layout from "../layouts/Layout.astro";
 
     // Run on boot
     function boot() {
-      blendAthleteImages();
       initAIDashboard();
       initAICards();
       initAIStatsBar();
@@ -5115,15 +5126,15 @@ import Layout from "../layouts/Layout.astro";
 
     const heroData = [
       {
-        title: "Your AI Coach at Home for 300+ Workouts, 400+ Movements, & Smarter Training",
+        title: 'Your AI Coach at Home for <span class="text-emerald-400 lg:text-emerald-600 font-extrabold">300+ Workouts</span>, 400+ Movements, &amp; Smarter Training',
         subtitle: "Personalized workouts, real-time posture scan & adaptive digital resistance in one ultra-compact mirror."
       },
       {
-        title: "The AI Home Gym Trusted by Champions & Personalities",
+        title: 'The AI Home Gym <span class="text-emerald-400 lg:text-emerald-600 font-extrabold">Trusted by Champions</span> &amp; Personalities',
         subtitle: "Endorsed by Carlos Yulo, Alyssa Valdez, Doc Alvin, and top fitness icons across the Philippines."
       },
       {
-        title: "The Philippines’ First & Only AI Home Gym Is Here",
+        title: 'The Philippines’ <span class="text-emerald-400 lg:text-emerald-600 font-extrabold">First &amp; Only AI Home Gym</span> Is Here',
         subtitle: "Transform your home with cutting-edge AI form tracking and no monthly subscription fees."
       }
     ];
@@ -5157,7 +5168,7 @@ import Layout from "../layouts/Layout.astro";
         heroHeading.style.opacity = "0";
         heroSubheading.style.opacity = "0";
         setTimeout(() => {
-          heroHeading.textContent = heroData[index].title;
+          heroHeading.innerHTML = heroData[index].title;
           heroSubheading.textContent = heroData[index].subtitle;
           heroHeading.style.opacity = "1";
           heroSubheading.style.opacity = "1";

@@ -24,15 +24,10 @@ const aboutSchema = {
 
   <!-- ─── 1. HERO ─────────────────────────────────────────────────── -->
   <section class="relative min-h-[85dvh] sm:min-h-[92dvh] bg-zinc-950 flex items-end overflow-hidden">
-    <!-- Full-bleed background image -->
-    <div class="absolute inset-0">
-      <img src="/assets/about/hero-lifestyle.webp"
-        alt="ZYLO AI in action — premium home fitness"
-        class="w-full h-full object-cover object-center opacity-70 sm:opacity-100"
-        loading="eager"
-        decoding="async" />
-      <!-- Dark overlay gradient from bottom -->
-      <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/70 to-zinc-950/20"></div>
+    <!-- Dark gradient & grid pattern background -->
+    <div class="absolute inset-0 bg-zinc-950 flex items-center justify-center">
+      <div class="absolute inset-0 bg-[radial-gradient(#27272a_1px,transparent_1px)] [background-size:24px_24px] opacity-60"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/80 to-transparent"></div>
     </div>
 
     <!-- Content anchored bottom-left -->
@@ -83,15 +78,26 @@ const aboutSchema = {
           </div>
         </div>
 
-        <!-- Right: Image & Mobile Badge -->
+        <!-- Right: Visual Placeholder Box & Mobile Badge -->
         <div class="lg:col-span-7 relative">
-          <div class="relative aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden bg-zinc-100 shadow-md">
-            <img src="/assets/about/hero-lifestyle.webp"
-              alt="ZYLO AI — Premium Home Gym System"
-              class="w-full h-full object-cover object-center"
-              loading="lazy" decoding="async" />
+          <div class="relative aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden bg-zinc-900 border border-zinc-800 shadow-md flex flex-col items-center justify-center p-6 text-center select-none">
+            <!-- Radial Grid Pattern Overlay -->
+            <div class="absolute inset-0 bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:20px_20px] opacity-40"></div>
+            
+            <!-- Center Placeholder Icon & Badge -->
+            <div class="relative z-10 flex flex-col items-center gap-3">
+              <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-zinc-950/90 border border-zinc-800 shadow-inner flex items-center justify-center text-brand-mint">
+                <svg class="h-7 w-7 sm:h-8 sm:w-8 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <span class="text-xs sm:text-sm font-mono font-bold uppercase tracking-widest text-zinc-400">
+                ZYLO AI About Visual Placeholder
+              </span>
+            </div>
+
             <!-- Corner accent -->
-            <div class="absolute top-4 left-4 sm:top-6 sm:left-6">
+            <div class="absolute top-4 left-4 sm:top-6 sm:left-6 z-10">
               <span class="inline-flex items-center bg-zinc-950/85 backdrop-blur-sm text-white rounded-full px-3 py-1.5 text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-widest border border-white/10">
                 ZK Summit Holdings Inc.
               </span>
@@ -99,7 +105,7 @@ const aboutSchema = {
           </div>
 
           <!-- Responsive Stat Card (Visible on Mobile & Desktop) -->
-          <div class="mt-4 sm:mt-0 sm:absolute sm:-bottom-6 sm:-left-6 bg-brand-black rounded-2xl p-4 sm:px-6 sm:py-5 shadow-xl flex items-center justify-between sm:block border border-zinc-800">
+          <div class="mt-4 sm:mt-0 sm:absolute sm:-bottom-6 sm:-left-6 bg-brand-black rounded-2xl p-4 sm:px-6 sm:py-5 shadow-xl flex items-center justify-between sm:block border border-zinc-800 z-20">
             <div>
               <p class="font-mono text-[9px] uppercase tracking-widest text-zinc-400 mb-0.5">Market Focus</p>
               <p class="font-display font-black text-lg sm:text-2xl text-white leading-none">Philippines</p>
@@ -193,16 +199,26 @@ const aboutSchema = {
           </div>
         </div>
 
-        <!-- Right: Image -->
+        <!-- Right: Visual Placeholder Box -->
         <div class="lg:col-span-7 order-2 relative">
-          <div class="relative aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden bg-zinc-900 shadow-md">
-            <img src="/assets/about/tech-innovation.webp"
-              alt="ZYLO AI — 42-Point Skeletal Tracking Technology"
-              class="w-full h-full object-cover object-center"
-              loading="lazy" decoding="async" />
-            <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/85 via-zinc-950/20 to-transparent"></div>
+          <div class="relative aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden bg-zinc-900 border border-zinc-800 shadow-md flex flex-col items-center justify-center p-6 text-center select-none">
+            <!-- Radial Grid Pattern Overlay -->
+            <div class="absolute inset-0 bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:20px_20px] opacity-40"></div>
+            
+            <!-- Center Placeholder Icon & Badge -->
+            <div class="relative z-10 flex flex-col items-center gap-3">
+              <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-zinc-950/90 border border-zinc-800 shadow-inner flex items-center justify-center text-brand-mint">
+                <svg class="h-7 w-7 sm:h-8 sm:w-8 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <span class="text-xs sm:text-sm font-mono font-bold uppercase tracking-widest text-zinc-400">
+                AEKE Innovation Visual Placeholder
+              </span>
+            </div>
+
             <!-- Tech label overlay -->
-            <div class="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6">
+            <div class="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 text-left z-10">
               <p class="font-mono text-[9px] uppercase tracking-widest text-brand-mint mb-1">AEKE Innovation</p>
               <p class="font-display font-bold text-sm sm:text-lg text-white leading-snug">42-Point Skeletal Tracking &amp; Real-Time Form Correction</p>
             </div>

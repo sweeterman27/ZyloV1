@@ -15,7 +15,7 @@ const orderSchema = {
   canonical="/order"
   schema={orderSchema}
 >
-  <main class="min-h-screen bg-zinc-50/50 py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+  <main class="min-h-screen bg-white py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
     <div class="max-w-2xl mx-auto bg-white border border-zinc-200/80 rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden">
       
       <!-- Top Decor Glow -->
@@ -53,12 +53,12 @@ const orderSchema = {
 
             <!-- Quantity Stepper -->
             <div class="flex justify-between items-center pt-1">
-              <span class="text-zinc-600 font-medium">Quantity</span>
-              <div class="flex items-center gap-3 bg-white border border-zinc-200 rounded-lg px-2 py-1">
+              <span class="font-display text-zinc-600 font-medium">Quantity</span>
+              <div class="flex items-center gap-3 bg-zinc-50 border border-zinc-200/80 rounded-lg px-2 py-1">
                 <button
                   type="button"
                   id="page-qty-minus"
-                  class="w-6 h-6 rounded flex items-center justify-center text-zinc-500 hover:bg-zinc-100 font-bold transition-colors"
+                  class="w-6 h-6 rounded flex items-center justify-center text-zinc-500 hover:bg-brand-midGray/60 font-bold transition-colors"
                 >
                   -
                 </button>
@@ -66,7 +66,7 @@ const orderSchema = {
                 <button
                   type="button"
                   id="page-qty-plus"
-                  class="w-6 h-6 rounded flex items-center justify-center text-zinc-500 hover:bg-zinc-100 font-bold transition-colors"
+                  class="w-6 h-6 rounded flex items-center justify-center text-zinc-500 hover:bg-brand-midGray/60 font-bold transition-colors"
                 >
                   +
                 </button>
@@ -105,7 +105,7 @@ const orderSchema = {
               id="page-order-name"
               required
               placeholder="e.g. Maria Santos"
-              class="w-full rounded-xl border border-zinc-200 px-4 py-3 text-sm text-brand-black placeholder-zinc-400 focus:border-brand-black focus:outline-none transition-colors"
+              class="w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-display text-brand-black placeholder-zinc-300 focus:border-brand-mint focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-mint/30 transition-colors"
             />
           </div>
 
@@ -119,7 +119,7 @@ const orderSchema = {
                 id="page-order-email"
                 required
                 placeholder="name@domain.com"
-                class="w-full rounded-xl border border-zinc-200 px-4 py-3 text-sm text-brand-black placeholder-zinc-400 focus:border-brand-black focus:outline-none transition-colors"
+                class="w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-display text-brand-black placeholder-zinc-300 focus:border-brand-mint focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-mint/30 transition-colors"
               />
             </div>
 
@@ -132,7 +132,7 @@ const orderSchema = {
                 id="page-order-phone"
                 required
                 placeholder="+63 917 123 4567"
-                class="w-full rounded-xl border border-zinc-200 px-4 py-3 text-sm text-brand-black placeholder-zinc-400 focus:border-brand-black focus:outline-none transition-colors"
+                class="w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-display text-brand-black placeholder-zinc-300 focus:border-brand-mint focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-mint/30 transition-colors"
               />
             </div>
           </div>
@@ -146,7 +146,7 @@ const orderSchema = {
               rows="3"
               required
               placeholder="House/Unit #, Street, Barangay, City, Province, Postal Code"
-              class="w-full rounded-xl border border-zinc-200 px-4 py-3 text-sm text-brand-black placeholder-zinc-400 focus:border-brand-black focus:outline-none transition-colors resize-none"
+              class="w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm font-display text-brand-black placeholder-zinc-300 focus:border-brand-mint focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-mint/30 transition-colors resize-none"
             ></textarea>
           </div>
         </div>
@@ -160,28 +160,28 @@ const orderSchema = {
             <button
               type="button"
               data-payment="cod"
-              class="payment-pill active border-2 border-brand-black bg-brand-black/5 text-brand-black rounded-xl py-3 px-4 text-xs font-bold text-center transition-all"
+              class="payment-pill active border-2 border-brand-mint bg-brand-mint text-zinc-950 rounded-xl py-3 px-4 text-xs font-display font-bold text-center transition-all"
             >
               Cash on Delivery
             </button>
             <button
               type="button"
               data-payment="bank"
-              class="payment-pill border border-zinc-200 bg-white text-zinc-600 hover:border-zinc-300 rounded-xl py-3 px-4 text-xs font-bold text-center transition-all"
+              class="payment-pill border border-brand-midGray/60 bg-white text-zinc-500 hover:border-brand-mint/50 rounded-xl py-3 px-4 text-xs font-display font-bold text-center transition-all"
             >
               Bank Transfer
             </button>
             <button
               type="button"
               data-payment="gcash"
-              class="payment-pill border border-zinc-200 bg-white text-zinc-600 hover:border-zinc-300 rounded-xl py-3 px-4 text-xs font-bold text-center transition-all"
+              class="payment-pill border border-brand-midGray/60 bg-white text-zinc-500 hover:border-brand-mint/50 rounded-xl py-3 px-4 text-xs font-display font-bold text-center transition-all"
             >
               GCash
             </button>
             <button
               type="button"
               data-payment="card"
-              class="payment-pill border border-zinc-200 bg-white text-zinc-600 hover:border-zinc-300 rounded-xl py-3 px-4 text-xs font-bold text-center transition-all"
+              class="payment-pill border border-brand-midGray/60 bg-white text-zinc-500 hover:border-brand-mint/50 rounded-xl py-3 px-4 text-xs font-display font-bold text-center transition-all"
             >
               Card / Installment
             </button>
@@ -213,20 +213,21 @@ const orderSchema = {
 
       <!-- Order Success State Overlay -->
       <div id="order-success-screen" class="hidden text-center py-12 space-y-6">
-        <div class="w-20 h-20 rounded-full bg-brand-mint/10 border border-brand-mint/30 flex items-center justify-center mx-auto text-brand-mint">
+        <div class="w-16 h-16 rounded-2xl bg-zinc-50 border border-zinc-200/80 flex items-center justify-center mx-auto text-zinc-700 shadow-2xs">
           <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
 
         <div>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-emerald-700 mb-3">
-            Order Confirmed #ZYLO-89241
+          <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-brand-mint/15 border border-brand-mint/40 text-xs font-display font-bold text-brand-mint uppercase tracking-wider mb-4">
+            <span class="h-1.5 w-1.5 rounded-full bg-brand-mint animate-pulse"></span>
+            Order Confirmed
           </span>
           <h2 class="font-display font-extrabold text-3xl text-brand-black tracking-tight mb-2">
             Thank you for your order!
           </h2>
-          <p class="text-sm font-medium text-zinc-500 max-w-md mx-auto">
+          <p class="font-display text-sm font-medium text-zinc-500 max-w-md mx-auto">
             Our luxury concierge team will reach out to you within 15 minutes to confirm delivery scheduling and installation details.
           </p>
         </div>
@@ -234,9 +235,12 @@ const orderSchema = {
         <div class="pt-4">
           <a
             href="/"
-            class="btn-spring inline-flex items-center justify-center gap-2 rounded-xl bg-brand-black px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-white hover:bg-neutral-800"
+            class="btn-spring inline-flex items-center justify-center gap-2 rounded-full bg-brand-black px-8 py-3.5 text-xs font-display font-extrabold uppercase tracking-widest text-white hover:bg-zinc-800 shadow-md transition-all"
           >
             Return to Home
+            <svg class="h-4 w-4 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18m-6-6l6 6-6 6" />
+            </svg>
           </a>
         </div>
       </div>
@@ -332,11 +336,11 @@ const orderSchema = {
       paymentBtns.forEach(btn => {
         btn.addEventListener("click", () => {
           paymentBtns.forEach(b => {
-            b.classList.remove("active", "border-2", "border-brand-black", "bg-brand-black/5", "text-brand-black");
-            b.classList.add("border", "border-zinc-200", "bg-white", "text-zinc-600");
+            b.classList.remove("active", "border-2", "border-brand-mint", "bg-brand-mint", "text-zinc-950");
+            b.classList.add("border", "border-brand-midGray/60", "bg-white", "text-zinc-500");
           });
-          btn.classList.add("active", "border-2", "border-brand-black", "bg-brand-black/5", "text-brand-black");
-          btn.classList.remove("border", "border-zinc-200", "bg-white", "text-zinc-600");
+          btn.classList.add("active", "border-2", "border-brand-mint", "bg-brand-mint", "text-zinc-950");
+          btn.classList.remove("border", "border-brand-midGray/60", "bg-white", "text-zinc-500");
           currentPayment = btn.getAttribute("data-payment") || "cod";
         });
       });
@@ -358,7 +362,7 @@ const orderSchema = {
       form?.addEventListener("submit", (e) => {
         e.preventDefault();
         
-        const ZYLO_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbye6Mci50d-M780n5C1dhMTk1O-n0Mb0CiQ37JAcXOPLA7oChXf51l6aCJBEEgTpROhzQ/exec";
+        const ZYLO_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxV4hgMILSHCIhruPry9mgb-8buA1bdFKTCNgaKYIuhfd445MqVV2Kpc8UiyI_WzKz_Ig/exec";
         const gsheetUrl = (window as any).ZYLO_GSHEET_URL || localStorage.getItem("zylo_gsheet_url") || ZYLO_SCRIPT_URL;
         
         if (gsheetUrl) {
@@ -384,7 +388,7 @@ const orderSchema = {
                 city: cityInput?.value || "",
                 payment_method: currentPayment.toUpperCase(),
                 quantity: currentQty,
-                total_price: `₱${(unitPrice * currentQty).toLocaleString()}`,
+                total_price: `₱${(currentUnitPrice * currentQty).toLocaleString()}`,
                 notes: notesInput?.value || "N/A",
                 timestamp: new Date().toLocaleString("en-PH", { timeZone: "Asia/Manila" })
               })

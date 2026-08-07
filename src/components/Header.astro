@@ -222,10 +222,10 @@ const currentPath = rawPath === "/" ? "/" : rawPath.replace(/\/$/, "");
           </svg>
         </button>
 
-        <!-- 2. Account Link (Redirects to /account) -->
+        <!-- 2. Account Link (Hidden on Mobile, Visible on Desktop) -->
         <a
           href="/account"
-          class="flex h-9 w-9 items-center justify-center rounded-full text-zinc-700 hover:text-brand-black hover:bg-zinc-100 active:scale-95 focus:outline-none transition-all cursor-pointer"
+          class="hidden md:flex h-9 w-9 items-center justify-center rounded-full text-zinc-700 hover:text-brand-black hover:bg-zinc-100 active:scale-95 focus:outline-none transition-all cursor-pointer"
           aria-label="User Account"
           title="Account"
         >
@@ -689,16 +689,16 @@ const currentPath = rawPath === "/" ? "/" : rawPath.replace(/\/$/, "");
     </p>
 
     <div class="flex flex-col gap-2">
-      <button
-        type="button"
+      <a
+        href="/products"
         id="cart-empty-order-btn"
-        class="order-modal-trigger btn-spring w-full inline-flex items-center justify-center gap-2 rounded-xl bg-brand-black px-5 py-3.5 text-xs font-bold uppercase tracking-widest text-white hover:bg-neutral-800 shadow-sm cursor-pointer"
+        class="btn-spring w-full inline-flex items-center justify-center gap-2 rounded-xl bg-brand-black px-5 py-3.5 text-xs font-bold uppercase tracking-widest text-white hover:bg-neutral-800 shadow-sm cursor-pointer"
       >
-        <span>Order ZYLO AI Gym</span>
+        <span>Explore ZYLO AI Gym Systems</span>
         <svg class="h-3.5 w-3.5 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
         </svg>
-      </button>
+      </a>
       
       <a
         href="/products"
@@ -728,12 +728,22 @@ const currentPath = rawPath === "/" ? "/" : rawPath.replace(/\/$/, "");
         <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
       </svg>
       <input
-        type="search"
+        type="text"
         id="search-input"
         placeholder="Search products, AI features, workouts..."
         class="w-full bg-transparent text-sm sm:text-base font-medium text-zinc-900 placeholder:text-zinc-400 focus:outline-none"
         autocomplete="off"
       />
+      <button
+        type="button"
+        id="search-clear-btn"
+        aria-label="Clear search"
+        class="hidden shrink-0 p-1 rounded-md text-[#30c18a] hover:bg-[#30c18a]/10 transition-colors cursor-pointer"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
       <button
         type="button"
         id="search-modal-close"
@@ -934,8 +944,28 @@ const currentPath = rawPath === "/" ? "/" : rawPath.replace(/\/$/, "");
       if (e.key === "Escape") closeSearchModal();
     });
 
+    // Custom green clear (×) button
+    document.getElementById("search-clear-btn")?.addEventListener("click", () => {
+      if (searchInput) {
+        searchInput.value = "";
+        searchInput.focus();
+      }
+      document.getElementById("search-clear-btn")?.classList.add("hidden");
+      if (searchDefault) searchDefault.classList.remove("hidden");
+      if (searchLive) { searchLive.classList.add("hidden"); searchLive.innerHTML = ""; }
+    });
+
+    const searchClearBtn = document.getElementById("search-clear-btn");
+
     searchInput?.addEventListener("input", (e) => {
       const q = (e.target as HTMLInputElement).value.trim().toLowerCase();
+      if (searchClearBtn) {
+        if ((e.target as HTMLInputElement).value.length > 0) {
+          searchClearBtn.classList.remove("hidden");
+        } else {
+          searchClearBtn.classList.add("hidden");
+        }
+      }
       if (!q) {
         if (searchDefault) searchDefault.classList.remove("hidden");
         if (searchLive) {
@@ -1207,7 +1237,7 @@ const currentPath = rawPath === "/" ? "/" : rawPath.replace(/\/$/, "");
     });
 
     // Unified Google Sheets Form Dispatcher
-    const ZYLO_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbye6Mci50d-M780n5C1dhMTk1O-n0Mb0CiQ37JAcXOPLA7oChXf51l6aCJBEEgTpROhzQ/exec";
+     const ZYLO_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxV4hgMILSHCIhruPry9mgb-8buA1bdFKTCNgaKYIuhfd445MqVV2Kpc8UiyI_WzKz_Ig/exec";
 
     async function sendToGSheet(payload: Record<string, any>) {
       const gsheetUrl = (window as any).ZYLO_GSHEET_URL || localStorage.getItem("zylo_gsheet_url") || ZYLO_SCRIPT_URL;

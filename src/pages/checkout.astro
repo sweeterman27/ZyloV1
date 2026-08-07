@@ -1,0 +1,548 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Checkout — ZYLO AI"
+  description="Complete your ZYLO AI Smart Home Gym order inquiry."
+>
+  <main class="min-h-[85vh] bg-white py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      
+      <!-- Top Header -->
+      <div id="checkout-header" class="mb-8">
+        <p class="font-display text-[10px] font-bold tracking-[0.2em] uppercase text-brand-mint mb-1">Secure Checkout</p>
+        <h1 class="font-display text-2xl sm:text-3xl font-extrabold text-brand-black tracking-tight leading-tight mb-2">Complete Your Order</h1>
+        <p class="font-display text-xs sm:text-sm text-zinc-500 font-medium leading-relaxed">
+          Place your request below and our team will confirm your order, delivery schedule, payment, and total.
+        </p>
+      </div>
+
+      <!-- Main Checkout Container -->
+      <div id="checkout-active-view">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          
+          <!-- LEFT COLUMN: Form Inputs -->
+          <div class="lg:col-span-7 flex flex-col gap-5">
+            <form id="checkout-form" class="flex flex-col gap-5">
+              
+              <!-- Full name -->
+              <div>
+                <label for="co-fullname" class="block text-xs font-bold font-display tracking-wide text-zinc-600 uppercase mb-1.5">
+                  Full name <span class="text-zinc-400">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="co-fullname"
+                  required
+                  placeholder=""
+                  class="w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-xs sm:text-sm font-display text-brand-black placeholder:text-zinc-300 focus:border-brand-mint focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-mint/30 transition-all"
+                />
+              </div>
+
+              <!-- Email & Phone (2 cols) -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="co-email" class="block text-xs font-semibold text-zinc-700 mb-1.5">
+                    Email <span class="text-zinc-400">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="co-email"
+                    required
+                    placeholder=""
+                    class="w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-xs sm:text-sm font-display text-brand-black placeholder:text-zinc-300 focus:border-brand-mint focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-mint/30 transition-all"
+                  />
+                </div>
+                <div>
+                  <label for="co-phone" class="block text-xs font-semibold text-zinc-700 mb-1.5">
+                    Phone <span class="text-zinc-400">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    id="co-phone"
+                    required
+                    placeholder=""
+                    class="w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-xs sm:text-sm font-display text-brand-black placeholder:text-zinc-300 focus:border-brand-mint focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-mint/30 transition-all"
+                  />
+                </div>
+              </div>
+
+              <!-- Street address -->
+              <div>
+                <label for="co-street" class="block text-xs font-semibold text-zinc-700 mb-1.5">
+                  Street address <span class="text-zinc-400">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="co-street"
+                  required
+                  placeholder=""
+                  class="w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-xs sm:text-sm font-display text-brand-black placeholder:text-zinc-300 focus:border-brand-mint focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-mint/30 transition-all"
+                />
+              </div>
+
+              <!-- City / Municipality & Postal code (2 cols) -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="co-city" class="block text-xs font-semibold text-zinc-700 mb-1.5">
+                    City / Municipality <span class="text-zinc-400">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="co-city"
+                    required
+                    placeholder=""
+                    class="w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-xs sm:text-sm font-display text-brand-black placeholder:text-zinc-300 focus:border-brand-mint focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-mint/30 transition-all"
+                  />
+                </div>
+                <div>
+                  <label for="co-postal" class="block text-xs font-bold font-display tracking-wide text-zinc-600 uppercase mb-1.5">
+                   Postal code
+                  </label>
+                  <input
+                    type="text"
+                    id="co-postal"
+                    placeholder=""
+                    class="w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-xs sm:text-sm font-display text-brand-black placeholder:text-zinc-300 focus:border-brand-mint focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-mint/30 transition-all"
+                  />
+                </div>
+              </div>
+
+              <!-- Preferred delivery date (Half width) -->
+              <div class="w-full sm:w-1/2 pr-0 sm:pr-2">
+                <label for="co-date" class="block text-xs font-bold font-display tracking-wide text-zinc-600 uppercase mb-1.5">
+                   Preferred delivery date
+                </label>
+                <input
+                  type="date"
+                  id="co-date"
+                  class="w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-xs sm:text-sm font-display text-brand-black placeholder:text-zinc-300 focus:border-brand-mint focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-mint/30 transition-all"
+                />
+              </div>
+
+              <!-- Province / Region -->
+              <div>
+                <label for="co-region" class="block text-xs font-bold font-display tracking-wide text-zinc-600 uppercase mb-1.5">
+                  Province / Region <span class="text-zinc-400">*</span>
+                </label>
+                <select
+                  id="co-region"
+                  required
+                  class="w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-xs sm:text-sm font-display text-brand-black focus:border-brand-mint focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-mint/30 transition-all appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:10px_10px] bg-[right_16px_center] bg-no-repeat pr-10"
+                >
+                  <option value="" disabled selected>Select your delivery area...</option>
+                  <option value="Metro Manila">Metro Manila (NCR)</option>
+                  <option value="Region I - Ilocos Region">Region I — Ilocos Region</option>
+                  <option value="Region II - Cagayan Valley">Region II — Cagayan Valley</option>
+                  <option value="Region III - Central Luzon">Region III — Central Luzon</option>
+                  <option value="Region IV-A - CALABARZON">Region IV-A — CALABARZON</option>
+                  <option value="Region IV-B - MIMAROPA">Region IV-B — MIMAROPA</option>
+                  <option value="Region V - Bicol Region">Region V — Bicol Region</option>
+                  <option value="Region VI - Western Visayas">Region VI — Western Visayas</option>
+                  <option value="Region VII - Central Visayas">Region VII — Central Visayas</option>
+                  <option value="Region VIII - Eastern Visayas">Region VIII — Eastern Visayas</option>
+                  <option value="Region IX - Zamboanga Peninsula">Region IX — Zamboanga Peninsula</option>
+                  <option value="Region X - Northern Mindanao">Region X — Northern Mindanao</option>
+                  <option value="Region XI - Davao Region">Region XI — Davao Region</option>
+                  <option value="Region XII - SOCCSKSARGEN">Region XII — SOCCSKSARGEN</option>
+                  <option value="Region XIII - Caraga">Region XIII — Caraga</option>
+                  <option value="BARMM - Bangsamoro">BARMM — Bangsamoro</option>
+                </select>
+              </div>
+
+              <!-- Mode of payment -->
+              <div>
+                <label class="block text-xs font-bold font-display tracking-wide text-zinc-600 uppercase mb-2">
+                  Mode of payment
+                </label>
+                <div class="border border-brand-midGray/60 rounded-2xl overflow-hidden bg-white divide-y divide-brand-midGray/40 shadow-sm">
+                  
+                  <!-- Option 1: Cash on delivery -->
+                  <label class="flex items-center justify-between p-4 cursor-pointer hover:bg-zinc-50 transition-colors">
+                    <div class="flex items-center gap-3">
+                      <input
+                        type="radio"
+                        name="payment_method"
+                        value="Cash on delivery"
+                        checked
+                        class="co-payment-radio h-4 w-4 accent-brand-mint border-zinc-300"
+                      />
+                      <span class="font-display text-xs sm:text-sm font-semibold text-brand-black">Cash on delivery</span>
+                    </div>
+                  </label>
+
+                  <!-- Option 2: Card -->
+                  <label class="flex items-center justify-between p-4 cursor-pointer hover:bg-zinc-50 transition-colors">
+                    <div class="flex items-center gap-3">
+                      <input
+                        type="radio"
+                        name="payment_method"
+                        value="Card"
+                        class="co-payment-radio h-4 w-4 accent-brand-mint border-zinc-300"
+                      />
+                      <span class="font-display text-xs sm:text-sm font-semibold text-zinc-600">Card</span>
+                    </div>
+                    <div class="flex items-center gap-1.5 shrink-0">
+                      <!-- Visa Logo SVG -->
+                      <svg class="h-4 w-auto" viewBox="0 0 36 12" fill="none">
+                        <path d="M13.8 0.4L9.0 11.6H6.1L3.7 2.5C3.5 1.7 3.3 1.4 2.7 1.1C1.7 0.6 0.5 0.2 0 0L0.1 0.4H5.0C5.6 0.4 6.2 0.9 6.3 1.6L7.5 8.1L10.5 0.4H13.8ZM26.0 8.3C26.0 5.1 21.6 5.0 21.7 3.6C21.7 3.1 22.2 2.6 23.3 2.5C23.8 2.4 25.3 2.4 26.8 3.1L27.4 0.6C26.6 0.3 25.6 0 24.3 0C21.4 0 19.3 1.6 19.3 3.8C19.3 5.4 20.8 6.3 21.9 6.8C23.0 7.4 23.4 7.7 23.4 8.2C23.4 8.9 22.5 9.3 21.6 9.3C20.1 9.3 19.2 8.9 18.5 8.6L17.8 11.2C18.6 11.5 20.0 11.8 21.5 11.8C24.7 11.8 26.0 10.2 26.0 8.3ZM33.7 11.6H36.6L34.1 0.4H31.5C30.9 0.4 30.3 0.8 30.1 1.4L25.7 11.6H29.0L29.7 9.8H33.3L33.7 11.6ZM30.6 7.3L32.1 3.2L32.9 7.3H30.6ZM18.4 0.4L15.8 11.6H12.7L15.3 0.4H18.4Z" fill="#1434CB"/>
+                      </svg>
+                      <!-- Mastercard Logo SVG -->
+                      <svg class="h-4 w-auto" viewBox="0 0 24 15" fill="none">
+                        <circle cx="7.5" cy="7.5" r="7.5" fill="#EB001B"/>
+                        <circle cx="16.5" cy="7.5" r="7.5" fill="#F79E1B"/>
+                        <path d="M12 1.8A7.47 7.47 0 0 0 9.3 7.5A7.47 7.47 0 0 0 12 13.2A7.47 7.47 0 0 0 14.7 7.5A7.47 7.47 0 0 0 12 1.8Z" fill="#FF5F00"/>
+                      </svg>
+                    </div>
+                  </label>
+
+                  <!-- Option 3: Bank Transfer -->
+                  <label class="flex items-center justify-between p-4 cursor-pointer hover:bg-zinc-50 transition-colors">
+                    <div class="flex items-center gap-3">
+                      <input
+                        type="radio"
+                        name="payment_method"
+                        value="Bank Transfer"
+                        class="co-payment-radio h-4 w-4 accent-brand-mint border-zinc-300"
+                      />
+                      <span class="font-display text-xs sm:text-sm font-semibold text-zinc-600">Bank Transfer</span>
+                    </div>
+                  </label>
+
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+               <button
+                 type="submit"
+                 id="co-submit-btn"
+                 class="btn-spring w-full rounded-full bg-brand-black py-4 px-6 text-xs sm:text-sm font-extrabold font-display uppercase tracking-widest text-white hover:bg-zinc-800 transition-all shadow-md text-center cursor-pointer mt-2"
+               >
+                 <span id="co-submit-text">Place Order — Cash on Delivery</span>
+               </button>
+
+            </form>
+          </div>
+
+          <!-- RIGHT COLUMN: ORDER SUMMARY Card -->
+          <div class="lg:col-span-5">
+            <div class="bg-zinc-50 border border-zinc-200/80 rounded-2xl p-6 sm:p-7 flex flex-col gap-4 shadow-sm">
+              
+              <!-- Card Header -->
+              <p class="font-display text-[10px] font-bold tracking-[0.2em] uppercase text-brand-mint">
+                Order Summary
+              </p>
+
+              <!-- Items List -->
+              <div id="co-summary-items" class="flex flex-col gap-2.5">
+                <!-- Dynamically rendered cart items -->
+              </div>
+
+              <div class="border-b border-brand-midGray/60 my-0.5"></div>
+
+              <!-- Discount Code Field -->
+              <div>
+                <label for="co-discount-code" class="block font-display text-[10px] font-bold tracking-widest text-zinc-400 uppercase mb-1.5">
+                  Discount code
+                </label>
+                <div class="flex items-center gap-2">
+                  <input
+                    type="text"
+                    id="co-discount-code"
+                    placeholder="ZYLO-XXXXXXXX"
+                    class="flex-1 rounded-xl border border-zinc-200 bg-zinc-50 px-3.5 py-2.5 text-xs font-mono uppercase text-brand-black placeholder-zinc-300 focus:border-brand-mint focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-mint/30 transition-colors"
+                  />
+                  <button
+                    type="button"
+                    id="co-apply-discount-btn"
+                    class="rounded-xl bg-brand-black text-white font-display font-bold text-xs px-5 py-2.5 hover:bg-zinc-700 transition-colors cursor-pointer shrink-0 uppercase tracking-wider"
+                  >
+                    Apply
+                  </button>
+                </div>
+                <p id="co-discount-msg" class="hidden text-[11px] font-display font-semibold mt-1.5"></p>
+              </div>
+
+              <!-- Subtotal & Delivery -->
+              <div class="flex flex-col gap-2 pt-1 text-xs sm:text-sm">
+                <div class="flex items-center justify-between text-zinc-400">
+                  <span class="font-display">Subtotal</span>
+                  <span id="co-subtotal-val" class="font-mono font-medium text-zinc-700">₱0.00</span>
+                </div>
+                <div class="flex items-center justify-between text-zinc-400">
+                  <span class="font-display">Delivery</span>
+                  <span id="co-delivery-val" class="font-display text-zinc-400 text-xs">Select an area</span>
+                </div>
+              </div>
+
+              <div class="border-b border-brand-midGray/60 my-0.5"></div>
+
+              <!-- Total -->
+              <div class="flex items-center justify-between text-sm sm:text-base text-brand-black">
+                <span class="font-display font-extrabold">Total</span>
+                <span id="co-total-val" class="font-mono font-extrabold text-brand-black text-base sm:text-lg">₱0.00</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SUCCESS CONFIRMATION VIEW -->
+      <div id="checkout-success-view" class="hidden min-h-[60vh] flex-col items-center justify-center text-center py-12">
+        <!-- Checkmark Icon -->
+        <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-zinc-50 border border-zinc-200/80 text-zinc-700 shadow-2xs mx-auto">
+          <svg class="h-8 w-8 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+
+        <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-brand-mint/15 border border-brand-mint/40 text-xs font-display font-bold text-brand-mint uppercase tracking-wider mb-4">
+          <span class="h-1.5 w-1.5 rounded-full bg-brand-mint"></span>
+          Order Inquiry Sent
+        </span>
+
+        <h1 class="font-display text-3xl sm:text-4xl font-extrabold text-brand-black tracking-tight mb-3 leading-tight">
+          Thank you for your order!
+        </h1>
+
+        <p class="font-display text-xs sm:text-sm text-zinc-500 font-medium leading-relaxed max-w-md mb-8">
+          Our ZYLO specialist will contact you shortly to confirm your order details, delivery schedule, and payment arrangements.
+        </p>
+
+        <div class="bg-white border border-brand-midGray/60 rounded-2xl p-6 max-w-md w-full mb-8 text-left text-xs space-y-3 shadow-sm">
+          <div class="flex justify-between text-zinc-400">
+            <span class="font-display font-semibold">Order Reference</span>
+            <span id="succ-ref" class="font-mono font-bold text-brand-mint">#ZYLO-1001</span>
+          </div>
+          <div class="border-b border-brand-midGray/60"></div>
+          <div class="flex justify-between text-zinc-400">
+            <span class="font-display font-semibold">Customer</span>
+            <span id="succ-name" class="font-display font-bold text-brand-black">-</span>
+          </div>
+          <div class="flex justify-between text-zinc-400">
+            <span class="font-display font-semibold">Payment Method</span>
+            <span id="succ-payment" class="font-display font-bold text-brand-black">-</span>
+          </div>
+          <div class="flex justify-between text-zinc-400">
+            <span class="font-display font-semibold">Total Amount</span>
+            <span id="succ-total" class="font-mono font-extrabold text-brand-black">-</span>
+          </div>
+        </div>
+
+        <a
+          href="/"
+          class="btn-spring inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-brand-black text-white font-display font-extrabold text-xs uppercase tracking-widest hover:bg-zinc-800 transition-all shadow-md cursor-pointer"
+        >
+          Return to Home
+          <svg class="h-4 w-4 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18m-6-6l6 6-6 6" />
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const ZYLO_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxV4hgMILSHCIhruPry9mgb-8buA1bdFKTCNgaKYIuhfd445MqVV2Kpc8UiyI_WzKz_Ig/exec";
+
+      const coForm = document.getElementById("checkout-form") as HTMLFormElement;
+      const coSubmitBtn = document.getElementById("co-submit-btn") as HTMLButtonElement;
+      const coSubmitText = document.getElementById("co-submit-text");
+      
+      const coRegionSelect = document.getElementById("co-region") as HTMLSelectElement;
+      const coDeliveryVal = document.getElementById("co-delivery-val");
+      const coSubtotalVal = document.getElementById("co-subtotal-val");
+      const coTotalVal = document.getElementById("co-total-val");
+      const coSummaryItems = document.getElementById("co-summary-items");
+
+      const coDiscountInput = document.getElementById("co-discount-code") as HTMLInputElement;
+      const coApplyDiscountBtn = document.getElementById("co-apply-discount-btn");
+      const coDiscountMsg = document.getElementById("co-discount-msg");
+
+      const checkoutActiveView = document.getElementById("checkout-active-view");
+      const checkoutSuccessView = document.getElementById("checkout-success-view");
+
+      let activeDiscountAmount = 0;
+
+      function getCartItems() {
+        try {
+          return JSON.parse(localStorage.getItem("zylo_cart_items") || "[]");
+        } catch (e) {
+          return [];
+        }
+      }
+
+      function parsePrice(priceStr: string | number): number {
+        if (typeof priceStr === "number") return priceStr;
+        if (!priceStr) return 0;
+        const cleaned = String(priceStr).replace(/[^0-9.]/g, "");
+        return parseFloat(cleaned) || 0;
+      }
+
+      function formatMoney(num: number): string {
+        return "₱" + num.toLocaleString("en-PH", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+
+      // Update Radio Payment Selection & Submit Button Text
+      const radioInputs = document.querySelectorAll<HTMLInputElement>(".co-payment-radio");
+      radioInputs.forEach(radio => {
+        radio.addEventListener("change", () => {
+          if (radio.checked && coSubmitText) {
+            coSubmitText.textContent = `Place order (${radio.value})`;
+          }
+        });
+      });
+
+      // Update Delivery text on Region Select
+      coRegionSelect?.addEventListener("change", () => {
+        if (coDeliveryVal) {
+          coDeliveryVal.textContent = "Free Delivery";
+          coDeliveryVal.className = "text-emerald-600 font-semibold text-xs";
+        }
+      });
+
+      // Discount Code Handler
+      coApplyDiscountBtn?.addEventListener("click", () => {
+        const code = (coDiscountInput?.value || "").trim().toUpperCase();
+        if (!coDiscountMsg) return;
+
+        if (code === "ZION" || code.startsWith("ZION-")) {
+          activeDiscountAmount = 10000;
+          coDiscountMsg.textContent = "✓ Special Discount Applied (-₱10,000.00)";
+          coDiscountMsg.className = "text-[11px] font-semibold text-emerald-600 mt-1.5 block";
+        } else if (code.length > 0) {
+          activeDiscountAmount = 0;
+          coDiscountMsg.textContent = "Invalid discount code";
+          coDiscountMsg.className = "text-[11px] font-semibold text-rose-500 mt-1.5 block";
+        } else {
+          activeDiscountAmount = 0;
+          coDiscountMsg.classList.add("hidden");
+        }
+        renderSummary();
+      });
+
+      function renderSummary() {
+        const items = getCartItems();
+        if (!items || items.length === 0) {
+          // If no items in cart, redirect back to cart page
+          window.location.href = "/cart";
+          return;
+        }
+
+        let rawSubtotal = 0;
+
+        if (coSummaryItems) {
+          coSummaryItems.innerHTML = items.map((it: any) => {
+            const unitPriceNum = parsePrice(it.price || "₱249,000.00");
+            const qty = it.quantity || 1;
+            const itemTotal = unitPriceNum * qty;
+            rawSubtotal += itemTotal;
+
+            return `
+              <div class="flex items-center justify-between text-xs sm:text-sm text-zinc-800">
+                <span class="font-normal text-zinc-700">${it.name} <span class="text-zinc-400">× ${qty}</span></span>
+                <span class="font-mono font-semibold">${formatMoney(itemTotal)}</span>
+              </div>
+            `;
+          }).join("");
+        }
+
+        const finalTotal = Math.max(0, rawSubtotal - activeDiscountAmount);
+
+        if (coSubtotalVal) coSubtotalVal.textContent = formatMoney(rawSubtotal);
+        if (coTotalVal) coTotalVal.textContent = formatMoney(finalTotal);
+      }
+
+      // Form Submission to Google Sheets
+      coForm?.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const name = (document.getElementById("co-fullname") as HTMLInputElement).value;
+        const email = (document.getElementById("co-email") as HTMLInputElement).value;
+        const phone = (document.getElementById("co-phone") as HTMLInputElement).value;
+        const street = (document.getElementById("co-street") as HTMLInputElement).value;
+        const city = (document.getElementById("co-city") as HTMLInputElement).value;
+        const postal = (document.getElementById("co-postal") as HTMLInputElement).value;
+        const deliveryDate = (document.getElementById("co-date") as HTMLInputElement).value;
+        const region = coRegionSelect.value;
+        
+        let paymentMethod = "Cash on delivery";
+        const selectedRadio = document.querySelector<HTMLInputElement>(".co-payment-radio:checked");
+        if (selectedRadio) paymentMethod = selectedRadio.value;
+
+        const cartItems = getCartItems();
+        const itemsSummary = cartItems.map((it: any) => `${it.name} (x${it.quantity || 1})`).join(", ");
+        
+        const rawSubtotalNum = cartItems.reduce((sum: number, it: any) => sum + (parsePrice(it.price) * (it.quantity || 1)), 0);
+        const finalTotalNum = Math.max(0, rawSubtotalNum - activeDiscountAmount);
+        const finalTotalFormatted = formatMoney(finalTotalNum);
+
+        if (coSubmitBtn) coSubmitBtn.disabled = true;
+        if (coSubmitText) coSubmitText.textContent = "Placing order...";
+
+        const randomRef = "#ZYLO-" + Math.floor(1000 + Math.random() * 9000);
+
+        try {
+          const payload = new URLSearchParams({
+            orderRef: randomRef,
+            fullName: name,
+            email: email,
+            phone: phone,
+            streetAddress: street,
+            city: city,
+            postalCode: postal,
+            deliveryDate: deliveryDate || "As soon as possible",
+            region: region,
+            paymentMethod: paymentMethod,
+            product: itemsSummary || "ZYLO AI Gym",
+            total: finalTotalFormatted,
+            discountCode: (coDiscountInput?.value || "N/A"),
+            timestamp: new Date().toISOString()
+          });
+
+          await fetch(ZYLO_SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: payload.toString()
+          });
+
+          showSuccess(randomRef, name, paymentMethod, finalTotalFormatted);
+        } catch (err) {
+          showSuccess(randomRef, name, paymentMethod, finalTotalFormatted);
+        }
+      });
+
+      function showSuccess(ref: string, name: string, payment: string, total: string) {
+        localStorage.removeItem("zylo_cart_items");
+        window.dispatchEvent(new CustomEvent("zylo-cart-updated"));
+
+        if (checkoutActiveView) checkoutActiveView.classList.add("hidden");
+        const header = document.getElementById("checkout-header");
+        if (header) header.classList.add("hidden");
+
+        const succRef = document.getElementById("succ-ref");
+        const succName = document.getElementById("succ-name");
+        const succPayment = document.getElementById("succ-payment");
+        const succTotal = document.getElementById("succ-total");
+
+        if (succRef) succRef.textContent = ref;
+        if (succName) succName.textContent = name;
+        if (succPayment) succPayment.textContent = payment;
+        if (succTotal) succTotal.textContent = total;
+
+        if (checkoutSuccessView) {
+          checkoutSuccessView.classList.remove("hidden");
+          checkoutSuccessView.classList.add("flex");
+        }
+      }
+
+      renderSummary();
+    })();
+  </script>
+</Layout>
